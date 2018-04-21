@@ -14,14 +14,14 @@ return [
     */
 
     // Forms
-    'save_action_save_and_new' => 'Save and new item',
-    'save_action_save_and_edit' => 'Save and edit this item',
-    'save_action_save_and_back' => 'Save and back',
+    'save_action_save_and_new' => 'Lưu & Thêm mới',
+    'save_action_save_and_edit' => 'Lưu & Chỉnh sửa',
+    'save_action_save_and_back' => 'Lưu & Trở về',
     'save_action_changed_notification' => 'Default behaviour after saving has been changed.',
 
     // Create form
     'add'                 => 'Thêm',
-    'back_to_all'         => 'Back to all ',
+    'back_to_all'         => 'Quay về',
     'cancel'              => 'Thoát',
     'add_a_new'           => 'Thêm mới ',
 
@@ -65,8 +65,8 @@ return [
         'delete_confirmation_not_deleted_title'       => 'Not deleted',
         'delete_confirmation_not_deleted_message'     => 'Nothing happened. Your item is safe.',
 
-        'ajax_error_title' => 'Error',
-        'ajax_error_text'  => 'Error loading page. Please refresh the page.',
+        'ajax_error_title' => 'Lỗi',
+        'ajax_error_text'  => 'Lỗi khi tải trang. Xin vui lòng làm mới lại trang.',
 
         // DataTables translation
         'emptyTable'     => 'No data available in table',
@@ -76,15 +76,15 @@ return [
         'infoPostFix'    => '',
         'thousands'      => ',',
         'lengthMenu'     => '_MENU_ dòng / trang',
-        'loadingRecords' => 'Loading...',
-        'processing'     => 'Processing...',
+        'loadingRecords' => 'Đang tải...',
+        'processing'     => 'Đang xử lý...',
         'search'         => 'Tìm kiếm: ',
         'zeroRecords'    => 'No matching records found',
         'paginate'       => [
-            'first'    => 'First',
-            'last'     => 'Last',
-            'next'     => 'Next',
-            'previous' => 'Previous',
+            'first'    => 'Đầu tiên',
+            'last'     => 'Cuối cùng',
+            'next'     => 'Kế tiếp',
+            'previous' => 'Kế trước',
         ],
         'aria' => [
             'sortAscending'  => ': activate to sort column ascending',

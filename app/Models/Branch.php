@@ -5,70 +5,35 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Category extends Model
+class Branch extends Model
 {
     use CrudTrait;
 
-     /*
+    /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'categories';
-
-    /**
-     * The primary key for the model.
-     *
-     * @var string
-     */
+    protected $table = 'branches';
     // protected $primaryKey = 'id';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var boolean
-     */
-    public $timestamps = false;
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
+    // public $timestamps = false;
     // protected $guarded = ['id'];
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-      'parent_id',
-      'name',
-      'slug',
-      'lft',
-      'rgt',
-      'depth'
+        'name',
+        'description',
+        'address',
+        'owner',
+        'phone_number',
+        'email',
+        'open_hour',
+        'close_hour',
+        'location',
+        'active',
+        'created_at',
+        'updated_at'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays
-     *
-     * @var array
-     */
     // protected $hidden = [];
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
     // protected $dates = [];
 
     /*
@@ -76,28 +41,50 @@ class Category extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($model) {
+            // Delete branch images
+            $disk = 'branches';
+
+            foreach ($model->images as $image) {
+                // Delete image from disk
+                if (\Storage::disk($disk)->has($image->name)) {
+                    \Storage::disk($disk)->delete($image->name);
+                }
+
+                // Delete image from db
+                $image->delete();
+            }
+        });
+    }
 
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
-    public function parent()
+    public function images()
     {
-        return $this->belongsTo('App\Models\Category', 'parent_id');
+        return $this->hasMany('App\Models\BranchImage')->orderBy('order', 'ASC');
     }
 
-    public function children()
-    {
-        return $this->hasMany('App\Models\Category', 'parent_id');
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
     |--------------------------------------------------------------------------
     */
+    public function scopeLoadCloneRelations($query)
+    {
+        $query->with('images');
+    }
 
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
     /*
     |--------------------------------------------------------------------------
     | ACCESORS
