@@ -12,8 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('page.trangchu');
 });
+
+Route::get('thuc-don',[
+    'as'=>'thuc-don',
+    'uses'=>'MenuController@getMenu'
+  ]);
 
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
