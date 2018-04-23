@@ -100,12 +100,12 @@ class BranchCrudController extends CrudController
               'tab'   => trans('branch.general_tab'),
             ],
             [
-              'name'  => 'active',
+              'name'  => 'status',
               'label' => trans('common.status'),
               'type'  => 'select_from_array',
               'options' => [
-                  '0' => trans('common.inactive'),
-                  '1' => trans('common.active'),
+                  '0' => trans('common.active'),
+                  '1' => trans('common.inactive'),
               ],
               // TAB
               'tab'   => trans('branch.general_tab'),

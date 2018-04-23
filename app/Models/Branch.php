@@ -29,7 +29,7 @@ class Branch extends Model
         'open_hour',
         'close_hour',
         'location',
-        'active',
+        'status',
         'created_at',
         'updated_at'
     ];
@@ -83,7 +83,7 @@ class Branch extends Model
 
     public function scopeActive($query)
     {
-        return $query->where('active', 1);
+        return $query->where('status', 0);
     }
     /*
     |--------------------------------------------------------------------------
