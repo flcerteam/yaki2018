@@ -113,9 +113,9 @@ class BranchCrudController extends CrudController
         ]);
 
         $this->crud->addField([
-            'name'          => 'dropzone',
-            'type'          => 'dropzone',
-            'disk'          => 'branches', // disk where images will be uploaded
+            'name'          => 'image',
+            'type'          => 'file_image',
+            'disk'          => config('imagestoreddisk.branch'), // disk where images will be uploaded
             'mimes'         => ['image/*'],
             'filesize'      => 5, // maximum file size in MB
             // TAB
@@ -155,7 +155,7 @@ class BranchCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
+        $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
