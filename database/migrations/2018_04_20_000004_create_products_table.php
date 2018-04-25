@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->decimal('number_of_unit', 4, 1)->nullable()->default(null);
             $table->decimal('price', 18, 0)->nullable()->default(null);
             $table->tinyInteger('status')->default('0');
+            
             $table->nullableTimestamps();
 
             $table->unique(["sku"], 'unique_skus');

@@ -3,26 +3,26 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBranchImagesTable extends Migration
+class CreateProductImagesTable extends Migration
 {
     /**
      * Run the migrations.
-     * @table branch_images
+     * @table product_images
      *
      * @return void
      */
     public function up()
     {
-        Schema::create('branch_images', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('branch_id')->unsigned();
+            $table->integer('product_id')->unsigned();
             $table->string('name', 255)->nullable()->default(null);
             $table->integer('order');
 
 
-            $table->foreign('branch_id')
-                ->references('id')->on('branches')
+            $table->foreign('product_id')
+                ->references('id')->on('products')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });
@@ -35,6 +35,6 @@ class CreateBranchImagesTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('branch_images');
+       Schema::dropIfExists('product_images');
      }
 }
