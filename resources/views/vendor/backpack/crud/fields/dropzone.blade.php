@@ -49,6 +49,8 @@
 				addRemoveLinks: true,
 				maxFilesize: {{ $field['filesize'] }},
 				parallelUploads: 10,
+				dictInvalidFileType: "Bạn không thể tải lên loại file này.",
+				dictFileTooBig: "Dung lượng file quá lớn (@{{filesize}}MiB). Dung lượng tối đa: @{{maxFilesize}}MiB.",
 				sending: function(file, xhr, formData) {
 
 					formData.append("_token", $('[name=_token').val());
