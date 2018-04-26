@@ -27,3 +27,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('category', 'Admin\CategoryCrudController');
     CRUD::resource('unit', 'Admin\UnitCrudController');
 });
+
+// Ajax
+Route::group(['prefix' => 'ajax', 'middleware' => 'admin'], function()
+{
+    // Branch images upload routes
+    Route::post('branch/image/upload', ['as' => 'uploadBranchImages', 'uses' => 'Admin\BranchCrudController@ajaxUploadBranchImages']);
+    Route::post('branch/image/reorder', ['as' => 'reorderBranchImages', 'uses' => 'Admin\BranchCrudController@ajaxReorderBranchImages']);
+    Route::post('branch/image/delete', ['as' => 'deleteBranchImage', 'uses' => 'Admin\BranchCrudController@ajaxDeleteBranchImage']);  
+});

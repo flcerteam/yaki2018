@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Branch;
+use App\Models\BranchImage;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\BranchRequest as StoreRequest;
@@ -42,6 +46,7 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'description',
@@ -49,6 +54,7 @@ class BranchCrudController extends CrudController
               'type'  => 'textarea',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'address',
@@ -56,6 +62,7 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'owner',
@@ -63,6 +70,7 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'phone_number',
@@ -70,6 +78,7 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'email',
@@ -77,6 +86,7 @@ class BranchCrudController extends CrudController
               'type'  => 'email',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'open_hour',
@@ -84,6 +94,7 @@ class BranchCrudController extends CrudController
               'type'  => 'time',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'close_hour',
@@ -91,6 +102,7 @@ class BranchCrudController extends CrudController
               'type'  => 'time',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'location',
@@ -98,6 +110,7 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'status',
@@ -109,17 +122,23 @@ class BranchCrudController extends CrudController
               ],
               // TAB
               'tab'   => trans('branch.general_tab'),
+              'tabId' => 'branchInfo',
             ],
         ]);
 
         $this->crud->addField([
-            'name'          => 'image',
-            'type'          => 'file_image',
-            'disk'          => config('imagestoreddisk.branch'), // disk where images will be uploaded
+            'name'          => 'dropzone',
+            'type'          => 'dropzone',
+            'disk'          => config('imageupload.branch_disk'), // disk where images will be uploaded
             'mimes'         => ['image/*'],
-            'filesize'      => 5, // maximum file size in MB
+            'filesize'      => config('imageupload.file_size'), // maximum file size in MB
+            'uploadRoute'   => route('uploadBranchImages'),
+            'reorderRoute'  => route('reorderBranchImages'),
+            'deleteRoute'   => route('deleteBranchImage'),
+            'simplePathUrl' => url(config('filesystems.disks.branches.simple_path')),
             // TAB
             'tab'           => trans('branch.branch_images_tab'),
+            'tabId'         => 'branchImagesInfo',
         ], 'update');
 
         // ------ CRUD COLUMNS
@@ -202,7 +221,7 @@ class BranchCrudController extends CrudController
     public function ajaxUploadBranchImages(Request $request, Branch $branch)
     {
         $images = [];
-        $disk   = "branches";
+        $disk   = config('imageupload.branch_disk');
 
         if ($request->file && $request->id) {
             $branch = $branch->find($request->id);
@@ -229,6 +248,34 @@ class BranchCrudController extends CrudController
 
             $branch->images()->insert($images);
             return response()->json($branch->load('images')->images->toArray());
+        }
+    }
+
+    public function ajaxReorderBranchImages(Request $request, BranchImage $branchImage)
+    {
+        if ($request->order) {
+            foreach ($request->order as $position => $id) {
+                $branchImage->find($id)->update(['order' => $position]);
+            }
+        }
+    }
+
+    public function ajaxDeleteBranchImage(Request $request, BranchImage $branchImage)
+    {
+        $disk = config('imageupload.branch_disk');
+
+        if ($request->id) {
+            $branchImage = $branchImage->find($request->id);
+
+            if (Storage::disk($disk)->has($branchImage->name)) {
+                if (Storage::disk($disk)->delete($branchImage->name)) {
+                    $branchImage->delete();
+
+                    return response()->json(['success' => true, 'message' => trans('common.image_deleted')]);
+                }
+            }
+
+            return response()->json(['success' => false, 'message' => trans('common.image_not_found')]);
         }
     }
 

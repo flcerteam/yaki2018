@@ -4,8 +4,8 @@ return [
 
 	'branch'		        => 'Chi nhánh',
 	'branches'	        => 'Chi nhánh',
-  'general_tab'       => 'Thông tin chi nhánh',
-  'branch_images_tab' => 'Hình ảnh chi nhánh',
+  'general_tab'       => 'Thông tin chi nhánh|@|branchInfo',
+  'branch_images_tab' => 'Hình ảnh chi nhánh|@|branchImagesInfo',
 	'name'			        => 'Tên chi nhánh',
   'description'       => 'Mô tả',
   'address'           => 'Địa chỉ',
