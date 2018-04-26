@@ -46,7 +46,6 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'description',
@@ -54,7 +53,6 @@ class BranchCrudController extends CrudController
               'type'  => 'textarea',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'address',
@@ -62,7 +60,6 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'owner',
@@ -70,7 +67,6 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'phone_number',
@@ -78,7 +74,6 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'email',
@@ -86,7 +81,6 @@ class BranchCrudController extends CrudController
               'type'  => 'email',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'open_hour',
@@ -94,7 +88,6 @@ class BranchCrudController extends CrudController
               'type'  => 'time',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'close_hour',
@@ -102,7 +95,6 @@ class BranchCrudController extends CrudController
               'type'  => 'time',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'location',
@@ -110,7 +102,6 @@ class BranchCrudController extends CrudController
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
             [
               'name'  => 'status',
@@ -122,7 +113,6 @@ class BranchCrudController extends CrudController
               ],
               // TAB
               'tab'   => trans('branch.general_tab'),
-              'tabId' => 'branchInfo',
             ],
         ]);
 
@@ -138,7 +128,6 @@ class BranchCrudController extends CrudController
             'simplePathUrl' => url(config('filesystems.disks.branches.simple_path')),
             // TAB
             'tab'           => trans('branch.branch_images_tab'),
-            'tabId'         => 'branchImagesInfo',
         ], 'update');
 
         // ------ CRUD COLUMNS
