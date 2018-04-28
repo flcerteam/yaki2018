@@ -16,12 +16,8 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('parent_id')->nullable()->default('0');
             $table->string('name', 255)->nullable()->default(null);
             $table->string('slug', 255)->nullable()->default(null);
-            $table->integer('lft')->default('0');
-            $table->integer('rgt')->default('0');
-            $table->integer('depth')->default('0');
 
             $table->unique(["slug"], 'unique_categories');
         });

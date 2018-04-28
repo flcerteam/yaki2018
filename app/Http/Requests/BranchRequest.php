@@ -27,6 +27,7 @@ class BranchRequest extends FormRequest
     {
         return [
             'name' => 'required|min:1|max:255',
+            'slug' => 'required|min:1|max:255|unique:branches,slug',
             'description' => 'required|min:1|max:1000',
             'address' => 'required|min:1|max:500',
             'contact_name' => 'required|min:1|max:100',
