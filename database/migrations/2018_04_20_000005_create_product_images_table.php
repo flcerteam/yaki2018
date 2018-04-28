@@ -20,7 +20,6 @@ class CreateProductImagesTable extends Migration
             $table->string('name', 255)->nullable()->default(null);
             $table->integer('order');
 
-
             $table->foreign('product_id')
                 ->references('id')->on('products')
                 ->onDelete('no action')

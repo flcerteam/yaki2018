@@ -17,7 +17,7 @@ class CreateBranchesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 255)->nullable()->default(null);
-            $table->string('description', 1000)->nullable()->default(null);
+            $table->longText('description')->nullable()->default(null);
             $table->string('address', 255)->nullable()->default(null);
             $table->string('owner', 100)->nullable()->default(null);
             $table->string('phone_number', 20)->nullable()->default(null);
