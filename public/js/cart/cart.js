@@ -9,7 +9,6 @@
        
        $('body').on("change","#sl",(function(e){
             e.preventDefault();
-            debugger;
             var divBtnCart = e.currentTarget.parentElement.parentElement.children[1];
             var qty = e.currentTarget.value;
             divBtnCart.children[0].children[1].value=qty;
