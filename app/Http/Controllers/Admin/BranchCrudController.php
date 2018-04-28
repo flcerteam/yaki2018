@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\Admin\BranchRequest as StoreRequest;
-use App\Http\Requests\Admin\BranchRequest as UpdateRequest;
+use App\Http\Requests\Admin\BranchUpdateRequest as UpdateRequest;
 
 class BranchCrudController extends CrudController
 {
