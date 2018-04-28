@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Branch;
-use App\Models\BranchImage;
+use App\Models\Admin\Branch;
+use App\Models\Admin\BranchImage;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\BranchRequest as StoreRequest;
-use App\Http\Requests\BranchRequest as UpdateRequest;
+use App\Http\Requests\Admin\BranchRequest as StoreRequest;
+use App\Http\Requests\Admin\BranchRequest as UpdateRequest;
 
 class BranchCrudController extends CrudController
 {
@@ -22,7 +22,7 @@ class BranchCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Branch');
+        $this->crud->setModel('App\Models\Admin\Branch');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/branch');
         $this->crud->setEntityNameStrings(trans('branch.branch'), trans('branch.branches'));
 

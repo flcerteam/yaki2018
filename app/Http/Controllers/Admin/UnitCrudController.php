@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\UnitRequest as StoreRequest;
-use App\Http\Requests\UnitRequest as UpdateRequest;
+use App\Http\Requests\Admin\UnitRequest as StoreRequest;
+use App\Http\Requests\Admin\UnitRequest as UpdateRequest;
 
 class UnitCrudController extends CrudController
 {
@@ -18,7 +18,7 @@ class UnitCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Unit');
+        $this->crud->setModel('App\Models\Admin\Unit');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/unit');
         $this->crud->setEntityNameStrings(trans('unit.unit'), trans('unit.units'));
 

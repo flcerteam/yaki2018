@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Admin;
 
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
@@ -69,7 +69,7 @@ class Branch extends Model
     */
     public function images()
     {
-        return $this->hasMany('App\Models\BranchImage')->orderBy('order', 'ASC');
+        return $this->hasMany('App\Models\Admin\BranchImage')->orderBy('order', 'ASC');
     }
 
     /*
