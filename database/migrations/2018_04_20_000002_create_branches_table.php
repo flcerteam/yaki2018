@@ -20,7 +20,7 @@ class CreateBranchesTable extends Migration
             $table->longText('description')->nullable()->default(null);
             $table->string('address', 255)->nullable()->default(null);
             $table->string('owner', 100)->nullable()->default(null);
-            $table->string('phone_number', 20)->nullable()->default(null);
+            $table->string('phone_number', 50)->nullable()->default(null);
             $table->string('email', 255)->nullable()->default(null);
             $table->string('open_hour', 20)->nullable()->default(null);
             $table->string('close_hour', 20)->nullable()->default(null);
