@@ -48,6 +48,13 @@ class BranchCrudController extends CrudController
               'tab'   => trans('branch.general_tab'),
             ],
             [
+                'name'  => 'slug',
+                'label' => trans('branch.slug'),
+                'type'  => 'text',
+                // TAB
+                'tab'   => trans('branch.general_tab'),
+              ],
+            [
               'name'  => 'description',
               'label' => trans('branch.description'),
               'type'  => 'textarea',
