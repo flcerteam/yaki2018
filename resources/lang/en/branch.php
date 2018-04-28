@@ -9,7 +9,7 @@ return [
 	'name'			        => 'Tên chi nhánh',
   'description'       => 'Mô tả',
   'address'           => 'Địa chỉ',
-  'owner'             => 'Người quản lý',
+  'contact_name'      => 'Người liên hệ',
   'phone_number'      => 'Số điện thoại',
   'email'             => 'E-mail',
   'open_hour'         => 'Giờ mở cửa',

@@ -62,8 +62,8 @@ class BranchCrudController extends CrudController
               'tab'   => trans('branch.general_tab'),
             ],
             [
-              'name'  => 'owner',
-              'label' => trans('branch.owner'),
+              'name'  => 'contact_name',
+              'label' => trans('branch.contact_name'),
               'type'  => 'text',
               // TAB
               'tab'   => trans('branch.general_tab'),
