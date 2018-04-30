@@ -15,11 +15,11 @@ return [
     'project_name' => 'Yaki',
 
     // Menu logos
-    'logo_lg'   => '<b>Ya</b>ki',
-    'logo_mini' => '<b>y</b>K',
+    'logo_lg'   => '<b>Yaki</b>Admin',
+    'logo_mini' => '<b>Y</b>A',
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'flcerteam2.3',
+    'developer_name' => 'FT2.3',
 
     // Developer website. Link in footer.
     'developer_link' => '',
@@ -48,7 +48,7 @@ return [
     | By default the registration is open only on localhost.
     */
 
-    'registration_open' => env('BACKPACK_REGISTRATION_OPEN', env('APP_ENV') === 'local'),
+    'registration_open' => false,
 
     /*
     |--------------------------------------------------------------------------
