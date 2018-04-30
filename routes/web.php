@@ -26,6 +26,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('branch', 'Admin\BranchCrudController');
     CRUD::resource('category', 'Admin\CategoryCrudController');
     CRUD::resource('unit', 'Admin\UnitCrudController');
+    CRUD::resource('menu', 'Admin\MenuCrudController');
 });
 
 // Ajax

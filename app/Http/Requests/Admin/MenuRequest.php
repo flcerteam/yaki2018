@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class BranchUpdateRequest extends FormRequest
+class MenuRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,17 +26,7 @@ class BranchUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'slug' => 'required|max:255|unique:branches,id,'.$this->id,
-            'description' => 'required|max:1000',
-            'address' => 'required|max:500',
-            'contact_name' => 'required|max:100',
-            'phone_number' => 'required|max:50',
-            'email' => 'required|max:255',
-            'open_hour' => 'required|max:20',
-            'close_hour' => 'required|max:20',
-            'location' => 'max:1000',
-            'status' => 'required'
+            'categories'        => 'required'
         ];
     }
 
