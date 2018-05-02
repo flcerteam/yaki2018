@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('page.trangchu');
-});
-
+Route::get('/',[
+    'as'=>'home',
+    'uses'=>'HomeController@getHomeData'
+  ]);
 Route::get('thuc-don',[
     'as'=>'thuc-don',
     'uses'=>'MenuController@getMenu'
@@ -41,3 +41,24 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'admin'], function()
     Route::post('branch/image/reorder', ['as' => 'reorderBranchImages', 'uses' => 'Admin\BranchCrudController@ajaxReorderBranchImages']);
     Route::post('branch/image/delete', ['as' => 'deleteBranchImage', 'uses' => 'Admin\BranchCrudController@ajaxDeleteBranchImage']);
 });
+
+Route::get('checkout',function(){
+    return view('checkout.checkout');
+  });
+Route::post('get_customer_info','CheckOutController@getCustomerInfo');
+Route::post('update_quantity','CheckOutController@updateQtty');
+Route::post('remove_item','CheckOutController@removeItem');
+Route::post('dat-hang',[
+	'as'=>'insert_order',
+	'uses'=>'CheckOutController@insertOrder'
+]);
+/** search form result*/
+Route::get('/search','SearchController@getSearchResult')->name('search');
+/** auto search key word */
+Route::get('/find', 'SearchController@getSearchHint');
+
+Route::get('product-detail/{id}',[
+    'as'=>'detail',
+    'uses'=>'DetailController@getDetail'
+  ]);
+Route::post('/add-to-cart','CartController@addToCart');

@@ -7,7 +7,7 @@
 
         <!-- logo -->
         <div class="logo">
-            <a href="index.html"><img src="layout/img/logo.png" alt="logo"></a>
+            <a href="{{ route('home') }}"><img src="layout/img/logo.png" alt="logo"></a>
         </div>
         <!-- logo -->
 
@@ -35,16 +35,32 @@
 
             <!-- nav -->
             <ul class="main-nav nav navbar-nav">
-                <li><a href="#">Home</a></li>
+                <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="#">Giới Thiệu</a></li>
-                <li><a href="#">Thực Đơn</a></li>
+                <li><a href="{{ route('thuc-don') }}">Thực Đơn</a></li>
                 <li><a href="#">Siêu Thị Yaki</a></li>
                 <li><a href="#">Hệ Thống Nhà Hàng</a></li>
                 <li><a href="#">Buffet</a></li>
                 <li><a href="#">Thành Viên</a></li>
                 <li><a href="#">Liên Hệ</a></li>
             </ul>
+            
             <!-- /nav -->
+
+            <!-- shopping cart -->
+            <ul class="contact-nav nav navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link waves-effect" href="/checkout">
+                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"><span class="badge badge-pill badge-danger badge-yaki">
+                        @if ($totalQty > 0)
+                        {{ $totalQty}}
+                        @else
+                        0
+                        @endif</span></i>
+                  </a>
+                </li>
+            </ul>
+            <!-- /shopping cart -->
 
             <!-- button nav -->
             <ul class="cta-nav">
