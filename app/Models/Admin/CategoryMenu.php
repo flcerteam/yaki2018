@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class MenuCategory extends Model
+class CategoryMenu extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class MenuCategory extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'menu_categories';
+    protected $table = 'category_menu';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];

@@ -27,6 +27,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('category', 'Admin\CategoryCrudController');
     CRUD::resource('unit', 'Admin\UnitCrudController');
     CRUD::resource('menu', 'Admin\MenuCrudController');
+
+    Route::get('menu/{id}/order', ['as' => 'menu.order', 'uses' => 'Admin\MenuCrudController@order']);
+    Route::post('menu/{id}/order', ['as' => 'menu.save.order', 'uses' => 'Admin\MenuCrudController@saveOrderSeq']);
+
 });
 
 // Ajax
@@ -35,5 +39,5 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'admin'], function()
     // Branch images upload routes
     Route::post('branch/image/upload', ['as' => 'uploadBranchImages', 'uses' => 'Admin\BranchCrudController@ajaxUploadBranchImages']);
     Route::post('branch/image/reorder', ['as' => 'reorderBranchImages', 'uses' => 'Admin\BranchCrudController@ajaxReorderBranchImages']);
-    Route::post('branch/image/delete', ['as' => 'deleteBranchImage', 'uses' => 'Admin\BranchCrudController@ajaxDeleteBranchImage']);  
+    Route::post('branch/image/delete', ['as' => 'deleteBranchImage', 'uses' => 'Admin\BranchCrudController@ajaxDeleteBranchImage']);
 });

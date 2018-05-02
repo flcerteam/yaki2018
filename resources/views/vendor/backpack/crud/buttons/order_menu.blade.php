@@ -1,0 +1,1 @@
+<a href="{{ url($crud->route.'/'.$entry->getKey().'/order') }}" class="btn btn-xs btn-default clone-btn" data-product="{{ $entry->id }}"><i class="fa fa-sort"></i> {{ trans('menu.reorder') }}</a>
