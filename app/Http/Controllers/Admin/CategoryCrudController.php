@@ -77,11 +77,11 @@ class CategoryCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
+        $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
-        $this->crud->enableReorder('name', 0);
+        // $this->crud->enableReorder('name', 0);
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
