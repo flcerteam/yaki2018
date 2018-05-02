@@ -27,6 +27,9 @@
         <link type="text/css" rel="stylesheet" href="layout/css/style.css"/>
         <!-- Custom livechat-fb -->
         <link type="text/css" rel="stylesheet" href="layout/css/livechat-fb.css" />
+        <link type="text/css" rel="stylesheet" href="layout/css/vertical-menubar.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.css" />
+        
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,22 +42,21 @@
     <body>
     
         {{-- fb-live chat --}}
-        <div class="fb-livechat">
-            <div class="ctrlq fb-overlay"></div>
-            <div class="fb-widget">
-                <div class="ctrlq fb-close"></div>
-                <div class="fb-page" data-href="https://www.facebook.com/lge.vietnam/" data-tabs="messages" data-width="360" data-height="400" data-small-header="true" data-hide-cover="true" data-show-facepile="false"> </div>
-                <div class="fb-credit"> </div>
-                <div id="fb-root"></div>
-            </div>
-            <a href="https://www.facebook.com/lge.vietnam/" title="Gửi tin nhắn cho chúng tôi qua Facebook" class="ctrlq fb-button">
-                <div class="bubble">1</div>
-                <div class="bubble-msg">Bạn cần hỗ trợ?</div>
-            </a>
-        </div>
-        <script src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="layout/js/livechat-fb.js"></script>
+        <!-- Load Facebook SDK for JavaScript -->
+        {{-- <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <!-- Your customer chat code -->
+        <div class="fb-customerchat"
+        attribution="setup_tool"
+        page_id="1417676308332466">
+        </div> --}}
         {{-- /fb-livechat --}}
         @include('header')
         @yield('content')
@@ -76,5 +78,24 @@
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
         <script type="text/javascript" src="layout/js/google-map.js"></script>
         <script type="text/javascript" src="layout/js/main.js"></script>
+        <script type="text/javascript" src="js/cart/cart.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.js"></script>
+        <script type="text/javascript" src="js/checkout/checkout.js"></script>
+        <script type="text/javascript" src="js/checkout/autoFill.js"></script>
+        <!-- lib for autosearch-->
+        <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
+        <script type="text/javascript" src="/js/search/autoSearch.js"></script>
     </body>
+    <script type="text/javascript">
+        // this will get the full URL at the address bar
+        var url = window.location.href;
+        // passes on every "a" tag
+        $(".main-nav a").each(function() {
+            // checks if its the same on the address bar
+            if (url == (this.href)) {
+                 $(this).closest("li").addClass("active");
+				 $(this).parents('li').addClass('parent-active');
+            }
+        });
+    </script>
 </html>

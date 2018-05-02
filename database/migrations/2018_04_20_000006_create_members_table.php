@@ -20,6 +20,8 @@ class CreateMembersTable extends Migration
             $table->string('name', 150)->nullable()->default(null);
             $table->date('birth_date')->nullable()->default(null);
             $table->string('phone_number', 50)->nullable()->default(null);
+            $table->string('email', 50)->nullable()->default(null);
+            $table->string('gender', 10)->nullable()->default(null);
             $table->longText('address')->nullable()->default(null);
             $table->decimal('member_point', 10, 0)->nullable()->default(null);
 

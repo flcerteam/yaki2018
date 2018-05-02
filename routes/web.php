@@ -37,3 +37,11 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'admin'], function()
     Route::post('branch/image/reorder', ['as' => 'reorderBranchImages', 'uses' => 'Admin\BranchCrudController@ajaxReorderBranchImages']);
     Route::post('branch/image/delete', ['as' => 'deleteBranchImage', 'uses' => 'Admin\BranchCrudController@ajaxDeleteBranchImage']);  
 });
+
+Route::post('get_customer_info','CheckOutController@getCustomerInfo');
+Route::post('update_quantity','CheckOutController@updateQtty');
+Route::post('remove_item','CheckOutController@removeItem');
+Route::post('dat-hang',[
+	'as'=>'insert_order',
+	'uses'=>'CheckOutController@insertOrder'
+]);

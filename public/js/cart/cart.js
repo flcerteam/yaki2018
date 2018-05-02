@@ -13,6 +13,7 @@
             var qty = e.currentTarget.value;
             divBtnCart.children[0].children[1].value=qty;
        }));
+       
         /**
         *click vào icon thêm giỏ hàng
         **/
@@ -24,9 +25,10 @@
               data: {'id':e.currentTarget.children[0].value,
                     'qty':e.currentTarget.children[1].value },
               success: function(data){
-                $('.badge-yaki').text(data.cart["totalQty"]);
+                $('.badge-yaki').text(data.totalQty);
               },
               error:function(data){
+                  console.log(data);
               }
             });
           }));
