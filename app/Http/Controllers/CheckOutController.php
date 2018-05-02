@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Member;
+use App\Model\Member;
 use Cart;
 use DB;
-use App\Order;
-use App\OrderDetail;
-use App\Product;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\Product;
 
 class CheckOutController extends Controller {
 
