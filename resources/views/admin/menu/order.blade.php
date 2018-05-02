@@ -72,7 +72,7 @@ function tree_element($entry, $key, $all_entries, $crud)
                 <ol class="sortable">
                 <?php
                     foreach ($categoryMenu as $detail) {
-                        echo '<li id="'.$detail->category_id.'" menu_id="'.$detail->menu_id.'" class="mjs-nestedSortable-leaf"><div class="ui-sortable-handle"><span class="disclose"><span></span></span>'.$detail->name.'</div></li>';
+                        echo '<li id="'.$detail->category_id.'" menu_id="'.$detail->menu_id.'" class="mjs-nestedSortable-leaf"><div class="ui-sortable-handle"><span class="disclose"></span><i class="fa fa-sort" aria-hidden="true"></i>&nbsp;&nbsp;'.$detail->name.'</div></li>';
                     }
                 ?>
                 </ol>
