@@ -2,3 +2,7 @@
     width: 305px!important;
     height: 170px!important;
   }
+  .detail-img > a >img {
+    width: 500px!important;
+    height: 270px!important;
+  }
