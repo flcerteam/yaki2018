@@ -21,10 +21,8 @@
                         'qty': $(this).closest('input').val()
                         },
                 success: function(data){
-                    e.currentTarget.closest('.total-by-item').children[2].html="";
-                    e.currentTarget.closest('.total-by-item').children[2].append('Tổng: '+data.total+ 'VND');
                     $('.badge-yaki').text(data.totalQty);
-                    $('.subTotal').text(data.subTotal);
+                    $('.subTotal').text(data.subTotal + 'VND');
                 },
                 error:function(data){
                     console.log(data);
@@ -57,4 +55,7 @@
                 }
               });
         }));
+        $("#target-scroll").scroll(function() {
+            $("#log").append( "<div>Handler for .scroll() called.</div>" );
+        });
     });
