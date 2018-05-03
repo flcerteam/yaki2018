@@ -8,7 +8,7 @@ use DB;
 
 class DetailController extends Controller
 {
-    public function getDetail($id){
+    public function getDetail($name,$id){
         // get all product
         $item = DB::table('products')
         ->leftJoin('product_images','products.id','=','product_images.product_id')
