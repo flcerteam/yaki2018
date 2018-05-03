@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('name', 255)->nullable()->default(null);
             $table->longText('description')->nullable()->default(null);
             $table->integer('unit_id')->unsigned();
-            $table->decimal('number_of_unit', 4, 1)->nullable()->default(null);
+            $table->decimal('number_of_unit', 5, 1)->nullable()->default(null);
             $table->decimal('price', 18, 0)->nullable()->default(null);
             $table->tinyInteger('status')->default('0');
             
