@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
 use Cart;
-use App\Models\Product;
+use App\Models\Client\Product;
+use App\Http\Controllers\Controller;
 
 class CartController extends Controller
 {

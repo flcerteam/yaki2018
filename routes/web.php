@@ -57,7 +57,7 @@ Route::get('/search','SearchController@getSearchResult')->name('search');
 /** auto search key word */
 Route::get('/find', 'SearchController@getSearchHint');
 
-Route::get('product-detail/{id}',[
+Route::get('product-detai-{id}.html',[
     'as'=>'detail',
     'uses'=>'DetailController@getDetail'
   ]);
