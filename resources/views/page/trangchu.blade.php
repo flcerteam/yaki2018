@@ -13,7 +13,7 @@
             <div class="home-content">
                 <h1 class="white-text">Welcome To Yaki Restaurant</h1>
                 <h4 class="white-text lead">Chẳng Dừng Nướng.</h4>
-                <a class="main-button" href="{{ route('thucdon',[$yakiMenu->id,$yakiMenu->id]) }}">Khám Phá Thực Đơn</a>
+                <a class="main-button" href="{{ route('thucdon',[$yakiMenu->menu_id,$yakiMenu->id]) }}">Khám Phá Thực Đơn</a>
             </div>
         </div>
 
