@@ -7,7 +7,13 @@
     <li><a href="{{ backpack_url('branch') }}"><i class="fa fa-building" aria-hidden="true"></i> <span>{{ trans('branch.branches') }}</span></a></li>
     <li><a href="{{ backpack_url('unit') }}"><i class="fa fa-balance-scale" aria-hidden="true"></i> <span>{{ trans('unit.units') }}</span></a></li>
     <li><a href="{{ backpack_url('category') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span>{{ trans('category.categories') }}</span></a></li>
-    <li><a href="{{ backpack_url('menu') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span>{{ trans('menu.menus') }}</span></a></li>
+  </ul>
+</li>
+
+<li class="treeview">
+  <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> <span>{{ trans('common.systemManagement') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+  <ul class="treeview-menu">
+    <li><a href="{{ backpack_url('menu') }}"><i class="fa fa-tasks" aria-hidden="true"></i> <span>{{ trans('menu.menus') }}</span></a></li>
   </ul>
 </li>
 

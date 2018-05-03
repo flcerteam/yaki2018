@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\Admin\MenuRequest as StoreRequest;
 use App\Http\Requests\Admin\MenuRequest as UpdateRequest;
+use App\Models\Admin\CategoryMenu;
 
 class MenuCrudController extends CrudController
 {
@@ -71,7 +74,7 @@ class MenuCrudController extends CrudController
                 'entity'    => 'categories',
                 'attribute' => "name",
                 'model'     => "App\Models\Category",
-            ],
+            ]
         ]);
 
         // ------ CRUD BUTTONS
@@ -83,7 +86,9 @@ class MenuCrudController extends CrudController
         // $this->crud->removeButtonFromStack($name, $stack);
         // $this->crud->removeAllButtons();
         // $this->crud->removeAllButtonsFromStack('line');
-        //$this->crud->addButtonFromModelFunction('line', trans('menu.reorder'), 'reorder_menu', 'end');
+        // $this->crud->addButtonFromModelFunction('line', 'reorder_menu', 'openGoogle', 'end'); // add a button whose HTML is returned by a method in the CRUD model
+        $this->crud->allowAccess('order');
+        $this->crud->addButtonFromView('line', trans('menu.reorder'), 'order_menu', 'end');
 
         // ------ CRUD ACCESS
         $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
@@ -131,6 +136,39 @@ class MenuCrudController extends CrudController
         // $this->crud->limit();
     }
 
+    public function order($id)
+    {
+        $categoryMenu = DB::table('category_menu')
+                            ->join('categories', 'category_menu.category_id', '=', 'categories.id')
+                            ->select('category_menu.*', 'categories.name')
+                            ->where('category_menu.menu_id', $id)
+                            ->orderBy('order')->get();
+        
+        $crud = $this->crud;
+        
+        return view('admin.menu.order', compact('crud', 'categoryMenu'));
+    }
+
+    public function saveOrderSeq()
+    {
+        $all_entries = \Request::input('tree');
+
+        if (count($all_entries)) {
+            foreach ($all_entries as $key => $entry) {
+                if ($entry['category_id'] != '' && $entry['category_id'] != null
+                    && $entry['menu_id'] != '' && $entry['menu_id'] != null) {
+                    
+                    DB::table('category_menu')
+                        ->where('category_id', $entry['category_id'])
+                        ->where('menu_id', $entry['menu_id'])
+                        ->update(['order' => $entry['order']]);
+                }
+            }
+        } else {
+            return false;
+        }
+    }
+    
     public function store(StoreRequest $request)
     {
         // your additional operations before save here
@@ -147,10 +185,5 @@ class MenuCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
-    }
-
-    public function reorderMenu()
-    {
-
     }
 }

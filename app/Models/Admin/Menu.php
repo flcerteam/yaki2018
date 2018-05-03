@@ -36,7 +36,7 @@ class Menu extends Model
     */
     public function categories()
 	{
-		return $this->belongsToMany('App\Models\Admin\Category');
+		return $this->belongsToMany('App\Models\Admin\Category', 'category_menu', 'menu_id', 'category_id')->orderBy('order');;
 	}
 
     /*
