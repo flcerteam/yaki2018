@@ -42,7 +42,7 @@
                 <li><a href="#">Hệ Thống Nhà Hàng</a></li>
                 <li><a href="#">Buffet</a></li>
                 <li><a href="#">Thành Viên</a></li>
-                <li><a href="#">Liên Hệ</a></li>
+                <li><a href="{{ route('contact') }}">Liên Hệ</a></li>
             </ul>
             
             <!-- /nav -->
