@@ -13,7 +13,7 @@
             <div class="home-content">
                 <h1 class="white-text">Welcome To Yaki Restaurant</h1>
                 <h4 class="white-text lead">Chẳng Dừng Nướng.</h4>
-                <a class="main-button" href="{{ route('thucdon') }}">Khám Phá Thực Đơn</a>
+                <a class="main-button" href="{{ route('thucdon',[$yakiMenu->id,$yakiMenu->id]) }}">Khám Phá Thực Đơn</a>
             </div>
         </div>
 
@@ -53,18 +53,18 @@
             <!-- Galery Slider -->
             <div class="col-md-12">
                 <div id="galery" class="owl-carousel owl-theme">
-                    
-                    <!-- single column -->
-                    <div class="galery-item">
+                    @foreach ($products as $item)
+                        <!-- single column -->
+                        <div class="galery-item">
+                            <!-- single image -->
+                            <a href="{{ route('detail',[$item->name,$item->id]) }}"div class="galery-img" style="background-image:url(img/{{ $item->image }})">
+                            </a>
+                            <!-- /single image --> 
+                        </div>
+                        <!-- single column -->
+                    @endforeach
 
-                        <!-- single image -->
-                        <div class="galery-img" style="background-image:url(layout/img/image01.jpg)"></div>
-                        <!-- /single image -->
-
-                    </div>
-                    <!-- single column -->
-
-                    <!-- single column -->
+                    {{-- <!-- single column -->
                     <div class="galery-item">
 
                         <!-- single image -->
@@ -102,7 +102,7 @@
                         </div>
 
                     </div>
-                    <!-- /single column -->
+                    <!-- /single column --> --}}
 
                 </div>
             </div>
@@ -136,79 +136,25 @@
                     <h2 class="title" style="color:blanchedalmond">Đang Diễn Ra</h2>
                 </div>
                 <!-- /section header -->
-
-                <!-- single event -->
-                <div class="col-md-6">
-                    <div class="event">
-                        <div class="event-img">
-                            <img src="layout/img/event01.jpg" alt="">
-                            <div class="event-day">
-                                <span>08<br>July</span>
+                @foreach ($events as $event)
+                    <!-- single event -->
+                    <div class="col-md-6">
+                        <div class="event">
+                            <div class="event-img">
+                                <img src="layout/img/{{$event->image }}" alt="">
+                                <div class="event-day">
+                                    <span>08<br>July</span>
+                                </div>
+                            </div>
+                            <div class="event-content">
+                                <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
+                                <h3><a href="#">{{ $event->content }}</p>
                             </div>
                         </div>
-                        <div class="event-content">
-                            <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
-                            <h3><a href="#">te vero tritani iuvaret vis. Nec odio periculis adipiscing an.</a></h3>
-                            <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                        </div>
                     </div>
-                </div>
-                <!-- /single event -->
-
-                <!-- single event -->
-                <div class="col-md-6">
-                    <div class="event">
-                        <div class="event-img">
-                            <img src="layout/img/event02.jpg" alt="">
-                            <div class="event-day">
-                                <span>08<br>July</span>
-                            </div>
-                        </div>
-                        <div class="event-content">
-                            <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
-                            <h3><a href="#">te vero tritani iuvaret vis. Nec odio periculis adipiscing an.</a></h3>
-                            <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /single event -->
-
-                <!-- single event -->
-                <div class="col-md-6">
-                    <div class="event">
-                        <div class="event-img">
-                            <img src="layout/img/event02.jpg" alt="">
-                            <div class="event-day">
-                                <span>08<br>July</span>
-                            </div>
-                        </div>
-                        <div class="event-content">
-                            <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
-                            <h3><a href="#">te vero tritani iuvaret vis. Nec odio periculis adipiscing an.</a></h3>
-                            <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /single event -->
-
-                <!-- single event -->
-                <div class="col-md-6">
-                    <div class="event">
-                        <div class="event-img">
-                            <img src="layout/img/event01.jpg" alt="">
-                            <div class="event-day">
-                                <span>08<br>July</span>
-                            </div>
-                        </div>
-                        <div class="event-content">
-                            <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
-                            <h3><a href="#">te vero tritani iuvaret vis. Nec odio periculis adipiscing an.</a></h3>
-                            <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /single event -->
-
+                    <!-- /single event -->
+                @endforeach
+                
             </div>
             <!-- /row -->
 
@@ -435,7 +381,7 @@
         <!-- row -->
         <div class="row">
 
-            <div class="col-md-5 col-md-offset-7">
+            <div class="container">
                 <div class="section-header">
                     <h4 class="sub-title">Contact Us</h4>
                     <h2 class="title">Get In Touch</h2>
@@ -459,10 +405,6 @@
 
     </div>
     <!-- /container -->
-
-    <!-- map -->
-    <div id="map"></div>
-    <!-- /map -->
 
 </div>
 <!-- Contact -->    

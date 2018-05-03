@@ -9,7 +9,7 @@ use DB;
 use Cart;
 class MenuController extends Controller
 {
-    function getMenu() {
+    function getMenu($menu,$id) {
         
         // get all product
         $products = DB::table('products')
