@@ -61,6 +61,11 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'admin'], function()
     Route::post('branch/image/upload', ['as' => 'uploadBranchImages', 'uses' => 'Admin\BranchCrudController@ajaxUploadBranchImages']);
     Route::post('branch/image/reorder', ['as' => 'reorderBranchImages', 'uses' => 'Admin\BranchCrudController@ajaxReorderBranchImages']);
     Route::post('branch/image/delete', ['as' => 'deleteBranchImage', 'uses' => 'Admin\BranchCrudController@ajaxDeleteBranchImage']);
+
+    // Product images upload routes
+    Route::post('product/image/upload', ['as' => 'uploadProductImages', 'uses' => 'Admin\ProductCrudController@ajaxUploadProductImages']);
+    Route::post('product/image/reorder', ['as' => 'reorderProductImages', 'uses' => 'Admin\ProductCrudController@ajaxReorderProductImages']);
+    Route::post('product/image/delete', ['as' => 'deleteProductImage', 'uses' => 'Admin\ProductCrudController@ajaxDeleteProductImage']);
 });
 
 Route::get('checkout',function(){
