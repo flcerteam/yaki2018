@@ -9,6 +9,7 @@ use DB;
 use App\Models\Client\Order;
 use App\Models\Client\OrderDetail;
 use App\Models\Client\Product;
+use App\Http\Controllers\Controller;
 
 class CheckOutController extends Controller {
 
