@@ -17,15 +17,15 @@ Route::get('/',[
   ]);
 
   Route::group(['prefix' => 'thuc-don'], function(){
-    Route::get('/mon-an',[
+    Route::get('mon-an',[
       'as'=>'thucdon',
       'uses'=>'Client\MenuController@getMenu'
     ]);
-    Route::get('/sieu-thi-yaki',[
+    Route::get('sieu-thi-yaki',[
       'as'=>'market',
       'uses'=>'Client\MenuController@getMenu'
     ]);
-    Route::get('product-detail-{id}.html',[
+    Route::get('product-detail/{name}%{id}.html',[
       'as'=>'detail',
       'uses'=>'Client\DetailController@getDetail'
     ]);

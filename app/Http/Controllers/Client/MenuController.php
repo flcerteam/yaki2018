@@ -10,6 +10,7 @@ use Cart;
 class MenuController extends Controller
 {
     function getMenu() {
+        
         // get all product
         $products = DB::table('products')
                         ->leftJoin('product_images','products.id','=','product_images.product_id')
