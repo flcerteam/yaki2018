@@ -13,12 +13,23 @@
 
 Route::get('/',[
     'as'=>'home',
-    'uses'=>'HomeController@getHomeData'
+    'uses'=>'Client\HomeController@getHomeData'
   ]);
-Route::get('thuc-don',[
-    'as'=>'thuc-don',
-    'uses'=>'MenuController@getMenu'
-  ]);
+
+  Route::group(['prefix' => 'thuc-don'], function(){
+    Route::get('/mon-an',[
+      'as'=>'thucdon',
+      'uses'=>'Client\MenuController@getMenu'
+    ]);
+    Route::get('/sieu-thi-yaki',[
+      'as'=>'market',
+      'uses'=>'Client\MenuController@getMenu'
+    ]);
+    Route::get('product-detail-{id}.html',[
+      'as'=>'detail',
+      'uses'=>'Client\DetailController@getDetail'
+    ]);
+  });
 
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
@@ -45,20 +56,17 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'admin'], function()
 Route::get('checkout',function(){
     return view('checkout.checkout');
   });
-Route::post('get_customer_info','CheckOutController@getCustomerInfo');
-Route::post('update_quantity','CheckOutController@updateQtty');
-Route::post('remove_item','CheckOutController@removeItem');
+Route::post('get_customer_info','Client\CheckOutController@getCustomerInfo');
+Route::post('update_quantity','Client\CheckOutController@updateQtty');
+Route::post('remove_item','Client\CheckOutController@removeItem');
 Route::post('dat-hang',[
 	'as'=>'insert_order',
-	'uses'=>'CheckOutController@insertOrder'
+	'uses'=>'Client\CheckOutController@insertOrder'
 ]);
 /** search form result*/
-Route::get('/search','SearchController@getSearchResult')->name('search');
+Route::get('/search','Client\SearchController@getSearchResult')->name('search');
 /** auto search key word */
-Route::get('/find', 'SearchController@getSearchHint');
+Route::get('/find', 'Client\SearchController@getSearchHint');
 
-Route::get('product-detai-{id}.html',[
-    'as'=>'detail',
-    'uses'=>'DetailController@getDetail'
-  ]);
-Route::post('/add-to-cart','CartController@addToCart');
+
+Route::post('/add-to-cart','Client\CartController@addToCart');

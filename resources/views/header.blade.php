@@ -37,7 +37,7 @@
             <ul class="main-nav nav navbar-nav">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="#">Giới Thiệu</a></li>
-                <li><a href="{{ route('thuc-don') }}">Thực Đơn</a></li>
+                <li><a href="{{ route('thucdon') }}">Thực Đơn</a></li>
                 <li><a href="#">Siêu Thị Yaki</a></li>
                 <li><a href="#">Hệ Thống Nhà Hàng</a></li>
                 <li><a href="#">Buffet</a></li>
