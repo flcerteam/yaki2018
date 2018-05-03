@@ -31,6 +31,16 @@ Route::get('/',[
     ]);
   });
 
+Route::get('contact',[
+    'as' => 'contact',
+    'uses' => 'Client\ContactController@getInfo'
+]);
+
+Route::get('contact-dtl/{slug}.html',[
+    'as' => 'contact-dtl',
+    'uses' => 'Client\ContactController@getDetailInfo'
+]);
+
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
 {
