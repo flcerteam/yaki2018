@@ -35,7 +35,7 @@ class BranchRequest extends FormRequest
             'email' => 'required|max:255',
             'open_hour' => 'required|max:20',
             'close_hour' => 'required|max:20',
-            'location' => 'min:1|max:1000',
+            'location' => 'required|max:1000',
             'status' => 'required'
         ];
     }
