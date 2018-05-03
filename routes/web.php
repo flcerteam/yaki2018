@@ -48,6 +48,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('category', 'Admin\CategoryCrudController');
     CRUD::resource('unit', 'Admin\UnitCrudController');
     CRUD::resource('menu', 'Admin\MenuCrudController');
+    CRUD::resource('product', 'Admin\ProductCrudController');
 
     Route::get('menu/{id}/order', ['as' => 'menu.order', 'uses' => 'Admin\MenuCrudController@order']);
     Route::post('menu/{id}/order', ['as' => 'menu.save.order', 'uses' => 'Admin\MenuCrudController@saveOrderSeq']);
