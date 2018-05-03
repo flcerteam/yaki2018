@@ -8,6 +8,7 @@ return [
   'sale_tab'            => 'Thông tin bán hàng|@|saleInfo',
   'product_images_tab'  => 'Hình ảnh sản phẩm|@|productImagesInfo',
   'name'			          => 'Tên sản phẩm',
+  'sku'			            => 'Mã sản phẩm',
   'slug'			          => 'Tên hiển thị tại url',
   'description'         => 'Mô tả',
   'hint_category'       => 'Có thể chọn một hoặc nhiều danh mục.',

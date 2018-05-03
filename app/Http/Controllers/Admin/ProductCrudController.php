@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ProductRequest as StoreRequest;
-use App\Http\Requests\ProductRequest as UpdateRequest;
+use App\Http\Requests\Admin\ProductRequest as StoreRequest;
+use App\Http\Requests\Admin\ProductRequest as UpdateRequest;
 
 use App\Models\Admin\Product;
 use App\Models\Admin\ProductImage;
@@ -21,7 +21,7 @@ class ProductCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Product');
+        $this->crud->setModel('App\Models\Admin\Product');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/product');
         $this->crud->setEntityNameStrings(trans('product.product'), trans('product.products'));
 
@@ -77,6 +77,14 @@ class ProductCrudController extends CrudController
                 'tab'       => trans('product.general_tab')
             ],
             [
+                'name'      => 'description',
+                'label'     => trans('product.description'),
+                'type'      => 'textarea',
+
+                // TAB
+                'tab'       => trans('product.general_tab')
+            ],
+            [
                 'name'      => 'categories',
                 'label'     => trans('category.categories'),
                 'hint'      => trans('product.hint_category'),
@@ -94,8 +102,8 @@ class ProductCrudController extends CrudController
                 'label'     => trans('common.status'),
                 'type'      => 'select_from_array',
                 'options'   => [
-                    '0'     => trans('common.inactive'),
-                    '1'     => trans('common.active')
+                    '0'     => trans('common.active'),
+                    '1'     => trans('common.inactive')
                 ],
 
                 // TAB
@@ -155,7 +163,34 @@ class ProductCrudController extends CrudController
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
-
+        $this->crud->addColumns([
+            [
+                'name'  => 'sku',
+                'label' => trans('product.sku'),
+            ],
+            [
+                'name'  => 'name',
+                'label' => trans('product.name'),
+            ],
+            [
+                'name'      => 'categories',
+                'type'      => "select_multiple",
+                'label'     => trans('category.categories'),
+                'entity'    => 'categories',
+                'attribute' => "name",
+                'model'     => "App\Models\Admin\Category",
+            ],
+            [
+                'name'      => 'status',
+                'label'     => trans('common.status'),
+                'type'      => 'boolean',
+                'options'   => [
+                    0 => trans('common.active'),
+                    1 => trans('common.inactive')
+                    
+                ],
+            ]
+        ]);
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
         // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function

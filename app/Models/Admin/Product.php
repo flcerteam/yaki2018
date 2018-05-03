@@ -66,7 +66,7 @@ class Product extends Model
     */
     public function scopeActive($query)
     {
-        return $query->where('active', 0);
+        return $query->where('status', 0);
     }
 
     /*
