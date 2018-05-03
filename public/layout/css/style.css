@@ -73,6 +73,13 @@ a:focus{
     outline: none;
 }
 
+a.main-button:hover,
+a.main-button:focus{
+	color:#fff;
+    text-decoration: none;
+    outline: none;
+}
+
 ul,ol{
     margin: 0;
     padding: 0;
@@ -680,7 +687,7 @@ textarea.input {
 }
 
 #reservation .bg-image  {
-	height:75%;
+	height:110%;
 }
 
 .reserve-form {

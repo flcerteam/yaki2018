@@ -45,4 +45,28 @@
 		}
 	});
 
+
+	// date-picker
+	$(".datepicker").datepicker({
+		inline: true,
+		dateFormat: 'dd/mm/yy' 
+	});
+
+	// when click main menu as auto scroll.
+	$('#menu-main a').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+        
+        var target = this.hash;
+		var $target = $(target);
+
+		if (typeof($target.offset()) !== "undefined"){
+			$('html, body').stop().animate({
+				'scrollTop': $target.offset().top
+			}, 500, 'swing', function () {});
+		} else {
+			window.location.href= this.href;
+		}
+    });
+
 })(jQuery);
