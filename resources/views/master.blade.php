@@ -27,7 +27,7 @@
         <link type="text/css" rel="stylesheet" href="layout/css/style.css"/>
         <!-- Custom livechat-fb -->
         <link type="text/css" rel="stylesheet" href="layout/css/livechat-fb.css" />
-        <link type="text/css" rel="stylesheet" href="layout/css/vertical-menubar.css" />
+        <link type="text/css" rel="stylesheet" href="layout/css/image-size.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.css" />
         
 
