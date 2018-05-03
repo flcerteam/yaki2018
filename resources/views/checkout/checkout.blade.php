@@ -75,7 +75,7 @@
                         <h2 class="title white-text">Đơn Hàng Của Bạn</h2>
                     </div>
                     @if(count(Cart::content()))
-                    <ul class="target-scroll" style="overflow: scroll; max-height: 400px;">
+                    <ul class="target-scroll">
                     @foreach (Cart::content() as $item)
                     <li class="list-group-item d-flex justify-content-between lh-condensed" id="{{ $item->id }}">
                         <div class="total-by-item" >
@@ -86,7 +86,7 @@
                                 <input id="id" type="hidden" value="{{ $item->rowId }}">
                                 <input id="quantity" type="text" class="quantity" value="{{ $item->qty }}">
                             </div>
-                            <span class="text-muted">Price: {{ number_format($item->price ) }} VND/ SP</span>
+                            <span class="text-muted">x {{ number_format($item->price ) }} VND</span>
                             <a class="pull-right btn-trash" href="javascript:void(0)">
                                 <input id="trash-id" type="hidden" value="{{ $item->rowId }}">
                                 <i class="fa fa-trash"></i>
