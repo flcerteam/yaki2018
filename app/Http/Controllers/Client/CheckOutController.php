@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
-use App\Model\Member;
+use App\Models\Client\Member;
 use Cart;
 use DB;
-use App\Models\Order;
-use App\Models\OrderDetail;
-use App\Models\Product;
+use App\Models\Client\Order;
+use App\Models\Client\OrderDetail;
+use App\Models\Client\Product;
 
 class CheckOutController extends Controller {
 

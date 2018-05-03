@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
+use App\Models\Client\Product;
 
 class SearchController extends Controller
 {
