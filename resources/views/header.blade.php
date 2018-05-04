@@ -37,8 +37,8 @@
             <ul class="main-nav nav navbar-nav">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="#">Giới Thiệu</a></li>
-                <li><a href="{{ route('thucdon') }}">Thực Đơn</a></li>
-                <li><a href="#">Siêu Thị Yaki</a></li>
+                <li><a href="{{ route('thucdon',[$yakiMenu->menu_id,$yakiMenu->id]) }}">Thực Đơn</a></li>
+                <li><a href="{{ route('market',[$yakiMarket->menu_id,$yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
                 <li><a href="#">Hệ Thống Nhà Hàng</a></li>
                 <li><a href="#">Buffet</a></li>
                 <li><a href="#">Thành Viên</a></li>
@@ -52,8 +52,8 @@
                 <li class="nav-item">
                   <a class="nav-link waves-effect" href="/checkout">
                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"><span class="badge badge-pill badge-danger badge-yaki">
-                        @if ($totalQty > 0)
-                        {{ $totalQty}}
+                        @if (Cart::count() > 0)
+                        {{ Cart::count()}}
                         @else
                         0
                         @endif</span></i>

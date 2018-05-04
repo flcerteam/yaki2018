@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Client\Product;
+use DB;
 
 class SearchController extends Controller
 {
@@ -15,11 +16,15 @@ class SearchController extends Controller
         // request model
         $input = $req->all();
         // result by key
-        $product_by_name = Product::where('name','LIKE','%'.$input['s'].'%')->paginate(10);
+        $products = DB::table('products')
+                        ->leftJoin('product_images','products.id','=','product_images.product_id')
+                        ->leftJoin('units','products.unit_id','=','units.id')
+                        ->select('products.*','product_images.name as image','units.name as unit_type')
+                        ->where('products.name','LIKE','%'.$input['s'].'%')->paginate(6);
         // total count of product
         $product_count = count(Product::where('name','LIKE','%'.$input['s'].'%')->get());
         // return view
-        return view('page.search',compact('product_by_name','product_count'));
+        return view('search.search',compact('products','product_count'));
       }
   
       /**

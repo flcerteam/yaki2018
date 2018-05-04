@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Cart;
+use DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -15,13 +15,14 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*',function($view){
-            $totalQty= Cart::count();
-            $view->with('totalQty',$totalQty);
+            $yakiMenu = DB::table('menus')->where('id','1')->first(); 
+            $view->with('yakiMenu',$yakiMenu);
           });
           view()->composer('*',function($view){
-            $cart= Cart::content();
-            $view->with('cart',$cart);
+            $yakiMarket = DB::table('menus')->where('id','2')->first();
+            $view->with('yakiMarket',$yakiMarket);
           });
+
     }
 
     /**
