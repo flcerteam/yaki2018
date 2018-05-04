@@ -25,7 +25,7 @@ return [
     'old_password'           => 'Mật khẩu hiện tại',
     'new_password'           => 'Mật khẩu mới',
     'confirm_password'       => 'Nhập lại mật khẩu mới',
-    'remember_me'            => 'Remember Me',
+    'remember_me'            => 'Giữ tôi ở trạng thái đăng nhập',
     'forgot_your_password'   => 'Bạn quên mật khẩu?',
     'reset_password'         => 'Reset Password',
     'send_reset_link'        => 'Send Password Reset Link',
