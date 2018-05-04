@@ -16,16 +16,17 @@ class CreateMembersTable extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('member_no', 50)->nullable()->default(null);
-            $table->string('name', 150)->nullable()->default(null);
+            $table->string('name', 100)->nullable()->default(null);
             $table->date('birth_date')->nullable()->default(null);
-            $table->string('phone_number', 50)->nullable()->default(null);
-            $table->string('email', 50)->nullable()->default(null);
-            $table->string('gender', 10)->nullable()->default(null);
+            $table->tinyInteger('gender')->nullable()->default(null);
+            $table->string('phone_number', 20)->nullable()->default(null);
+            $table->string('email', 255)->nullable()->default(null);
             $table->longText('address')->nullable()->default(null);
-            $table->decimal('member_point', 10, 0)->nullable()->default(null);
+            $table->decimal('member_point', 10, 0)->nullable()->default(0);
 
             $table->nullableTimestamps();
+
+            $table->unique(["phone_number"], 'unique_phone_numbers');
         });
     }
 

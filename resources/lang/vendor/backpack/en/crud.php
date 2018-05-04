@@ -20,7 +20,7 @@ return [
     'save_action_changed_notification' => 'Default behaviour after saving has been changed.',
 
     // Create form
-    'add'                 => 'Thêm',
+    'add'                 => 'Thêm mới',
     'back_to_all'         => 'Quay về',
     'cancel'              => 'Thoát',
     'add_a_new'           => 'Thêm mới ',
@@ -35,8 +35,8 @@ return [
     'created_this'         => 'created this',
     'changed_the'          => 'changed the',
     'restore_this_value'   => 'Restore this value',
-    'from'                 => 'from',
-    'to'                   => 'to',
+    'from'                 => 'từ',
+    'to'                   => 'đến',
     'undo'                 => 'Undo',
     'revision_restored'    => 'Revision successfully restored',
     'guest_user'           => 'Guest User',
@@ -57,11 +57,11 @@ return [
     'details_row_loading_error' => 'There was an error loading the details. Please retry.',
 
         // Confirmation messages and bubbles
-        'delete_confirm'                              => 'Are you sure you want to delete this item?',
-        'delete_confirmation_title'                   => 'Item Deleted',
+        'delete_confirm'                              => 'Bạn có muốn xóa?',
+        'delete_confirmation_title'                   => 'Đã xóa',
         'delete_confirmation_message'                 => 'The item has been deleted successfully.',
         'delete_confirmation_not_title'               => 'NOT deleted',
-        'delete_confirmation_not_message'             => "There's been an error. Your item might not have been deleted.",
+        'delete_confirmation_not_message'             => "Lỗi. Your item might not have been deleted.",
         'delete_confirmation_not_deleted_title'       => 'Not deleted',
         'delete_confirmation_not_deleted_message'     => 'Nothing happened. Your item is safe.',
 
@@ -69,9 +69,9 @@ return [
         'ajax_error_text'  => 'Lỗi khi tải trang. Xin vui lòng làm mới lại trang.',
 
         // DataTables translation
-        'emptyTable'     => 'No data available in table',
+        'emptyTable'     => 'Không tồn tại dữ liệu',
         'info'           => 'Hiển thị _START_ - _END_ / _TOTAL_',
-        'infoEmpty'      => 'Showing 0 to 0 of 0 entries',
+        'infoEmpty'      => 'Hiển thị 0 - 0 / 0 ',
         'infoFiltered'   => '(filtered from _MAX_ total entries)',
         'infoPostFix'    => '',
         'thousands'      => ',',
@@ -101,11 +101,11 @@ return [
 
     // global crud - errors
         'unauthorized_access' => 'Unauthorized access - you do not have the necessary permissions to see this page.',
-        'please_fix' => 'Please fix the following errors:',
+        'please_fix' => 'Xin hãy chỉnh sửa các lỗi bên dưới:',
 
     // global crud - success / error notification bubbles
-        'insert_success' => 'The item has been added successfully.',
-        'update_success' => 'The item has been modified successfully.',
+        'insert_success' => 'Thêm mới thành công.',
+        'update_success' => 'Chỉnh sửa thành công.',
 
     // CRUD reorder view
         'reorder'                      => 'Sắp xếp',
@@ -138,7 +138,7 @@ return [
         'choose_file' => 'Choose file',
 
     //Table field
-        'table_cant_add' => 'Cannot add new :entity',
+        'table_cant_add' => 'Không thể thêm mới :entity',
         'table_max_reached' => 'Maximum number of :max reached',
 
     // File manager

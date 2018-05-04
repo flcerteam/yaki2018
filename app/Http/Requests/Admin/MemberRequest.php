@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ProductRequest extends FormRequest
+class MemberRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,14 +26,13 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'sku'               => 'required|max:100|unique:products,sku'.($this->request->get('id') ? ','.$this->request->get('id') : ''),
-            'name'              => 'required|max:255',
-            'description'       => 'required|max:1000',
-            'categories'        => 'required',
-            'status'            => 'required|numeric|between:0,1',
-            'unit_id'           => 'required',
-            'number_of_unit'    => 'required|numeric|between:0,9999.9',
-            'price'             => 'required|numeric|between:0,999999999999999999'
+            'name'              => 'required|max:100',
+            'birth_date'        => 'required',
+            'gender'            => 'required|numeric|between:0,2',
+            'phone_number'      => 'required|max:20|unique:members,phone_number'.($this->request->get('id') ? ','.$this->request->get('id') : ''),
+            'email'             => 'required|max:255',
+            'address'           => 'required|max:1000',
+            'member_point'      => 'numeric|between:0,9999999999',
         ];
     }
 

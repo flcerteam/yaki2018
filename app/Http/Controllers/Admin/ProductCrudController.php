@@ -131,6 +131,7 @@ class ProductCrudController extends CrudController
                 'name'  => 'number_of_unit',
                 'label' => trans('product.number_of_unit'),
                 'type'  => 'number',
+                'attributes' => ["step" => "any"], // allow decimals
 
                     // TAB
                 'tab'   => trans('product.sale_tab'),
