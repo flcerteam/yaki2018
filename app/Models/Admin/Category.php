@@ -49,12 +49,8 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-      'parent_id',
       'name',
-      'slug',
-      'lft',
-      'rgt',
-      'depth'
+      'slug'
     ];
 
     /**
@@ -83,15 +79,6 @@ class Category extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function parent()
-    {
-        return $this->belongsTo('App\Models\Category', 'parent_id');
-    }
-
-    public function children()
-    {
-        return $this->hasMany('App\Models\Category', 'parent_id');
-    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

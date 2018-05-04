@@ -74,6 +74,12 @@ return [
             'simple_path' => 'uploads/branches',
             'root'        => public_path('uploads/branches'),
         ],
+
+        'products'  => [
+            'driver'      => 'local',
+            'simple_path' => 'uploads/products',
+            'root'        => public_path('uploads/products'),
+        ],
     ],
 
 ];

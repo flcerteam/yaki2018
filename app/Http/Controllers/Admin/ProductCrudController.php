@@ -11,6 +11,9 @@ use App\Http\Requests\Admin\ProductRequest as UpdateRequest;
 use App\Models\Admin\Product;
 use App\Models\Admin\ProductImage;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 class ProductCrudController extends CrudController
 {
     public function setup()
@@ -153,7 +156,7 @@ class ProductCrudController extends CrudController
             'deleteRoute'   => route('deleteProductImage'),
             'simplePathUrl' => url(config('filesystems.disks.products.simple_path')),
             // TAB
-            'tab'           => trans('branch.product_images_tab'),
+            'tab'           => trans('product.product_images_tab'),
         ], 'update');
 
         // ------ CRUD COLUMNS

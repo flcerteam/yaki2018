@@ -38,6 +38,27 @@ class Product extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($model) {
+            $model->categories()->detach();
+
+            // Delete product images
+            $disk = 'products';
+
+            foreach ($model->images as $image) {
+                // Delete image from disk
+                if (\Storage::disk($disk)->has($image->name)) {
+                    \Storage::disk($disk)->delete($image->name);
+                }
+
+                // Delete image from db
+                $image->delete();
+            }
+        });
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -51,7 +72,7 @@ class Product extends Model
     
     public function unit()
 	{
-		return $this->hasOne('App\Models\Admin\Unit');
+		return $this->hasOne('App\Models\Admin\Unit', 'id', 'unit_id');
     }
     
     public function images()
