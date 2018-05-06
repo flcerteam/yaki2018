@@ -5,5 +5,8 @@ return [
     'branch' => 'branches',
 
     // disk where product images will be uploaded
-    'product' => 'products' 
+    'product' => 'products',
+
+    // disk where event images will be uploaded
+    'event' => 'events' 
 ];

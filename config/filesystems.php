@@ -80,6 +80,12 @@ return [
             'simple_path' => 'uploads/products',
             'root'        => public_path('uploads/products'),
         ],
+
+        'events'  => [
+            'driver'      => 'local',
+            'simple_path' => 'uploads/events',
+            'root'        => public_path('uploads/events'),
+        ],
     ],
 
 ];

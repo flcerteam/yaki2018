@@ -9,6 +9,7 @@
     <li><a href="{{ backpack_url('category') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span>{{ trans('category.categories') }}</span></a></li>
     <li><a href="{{ backpack_url('product') }}"><i class="fa fa-dropbox" aria-hidden="true"></i> <span>{{ trans('product.products') }}</span></a></li>
     <li><a href="{{ backpack_url('member') }}"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>{{ trans('member.members') }}</span></a></li>
+    <li><a href="{{ backpack_url('event') }}"><i class="fa fa-calendar" aria-hidden="true"></i> <span>{{ trans('event.events') }}</span></a></li>
   </ul>
 </li>
 

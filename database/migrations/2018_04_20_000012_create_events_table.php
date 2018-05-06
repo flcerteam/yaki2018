@@ -31,6 +31,6 @@ class CreateEventsTable extends Migration
      */
      public function down()
      {
-       Schema::dropIfExists('reservation_tables');
+       Schema::dropIfExists('events');
      }
 }
