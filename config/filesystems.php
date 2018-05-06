@@ -86,6 +86,12 @@ return [
             'simple_path' => 'uploads/events',
             'root'        => public_path('uploads/events'),
         ],
+
+        'image'  => [
+            'driver'      => 'local',
+            'simple_path' => 'layout/img',
+            'root'        => public_path('uploads/events'),
+        ],
     ],
 
 ];
