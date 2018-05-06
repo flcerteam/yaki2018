@@ -258,42 +258,5 @@
     <!-- /container -->
 
 </div>
-<!-- /Events -->
-
-<!-- Contact -->
-<div id="contact" class="section">
-
-    <!-- container -->
-    <div class="container">
-
-        <!-- row -->
-        <div class="row">
-
-            <div class="container">
-                <div class="section-header">
-                    <h4 class="sub-title">Contact Us</h4>
-                    <h2 class="title">Get In Touch</h2>
-                </div>
-                <div class="contact-content">
-                    <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                    <h3>Hot Line: <a href="#">0903 906 084</a></h3>
-                    <p>Tel 2:(028)38162188</p>
-                    <p>Email: <a href="#">yaki@gmail.com</a></p>
-                    <ul class="list-inline">
-                        <li><p>Follow Us:</p></li>
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-        <!-- /row -->
-
-    </div>
-    <!-- /container -->
-
-</div>
-<!-- Contact -->    
+<!-- /Events -->  
 @endsection
