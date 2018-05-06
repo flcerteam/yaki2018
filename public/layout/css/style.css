@@ -160,6 +160,20 @@ ul,ol{
 	-webkit-transition:0.2s opacity;
 	transition:0.2s opacity;
 }
+
+.main-button-member {
+	display:inline-block;
+	padding:8px 25px;
+	border:none;
+	border-radius:40px;
+	background-color:#f36700;
+	color:#FFF;
+	text-transform: uppercase;
+	font-weight: 700;
+	-webkit-transition:0.2s opacity;
+	transition:0.2s opacity;
+}
+
 .main-button:hover {
 	color:#FFF;
 	opacity:0.8;

@@ -61,6 +61,15 @@ Route::post('get_member_info','Client\ReservationController@getMemberInfo');
 Route::post('get_branch_time_info','Client\ReservationController@getBranchTimeInfo');
 // reservation END
 
+// Member Start
+Route::get('member',[
+  'as' => 'member',
+  'uses' => 'Client\MemberController@getInfo'
+]);
+
+Route::post('get_search_member','Client\MemberController@getMemberInfo');
+// Member End
+
 Route::get('success/{msg}',[
   'as' => 'success',
   'uses' => 'Client\ProcessController@getSuccess'

@@ -88,6 +88,9 @@
         <!-- reservation -->
         <script type="text/javascript" src="js/reservation/autoFill.js"></script>
         <!-- /reservation -->
+        <!-- member -->
+        <script type="text/javascript" src="js/member/autoFill.js"></script>
+        <!-- /member -->
     </body>
     <script type="text/javascript">
         // this will get the full URL at the address bar

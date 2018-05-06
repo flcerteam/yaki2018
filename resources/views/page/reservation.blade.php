@@ -35,11 +35,11 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone_number">Số Điện Thoại:</label>
-                                <input class="input" type="tel" placeholder="Phone" id="phone_number" name="phone_number" required>
+                                <input class="input" type="tel" placeholder="Số Điện Thoại" id="phone_number" name="phone_number" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Tên:</label>
-                                <input class="input" type="text" placeholder="Name" id="name" name="name" required>
+                                <input class="input" type="text" placeholder="Tên" id="name" name="name" required>
                             </div>
                             <div class="form-group">
                                 <label for="birth_date">Ngày Sinh:</label>
@@ -75,18 +75,18 @@
                                 <input class="input" type="date" placeholder="DD/MM/YYYY" name="reservation_date" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
                             </div>
                             <div class="form-group">
-                            <label for="reservation_hour">Thời gian:</label>
+                            <label for="reservation_hour">Thời Gian:</label>
                             <input class="input" type="time" placeholder="HH:MM" id="reservation_hour" name="reservation_hour" required min="{{ $timeBranch['open_hour_val'] }}" max="{{ $timeBranch['close_hour_val'] }}">
                             </div>
                             <div class="form-group">
-                                <label for="reservation_type">Loại bàn:</label><br>
+                                <label for="reservation_type">Loại Bàn:</label><br>
                                 <input type="radio" id="type" name="reservation_type" value="0" checked="checked"> Bình thường
                                 &nbsp;&nbsp;&nbsp;
                                 <input type="radio" id="type"name="reservation_type" value="1"> Buffet
                             </div>
                             <div class="form-group">
-                                <label for="number_of_people">Số người:</label>
-                                <input class="input" type="number" placeholder="Số người" name="number_of_people" required>
+                                <label for="number_of_people">Số Người:</label>
+                                <input class="input" type="number" placeholder="Số Người" name="number_of_people" required>
                             </div>
                             <div class="form-group">
                                 <label<div class="form-group">
