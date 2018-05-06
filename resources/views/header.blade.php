@@ -64,7 +64,7 @@
 
             <!-- button nav -->
             <ul class="cta-nav">
-                <li><a href="#" class="main-button">Đặt Bàn</a></li>
+                <li><a href="{{ route('reservation') }}" class="main-button">Đặt Bàn</a></li>
             </ul>
             <!-- button nav -->
 

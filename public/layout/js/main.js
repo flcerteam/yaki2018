@@ -45,13 +45,6 @@
 		}
 	});
 
-
-	// date-picker
-	$(".datepicker").datepicker({
-		inline: true,
-		dateFormat: 'dd/mm/yy' 
-	});
-
 	// when click main menu as auto scroll.
 	$('#menu-main a').on('click', function (e) {
         e.preventDefault();

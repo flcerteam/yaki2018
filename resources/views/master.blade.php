@@ -29,8 +29,8 @@
         <link type="text/css" rel="stylesheet" href="layout/css/livechat-fb.css" />
         <link type="text/css" rel="stylesheet" href="layout/css/image-size.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.css" />
-        
 
+        
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -85,6 +85,9 @@
         <!-- lib for autosearch-->
         <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
         <script type="text/javascript" src="/js/search/autoSearch.js"></script>
+        <!-- reservation -->
+        <script type="text/javascript" src="js/reservation/autoFill.js"></script>
+        <!-- /reservation -->
     </body>
     <script type="text/javascript">
         // this will get the full URL at the address bar
