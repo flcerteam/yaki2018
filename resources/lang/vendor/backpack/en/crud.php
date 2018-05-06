@@ -59,11 +59,11 @@ return [
         // Confirmation messages and bubbles
         'delete_confirm'                              => 'Bạn có muốn xóa?',
         'delete_confirmation_title'                   => 'Đã xóa',
-        'delete_confirmation_message'                 => 'The item has been deleted successfully.',
-        'delete_confirmation_not_title'               => 'NOT deleted',
-        'delete_confirmation_not_message'             => "Lỗi. Your item might not have been deleted.",
-        'delete_confirmation_not_deleted_title'       => 'Not deleted',
-        'delete_confirmation_not_deleted_message'     => 'Nothing happened. Your item is safe.',
+        'delete_confirmation_message'                 => 'Xóa thành công.',
+        'delete_confirmation_not_title'               => 'Chưa được xóa',
+        'delete_confirmation_not_message'             => "Lỗi. Xóa thất bại.",
+        'delete_confirmation_not_deleted_title'       => 'Chưa được xóa',
+        'delete_confirmation_not_deleted_message'     => 'Yêu cầu xóa được hủy.',
 
         'ajax_error_title' => 'Lỗi',
         'ajax_error_text'  => 'Lỗi khi tải trang. Xin vui lòng làm mới lại trang.',

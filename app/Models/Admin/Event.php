@@ -35,6 +35,21 @@ class Event extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($obj) {
+            $disk = config('imagestoreddisk.event');  
+            \Storage::disk($disk)->delete($obj->image);
+        });
+    }
+
+    public function getImageFileExtension($value)
+    {
+        preg_match("/^data:image\/(.*);base64/i",$value , $match);
+        return $match[1];
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -89,11 +104,5 @@ class Event extends Model
             // 3. Save the path to the database
             $this->attributes[$attribute_name] = $destination_path.'/'.$filename;
         }
-    }
-
-    public function getImageFileExtension($value)
-    {
-        preg_match("/^data:image\/(.*);base64/i",$value , $match);
-        return $match[1];
     }
 }
