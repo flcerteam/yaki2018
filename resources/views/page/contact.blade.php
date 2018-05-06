@@ -3,25 +3,28 @@
 <link type="text/css" rel="stylesheet" href="layout/css/contact.css" />
 
 <div class="section">
-    <div class="bg-image bg-parallax overlay" style="background-image:url(layout/img/background02.jpg)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }})"></div>
 </div>
 
 <div id="contact" class="section">
     
     <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url(layout/img/background02.jpg)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }})"></div>
     <!-- /Backgound Image -->
     
     <!-- container -->
     <div class="container">
+        @if ($infoList->count() > 0)
         @foreach($infoList as $dtl)
         <div class="row_contact">
             <!-- row -->
             <div class="row contact-content">
                 <div class="col-md-6">
+                    @if ($dtl->image != null)
                     <a class="img-thumbnail">
                         <img src="{{ $dtl->image }}" class="img-responsive img-size">
                     </a>
+                    @endif
                 </div>
                 <div class="col-md-6">
                     <div class="section-header-contact">
@@ -57,13 +60,16 @@
             <!-- /row -->
         </div>
         @endforeach
+        @else
+            @include('page.no-data')
+        @endif
     </div>
     <!-- /container -->
 
 </div>
 
 <div class="section">
-    <div class="bg-image bg-parallax overlay" style="background-image:url(layout/img/background02.jpg)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }})"></div>
 </div>
 
 @endsection

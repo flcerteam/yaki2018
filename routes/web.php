@@ -35,6 +35,7 @@ Route::get('/',[
     ]);
   });
 
+// contact START
 Route::get('contact',[
     'as' => 'contact',
     'uses' => 'Client\ContactController@getInfo'
@@ -44,6 +45,28 @@ Route::get('contact-dtl/{slug}.html',[
     'as' => 'contact-dtl',
     'uses' => 'Client\ContactController@getDetailInfo'
 ]);
+// contact END
+
+// reservation START
+Route::get('reservation',[
+  'as' => 'reservation',
+  'uses' => 'Client\ReservationController@getInfo'
+]);
+
+Route::post('get_branch_time_info','Client\ReservationController@getBranchTimeInfo');
+
+Route::post('get_member_info','Client\ReservationController@getMemberInfo');
+
+Route::post('dat-ban',[
+	'as'=>'insert_reservation',
+	'uses'=>'Client\ReservationController@insertReservation'
+]);
+
+Route::get('success/{msg}',[
+  'as' => 'success',
+  'uses' => 'Client\ProcessController@getSuccess'
+]);
+// reservation END
 
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
