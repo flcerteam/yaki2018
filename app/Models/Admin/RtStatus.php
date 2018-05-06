@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class ReservationTable extends Model
+class RtStatus extends Model
 {
     use CrudTrait;
 
@@ -15,23 +15,11 @@ class ReservationTable extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'reservation_tables';
+    protected $table = 'rt_statuses';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [
-        'reservation_no',
-        'member_id',
-        'branch_id',
-        'reservation_type',
-        'reservation_date',
-        'reservation_hour',
-        'number_of_people',
-        'note',
-        'status',
-        'created_at',
-    	'updated_at'
-    ];
+    protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -46,21 +34,7 @@ class ReservationTable extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function member()
-    {
-        return $this->hasOne('App\Models\Admin\Member', 'id', 'member_id');
-    }
 
-    public function branch()
-    {
-        return $this->hasOne('App\Models\Admin\Branch', 'id', 'branch_id');
-    }
-
-    public function status()
-    {
-        return $this->hasOne('App\Models\RtStatus', 'id', 'status');
-    }
-    
     /*
     |--------------------------------------------------------------------------
     | SCOPES
