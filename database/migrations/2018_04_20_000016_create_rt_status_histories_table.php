@@ -15,9 +15,9 @@ class CreateRtStatusHistoriesTable extends Migration
     {
         Schema::create('rt_status_histories', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('id')->unsigned();
+            $table->increments('id');
             $table->integer('rt_id')->unsigned();
-            $table->integer('status')->default(0);
+            $table->integer('status')->unsigned();
             $table->nullableTimestamps();
 
             $table->foreign('rt_id')

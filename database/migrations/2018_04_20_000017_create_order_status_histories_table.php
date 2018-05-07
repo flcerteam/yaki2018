@@ -15,9 +15,9 @@ class CreateOrderStatusHistoriesTable extends Migration
     {
         Schema::create('order_status_histories', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('id')->unsigned();
+            $table->increments('id');
             $table->integer('order_id')->unsigned();
-            $table->integer('status')->default(0);
+            $table->integer('status')->unsigned();
             $table->nullableTimestamps();
 
             $table->foreign('order_id')
