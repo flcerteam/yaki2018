@@ -35,8 +35,8 @@ Route::get('/',[
     ]);
   });
 
-Route::get('contact',[
-    'as' => 'contact',
+Route::get('branch',[
+    'as' => 'branch',
     'uses' => 'Client\ContactController@getInfo'
 ]);
 

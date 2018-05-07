@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Client\Branch;
 use App\Models\Client\Reservation;
+use App\Models\Client\RtStatusHistories;
 use App\Models\Client\Member;
 use App\Http\Controllers\Controller;
 use DB;
@@ -111,6 +112,10 @@ class ReservationController extends Controller
             $reservation->number_of_people = $req->number_of_people;
             $reservation->note = $req->note;
             $reservation->save();
+
+            $rtStatusHistories = new RtStatusHistories;
+            $rtStatusHistories->rt_id = $reservation->id;
+            $rtStatusHistories->save();
           
             DB::commit();
 

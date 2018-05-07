@@ -39,9 +39,8 @@
                 <li><a href="#">Giới Thiệu</a></li>
                 <li><a href="{{ route('thucdon',[$yakiMenu->menu_id,$yakiMenu->id]) }}">Thực Đơn</a></li>
                 <li><a href="{{ route('market',[$yakiMarket->menu_id,$yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
-                <li><a href="#">Hệ Thống Nhà Hàng</a></li>
+                <li><a href="{{ route('branch') }}">Hệ Thống Nhà Hàng</a></li>
                 <li><a href="{{ route('member') }}">Thành Viên</a></li>
-                <li><a href="{{ route('contact') }}">Liên Hệ</a></li>
             </ul>
             
             <!-- /nav -->
