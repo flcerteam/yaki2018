@@ -17,7 +17,7 @@ class CreateRtStatusHistoriesTable extends Migration
             $table->engine = 'InnoDB';
             $table->integer('id')->unsigned();
             $table->integer('rt_id')->unsigned();
-            $table->integer('status')->unsigned();
+            $table->integer('status')->default(0);
             $table->nullableTimestamps();
 
             $table->foreign('rt_id')
