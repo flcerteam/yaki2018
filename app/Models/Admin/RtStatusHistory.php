@@ -21,7 +21,7 @@ class RtStatusHistory extends Model
     // protected $guarded = ['id'];
     protected $fillable = [
         'rt_id',
-        'status'
+        'status_id'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -39,7 +39,7 @@ class RtStatusHistory extends Model
     */
     public function status()
 	{
-		return $this->hasOne('App\Models\Admin\RtStatus', 'id', 'status');
+		return $this->hasOne('App\Models\Admin\RtStatus', 'id', 'status_id');
 	}
 
     /*

@@ -29,16 +29,65 @@
 			<div class="box">
 			    <div class="box-header with-border">
 			      <h3 class="box-title">
-		            <span><i class="fa fa-ticket"></i> {{ trans('rt.rt_status') }}</span>
+		            <span><i class="fa fa-ticket"></i> {{ trans('rt.status') }}</span>
 		          </h3>
 			    </div>
 			    <div class="box-body">
 			    	<h4>
 			    		{{ trans('rt.current_status') }} <br><br>
-			    		<span class="label label-default">{{ $rt->statusobj->name }}</span>
+			    		<span class="label label-default">{{ $rt->status->name }}</span>
 			    	</h4>
 
-					<hr>
+						<hr>
+
+						<h4>
+							{{ trans('rt.status_history') }}
+						</h4>
+						@if (count($rt->rtStatusHistories) > 0)
+							<table class="table table-striped table-hover">
+								<thead>
+									<tr>
+										<th>{{ trans('rt.status') }}</th>
+										<th>{{ trans('rt.date_time') }}</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach($rt->rtStatusHistories as $rtStatusHistory)
+										<tr>
+											<td>{{ $rtStatusHistory->status->name }}</td>
+											<td>{{ $rtStatusHistory->created_at }}</td>
+										</tr>
+									@endforeach
+								</tbody>
+							</table>
+						@else
+							<div class="alert alert-info">
+								{{ trans('rt.no_status_history') }}
+							</div>
+						@endif
+
+						<hr>
+
+						@if (count($rtStatuses) > 0)
+							<form action="{{ route('updateRtStatus') }}" method="POST">
+								{!! csrf_field() !!}
+								<input type="hidden" name="rt_id" value="{{ $rt->id }}">
+
+								<div class="form-group">
+									<select name="status_id" id="status_id" class="select2_field" style="width: 100%">
+										@foreach($rtStatuses as $rtStatus)
+											<option value="{{ $rtStatus->id }}">{{ $rtStatus->name }}</option>
+										@endforeach
+									</select>
+								</div>
+
+								<button type="submit" class="btn btn-primary">{{ trans('rt.update_status') }}</button>
+							</form>
+						@else
+							<div class="alert alert-info">
+								{{ trans('rt.no_rt_statuses') }}
+							</div>
+						@endif
 					</div>
 			</div>
 		</div>
@@ -50,7 +99,7 @@
 	<link rel="stylesheet" href="{{ asset('vendor/backpack/crud/css/show.css') }}">
 
 	<!-- include select2 css-->
-	<link href="{{ asset('vendor/adminlte/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
+	<link href="{{ asset('vendor/adminlte/bower_components/select2/dist/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 
 	<!-- Select 2 Bootstrap theme -->
 	<link href="{{ asset('css/select2-bootstrap-min.css') }}" rel="stylesheet" type="text/css" />
@@ -61,7 +110,7 @@
 	<script src="{{ asset('vendor/backpack/crud/js/show.js') }}"></script>
 
 	<!-- include select2 js -->
-    <script src="{{ asset('vendor/adminlte/plugins/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('vendor/adminlte/bower_components/select2/dist/js/select2.min.js') }}"></script>
 
 	<script>
 		$(document).ready(function () {

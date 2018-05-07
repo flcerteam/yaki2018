@@ -8,7 +8,10 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\Admin\ReservationTableRequest as StoreRequest;
 use App\Http\Requests\Admin\ReservationTableRequest as UpdateRequest;
 
+use Illuminate\Http\Request;
+
 use App\Models\Admin\RtStatus;
+use App\Models\Admin\RtStatusHistory;
 
 class ReservationTableCrudController extends CrudController
 {
@@ -118,6 +121,10 @@ class ReservationTableCrudController extends CrudController
         $crud = $this->crud;
 
         return view('admin.rt.view', compact('crud', 'rt', 'rtStatuses'));
+    }
+
+    public function updateStatus(Request $request, RtStatusHistory $rtStatusHistory)
+    {
     }
 
     public function store(StoreRequest $request)

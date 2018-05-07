@@ -17,7 +17,7 @@ class CreateOrderStatusHistoriesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('order_id')->unsigned();
-            $table->integer('status')->unsigned();
+            $table->integer('status_id')->unsigned();
             $table->nullableTimestamps();
 
             $table->foreign('order_id')
@@ -25,7 +25,7 @@ class CreateOrderStatusHistoriesTable extends Migration
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('status')
+            $table->foreign('status_id')
                 ->references('id')->on('order_statuses')
                 ->onDelete('no action')
                 ->onUpdate('no action');

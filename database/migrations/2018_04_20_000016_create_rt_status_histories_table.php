@@ -17,7 +17,7 @@ class CreateRtStatusHistoriesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('rt_id')->unsigned();
-            $table->integer('status')->unsigned();
+            $table->integer('status_id')->unsigned();
             $table->nullableTimestamps();
 
             $table->foreign('rt_id')
@@ -25,7 +25,7 @@ class CreateRtStatusHistoriesTable extends Migration
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->foreign('status')
+            $table->foreign('status_id')
                 ->references('id')->on('rt_statuses')
                 ->onDelete('no action')
                 ->onUpdate('no action');

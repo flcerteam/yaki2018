@@ -63,7 +63,7 @@ class ReservationTable extends Model
 
     public function rtStatusHistories()
     {
-        return $this->hasMany('App\Models\Admin\RtStatusHistory')->orderBy('created_at', 'DESC');
+        return $this->hasMany('App\Models\Admin\RtStatusHistory', 'rt_id', 'id')->orderBy('created_at', 'DESC');
     }
 
     /*
