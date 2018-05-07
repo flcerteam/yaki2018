@@ -9,6 +9,7 @@ use DB;
 use App\Models\Client\Order;
 use App\Models\Client\OrderDetail;
 use App\Models\Client\Product;
+use App\Models\Client\OrderStatusHistory;
 use App\Http\Controllers\Controller;
 
 class CheckOutController extends Controller {
@@ -76,6 +77,7 @@ class CheckOutController extends Controller {
         $member->save();
        
       }
+      // insert into table order
       $order = new Order;
       $order->member_id = $member->id;
       $order->status = '0';
@@ -86,7 +88,7 @@ class CheckOutController extends Controller {
       $order->total_discount =  (float)Cart::subTotal();
       $order->total =  (float)Cart::subTotal();
       $order->save();
-      
+      // insert into table order detail
       foreach ($cart as $value) {
           $product = Product::where('id',$value->id)->first();
           $orderDetail = new OrderDetail;
@@ -98,6 +100,11 @@ class CheckOutController extends Controller {
           $orderDetail->sku = $product->sku;
           $orderDetail->save();
       }
+      // insert into table OrderStatusHistory
+      $orderStatusHistory = new OrderStatusHistory;
+      $orderStatusHistory->order_id = $order->id;
+      $orderStatusHistory->status = $order->status;
+      $orderStatusHistory->save();
       DB::commit();
       Cart::destroy();
       return redirect()->back()->with('thongbao','Đặt hàng thành công');
