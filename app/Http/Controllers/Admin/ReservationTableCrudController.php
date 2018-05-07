@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\ReservationTableRequest as StoreRequest;
-use App\Http\Requests\ReservationTableRequest as UpdateRequest;
+use App\Http\Requests\Admin\ReservationTableRequest as StoreRequest;
+use App\Http\Requests\Admin\ReservationTableRequest as UpdateRequest;
+
+use App\Models\Admin\RtStatus;
 
 class ReservationTableCrudController extends CrudController
 {
@@ -28,7 +30,7 @@ class ReservationTableCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
@@ -60,8 +62,11 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
-        $this->crud->allowAccess(['list']);
+        $this->crud->denyAccess(['create', 'update', 'reorder', 'delete']);
+        $this->crud->allowAccess(['show']);
+        $this->crud->removeButton('preview');
+        $this->crud->addButtonFromView('line', 'view', 'view', 'end');
+
 
         // ------ CRUD REORDER
         // $this->crud->enableReorder('label_name', MAX_TREE_LEVEL);
@@ -102,6 +107,17 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->orderBy();
         // $this->crud->groupBy();
         // $this->crud->limit();
+    }
+
+    public function show($id)
+    {
+        $this->crud->hasAccessOrFail('show');
+
+        $rt = $this->crud->getEntry($id);
+        $rtStatuses = RtStatus::get();
+        $crud = $this->crud;
+
+        return view('admin.rt.view', compact('crud', 'rt', 'rtStatuses'));
     }
 
     public function store(StoreRequest $request)

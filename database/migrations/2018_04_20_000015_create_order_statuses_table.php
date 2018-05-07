@@ -15,7 +15,7 @@ class CreateOrderStatusesTable extends Migration
     {
         Schema::create('order_statuses', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('id')->unsigned();
+            $table->integer('id')->unsigned()->unique();
             $table->string('name', 50)->nullable()->default(null);
         });
     }
