@@ -18,9 +18,9 @@ class ReservationTableCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\ReservationTable');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/reservationtable');
-        $this->crud->setEntityNameStrings('reservationtable', 'reservation_tables');
+        $this->crud->setModel('App\Models\Admin\ReservationTable');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/reservation-table');
+        $this->crud->setEntityNameStrings(trans('rt.reservation_table'), trans('rt.reservation_tables'));
 
         /*
         |--------------------------------------------------------------------------
@@ -43,7 +43,12 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
-
+        $this->crud->addColumns([
+            [
+                'name'  => 'reservation_no',
+                'label' => '#',
+            ],
+        ]);
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
         // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function
@@ -55,8 +60,8 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
-        // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
+        $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
+        $this->crud->allowAccess(['list']);
 
         // ------ CRUD REORDER
         // $this->crud->enableReorder('label_name', MAX_TREE_LEVEL);

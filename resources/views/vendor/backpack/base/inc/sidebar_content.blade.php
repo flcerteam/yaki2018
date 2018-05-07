@@ -14,10 +14,15 @@
 </li>
 
 <li class="treeview">
+  <a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <span>{{ trans('common.saleManagement') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+  <ul class="treeview-menu">
+    <li><a href="{{ backpack_url('reservation-table') }}"><i class="fa fa-sticky-note" aria-hidden="true"></i> <span>{{ trans('rt.reservation_tables') }}</span></a></li>
+  </ul>
+</li>
+
+<li class="treeview">
   <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> <span>{{ trans('common.systemManagement') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
   <ul class="treeview-menu">
     <li><a href="{{ backpack_url('menu') }}"><i class="fa fa-tasks" aria-hidden="true"></i> <span>{{ trans('menu.menus') }}</span></a></li>
   </ul>
 </li>
-
-<li><a href="{{ backpack_url('backup') }}"><i class="fa fa-hdd-o"></i> <span>Backups</span></a></li>
