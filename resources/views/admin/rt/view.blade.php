@@ -16,11 +16,31 @@
 @section('content')
 	@if ($crud->hasAccess('list'))
 		<a href="{{ url($crud->route) }}"><i class="fa fa-angle-double-left"></i> {{ trans('backpack::crud.back_to_all') }} <span>{{ $crud->entity_name_plural }}</span></a><br><br>
-    @endif
+	@endif
 
-    <div class="row">
+	<div class="row">
 		<div class="col-md-12 well">
-			<h2>{{ trans('rt.reservation_no') }} #{{ $rt->reservation_no }} - {{ $rt->member->name }}</h2>
+			<h3>{{ trans('rt.reservation_no') }} #{{ $rt->reservation_no }} - {{ $rt->member->name }}</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-7">
+			<div class="box">
+			    <div class="box-header with-border">
+			      <h3 class="box-title">
+		            <span><i class="fa fa-ticket"></i> {{ trans('rt.rt_status') }}</span>
+		          </h3>
+			    </div>
+			    <div class="box-body">
+			    	<h4>
+			    		{{ trans('rt.current_status') }} <br><br>
+			    		<span class="label label-default">{{ $rt->statusobj->name }}</span>
+			    	</h4>
+
+					<hr>
+					</div>
+			</div>
 		</div>
 	</div>
 @endsection

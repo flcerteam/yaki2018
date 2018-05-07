@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('member_id')->unsigned();
-            $table->tinyInteger('status')->unsigned();
+            $table->integer('status_id')->unsigned();
             $table->mediumText('shipping_address')->nullable()->default(null);
             $table->mediumText('billing_address')->nullable()->default(null);
             $table->mediumText('comment')->nullable()->default(null);
@@ -31,6 +31,11 @@ class CreateOrdersTable extends Migration
 
             $table->foreign('member_id')
                 ->references('id')->on('members')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+
+            $table->foreign('status_id')
+                ->references('id')->on('order_statuses')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

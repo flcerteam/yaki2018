@@ -28,7 +28,7 @@ class ReservationTable extends Model
         'reservation_hour',
         'number_of_people',
         'note',
-        'status',
+        'status_id',
         'created_at',
     	'updated_at'
     ];
@@ -58,7 +58,7 @@ class ReservationTable extends Model
 
     public function status()
     {
-        return $this->hasOne('App\Models\RtStatus', 'id', 'status');
+        return $this->hasOne('App\Models\Admin\RtStatus', 'id', 'status_id');
     }
 
     public function rtStatusHistories()

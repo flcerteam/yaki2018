@@ -16,10 +16,12 @@ class RtStatus extends Model
     */
 
     protected $table = 'rt_statuses';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = [
+        'name'
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
