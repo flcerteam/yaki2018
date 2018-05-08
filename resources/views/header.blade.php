@@ -19,8 +19,8 @@
 
         <!-- social links -->
         <ul class="contact-nav nav navbar-nav hidden-xs">
-            <li><a href="#"><i class="fa fa-phone"></i> Hot Line: 0903 906 084</a></li>
-            <li><a href="#"><i class="fa fa-phone"></i> Tel 2:(028)38162188</a></li>
+            <li><a href="javascript:void(0)"><i class="fa fa-phone"></i> Hot Line: 0903 906 084</a></li>
+            <li><a href="javascript:void(0)"><i class="fa fa-phone"></i> Tel 2:(028)38162188</a></li>
         </ul>
         <!-- /social links -->
 
@@ -37,8 +37,8 @@
             <ul class="main-nav nav navbar-nav">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><a href="#">Giới Thiệu</a></li>
-                <li><a href="{{ route('thucdon',[$yakiMenu->menu_id,$yakiMenu->id]) }}">Thực Đơn</a></li>
-                <li><a href="{{ route('market',[$yakiMarket->menu_id,$yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
+                <li><a href="{{ route('thucdon',[str_slug($yakiMenu->name,'-'),$yakiMenu->id]) }}">Thực Đơn</a></li>
+                <li><a href="{{ route('market',[str_slug($yakiMarket->name,'-'),$yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
                 <li><a href="{{ route('branch') }}">Hệ Thống Nhà Hàng</a></li>
                 <li><a href="{{ route('member') }}">Thành Viên</a></li>
             </ul>

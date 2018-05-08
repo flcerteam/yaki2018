@@ -1,7 +1,7 @@
 <nav class="navbar navbar-default">
     <ul class="main-nav nav navbar-nav sub-nav-yaki">
       @foreach ($menus as $menu)
-        <li><a href="{{ route('type',[$menu->menuId,$menu->categoryId]) }}">{{ $menu->name }}</a></li> 
+        <li><a href="{{ route('type',[str_slug($menu->name,'-'),$menu->menuId,$menu->categoryId]) }}">{{ $menu->name }}</a></li> 
       @endforeach
     </ul>
     <form  class="form-inline" role="search" method="get" id="searchform" action="search" style="margin-top: 0.5em !important">

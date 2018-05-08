@@ -79,7 +79,7 @@
                     @foreach (Cart::content() as $item)
                     <li class="list-group-item d-flex justify-content-between lh-condensed" id="{{ $item->id }}">
                         <div class="total-by-item" >
-                            <a href="{{route('detail',[$item->name,$item->id])}}">
+                            <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
                                 <h6 class="my-0">{{ $item->name }}</h6>
                             </a>
                             <div class="col-md-4 col-xs-6 clearfix">

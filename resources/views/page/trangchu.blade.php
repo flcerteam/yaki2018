@@ -13,7 +13,7 @@
             <div class="home-content">
                 <h1 class="white-text">Welcome To Yaki Restaurant</h1>
                 <h4 class="white-text lead">Chẳng Dừng Nướng.</h4>
-                <a class="main-button" href="{{ route('thucdon',[$yakiMenu->menu_id,$yakiMenu->id]) }}">Khám Phá Thực Đơn</a>
+                <a class="main-button" href="{{ route('thucdon',[str_slug($yakiMenu->name,'-'),$yakiMenu->id]) }}">Khám Phá Thực Đơn</a>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
                         <!-- single column -->
                         <div class="galery-item">
                             <!-- single image -->
-                            <a href="{{ route('detail',[$item->name,$item->id]) }}"div class="galery-img" style="background-image:url(img/{{ $item->image }})">
+                            <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url(img/{{ $item->image }})">
                             </a>
                             <!-- /single image --> 
                         </div>
@@ -162,101 +162,4 @@
     <!-- /container -->
 </div>
 <!-- /Sư kiện đặc biệt -->
-
-<!-- Events -->
-<div id="events" class="section">
-
-    <!-- container -->
-    <div class="container">
-
-        <!-- row -->
-        <div class="row">
-
-                <!-- section header -->
-                <div class="section-header text-center">
-                    <h4 class="sub-title">Sự Kiện Đặc Biệt</h4>
-                    <h2 class="title">Sắp Diễn Ra</h2>
-                </div>
-                <!-- /section header -->
-
-                <!-- single event -->
-                <div class="col-md-6">
-                    <div class="event">
-                        <div class="event-img">
-                            <img src="layout/img/event01.jpg" alt="">
-                            <div class="event-day">
-                                <span>08<br>July</span>
-                            </div>
-                        </div>
-                        <div class="event-content">
-                            <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
-                            <h3><a href="#">te vero tritani iuvaret vis. Nec odio periculis adipiscing an.</a></h3>
-                            <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /single event -->
-
-                <!-- single event -->
-                <div class="col-md-6">
-                    <div class="event">
-                        <div class="event-img">
-                            <img src="layout/img/event02.jpg" alt="">
-                            <div class="event-day">
-                                <span>08<br>July</span>
-                            </div>
-                        </div>
-                        <div class="event-content">
-                            <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
-                            <h3><a href="#">te vero tritani iuvaret vis. Nec odio periculis adipiscing an.</a></h3>
-                            <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /single event -->
-
-                <!-- single event -->
-                <div class="col-md-6">
-                    <div class="event">
-                        <div class="event-img">
-                            <img src="layout/img/event02.jpg" alt="">
-                            <div class="event-day">
-                                <span>08<br>July</span>
-                            </div>
-                        </div>
-                        <div class="event-content">
-                            <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
-                            <h3><a href="#">te vero tritani iuvaret vis. Nec odio periculis adipiscing an.</a></h3>
-                            <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /single event -->
-
-                <!-- single event -->
-                <div class="col-md-6">
-                    <div class="event">
-                        <div class="event-img">
-                            <img src="layout/img/event01.jpg" alt="">
-                            <div class="event-day">
-                                <span>08<br>July</span>
-                            </div>
-                        </div>
-                        <div class="event-content">
-                            <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
-                            <h3><a href="#">te vero tritani iuvaret vis. Nec odio periculis adipiscing an.</a></h3>
-                            <p>Te sit stet labitur veritus, sea similique consetetur ut. Ne fastidii oportere usu. Iusto mediocrem iudicabit ea eos, nemore offendit detraxit ei cum.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- /single event -->
-
-            </div>
-            <!-- /row -->
-
-    </div>
-    <!-- /container -->
-
-</div>
-<!-- /Events -->  
 @endsection

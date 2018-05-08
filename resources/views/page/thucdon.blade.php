@@ -11,14 +11,14 @@
                     <div class="row">
                         <div class="col-md-7 col-sm-7">
                             <div class="thumbnail">
-                                <a href="{{route('detail',[$item->name,$item->id])}}">
+                                <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
                                     <img src="img/{{ $item->image }}" alt="{{ $item->image }}">
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-5 col-sm-5">
                             <div class="caption">
-                                <a href="{{route('detail',[$item->name,$item->id])}}">
+                                <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
                                     <h3 style="min-height: 85px;">{{ $item->name }}</h3>
                                 </a>
                                 <span>Giá: {{ number_format($item->price) }} VND</span>
