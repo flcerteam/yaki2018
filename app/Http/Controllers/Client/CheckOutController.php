@@ -68,6 +68,7 @@ class CheckOutController extends Controller {
       // nếu đã tồn tại customer thì k add thêm
       if(null == $member) {
         $member = new Member;
+
         $member->name = $req->name;
         $member->birth_date = $req->birth;
         $member->gender = $req->gender;
@@ -76,18 +77,29 @@ class CheckOutController extends Controller {
         $member->phone_number = $req->phone;
         $member->save();
        
+      } else {
+        $member->name = $req->name;
+        $member->birth_date = $req->birth;
+        $member->gender = $req->gender;
+        $member->email = $req->email;
+        $member->address = $req->address;
+        $member->update();
       }
       // insert into table order
       $order = new Order;
       $order->member_id = $member->id;
-      $order->status = '0';
+      $order->status_id = '0';
       $order->invoice_no = '0';
       $order->invoice_date = date('Y-m-d');
       $order->shipping_address = $member->address;
+      $order->billing_address = $member->address;
       $order->comment = $req->note;
-      $order->total_discount =  (float)Cart::subTotal();
       $order->total =  (float)Cart::subTotal();
       $order->save();
+
+      $order->invoice_no = "O".str_pad($order->id, 6, '0', STR_PAD_LEFT);
+      $order->update();
+
       // insert into table order detail
       foreach ($cart as $value) {
           $product = Product::where('id',$value->id)->first();
@@ -103,13 +115,12 @@ class CheckOutController extends Controller {
       // insert into table OrderStatusHistory
       $orderStatusHistory = new OrderStatusHistory;
       $orderStatusHistory->order_id = $order->id;
-      $orderStatusHistory->status = $order->status;
+      $orderStatusHistory->status_id = $order->status;
       $orderStatusHistory->save();
       DB::commit();
       Cart::destroy();
-      return redirect()->back()->with('thongbao','Đặt hàng thành công');
+      return redirect()->route('success', $order->invoice_no);
     } catch(\Exception $e) {
-      dd($e->getMessage());   // insert query
       DB::rollback();
       return redirect()->back()->with('thongbao','Đặt hàng thất bại');
     }

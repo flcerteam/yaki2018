@@ -20,6 +20,7 @@ class ReservationController extends Controller
 
         $infoBranchList = Branch::allActive();
         $timeBranch = [];
+        $dateNow = date('Y-m-d');
 
         if ($infoBranchList->count() > 0) {
             $timeBranch = [
@@ -30,7 +31,7 @@ class ReservationController extends Controller
             ];
         }
 
-        return view('page.reservation', compact('imgSrc', 'infoBranchList', 'timeBranch'));
+        return view('page.reservation', compact('imgSrc', 'infoBranchList', 'timeBranch', 'dateNow'));
     }
 
     public function getMemberInfo(Request $req){
@@ -125,7 +126,6 @@ class ReservationController extends Controller
             return redirect()->route('success', $reservation->reservation_no);
         } catch(\Exception $e) {
  
-            dd($e->getMessage());
             DB::rollback();
             return redirect()->back()->with('thongbao','Đặt bàn thất bại');
         }
