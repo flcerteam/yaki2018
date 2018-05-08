@@ -35,7 +35,7 @@
 			    <div class="box-body">
 			    	<h4>
 			    		{{ trans('rt.current_status') }} <br><br>
-			    		<span class="label label-default">{{ $rt->status->name }}</span>
+			    		<span class="label label-primary">{{ $rt->status->name }}</span>
 			    	</h4>
 
 						<hr>
