@@ -72,7 +72,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="reservation_date">Ngày Đặt:</label>
-                                <input class="input" type="date" placeholder="DD/MM/YYYY" name="reservation_date" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
+                                <input class="input" type="date" placeholder="DD/MM/YYYY" name="reservation_date" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" min="{{ $dateNow }}">
                             </div>
                             <div class="form-group">
                             <label for="reservation_hour">Thời Gian:</label>
