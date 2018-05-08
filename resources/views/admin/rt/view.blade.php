@@ -91,6 +91,70 @@
 					</div>
 			</div>
 		</div>
+		<div class="col-md-5">
+			<div class="box">
+			    <div class="box-header with-border">
+			      <h3 class="box-title">
+		            <span><i class="fa fa-user"></i> {{ trans('member.member') }}</span>
+		          </h3>
+					</div>
+
+					<div class="box-body">
+						<h4>{{ trans('member.member_info') }}</h4>
+						<div class="col-md-12 well">
+							<div class="col-md-6">
+								<i class="fa fa-user-circle-o"></i> &nbsp; {{ $rt->member->name }} <br/>
+								<i class="fa fa-birthday-cake"></i> &nbsp; {{ $rt->member->birth_date }}
+								<br>
+								@if ($rt->member->gender == 0)	
+									<i class="fa fa-mars"></i>  &nbsp; {{ trans('member.male') }}
+								@elseif ($rt->member->gender == 1)
+									<i class="fa fa-venus"></i>  &nbsp; {{ trans('member.female') }}
+								@else
+									<i class="fa fa-transgender"></i>  &nbsp; {{ trans('member.other') }}
+								@endif
+							</div>
+							<div class="col-md-6">
+								<i class="fa fa-phone-square"></i> &nbsp; {{ $rt->member->phone_number }} <br/>
+								<i class="fa fa-envelope"></i> &nbsp; <a href="mailto:{{ $rt->member->email }}">{{ $rt->member->email }}</a>
+							</div>
+						</div>
+					</div>
+			</div>
+
+			<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">
+						<span><i class="fa fa-sticky-note"></i> {{ trans('rt.reservation_info') }}</span>
+					</h3>
+				</div>
+
+				<div class="box-body">
+					<table class="table table-condensed table-hover">
+						<tr>
+							<td>{{ trans('branch.name') }}</td>
+							<td>{{ $rt->branch->name }}</td>
+						</tr>
+						<tr>
+							<td>{{ trans('rt.reservation_date') }}</td>
+							<td>{{ $rt->reservation_date }}</td>
+						</tr>
+						<tr>
+							<td>{{ trans('rt.reservation_hour') }}</td>
+							<td>{{ $rt->reservation_hour }}</td>
+						</tr>
+						<tr>
+							<td>{{ trans('rt.rt_type') }}</td>
+							<td>{{ $rt->type->name }}</td>
+						</tr>
+						<tr>
+							<td>{{ trans('rt.number_of_people') }}</td>
+							<td>{{ $rt->number_of_people }}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
 	</div>
 @endsection
 

@@ -91,7 +91,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     Route::post('menu/{id}/order', ['as' => 'menu.save.order', 'uses' => 'Admin\MenuCrudController@saveOrderSeq']);
 
     // Update RT Status
-	  Route::post('reservation-table/update-status', ['as' => 'updateRtStatus', 'uses' => 'ReservationTableCrudController@updateStatus']);
+	  Route::post('reservation-table/update-status', ['as' => 'updateRtStatus', 'uses' => 'Admin\ReservationTableCrudController@updateStatus']);
 });
 
 // Ajax

@@ -125,6 +125,13 @@ class ReservationTableCrudController extends CrudController
 
     public function updateStatus(Request $request, RtStatusHistory $rtStatusHistory)
     {
+        $rtStatusHistory->create($request->except('_token'));
+
+        $this->crud->update($request->input('rt_id'), ['status_id' => $request->input('status_id')]);
+
+        \Alert::success(trans('rt.status_updated'))->flash();
+
+        return redirect()->back();
     }
 
     public function store(StoreRequest $request)
