@@ -125,7 +125,6 @@ class ReservationController extends Controller
             return redirect()->route('success', $reservation->reservation_no);
         } catch(\Exception $e) {
  
-            dd($e->getMessage());
             DB::rollback();
             return redirect()->back()->with('thongbao','Đặt bàn thất bại');
         }
