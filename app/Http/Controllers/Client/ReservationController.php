@@ -103,7 +103,6 @@ class ReservationController extends Controller
             }
 
             $reservation = new Reservation;
-            $reservation->reservation_no = "R".str_pad(Reservation::rtNo(), 6, '0', STR_PAD_LEFT);
             $reservation->member_id = $member->id;
             $reservation->branch_id = $req->branch_id;
             $reservation->rt_type_id = $req->rt_type_id;
@@ -112,6 +111,9 @@ class ReservationController extends Controller
             $reservation->number_of_people = $req->number_of_people;
             $reservation->note = $req->note;
             $reservation->save();
+
+            $reservation->reservation_no = "R".str_pad($reservation->id, 6, '0', STR_PAD_LEFT);
+            $reservation->update();
 
             $rtStatusHistories = new RtStatusHistories;
             $rtStatusHistories->rt_id = $reservation->id;
