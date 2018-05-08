@@ -19,7 +19,7 @@ class CreateReservationTablesTable extends Migration
             $table->string('reservation_no', 20)->nullable()->default(null);
             $table->integer('member_id')->unsigned();
             $table->integer('branch_id')->unsigned();
-            $table->tinyInteger('reservation_type')->unsigned();
+            $table->integer('rt_type_id')->unsigned();
             $table->date('reservation_date')->nullable()->default(null);
             $table->string('reservation_hour', 5)->nullable()->default(null);
             $table->integer('number_of_people')->unsigned();
@@ -39,6 +39,11 @@ class CreateReservationTablesTable extends Migration
 
             $table->foreign('status_id')
                 ->references('id')->on('rt_statuses')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+            
+            $table->foreign('rt_type_id')
+                ->references('id')->on('rt_types')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });
