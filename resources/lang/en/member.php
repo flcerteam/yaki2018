@@ -15,5 +15,6 @@ return [
 	'email'				=> 'Email',
 	'address'			=> 'Địa chỉ',
 	'member_point'		=> 'Điểm tích lũy',
+	'member_info'		=> 'Thông tin thành viên',
 
 ];

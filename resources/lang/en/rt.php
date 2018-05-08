@@ -12,4 +12,11 @@ return [
   'no_status_history'   => 'Không có lịch sử',
   'update_status'       => 'Cập nhật trạng thái',
   'no_rt_statuses'      => 'Không thể cập nhật trạng thái',
+  'reservation_info'    => 'Thông tin đặt bàn',
+  'reservation_date'    => 'Ngày đặt',
+  'reservation_hour'    => 'Thời gian',
+  'rt_type'             => 'Loại bàn',
+  'number_of_people'    => 'Số người', 
+  'status_updated'      => 'Cập nhật trạng thái thành công.',
+
 ];
