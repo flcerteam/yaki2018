@@ -15,11 +15,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*',function($view){
-            $yakiMenu = DB::table('menus')->where('id','1')->first(); 
+            $yakiMenu = DB::table('menus')->where('menu_id','YK_MENU')->first(); 
             $view->with('yakiMenu',$yakiMenu);
           });
           view()->composer('*',function($view){
-            $yakiMarket = DB::table('menus')->where('id','2')->first();
+            $yakiMarket = DB::table('menus')->where('menu_id','YK_SM_MENU')->first();
             $view->with('yakiMarket',$yakiMarket);
           });
 
