@@ -16,8 +16,9 @@
     <div class="container">
         <div class="contact-content">
             <h2 class="white-text">
-                {{ $msg }}
+                Mã đặt của bạn là: <h1><label style="color: #f36700">{{ $code }}</label></h1>
             </h2>
+            <h3 class="white-text">Nhân viên của chúng tôi sẽ liên hệ với bạn sau.</h3>
         </div>
     </div>
     <!-- /container -->

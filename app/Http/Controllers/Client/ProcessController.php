@@ -7,11 +7,11 @@ use App\Http\Controllers\Controller;
 
 class ProcessController extends Controller
 {
-    function getSuccess($msg) {
+    function getSuccess($code) {
 
         $img = "/background02.jpg";
         $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
-
-        return view('page.process', compact('imgSrc', 'msg'));
+        
+        return view('page.process', compact('imgSrc', 'code'));
     }
 }
