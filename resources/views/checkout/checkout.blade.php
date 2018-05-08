@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group">
                             <label for="birth">Ngày Sinh:</label>
-                            <input class="input" type="text" placeholder="DD/MM/YY" id="birth" name="birth">
+                            <input class="input" type="date" placeholder="DD/MM/YY" id="birth" name="birth">
                         </div>
                     </div>
 
