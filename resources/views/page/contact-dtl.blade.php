@@ -38,7 +38,7 @@
                     <hr>
                     <div class="section-content-contact">
                     <p>
-                        <a href="{{route('contact')}}" class="main-button button-small-contact">
+                        <a href="{{route('branch')}}" class="main-button button-small-contact">
                             <i class="fa fa-long-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Quay Về
                         </a>
                     </p>

@@ -79,10 +79,10 @@
                             <input class="input" type="time" placeholder="HH:MM" id="reservation_hour" name="reservation_hour" required min="{{ $timeBranch['open_hour_val'] }}" max="{{ $timeBranch['close_hour_val'] }}">
                             </div>
                             <div class="form-group">
-                                <label for="reservation_type">Loại Bàn:</label><br>
-                                <input type="radio" id="type" name="reservation_type" value="0" checked="checked"> Bình thường
+                                <label for="rt_type_id">Loại Bàn:</label><br>
+                                <input type="radio" id="type" name="rt_type_id" value="0" checked="checked"> Bình thường
                                 &nbsp;&nbsp;&nbsp;
-                                <input type="radio" id="type"name="reservation_type" value="1"> Buffet
+                                <input type="radio" id="type"name="rt_type_id" value="1"> Buffet
                             </div>
                             <div class="form-group">
                                 <label for="number_of_people">Số Người:</label>

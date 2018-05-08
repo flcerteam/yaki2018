@@ -106,7 +106,7 @@ class ReservationController extends Controller
             $reservation->reservation_no = '0';
             $reservation->member_id = $member->id;
             $reservation->branch_id = $req->branch_id;
-            $reservation->reservation_type = $req->reservation_type;
+            $reservation->rt_type_id = $req->rt_type_id;
             $reservation->reservation_date = $req->reservation_date;
             $reservation->reservation_hour = $req->reservation_hour;
             $reservation->number_of_people = $req->number_of_people;
@@ -115,11 +115,12 @@ class ReservationController extends Controller
 
             $rtStatusHistories = new RtStatusHistories;
             $rtStatusHistories->rt_id = $reservation->id;
+            $rtStatusHistories->status_id = '0';
             $rtStatusHistories->save();
           
             DB::commit();
 
-            $msg = "Đặt bàn thành công";
+            $msg = "Đặt bàn thành công\nasdasd";
 
             return redirect()->route('success', $msg);
         } catch(\Exception $e) {

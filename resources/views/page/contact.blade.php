@@ -50,7 +50,7 @@
                             <a>&nbsp;&nbsp;&nbsp;{{ $dtl->email }}</a>
                         </p>
                         <p>
-                            <a href="{{route('contact-dtl', $dtl->slug)}}" class="main-button button-small-contact">
+                            <a href="{{route('branch-dtl', $dtl->slug)}}" class="main-button button-small-contact">
                                 <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Xem Chi Tiết
                             </a>
                         </p>

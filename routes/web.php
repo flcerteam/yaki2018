@@ -43,8 +43,8 @@ Route::get('branch',[
     'uses' => 'Client\ContactController@getInfo'
 ]);
 
-Route::get('contact-dtl/{slug}.html',[
-    'as' => 'contact-dtl',
+Route::get('branch-dtl/{slug}.html',[
+    'as' => 'branch-dtl',
     'uses' => 'Client\ContactController@getDetailInfo'
 ]);
 
