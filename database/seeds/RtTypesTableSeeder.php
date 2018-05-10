@@ -16,7 +16,7 @@ class RtTypesTableSeeder extends Seeder
     	$types = [
             [
                 'id'            => 0,
-        		'name'	        => 'Thông thường',
+        		'name'	        => 'Bình thường',
             ],
             [
                 'id'            => 1,

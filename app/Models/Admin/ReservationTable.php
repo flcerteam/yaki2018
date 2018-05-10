@@ -58,7 +58,7 @@ class ReservationTable extends Model
 
     public function type()
     {
-        return $this->hasOne('App\Models\Admin\RtType', 'id', 'branch_id');
+        return $this->hasOne('App\Models\Admin\RtType', 'id', 'rt_type_id');
     }
 
     public function status()
@@ -91,5 +91,10 @@ class ReservationTable extends Model
     public function getCreatedAtAttribute($value)
     {
         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+    }
+
+    public function getReservationDateAttribute($value)
+    {
+        return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
     }
 }

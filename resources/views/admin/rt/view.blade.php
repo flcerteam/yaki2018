@@ -34,8 +34,17 @@
 			    </div>
 			    <div class="box-body">
 			    	<h4>
-			    		{{ trans('rt.current_status') }} <br><br>
-			    		<span class="label label-primary">{{ $rt->status->name }}</span>
+							{{ trans('rt.current_status') }} <br><br>
+							@if ($rt->status_id == 0)
+								<span class="label label-warning">
+							@elseif ($rt->status_id == 1)
+								<span class="label label-primary">
+							@elseif ($rt->status_id == 2)
+							  <span class="label label-success">
+							@else
+							  <span class="label label-default">
+							@endif
+			    		{{ $rt->status->name }}</span>
 			    	</h4>
 
 						<hr>

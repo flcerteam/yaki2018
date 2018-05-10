@@ -53,6 +53,46 @@ class ReservationTableCrudController extends CrudController
                 'name'  => 'reservation_no',
                 'label' => '#',
             ],
+            [
+                'label'     => trans('rt.status'),
+                'type'      => 'select',
+                'name'      => 'status_id',
+                'entity'    => 'status',
+                'attribute' => 'name',
+                'model'     => 'App\Models\Admin\RtStatus',
+            ],
+            [
+                'label'     => trans('member.name'),
+                'type'      => 'select',
+                'name'      => 'member_id',
+                'entity'    => 'member',
+                'attribute' => 'name',
+                'model'     => 'App\Models\Admin\Member',
+            ],
+            [
+                'label'     => trans('branch.branch'),
+                'type'      => 'select',
+                'name'      => 'branch_id',
+                'entity'    => 'branch',
+                'attribute' => 'name',
+                'model'     => 'App\Models\Admin\Brach',
+            ],
+            [
+                'label'     => trans('rt.rt_type'),
+                'type'      => 'select',
+                'name'      => 'rt_type_id',
+                'entity'    => 'type',
+                'attribute' => 'name',
+                'model'     => 'App\Models\Admin\RtType',
+            ],
+            [
+                'name'  => 'reservation_date',
+                'label' => trans('rt.reservation_date'),
+            ],
+            [
+                'name'  => 'reservation_hour',
+                'label' => trans('rt.reservation_hour'),
+            ],
         ]);
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;

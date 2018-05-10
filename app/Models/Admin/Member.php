@@ -62,4 +62,8 @@ class Member extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
+    public function getBirthDateAttribute($value)
+    {
+        return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
+    }
 }
