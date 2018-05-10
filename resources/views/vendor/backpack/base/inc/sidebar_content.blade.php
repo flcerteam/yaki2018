@@ -17,6 +17,7 @@
   <a href="#"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <span>{{ trans('common.saleManagement') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
   <ul class="treeview-menu">
     <li><a href="{{ backpack_url('reservation-table') }}"><i class="fa fa-sticky-note" aria-hidden="true"></i> <span>{{ trans('rt.reservation_tables') }}</span></a></li>
+    <li><a href="{{ backpack_url('order') }}"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span>{{ trans('order.orders') }}</span></a></li>
   </ul>
 </li>
 

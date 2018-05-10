@@ -86,12 +86,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('member', 'Admin\MemberCrudController');
     CRUD::resource('event', 'Admin\EventCrudController');
     CRUD::resource('reservation-table', 'Admin\ReservationTableCrudController');
+    CRUD::resource('order', 'Admin\OrderCrudController');
 
     Route::get('menu/{id}/order', ['as' => 'menu.order', 'uses' => 'Admin\MenuCrudController@order']);
     Route::post('menu/{id}/order', ['as' => 'menu.save.order', 'uses' => 'Admin\MenuCrudController@saveOrderSeq']);
 
-    // Update RT Status
-	  Route::post('reservation-table/update-status', ['as' => 'updateRtStatus', 'uses' => 'Admin\ReservationTableCrudController@updateStatus']);
+    // Update status
+    Route::post('reservation-table/update-status', ['as' => 'updateRtStatus', 'uses' => 'Admin\ReservationTableCrudController@updateStatus']);
+	  Route::post('order/update-status', ['as' => 'updateOrderStatus', 'uses' => 'Admin\OrderCrudController@updateStatus']);
 });
 
 // Ajax

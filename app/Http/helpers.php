@@ -9,9 +9,9 @@ function getRelationType($relation = null) {
 }
 
 // Format number with decimals
-function decimalFormat($number = 0, $decimals = 2)
+function decimalFormat($number = 0, $decimals = 0)
 {
-	return number_format((float)$number, $decimals, '.', '');
+	return number_format((float)$number, $decimals, ',', '.');
 }
 
 // Get models

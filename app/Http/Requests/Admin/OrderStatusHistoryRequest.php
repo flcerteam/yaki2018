@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class RtTypeRequest extends FormRequest
+class OrderStatusHistoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
