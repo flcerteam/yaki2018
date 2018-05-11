@@ -160,6 +160,10 @@
 							<td>{{ trans('rt.number_of_people') }}</td>
 							<td>{{ $rt->number_of_people }}</td>
 						</tr>
+						<tr>
+							<td>{{ trans('rt.note') }}</td>
+							<td>{{ $rt->note }}</td>
+						</tr>
 					</table>
 				</div>
 			</div>

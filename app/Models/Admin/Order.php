@@ -19,7 +19,21 @@ class Order extends Model
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = [
+        'member_id',
+        'status_id',
+        'shipping_address',
+        'billing_address',
+        'comment',
+        'invoice_no',
+        'invoice_date',
+        'delivery_date',
+        'total_discount',
+        'total_shipping',
+        'total',
+        'created_at',
+    	'updated_at'
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -28,6 +42,10 @@ class Order extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    public function total()
+    {
+        return number_format((float)$this->total, 0, ',', '.');
+    }
 
     /*
     |--------------------------------------------------------------------------

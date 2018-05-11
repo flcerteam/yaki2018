@@ -16,10 +16,13 @@ class OrderStatusHistory extends Model
     */
 
     protected $table = 'order_status_histories';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = [
+        'order_id',
+        'status_id'
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,6 +37,10 @@ class OrderStatusHistory extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function status()
+	{
+		return $this->hasOne('App\Models\Admin\OrderStatus', 'id', 'status_id');
+	}
 
     /*
     |--------------------------------------------------------------------------

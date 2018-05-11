@@ -8,6 +8,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\Admin\OrderRequest as StoreRequest;
 use App\Http\Requests\Admin\OrderRequest as UpdateRequest;
 
+use Illuminate\Http\Request;
+
 use App\Models\Admin\OrderStatus;
 use App\Models\Admin\OrderStatusHistory;
 
@@ -50,6 +52,26 @@ class OrderCrudController extends CrudController
             [
                 'name'  => 'invoice_no',
                 'label' => '#',
+            ],
+            [
+                'label'     => trans('order.status'),
+                'type'      => 'select',
+                'name'      => 'status_id',
+                'entity'    => 'status',
+                'attribute' => 'name',
+                'model'     => 'App\Models\Admin\OrderStatus',
+            ],
+            [
+                'label'     => trans('member.name'),
+                'type'      => 'select',
+                'name'      => 'member_id',
+                'entity'    => 'member',
+                'attribute' => 'name',
+                'model'     => 'App\Models\Admin\Member',
+            ],
+            [
+                'name'  => 'invoice_date',
+                'label' => trans('order.order_date_time'),
             ],
         ]);
 
@@ -121,6 +143,17 @@ class OrderCrudController extends CrudController
         $crud = $this->crud;
 
         return view('admin.order.view', compact('crud', 'order', 'orderStatuses'));
+    }
+
+    public function updateStatus(Request $request, OrderStatusHistory $orderStatusHistory)
+    {
+        $orderStatusHistory->create($request->except('_token'));
+
+        $this->crud->update($request->input('order_id'), ['status_id' => $request->input('status_id')]);
+
+        \Alert::success(trans('order.status_updated'))->flash();
+
+        return redirect()->back();
     }
 
     public function store(StoreRequest $request)

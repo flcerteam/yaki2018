@@ -4,7 +4,7 @@ return [
 
   'reservation_table'   => 'Quản lý đặt bàn',
 	'reservation_tables'  => 'Quản lý đặt bàn',
-  'reservation_no'      => 'Mã số đặt bàn',
+  'reservation_no'      => 'Mã đặt bàn',
   'status'              => 'Trạng thái',
   'current_status'      => 'Trạng thái hiện tại',
   'status_history'      => 'Lịch sử thay đổi trạng thái',
@@ -16,7 +16,8 @@ return [
   'reservation_date'    => 'Ngày đặt',
   'reservation_hour'    => 'Thời gian',
   'rt_type'             => 'Loại bàn',
-  'number_of_people'    => 'Số người', 
+  'number_of_people'    => 'Số người',
+  'note'                => 'Ghi chú',
   'status_updated'      => 'Cập nhật trạng thái thành công.',
 
 ];
