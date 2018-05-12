@@ -17,9 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 255)->nullable()->default(null);
-            $table->string('slug', 255)->nullable()->default(null);
 
-            $table->unique(["slug"], 'unique_categories');
+            $table->unique(["name"], 'unique_categories');
         });
     }
 

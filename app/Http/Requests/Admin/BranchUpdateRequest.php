@@ -26,8 +26,7 @@ class BranchUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'slug' => 'required|max:255|unique:branches,id,'.$this->id,
+            'name' => 'required|max:255|unique:branches,id,'.$this->id,
             'description' => 'required|max:1000',
             'address' => 'required|max:500',
             'contact_name' => 'required|max:100',

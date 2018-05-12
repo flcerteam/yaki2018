@@ -25,8 +25,7 @@ class CategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  => 'required|max:255',
-            'slug'  => 'required|max:255|unique:categories,id,'.$this->id
+            'name'  => 'required|max:255|unique:categories,id,'.$this->id
         ];
     }
 

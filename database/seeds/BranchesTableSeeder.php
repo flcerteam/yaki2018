@@ -16,7 +16,6 @@ class BranchesTableSeeder extends Seeder
     	$branches = [
             [
         		'name'	        => 'Yaki 1',
-                'slug'          => 'yaki-1',
                 'description'   => 'Nhà hàng Yaki 1',
                 'address'       => '71 Chế Lan Viên, P. Tây Thạnh, Q. Tân Phú, Tp. HCM',
                 'contact_name'  => 'Mr. Yaki 1',
@@ -31,7 +30,6 @@ class BranchesTableSeeder extends Seeder
             ],
             [
         		'name'	        => 'Yaki 2',
-                'slug'          => 'yaki-2',
                 'description'   => 'Nhà hàng Yaki 2',
                 'address'       => '123 Bờ Bao Tân Thắng, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM',
                 'contact_name'  => 'Mr. Yaki 2',
@@ -46,7 +44,6 @@ class BranchesTableSeeder extends Seeder
             ],
             [
         		'name'	        => 'Yaki 3',
-                'slug'          => 'yaki-3',
                 'description'   => 'Nhà hàng Yaki 3',
                 'address'       => '375 Tân Sơn Nhì, P. Tân Thành, Q. Tân Phú, Tp. HCM',
                 'contact_name'  => 'Mr. Yaki 3',
@@ -61,7 +58,6 @@ class BranchesTableSeeder extends Seeder
             ],
             [
         		'name'	        => 'Yaki 4',
-                'slug'          => 'yaki-4',
                 'description'   => 'Nhà hàng Yaki 4',
                 'address'       => '60 Đường CN1, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM',
                 'contact_name'  => 'Mr. Yaki 4',
@@ -76,7 +72,6 @@ class BranchesTableSeeder extends Seeder
             ],
             [
         		'name'	        => 'Yaki 5',
-                'slug'          => 'yaki-5',
                 'description'   => 'Nhà hàng Yaki 5',
                 'address'       => '39 Đường số 3, Vĩnh Lộc Mới, Q. Bình Tân, Tp. HCM',
                 'contact_name'  => 'Mr. Yaki 5',

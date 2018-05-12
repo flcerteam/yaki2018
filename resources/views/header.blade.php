@@ -19,8 +19,8 @@
 
         <!-- social links -->
         <ul class="contact-nav nav navbar-nav hidden-xs">
-            <li><a href="javascript:void(0)"><i class="fa fa-phone"></i> Hot Line: 0903 906 084</a></li>
-            <li><a href="javascript:void(0)"><i class="fa fa-phone"></i> Tel 2:(028)38162188</a></li>
+            <li><a href="javascript:void(0)"><i class="fa fa-phone"></i> Hotline: 0903 906 084</a></li>
+            <li><a href="javascript:void(0)"><i class="fa fa-phone"></i> Tel 2: (028) 38162188</a></li>
         </ul>
         <!-- /social links -->
 
@@ -35,7 +35,7 @@
 
             <!-- nav -->
             <ul class="main-nav nav navbar-nav">
-                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><a href="{{ route('home') }}">Trang Chủ</a></li>
                 <li><a href="#">Giới Thiệu</a></li>
                 <li><a href="{{ route('thucdon',[str_slug($yakiMenu->name,'-'),$yakiMenu->id]) }}">Thực Đơn</a></li>
                 <li><a href="{{ route('market',[str_slug($yakiMarket->name,'-'),$yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
@@ -51,9 +51,9 @@
                   <a class="nav-link waves-effect" href="/checkout">
                     <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"><span class="badge badge-pill badge-danger badge-yaki">
                         @if (Cart::count() > 0)
-                        {{ Cart::count()}}
+                            {{ Cart::count()}}
                         @else
-                        0
+                            0
                         @endif</span></i>
                   </a>
                 </li>
@@ -68,8 +68,8 @@
 
             <!-- contact nav -->
             <ul class="contact-nav nav navbar-nav visible-xs">
-                <li><a href="#"><i class="fa fa-phone"></i> Hot Line: 0903 906 084</a></li>
-                <li><a href="#"><i class="fa fa-phone"></i> Tel 2:(028)38162188</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i> Hotline: 0903 906 084</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i> Tel 2: (028) 38162188</a></li>
             </ul>
             <!-- contact nav -->
 
@@ -77,7 +77,5 @@
         </div>
     </div>
     <!-- /Bottom nav -->
-
-
 </header>
 <!-- /Header -->

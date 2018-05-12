@@ -40,11 +40,6 @@ class CategoryCrudController extends CrudController
                 'name'  => 'name',
                 'label' => trans('category.name'),
                 'type'  => 'text',
-            ],
-            [
-                'name'  => 'slug',
-                'label' => trans('category.slug'),
-                'type'  => 'text',
             ]
         ]);
 
@@ -59,10 +54,6 @@ class CategoryCrudController extends CrudController
             [
                 'name'  => 'name',
                 'label' => trans('category.name'),
-            ],
-            [
-                'name'  => 'slug',
-                'label' => trans('category.slug'),
             ]
         ]);
 

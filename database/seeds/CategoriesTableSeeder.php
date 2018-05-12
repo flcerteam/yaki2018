@@ -15,28 +15,25 @@ class CategoriesTableSeeder extends Seeder
 
     	$categories = [
             [
+        		'name'  => 'Đặc sản Yaki',
+            ],
+            [
         		'name'  => 'Món nướng',
-                'slug'  => 'mon-nuong',
             ],
             [
         		'name'  => 'Món hấp',
-                'slug'  => 'mon-hap',
             ],
             [
         		'name'  => 'Món chiên',
-                'slug'  => 'mon-chien',
             ],
             [
         		'name'  => 'Món xào',
-                'slug'  => 'mon-xao',
             ],
             [
         		'name'  => 'Cháo',
-                'slug'  => 'chao',
             ],
             [
         		'name'  => 'Món lẩu',
-                'slug'  => 'mon-lau',
             ]
     	];
 

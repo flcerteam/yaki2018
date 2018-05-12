@@ -21,7 +21,6 @@ class Branch extends Model
     // protected $guarded = ['id'];
     protected $fillable = [
         'name',
-        'slug',
         'description',
         'address',
         'contact_name',
