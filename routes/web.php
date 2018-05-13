@@ -93,7 +93,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
 
     // Update status
     Route::post('reservation-table/update-status', ['as' => 'updateRtStatus', 'uses' => 'Admin\ReservationTableCrudController@updateStatus']);
-	  Route::post('order/update-status', ['as' => 'updateOrderStatus', 'uses' => 'Admin\OrderCrudController@updateStatus']);
+    Route::post('order/update-status', ['as' => 'updateOrderStatus', 'uses' => 'Admin\OrderCrudController@updateStatus']);
+    
+    // Dashboard
+    Route::get('dashboard', 'Admin\DashboardController@dashboard')->name('backpack.dashboard');
+    Route::get('/', 'Admin\DashboardController@redirect')->name('backpack');
 });
 
 // Ajax
