@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class MenusTableSeeder extends Seeder
+class UnitsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class MenusTableSeeder extends Seeder
 
     	$units = [
             [
-                'name'          => 'Dĩa'
+                'name'  => 'Dĩa'
             ]
     	];
 

@@ -17,6 +17,8 @@ class CreateUnitsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 255)->nullable()->default(null);
+
+            $table->unique(["name"], 'unique_units');
         });
     }
 

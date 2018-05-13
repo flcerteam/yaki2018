@@ -101,7 +101,7 @@ return [
 
     // global crud - errors
         'unauthorized_access' => 'Unauthorized access - you do not have the necessary permissions to see this page.',
-        'please_fix' => 'Xin hãy chỉnh sửa các lỗi bên dưới:',
+        'please_fix' => 'Đã phát sinh các lỗi bên dưới:',
 
     // global crud - success / error notification bubbles
         'insert_success' => 'Thêm mới thành công.',

@@ -20,7 +20,6 @@ class CreateBranchImagesTable extends Migration
             $table->string('name', 255)->nullable()->default(null);
             $table->integer('order');
 
-
             $table->foreign('branch_id')
                 ->references('id')->on('branches')
                 ->onDelete('no action')

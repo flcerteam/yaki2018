@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UnitRequest extends FormRequest
+class UnitUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,7 @@ class UnitRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255|unique:units,name'
+            'name' => 'required|max:255||unique:units,id,'.$this->id
         ];
     }
 
@@ -38,7 +38,7 @@ class UnitRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name'  => trans('unit.name'),
+            //
         ];
     }
 

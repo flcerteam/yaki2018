@@ -6,7 +6,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\Admin\UnitRequest as StoreRequest;
-use App\Http\Requests\Admin\UnitRequest as UpdateRequest;
+use App\Http\Requests\Admin\UnitUpdateRequest as UpdateRequest;
 
 class UnitCrudController extends CrudController
 {
