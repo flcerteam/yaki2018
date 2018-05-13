@@ -46,7 +46,7 @@ class CheckOutController extends Controller {
                   ->where([
                     ['name',$req->name],
                     ['email', $req->email],
-                    ['phone_number',$req->phone]])
+                    ['phone_number',$req->phone_number]])
                   ->first();
      
       // nếu đã tồn tại customer thì k add thêm
@@ -54,11 +54,11 @@ class CheckOutController extends Controller {
         $member = new Member;
 
         $member->name = $req->name;
-        $member->birth_date = $req->birth;
+        $member->birth_date = $req->birth_date;
         $member->gender = $req->gender;
         $member->email = $req->email;
         $member->address = $req->address;
-        $member->phone_number = $req->phone;
+        $member->phone_number = $req->phone_number;
         $member->save();
        
       } else {
@@ -80,10 +80,10 @@ class CheckOutController extends Controller {
       $order->comment = $req->note;
       $order->total =  (float)Cart::subTotal();
       $order->save();
-
+     
       $order->invoice_no = "O".str_pad($order->id, 6, '0', STR_PAD_LEFT);
       $order->update();
-
+     
       // insert into table order detail
       foreach ($cart as $value) {
           $product = Product::where('id',$value->id)->first();
@@ -99,12 +99,13 @@ class CheckOutController extends Controller {
       // insert into table OrderStatusHistory
       $orderStatusHistory = new OrderStatusHistory;
       $orderStatusHistory->order_id = $order->id;
-      $orderStatusHistory->status_id = $order->status;
+      $orderStatusHistory->status_id = $order->status_id;
       $orderStatusHistory->save();
       DB::commit();
       Cart::destroy();
       return redirect()->route('success', $order->invoice_no);
     } catch(\Exception $e) {
+      dd( $e->getMessage());
       DB::rollback();
       return redirect()->back()->with('thongbao','Đặt hàng thất bại');
     }
