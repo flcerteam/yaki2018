@@ -43,20 +43,22 @@
     
         {{-- fb-live chat --}}
         <!-- Load Facebook SDK for JavaScript -->
-        {{-- <div id="fb-root"></div>
+        <div id="fb-root"></div>
         <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
+          fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
-
+        
         <!-- Your customer chat code -->
         <div class="fb-customerchat"
-        attribution="setup_tool"
-        page_id="1417676308332466">
-        </div> --}}
+          attribution="setup_tool"
+          page_id="1417676308332466"
+          logged_in_greeting="Xin Chào! Yaki có thể giúp gì được bạn."
+          logged_out_greeting="Xin Chào! Yaki có thể giúp gì được bạn.">
+        </div>
         {{-- /fb-livechat --}}
         @include('header')
         @yield('content')
@@ -81,7 +83,6 @@
         <script type="text/javascript" src="js/cart/cart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.js"></script>
         <script type="text/javascript" src="js/checkout/checkout.js"></script>
-        <script type="text/javascript" src="js/checkout/autoFill.js"></script>
         <!-- lib for autosearch-->
         <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
         <script type="text/javascript" src="/js/search/autoSearch.js"></script>

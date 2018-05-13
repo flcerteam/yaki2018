@@ -25,23 +25,22 @@
 
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="phone">Số Điện Thoại:</label>
-                            <input class="input" type="tel" placeholder="Số Điện Thoại" id="phone" name="phone" required>
+                            <label for="phone_number">Số Điện Thoại:</label>
+                            <input class="input" type="tel" placeholder="Số Điện Thoại" id="phone_number" name="phone_number" required>
                         </div>
                         <div class="form-group">
                             <label for="name">Tên:</label>
                             <input class="input" type="text" placeholder="Tên" id="name" name="name" required>
                         </div>
                         <div class="form-group">
-                            <label for="gender">Giới Tính:</label>
-                            <select class="input" id="gender" name="gender">
-                            <option value="man">Nam</option>
-                            <option value="women">Nữ</option>
-                            </select>
+                            <label for="gender">Giới Tính:</label><br>
+                            <input type="radio" id="gender" name="gender" value="0" checked="checked"> Nam
+                            &nbsp;&nbsp;&nbsp;
+                            <input type="radio" id="gender" name="gender" value="1"> Nữ
                         </div>
                         <div class="form-group">
-                            <label for="birth">Ngày Sinh:</label>
-                            <input class="input" type="date" placeholder="DD/MM/YY" id="birth" name="birth">
+                            <label for="birth_date">Ngày Sinh:</label>
+                            <input class="input" type="date" placeholder="DD/MM/YY" id="birth_date" name="birth_date">
                         </div>
                     </div>
 

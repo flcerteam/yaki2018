@@ -15,22 +15,6 @@ use App\Http\Controllers\Controller;
 class CheckOutController extends Controller {
 
   /**
-   * get custommer infomation by phone number
-   */
-  public function getCustomerInfo(Request $req){
-      $input = $req->all();
-      $customer = Member::where('phone_number',$input['phone'])->first();
-      if( null == $customer) {
-        $returnData = array(
-            'status' => 'error',
-            'message' => 'An error occurred!'
-        );
-        return response()->json($returnData);
-      }
-      return response()->json(['customer'=>$customer]);
-  }
-
-  /**
    * update quantity of item
    */
   public function updateQtty(Request $req) {
