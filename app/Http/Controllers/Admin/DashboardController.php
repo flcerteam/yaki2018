@@ -17,7 +17,23 @@ class DashboardController extends Controller
 
         $reservationTable = ReservationTable::where('status_id', 0)->get();
         $order = Order::where('status_id', 0)->get();
-        return view('admin.dashboard.info', $this->data , compact('reservationTable', 'order'));
+
+        $today = \Carbon\Carbon::today();
+        $rtToday = ReservationTable::where([
+            ['reservation_date', '=', $today],
+            ['status_id', '=', 1]
+        ])->get();
+
+        $tomorrow = \Carbon\Carbon::tomorrow();
+        $rtTomorrow = ReservationTable::where([
+            ['reservation_date', '=', $tomorrow],
+            ['status_id', '=', 1]
+        ])->get();
+
+        $todayFm = $today->format('d-m-Y');
+        $tomorrowFm = $tomorrow->format('d-m-Y');
+
+        return view('admin.dashboard.info', $this->data , compact('reservationTable', 'order', 'rtToday', 'rtTomorrow', 'todayFm', 'tomorrowFm'));
     }
 
     public function redirect()

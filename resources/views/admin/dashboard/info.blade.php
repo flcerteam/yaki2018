@@ -55,6 +55,126 @@
                     </div>
                 </div>
             </div>
+
+            @if (count($rtToday) > 0 || count($rtTomorrow) > 0)
+            <div class="row">
+                @if (count($rtToday) > 0)
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">
+                            <span><i class="fa fa-info-circle"></i> {{ trans('dashboard.rt_today_confirmed') }} [{{ $todayFm }}]</span>
+                            </h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="col-md-12">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>{{ trans('dashboard.rt_time') }}</th>
+                                            <th>{{ trans('dashboard.rt_type') }}</th>
+                                            <th>{{ trans('dashboard.nop') }}</th>
+                                            <th>{{ trans('dashboard.member') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $branchId = ''; ?>
+                                        @foreach($rtToday as $todayDtl)
+                                            @if($branchId == '' || $branchId != $todayDtl->branch_id)
+                                                <tr>
+                                                    <td colspan="5" bgcolor="#FEA01C">
+                                                        {{ $todayDtl->branch->name }}
+                                                    </td>
+                                                </tr>
+                                                <?php $branchId = $todayDtl->branch_id; ?>
+                                            @endif
+                                            <tr>
+                                                <td>
+                                                    {{ $todayDtl->reservation_no }}
+                                                </td>
+                                                <td>
+                                                    {{ $todayDtl->reservation_hour }}
+                                                </td>
+                                                <td>
+                                                    {{ $todayDtl->type->name }}
+                                                </td>
+                                                <td>
+                                                    {{ $todayDtl->number_of_people }}
+                                                </td>
+                                                <td>
+                                                    {{ $todayDtl->member->name }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+                @if (count($rtTomorrow) > 0)
+                <div class="col-md-6">
+                    <div class="box">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">
+                                <span><i class="fa fa-info-circle"></i> {{ trans('dashboard.rt_tomorrow_confirmed') }} [{{ $tomorrowFm }}]</span>
+                            </h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="col-md-12">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>{{ trans('dashboard.rt_time') }}</th>
+                                            <th>{{ trans('dashboard.rt_type') }}</th>
+                                            <th>{{ trans('dashboard.nop') }}</th>
+                                            <th>{{ trans('dashboard.member') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $branchId = ''; ?>
+                                        @foreach($rtTomorrow as $tomorrowDtl)
+                                            @if($branchId == '' || $branchId != $tomorrowDtl->branch_id)
+                                                <tr>
+                                                    <td colspan="5" bgcolor="#FEA01C">
+                                                        {{ $tomorrowDtl->branch->name }}
+                                                    </td>
+                                                </tr>
+                                                <?php $branchId = $tomorrowDtl->branch_id; ?>
+                                            @endif
+                                            <tr>
+                                                <td>
+                                                    {{ $tomorrowDtl->reservation_no }}
+                                                </td>
+                                                <td>
+                                                    {{ $tomorrowDtl->reservation_hour }}
+                                                </td>
+                                                <td>
+                                                    {{ $tomorrowDtl->type->name }}
+                                                </td>
+                                                <td>
+                                                    {{ $tomorrowDtl->number_of_people }}
+                                                </td>
+                                                <td>
+                                                    {{ $tomorrowDtl->member->name }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+            </div>
+            @endif
         </div>
     </div>
 @endsection
