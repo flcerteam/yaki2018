@@ -18,7 +18,7 @@ class MenuController extends Controller
                         ->join('category_menu','category_menu.category_id','=','category_product.category_id')
                         ->select('products.*','product_images.name as image','units.name as unit_type')
                         ->where('category_menu.menu_id',$id)
-                        ->distinct('products.id')
+                        ->groupBy('products.sku')
                         ->paginate(6);
         // get sub menu
         $menus = DB::table('menus')
