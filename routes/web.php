@@ -125,13 +125,13 @@ Route::post('dat-hang',[
 	'uses'=>'Client\CheckOutController@insertOrder'
 ]);
 /** search form result*/
-Route::get('/search','Client\SearchController@getSearchResult')->name('search');
+Route::get('search','Client\SearchController@getSearchResult')->name('search');
 /** auto search key word */
-Route::get('/find', 'Client\SearchController@getSearchHint');
+Route::get('find', 'Client\SearchController@getSearchHint');
 
 
-Route::post('/add-to-cart','Client\CartController@addToCart');
+Route::post('add-to-cart','Client\CartController@addToCart');
 
-Route::get('/about',function(){
+Route::get('about',function(){
   return view('about.about');
 });
