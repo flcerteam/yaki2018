@@ -79,7 +79,7 @@ return [
         'loadingRecords' => 'Đang tải...',
         'processing'     => 'Đang xử lý...',
         'search'         => 'Tìm kiếm: ',
-        'zeroRecords'    => 'No matching records found',
+        'zeroRecords'    => 'Không tìm thấy kết quả',
         'paginate'       => [
             'first'    => 'Đầu tiên',
             'last'     => 'Cuối cùng',

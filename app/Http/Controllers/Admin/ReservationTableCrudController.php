@@ -137,6 +137,16 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
+        // $this->crud->addFilter(
+        //     [
+        //         'type' => 'date',
+        //         'name' => 'date',
+        //         'label'=> trans('rt.reservation_date')
+        //     ],
+        //     false,
+        //     function($value) { // if the filter is active, apply these constraints
+        //         // $this->crud->addClause('where', 'reservation_date', '=', $value);
+        //     });
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');
         // $this->crud->addClause('where', 'name', '==', 'car');
@@ -147,7 +157,7 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->addClause('withoutGlobalScopes');
         // $this->crud->addClause('withoutGlobalScope', VisibleScope::class);
         // $this->crud->with(); // eager load relationships
-        // $this->crud->orderBy();
+        $this->crud->orderBy('reservation_no', 'DESC');
         // $this->crud->groupBy();
         // $this->crud->limit();
     }
