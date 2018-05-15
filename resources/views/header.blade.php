@@ -36,7 +36,7 @@
             <!-- nav -->
             <ul class="main-nav nav navbar-nav">
                 <li><a href="{{ route('home') }}">Trang Chủ</a></li>
-                <li><a href="about">Giới Thiệu</a></li>
+                <li><a href="/about">Giới Thiệu</a></li>
                 <li><a href="{{ route('thucdon',[str_slug($yakiMenu->name,'-'),$yakiMenu->id]) }}">Thực Đơn</a></li>
                 <li><a href="{{ route('market',[str_slug($yakiMarket->name,'-'),$yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
                 <li><a href="{{ route('branch') }}">Hệ Thống Nhà Hàng</a></li>
