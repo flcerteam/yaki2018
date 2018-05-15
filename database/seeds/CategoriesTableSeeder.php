@@ -15,26 +15,44 @@ class CategoriesTableSeeder extends Seeder
 
     	$categories = [
             [
-        		'name'  => 'Đặc sản Yaki',
+        		  'name'  => 'Cháo - Lẩu',
             ],
             [
-        		'name'  => 'Món nướng',
+        		  'name'  => 'Món chiên - xào - hấp',
             ],
             [
-        		'name'  => 'Món hấp',
+        		  'name'  => 'Món khai vị',
             ],
             [
-        		'name'  => 'Món chiên',
+        		  'name'  => 'Món nướng',
             ],
             [
-        		'name'  => 'Món xào',
+        		  'name'  => 'Thức uống',
             ],
             [
-        		'name'  => 'Cháo',
+        		  'name'  => 'Thịt bò',
             ],
             [
-        		'name'  => 'Món lẩu',
-            ]
+        		  'name'  => 'Thịt heo',
+            ],
+            [
+              'name'  => 'Thịt dê',
+            ],
+            [
+              'name'  => 'Thịt gà',
+            ],
+            [
+              'name'  => 'Cá',
+            ],
+            [
+              'name'  => 'Tôm',
+            ],
+            [
+              'name'  => 'Giò chả',
+            ],
+            [
+              'name'  => 'Rau củ quả sạch',
+            ],
     	];
 
     	DB::table('categories')->insert($categories);
