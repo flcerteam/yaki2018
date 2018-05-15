@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 15, 2018 at 03:47 PM
+-- Generation Time: May 15, 2018 at 04:22 PM
 -- Server version: 5.7.19
 -- PHP Version: 7.1.9
 
@@ -32,6 +32,7 @@ DROP TABLE IF EXISTS `branches`;
 CREATE TABLE IF NOT EXISTS `branches` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` longtext COLLATE utf8_unicode_ci,
   `address` longtext COLLATE utf8_unicode_ci,
   `contact_name` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -51,12 +52,12 @@ CREATE TABLE IF NOT EXISTS `branches` (
 -- Dumping data for table `branches`
 --
 
-INSERT INTO `branches` (`id`, `name`, `description`, `address`, `contact_name`, `phone_number`, `email`, `open_hour`, `close_hour`, `location`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Yaki 1', 'Nhà hàng Yaki 1', '71 Chế Lan Viên, P. Tây Thạnh, Q. Tân Phú, Tp. HCM', 'Mr. Yaki 1', '0903906084 - (028) 38162188', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0806366451257!2d106.66426731480104!3d10.805135992302025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752924e9933fb7%3A0x7cfcfeda7f7e52e4!2sFujinet+Systems+JSC!5e0!3m2!1sen!2s!4v1525707072224\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 14:38:41'),
-(2, 'Yaki 2', 'Nhà hàng Yaki 2', '123 Bờ Bao Tân Thắng, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM', 'Mr. Yaki 2', '0903906084 - (028) 38162188', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0806366451257!2d106.66426731480104!3d10.805135992302025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752924e9933fb7%3A0x7cfcfeda7f7e52e4!2sFujinet+Systems+JSC!5e0!3m2!1sen!2s!4v1525707072224\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 14:38:41'),
-(3, 'Yaki 3', 'Nhà hàng Yaki 3', '375 Tân Sơn Nhì, P. Tân Thành, Q. Tân Phú, Tp. HCM', 'Mr. Yaki 3', '0903906084 - (028) 38162188', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0806366451257!2d106.66426731480104!3d10.805135992302025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752924e9933fb7%3A0x7cfcfeda7f7e52e4!2sFujinet+Systems+JSC!5e0!3m2!1sen!2s!4v1525707072224\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 14:38:41'),
-(4, 'Yaki 4', 'Nhà hàng Yaki 4', '60 Đường CN1, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM', 'Mr. Yaki 4', '0903906084 - (028) 38162188', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0806366451257!2d106.66426731480104!3d10.805135992302025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752924e9933fb7%3A0x7cfcfeda7f7e52e4!2sFujinet+Systems+JSC!5e0!3m2!1sen!2s!4v1525707072224\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 14:38:41'),
-(5, 'Yaki 5', 'Nhà hàng Yaki 5', '39 Đường số 3, Vĩnh Lộc Mới, Q. Bình Tân, Tp. HCM', 'Mr. Yaki 5', '0903906084 - (028) 38162188', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0806366451257!2d106.66426731480104!3d10.805135992302025!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752924e9933fb7%3A0x7cfcfeda7f7e52e4!2sFujinet+Systems+JSC!5e0!3m2!1sen!2s!4v1525707072224\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 14:38:41');
+INSERT INTO `branches` (`id`, `name`, `slug`, `description`, `address`, `contact_name`, `phone_number`, `email`, `open_hour`, `close_hour`, `location`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Yaki 1', 'yaki-1', 'Nhà hàng Yaki 1', '18 Chế Lan Viên, P. Tây Thạnh, Q. Tân Phú, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.9881590830187!2d106.62798898405839!3d10.812217650659457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295f81d836b5%3A0x5932194c45465333!2sYaki+Qu%C3%A1n!5e0!3m2!1sen!2s!4v1526400224599\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:04:05'),
+(2, 'Yaki 2', 'yaki-2', 'Nhà hàng Yaki 2', '123 Bờ Bao Tân Thắng, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15675.951266541508!2d106.6214228861431!3d10.812243865770549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bf0a6e08531%3A0x8fba12444567c2ea!2zUXXDoW4gbsaw4bubbmcgWWFraQ!5e0!3m2!1sen!2s!4v1526400322146\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:05:58'),
+(3, 'Yaki 3', 'yaki-3', 'Nhà hàng Yaki 3', '375 Tân Sơn Nhì, P. Tân Thành, Q. Tân Phú, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2255507918635!2d106.62674911410531!3d10.794029661821769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295561b92877%3A0x1f877a4ce3eb5c06!2sQuan+Nuong+Yaki!5e0!3m2!1sen!2s!4v1526400441719\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:07:39'),
+(4, 'Yaki 4', 'yaki-4', 'Nhà hàng Yaki 4', '60 Đường CN1, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15675.65491387801!2d106.6099832697754!3d10.817914000000009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bed9d353d93%3A0x3d94fd0419cc6721!2zbmjDoCBow6BuZyBxdcOhbiBuxrDhu5tuZyBZYWtp!5e0!3m2!1sen!2s!4v1526400521753\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:11:20'),
+(5, 'Yaki 6', 'yaki-6', 'Nhà hàng Yaki 6', '39 Đường số 3, Vĩnh Lộc Mới, Q. Bình Tân, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0642004633205!2d106.5898639141054!3d10.806394961596414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752eb47fe41e75%3A0x1781a971fc5f0786!2zWWFraSBDaOG6s25nIEThu6tuZyBOxrDhu5tuZyA2!5e0!3m2!1sen!2s!4v1526400748976\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:12:56');
 
 -- --------------------------------------------------------
 
@@ -72,7 +73,17 @@ CREATE TABLE IF NOT EXISTS `branch_images` (
   `order` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `branch_images_branch_id_foreign` (`branch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `branch_images`
+--
+
+INSERT INTO `branch_images` (`id`, `branch_id`, `name`, `order`) VALUES
+(1, 1, '29a5b7df7f704af87bb42fbdce21a5ab.jpeg', 0),
+(2, 2, 'dbf31437c9f32d8e6e4638ca9c9d7b4e.jpeg', 0),
+(3, 3, '56f01929fe11bf5b41015182363bebcc.jpeg', 0),
+(4, 5, 'dc8bbd581741f98a44aef2c246474ef1.jpeg', 0);
 
 -- --------------------------------------------------------
 
