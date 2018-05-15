@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <base href="{{asset('')}}">
+        <base href="{{asset('/public/')}}">
         <meta name="csrf-token" value="{{csrf_token()}}">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -85,7 +85,7 @@
         <script type="text/javascript" src="js/checkout/checkout.js"></script>
         <!-- lib for autosearch-->
         <script src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"></script>
-        <script type="text/javascript" src="/js/search/autoSearch.js"></script>
+        <script type="text/javascript" src="js/search/autoSearch.js"></script>
         <!-- reservation -->
         <script type="text/javascript" src="js/reservation/autoFill.js"></script>
         <!-- /reservation -->
