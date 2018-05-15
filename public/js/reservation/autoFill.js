@@ -30,7 +30,6 @@ jQuery(document).ready(function($) {
           $("#birth_date").val(data.member['birth_date']);
           $("input[name=gender][value=" + data.member['gender'] + "]").prop('checked', true);
           $("#email").val(data.member['email']);
-          $("#address").val(data.member['address']);
         },
         error:function(data) {
         }

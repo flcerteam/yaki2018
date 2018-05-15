@@ -88,7 +88,6 @@ class ReservationController extends Controller
                 $member->birth_date = $req->birth_date;
                 $member->gender = $req->gender;
                 $member->email = $req->email;
-                $member->address = $req->address;
                 $member->phone_number = $req->phone_number;
 
                 $member->save();
@@ -98,7 +97,6 @@ class ReservationController extends Controller
                 $member->birth_date = $req->birth_date;
                 $member->gender = $req->gender;
                 $member->email = $req->email;
-                $member->address = $req->address;
 
                 $member->update();
             }

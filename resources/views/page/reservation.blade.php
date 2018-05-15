@@ -55,11 +55,6 @@
                                 <label for="email">Email:</label>
                                 <input class="input" type="email" placeholder="Email" id="email" name="email" required>
                             </div>
-                            <div class="form-group">
-                                <label for="address">Địa Chỉ:</label>
-                                <input class="input" type="text" placeholder="Địa chỉ" id="address" name="address" required>
-                            </div>
-                            
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
@@ -88,6 +83,9 @@
                                 <label for="number_of_people">Số Người:</label>
                                 <input class="input" type="number" placeholder="Số Người" name="number_of_people" required>
                             </div>
+                        </div>
+
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label<div class="form-group">
                                 <label for="note">Ghi Chú:</label>
