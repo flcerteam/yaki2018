@@ -48,6 +48,12 @@ class BranchCrudController extends CrudController
               'tab'   => trans('branch.general_tab'),
             ],
             [
+                'name'  => 'slug',
+                'type'  => 'hidden',
+                // TAB
+                'tab'   => trans('branch.general_tab'),
+              ],
+            [
               'name'  => 'description',
               'label' => trans('branch.description'),
               'type'  => 'textarea',
@@ -270,6 +276,9 @@ class BranchCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
+        $requestData = $request->all();
+        $request->merge(['slug' => str_slug($requestData['name'], '-')]);
+        
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
@@ -279,6 +288,9 @@ class BranchCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
+        $requestData = $request->all();
+        $request->merge(['slug' => str_slug($requestData['name'], '-')]);
+
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here
