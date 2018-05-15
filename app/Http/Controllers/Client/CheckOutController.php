@@ -78,7 +78,7 @@ class CheckOutController extends Controller {
       $order->shipping_address = $member->address;
       $order->billing_address = $member->address;
       $order->comment = $req->note;
-      $order->total =  (float)Cart::subTotal();
+      $order->total =  Cart::subTotal();
       $order->save();
      
       $order->invoice_no = "O".str_pad($order->id, 6, '0', STR_PAD_LEFT);

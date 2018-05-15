@@ -131,3 +131,7 @@ Route::get('/find', 'Client\SearchController@getSearchHint');
 
 
 Route::post('/add-to-cart','Client\CartController@addToCart');
+
+Route::get('/about',function(){
+  return view('about.about');
+});
