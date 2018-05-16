@@ -64,6 +64,11 @@ class Member extends Model
     */
     public function getBirthDateAttribute($value)
     {
-        return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
+        if ($value != null)
+        {
+            return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
+        }
+
+        return $value;
     }
 }

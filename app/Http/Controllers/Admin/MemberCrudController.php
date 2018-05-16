@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Illuminate\Http\Request;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\Admin\MemberRequest as StoreRequest;
@@ -177,6 +178,12 @@ class MemberCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
+        $requestData = $request->all();
+
+        if ($requestData['member_point'] == null) {
+            $request->merge(['member_point' => '0']);
+        }
+
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
@@ -186,6 +193,12 @@ class MemberCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
+        $requestData = $request->all();
+    
+        if ($requestData['member_point'] == null) {
+            $request->merge(['member_point' => '0']);
+        }
+
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here

@@ -27,12 +27,12 @@ class MemberRequest extends FormRequest
     {
         return [
             'name'              => 'required|max:100',
-            'birth_date'        => 'required',
+            'birth_date'        => 'sometimes|nullable|date',
             'gender'            => 'required|numeric|between:0,2',
             'phone_number'      => 'required|max:20|unique:members,phone_number'.($this->request->get('id') ? ','.$this->request->get('id') : ''),
-            'email'             => 'required|max:255',
-            'address'           => 'required|max:1000',
-            'member_point'      => 'numeric|between:0,9999999999',
+            'email'             => 'required|email|max:255',
+            'address'           => 'max:1000',
+            'member_point'      => 'sometimes|nullable|numeric|between:0,9999999999',
         ];
     }
 
@@ -44,7 +44,13 @@ class MemberRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'name'          => trans('member.name'),
+            'birth_date'    => trans('member.birth_date'),
+            'gender'        => trans('member.gender'),
+            'phone_number'  => trans('member.phone_number'),
+            'email'         => trans('member.email'),
+            'address'       => trans('member.address'),
+            'member_point'  => trans('member.member_point')
         ];
     }
 
