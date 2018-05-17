@@ -42,8 +42,7 @@ class CheckOutController extends Controller {
     try{
       $cart = Cart::content();
       $member = new Member;
-      $member = DB::table('members')
-                  ->where([
+      $member = Member::where([
                     ['name',$req->name],
                     ['email', $req->email],
                     ['phone_number',$req->phone_number]])
