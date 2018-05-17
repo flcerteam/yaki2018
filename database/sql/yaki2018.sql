@@ -117,7 +117,10 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (9, 'Thịt gà'),
 (7, 'Thịt heo'),
 (5, 'Thức uống'),
-(11, 'Tôm');
+(11, 'Tôm'),
+(14, 'Món ăn được yêu thích'),
+(15, 'Sản phẩm được mua nhiều'),
+(16, 'Hàng gia dụng');
 
 -- --------------------------------------------------------
 
