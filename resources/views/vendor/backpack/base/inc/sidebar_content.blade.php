@@ -25,6 +25,7 @@
   <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i> <span>{{ trans('common.systemManagement') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
   <ul class="treeview-menu">
     <li><a href="{{ backpack_url('menu') }}"><i class="fa fa-tasks" aria-hidden="true"></i> <span>{{ trans('menu.menus') }}</span></a></li>
+    <li><a href="{{ backpack_url('parameter') }}"><i class="fa fa-code" aria-hidden="true"></i> <span>{{ trans('common.paramManagement') }}</span></a></li>
     <li><a href="{{ backpack_url('yaki-images') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
   </ul>
 </li>

@@ -641,6 +641,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2018_04_20_000016_create_reservation_tables_table', 1),
 (20, '2018_04_20_000017_create_rt_status_histories_table', 1),
 (21, '2018_04_20_000018_create_order_status_histories_table', 1);
+(22, '2018_04_20_000019_create_parameters_table', 2);
 
 -- --------------------------------------------------------
 
@@ -1298,6 +1299,31 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@yaki.com.vn', '$2y$10$qz8JGrnwGIV9we7SII9/kuVeIFxIfhYqzKRTkuvnVF7oFdjEcxy/y', NULL, '2018-05-15 14:38:40', '2018-05-15 14:38:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `parameters`
+--
+
+DROP TABLE IF EXISTS `parameters`;
+CREATE TABLE IF NOT EXISTS `parameters` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `param_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_param_ids` (`param_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `parameters`
+--
+
+INSERT INTO `parameters` (`id`, `param_id`, `name`, `content`, `created_at`, `updated_at`) VALUES
+(1, 'YAKI_ABOUT', 'Nội dung giới thiệu nhà hàng Yaki', 'Yaki - Chắng dừng nướng là cái tên đã quá quen thuộc đối với những tín đồ yêu thích hải sản- nướng, lẩu theo phong cách Nhật – Hàn. Được hình thành đầu tiên tại Yaki 1, đường Chế Lan Viên, phường Tây Thạnh, quận Tân Phú, đến nay Yaki đã có 6 chi nhánh tại Bình Tân và Tân Phú.\r\n\r\nHệ thống phòng lạnh, phòng vip được thiết kế theo  phong cách Nhật ấm cúng, cùng sân vườn rộng rãi  thoáng mát, Yaki còn là một địa chỉ quen thuộc của hàng triệu khách hàng.\r\n\r\nVới  hai hình thức phục vụ đồ ăn hiện đại là: buffet và gọi món, thực khách có cơ hội khám phá hàng trăm món ăn đặc sắc, bổ dưỡng, với điểm nhấn là các loại thịt, hải sản tươi ngon, quý hiếm được Yaki lựa chọn nhập trực tiếp từ những nhà cung cấp uy tín  nhất ở chính quê hương chúng tôi như Quảng Nam, Nha Trang , Bến Tre…\r\n\r\nVới uy tín thương hiệu  được khẳng định, hệ thống nhà hàng Yaki đã được nhiều thực khách ưu ái lựa chọn để tổ chức các sự kiện có quy mô từ nhỏ tới lớn như: tiệc sinh nhật, tiệc buffet,  thôi nôi,  tiệc công ty, liên hoan, Tất Niên cuối năm, …\r\n\r\nThực đơn của YAKI có nhiều món ăn phong phú, đặc sắc và rất ngon miệng được chế biến theo đúng hương vị Nhật Bản. Thực đơn luôn được định kỳ bổ sung và thay đổi nhằm mang đến cho quí khách sự mới mẻ và nhiều trải nghiệm mới.\r\n\r\nYAKI HÂN HẠNH PHỤC VỤ QUÝ KHÁCH.', '2018-05-17 16:57:41', '2018-05-17 16:57:41');
 
 --
 -- Constraints for dumped tables

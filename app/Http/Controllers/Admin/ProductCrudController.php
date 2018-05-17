@@ -72,14 +72,6 @@ class ProductCrudController extends CrudController
                 'tab'       => trans('product.general_tab')
             ],
             [
-                'name'      => 'slug',
-                'label'     => trans('product.slug'),
-                'type'      => 'text',
-
-                // TAB
-                'tab'       => trans('product.general_tab')
-            ],
-            [
                 'name'      => 'description',
                 'label'     => trans('product.description'),
                 'type'      => 'textarea',
