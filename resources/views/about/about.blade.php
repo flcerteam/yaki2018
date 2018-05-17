@@ -4,6 +4,7 @@
 <div class="section"></div>
 <div class="section">
     <div class="container">
+        @if(null != $parameter)
         <div class="row">
             <div class="section-header text-center">
                 <h4 class="sub-title">About Us</h4>
@@ -69,6 +70,9 @@
                 </div>
             </div>
         </div>
+        @else 
+            <p>Hệ Thống Đang Bảo Trì. Mong quý khách thông cảm</p>
+        @endif
     </div>
 </div>
 @endsection
