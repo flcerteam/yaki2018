@@ -640,8 +640,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2018_04_20_000015_create_events_table', 1),
 (19, '2018_04_20_000016_create_reservation_tables_table', 1),
 (20, '2018_04_20_000017_create_rt_status_histories_table', 1),
-(21, '2018_04_20_000018_create_order_status_histories_table', 1);
-(22, '2018_04_20_000019_create_parameters_table', 2);
+(21, '2018_04_20_000018_create_order_status_histories_table', 1),
+(22, '2018_04_20_000019_create_parameters_table', 1);
 
 -- --------------------------------------------------------
 
