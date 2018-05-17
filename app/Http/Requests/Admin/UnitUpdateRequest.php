@@ -38,7 +38,7 @@ class UnitUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'name'  => trans('unit.name'),
         ];
     }
 

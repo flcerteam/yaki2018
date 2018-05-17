@@ -40,7 +40,9 @@ class EventRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'title'     => trans('event.title'),
+            'content'   => trans('event.content'),
+            'status'    => trans('common.status')
         ];
     }
 
