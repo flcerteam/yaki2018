@@ -2,7 +2,7 @@
 @section('content')
 <!-- section header -->
 <div class="section"></div>
-<div class="section">
+<div id="about" class="section">
     <div class="container">
         @if(null != $parameter)
         <div class="row">
