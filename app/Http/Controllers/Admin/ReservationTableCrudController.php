@@ -137,16 +137,51 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
-        // $this->crud->addFilter(
-        //     [
-        //         'type' => 'date',
-        //         'name' => 'date',
-        //         'label'=> trans('rt.reservation_date')
-        //     ],
-        //     false,
-        //     function($value) { // if the filter is active, apply these constraints
-        //         // $this->crud->addClause('where', 'reservation_date', '=', $value);
-        //     });
+        $this->crud->addFilter(
+            [ // select2 filter
+                'name' => 'status_id',
+                'type' => 'select2',
+                'label'=> trans('rt.status')
+            ], function() {
+                return \App\Models\Admin\RtStatus::all()->pluck('name', 'id')->toArray();
+            }, function($value) { // if the filter is active
+                  $this->crud->addClause('where', 'status_id', $value);
+            });
+
+        $this->crud->addFilter(
+            [ // select2 filter
+                'name' => 'branch_id',
+                'type' => 'select2',
+                'label'=> trans('branch.branch')
+            ], function() {
+                return \App\Models\Admin\Branch::all()->pluck('name', 'id')->toArray();
+            }, function($value) { // if the filter is active
+                    $this->crud->addClause('where', 'branch_id', $value);
+            });
+
+        $this->crud->addFilter(
+            [ // select2 filter
+                'name' => 'rt_type_id',
+                'type' => 'select2',
+                'label'=> trans('rt.rt_type')
+            ], function() {
+                return \App\Models\Admin\RtType::all()->pluck('name', 'id')->toArray();
+            }, function($value) { // if the filter is active
+                    $this->crud->addClause('where', 'rt_type_id', $value);
+            });
+
+        $this->crud->addFilter(
+            [
+                'type' => 'date_range',
+                'name' => 'from_to',
+                'label'=> trans('rt.reservation_date')
+            ],
+            false,
+            function($value) { // if the filter is active, apply these constraints
+                $dates = json_decode($value);
+                    $this->crud->addClause('where', 'reservation_date', '>=', $dates->from);
+                    $this->crud->addClause('where', 'reservation_date', '<=', $dates->to);
+            });
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');
         // $this->crud->addClause('where', 'name', '==', 'car');

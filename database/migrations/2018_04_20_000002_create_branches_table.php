@@ -24,6 +24,7 @@ class CreateBranchesTable extends Migration
             $table->string('email', 255)->nullable()->default(null);
             $table->string('open_hour', 20)->nullable()->default(null);
             $table->string('close_hour', 20)->nullable()->default(null);
+            $table->tinyInteger('has_buffet_service')->default(0);
             $table->string('location', 1000)->nullable()->default(null);
             $table->tinyInteger('status');
 

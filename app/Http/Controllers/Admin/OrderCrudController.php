@@ -119,6 +119,16 @@ class OrderCrudController extends CrudController
         // $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
+        $this->crud->addFilter(
+            [ // select2 filter
+                'name' => 'status_id',
+                'type' => 'select2',
+                'label'=> trans('order.status')
+            ], function() {
+                return \App\Models\Admin\OrderStatus::all()->pluck('name', 'id')->toArray();
+            }, function($value) { // if the filter is active
+                  $this->crud->addClause('where', 'status_id', $value);
+            });
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');
         // $this->crud->addClause('where', 'name', '==', 'car');

@@ -90,11 +90,21 @@ class ReservationTable extends Model
     */
     public function getCreatedAtAttribute($value)
     {
-        return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+        if (null != $value)
+        {
+            return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+        }
+
+        return $value;
     }
 
     public function getReservationDateAttribute($value)
     {
-        return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
+        if (null != $value)
+        {
+            return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
+        }
+
+        return $value;
     }
 }
