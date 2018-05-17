@@ -10,7 +10,7 @@ return [
     | The dir where to store the images (relative from public).
     |
     */
-    'dir' => ['uploads'],
+    'dir' => ['uploads\yaki'],
 
     /*
     |--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
     |    ]
     */
     'disks' => [
-        // 'uploads',
+       
     ],
 
     /*
@@ -39,7 +39,7 @@ return [
     */
 
     'route' => [
-        'prefix'     => config('backpack.base.route_prefix', 'admin').'/elfinder',
+        'prefix'     => config('backpack.base.route_prefix', 'admin').'/yaki-images',
         'middleware' => ['web', config('backpack.base.middleware_key', 'admin')], //Set to null to disable middleware filter
     ],
 
