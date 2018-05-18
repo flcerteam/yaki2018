@@ -46,7 +46,7 @@ return [
     'language'          => 'Language',
 
     // CRUD table view
-    'all'                       => 'All ',
+    'all'                       => 'Tất cả',
     'in_the_database'           => 'in the database',
     'list'                      => 'Danh sách',
     'actions'                   => 'Xử lý',
@@ -120,9 +120,9 @@ return [
         'no' => 'No',
 
     // CRUD filters navbar view
-        'filters' => 'Filters',
+        'filters' => 'Điều kiện lọc',
         'toggle_filters' => 'Toggle filters',
-        'remove_filters' => 'Remove filters',
+        'remove_filters' => 'Xóa',
 
     // Fields
         'browse_uploads' => 'Browse uploads',
@@ -142,5 +142,5 @@ return [
         'table_max_reached' => 'Maximum number of :max reached',
 
     // File manager
-    'file_manager' => 'File Manager',
+    'file_manager' => 'Quản lý hình ảnh',
 ];

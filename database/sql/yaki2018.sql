@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `branches` (
   `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `open_hour` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `close_hour` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `has_buffet_service` tinyint(4) NOT NULL DEFAULT '0',
   `location` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -52,12 +53,12 @@ CREATE TABLE IF NOT EXISTS `branches` (
 -- Dumping data for table `branches`
 --
 
-INSERT INTO `branches` (`id`, `name`, `slug`, `description`, `address`, `contact_name`, `phone_number`, `email`, `open_hour`, `close_hour`, `location`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Yaki 1', 'yaki-1', 'Nhà hàng Yaki 1', '18 Chế Lan Viên, P. Tây Thạnh, Q. Tân Phú, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.9881590830187!2d106.62798898405839!3d10.812217650659457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295f81d836b5%3A0x5932194c45465333!2sYaki+Qu%C3%A1n!5e0!3m2!1sen!2s!4v1526400224599\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:04:05'),
-(2, 'Yaki 2', 'yaki-2', 'Nhà hàng Yaki 2', '123 Bờ Bao Tân Thắng, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15675.951266541508!2d106.6214228861431!3d10.812243865770549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bf0a6e08531%3A0x8fba12444567c2ea!2zUXXDoW4gbsaw4bubbmcgWWFraQ!5e0!3m2!1sen!2s!4v1526400322146\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:05:58'),
-(3, 'Yaki 3', 'yaki-3', 'Nhà hàng Yaki 3', '375 Tân Sơn Nhì, P. Tân Thành, Q. Tân Phú, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2255507918635!2d106.62674911410531!3d10.794029661821769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295561b92877%3A0x1f877a4ce3eb5c06!2sQuan+Nuong+Yaki!5e0!3m2!1sen!2s!4v1526400441719\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:07:39'),
-(4, 'Yaki 4', 'yaki-4', 'Nhà hàng Yaki 4', '60 Đường CN1, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15675.65491387801!2d106.6099832697754!3d10.817914000000009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bed9d353d93%3A0x3d94fd0419cc6721!2zbmjDoCBow6BuZyBxdcOhbiBuxrDhu5tuZyBZYWtp!5e0!3m2!1sen!2s!4v1526400521753\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:11:20'),
-(5, 'Yaki 6', 'yaki-6', 'Nhà hàng Yaki 6', '39 Đường số 3, Vĩnh Lộc Mới, Q. Bình Tân, Tp. HCM', 'Mr. Lê Thành Hùng', '0964 702 808', 'admin@yaki.com.vn', '15:00', '22:30', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0642004633205!2d106.5898639141054!3d10.806394961596414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752eb47fe41e75%3A0x1781a971fc5f0786!2zWWFraSBDaOG6s25nIEThu6tuZyBOxrDhu5tuZyA2!5e0!3m2!1sen!2s!4v1526400748976\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:12:56');
+INSERT INTO `branches` (`id`, `name`, `slug`, `description`, `address`, `contact_name`, `phone_number`, `email`, `open_hour`, `close_hour`, `has_buffet_service`, `location`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Yaki 1', 'yaki-1', 'Nhà hàng Yaki 1', '18 Chế Lan Viên, P. Tây Thạnh, Q. Tân Phú, Tp. HCM', 'Anh Hùng', '0964 702 808 - (028) 36206899', 'admin@yaki.com.vn', '11:00', '23:00', 0, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.9881590830187!2d106.62798898405839!3d10.812217650659457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295f81d836b5%3A0x5932194c45465333!2sYaki+Qu%C3%A1n!5e0!3m2!1sen!2s!4v1526400224599\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:04:05'),
+(2, 'Yaki 2', 'yaki-2', 'Nhà hàng Yaki 2', '123 Bờ Bao Tân Thắng, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM', 'Anh Vĩnh', '0906 928 592 - (028) 38161252', 'admin@yaki.com.vn', '11:00', '23:00', 0, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15675.951266541508!2d106.6214228861431!3d10.812243865770549!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bf0a6e08531%3A0x8fba12444567c2ea!2zUXXDoW4gbsaw4bubbmcgWWFraQ!5e0!3m2!1sen!2s!4v1526400322146\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:05:58'),
+(3, 'Yaki 3', 'yaki-3', 'Nhà hàng Yaki 3', '375 Tân Sơn Nhì, P. Tân Thành, Q. Tân Phú, Tp. HCM', 'Anh Nhâm', '0903 906 084 - (028) 38102177', 'admin@yaki.com.vn', '11:00', '23:00', 1, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.2255507918635!2d106.62674911410531!3d10.794029661821769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175295561b92877%3A0x1f877a4ce3eb5c06!2sQuan+Nuong+Yaki!5e0!3m2!1sen!2s!4v1526400441719\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:07:39'),
+(4, 'Yaki 4', 'yaki-4', 'Nhà hàng Yaki 4', '60 Đường CN1, P. Sơn Kỳ, Q. Tân Phú, Tp. HCM', 'Anh Năm', '0977 559 967 - (028) 38162188', 'admin@yaki.com.vn', '11:00', '23:00', 1, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15675.65491387801!2d106.6099832697754!3d10.817914000000009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752bed9d353d93%3A0x3d94fd0419cc6721!2zbmjDoCBow6BuZyBxdcOhbiBuxrDhu5tuZyBZYWtp!5e0!3m2!1sen!2s!4v1526400521753\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:11:20'),
+(5, 'Yaki 6', 'yaki-6', 'Nhà hàng Yaki 6', '39 Đường số 3, Vĩnh Lộc Mới, Q. Bình Tân, Tp. HCM', 'Anh Hiếu', '0909 257 878 - (028) 36209267', 'admin@yaki.com.vn', '11:00', '23:00', 1, '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0642004633205!2d106.5898639141054!3d10.806394961596414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752eb47fe41e75%3A0x1781a971fc5f0786!2zWWFraSBDaOG6s25nIEThu6tuZyBOxrDhu5tuZyA2!5e0!3m2!1sen!2s!4v1526400748976\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0\" allowfullscreen></iframe>', 0, '2018-05-15 14:38:41', '2018-05-15 16:12:56');
 
 -- --------------------------------------------------------
 
@@ -116,7 +117,10 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 (9, 'Thịt gà'),
 (7, 'Thịt heo'),
 (5, 'Thức uống'),
-(11, 'Tôm');
+(11, 'Tôm'),
+(14, 'Món ăn được yêu thích'),
+(15, 'Sản phẩm được mua nhiều'),
+(16, 'Hàng gia dụng');
 
 -- --------------------------------------------------------
 
@@ -636,7 +640,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (18, '2018_04_20_000015_create_events_table', 1),
 (19, '2018_04_20_000016_create_reservation_tables_table', 1),
 (20, '2018_04_20_000017_create_rt_status_histories_table', 1),
-(21, '2018_04_20_000018_create_order_status_histories_table', 1);
+(21, '2018_04_20_000018_create_order_status_histories_table', 1),
+(22, '2018_04_20_000019_create_parameters_table', 1);
 
 -- --------------------------------------------------------
 
@@ -1294,6 +1299,31 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Admin', 'admin@yaki.com.vn', '$2y$10$qz8JGrnwGIV9we7SII9/kuVeIFxIfhYqzKRTkuvnVF7oFdjEcxy/y', NULL, '2018-05-15 14:38:40', '2018-05-15 14:38:40');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `parameters`
+--
+
+DROP TABLE IF EXISTS `parameters`;
+CREATE TABLE IF NOT EXISTS `parameters` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `param_id` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_param_ids` (`param_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `parameters`
+--
+
+INSERT INTO `parameters` (`id`, `param_id`, `name`, `content`, `created_at`, `updated_at`) VALUES
+(1, 'YAKI_ABOUT', 'Nội dung giới thiệu nhà hàng Yaki', 'Yaki - Chắng dừng nướng là cái tên đã quá quen thuộc đối với những tín đồ yêu thích hải sản- nướng, lẩu theo phong cách Nhật – Hàn. Được hình thành đầu tiên tại Yaki 1, đường Chế Lan Viên, phường Tây Thạnh, quận Tân Phú, đến nay Yaki đã có 6 chi nhánh tại Bình Tân và Tân Phú.\r\n\r\nHệ thống phòng lạnh, phòng vip được thiết kế theo  phong cách Nhật ấm cúng, cùng sân vườn rộng rãi  thoáng mát, Yaki còn là một địa chỉ quen thuộc của hàng triệu khách hàng.\r\n\r\nVới  hai hình thức phục vụ đồ ăn hiện đại là: buffet và gọi món, thực khách có cơ hội khám phá hàng trăm món ăn đặc sắc, bổ dưỡng, với điểm nhấn là các loại thịt, hải sản tươi ngon, quý hiếm được Yaki lựa chọn nhập trực tiếp từ những nhà cung cấp uy tín  nhất ở chính quê hương chúng tôi như Quảng Nam, Nha Trang , Bến Tre…\r\n\r\nVới uy tín thương hiệu  được khẳng định, hệ thống nhà hàng Yaki đã được nhiều thực khách ưu ái lựa chọn để tổ chức các sự kiện có quy mô từ nhỏ tới lớn như: tiệc sinh nhật, tiệc buffet,  thôi nôi,  tiệc công ty, liên hoan, Tất Niên cuối năm, …\r\n\r\nThực đơn của YAKI có nhiều món ăn phong phú, đặc sắc và rất ngon miệng được chế biến theo đúng hương vị Nhật Bản. Thực đơn luôn được định kỳ bổ sung và thay đổi nhằm mang đến cho quí khách sự mới mẻ và nhiều trải nghiệm mới.\r\n\r\nYAKI HÂN HẠNH PHỤC VỤ QUÝ KHÁCH.', '2018-05-17 16:57:41', '2018-05-17 16:57:41');
 
 --
 -- Constraints for dumped tables

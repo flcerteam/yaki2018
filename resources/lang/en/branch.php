@@ -16,5 +16,8 @@ return [
   'open_hour'         => 'Giờ mở cửa',
   'close_hour'        => 'Giờ đóng cửa',
   'location'          => 'Vị trí bản đồ Google',
+  'buffet_service'    => 'Khu vực phục vụ buffet',
+  'yes'               => 'Có',
+  'no'                => 'Không',
 
 ];

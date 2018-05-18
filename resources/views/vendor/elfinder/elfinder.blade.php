@@ -14,6 +14,7 @@
     <!-- elFinder JS (REQUIRED) -->
     <script src="<?= asset($dir.'/js/elfinder.min.js') ?>"></script>
 
+    <?php $locale = 'vi'; ?>
     <?php if ($locale) { ?>
     <!-- elFinder translation (OPTIONAL) -->
     <script src="<?= asset($dir."/js/i18n/elfinder.$locale.js") ?>"></script>

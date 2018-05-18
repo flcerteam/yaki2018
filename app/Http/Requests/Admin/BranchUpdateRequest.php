@@ -34,6 +34,7 @@ class BranchUpdateRequest extends FormRequest
             'email' => 'required|max:255',
             'open_hour' => 'required|max:20',
             'close_hour' => 'required|max:20',
+            'has_buffet_service' => 'required|numeric|between:0,1',
             'location' => 'required|max:1000',
             'status' => 'required'
         ];
@@ -47,7 +48,17 @@ class BranchUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'name' => trans('branch.name'),
+            'description' => trans('branch.description'),
+            'address' => trans('branch.address'),
+            'contact_name' => trans('branch.contact_name'),
+            'phone_number' => trans('branch.phone_number'),
+            'email' => trans('branch.email'),
+            'open_hour' => trans('branch.open_hour'),
+            'close_hour' => trans('branch.close_hour'),
+            'has_buffet_service' => trans('branch.has_buffet_service'),
+            'location' => trans('branch.location'),
+            'status' => trans('common.status')
         ];
     }
 

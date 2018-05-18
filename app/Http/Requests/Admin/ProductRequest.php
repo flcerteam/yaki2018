@@ -45,7 +45,14 @@ class ProductRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'sku'               => trans('product.sku'),
+            'name'              => trans('product.name'),
+            'description'       => trans('product.description'),
+            'categories'        => trans('category.category'),
+            'status'            => trans('common.status'),
+            'unit_id'           => trans('unit.unit'),
+            'number_of_unit'    => trans('product.number_of_unit'),
+            'price'             => trans('product.price')
         ];
     }
 

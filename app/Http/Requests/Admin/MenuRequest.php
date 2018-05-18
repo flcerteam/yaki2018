@@ -38,7 +38,7 @@ class MenuRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'categories'    => trans('category.category')
         ];
     }
 

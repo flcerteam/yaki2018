@@ -37,7 +37,7 @@ class CategoryUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'name' => trans('category.name')
         ];
     }
 

@@ -14,15 +14,16 @@
 
     <!-- container -->
     <div class="container">
-        <div class="contact-content">
-            <h2 class="white-text">
-                Mã đặt của bạn là: <h1><label style="color: #f36700">{{ $code }}</label></h1>
-            </h2>
-            <h3 class="white-text">Nhân viên của chúng tôi sẽ liên hệ với bạn sau.</h3>
+        <div class="panel panel-success text-center">
+            <div class="panel-heading">Đặt thành công</div>
+            <div class="panel-body">
+                Cám ơn bạn đã đến với Yaki<br/>
+                Mã đặt của bạn là: <label style="color: #f36700">{{ $code }}</label><br/>
+                Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.
+            </div>
         </div>
     </div>
     <!-- /container -->
-    
 </div>
 <!-- /Process -->
 

@@ -5,15 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\Admin\OrderRequest as StoreRequest;
-use App\Http\Requests\Admin\OrderRequest as UpdateRequest;
+use App\Http\Requests\Admin\ParameterRequest as StoreRequest;
+use App\Http\Requests\Admin\ParameterRequest as UpdateRequest;
 
-use Illuminate\Http\Request;
-
-use App\Models\Admin\OrderStatus;
-use App\Models\Admin\OrderStatusHistory;
-
-class OrderCrudController extends CrudController
+class ParameterCrudController extends CrudController
 {
     public function setup()
     {
@@ -23,9 +18,9 @@ class OrderCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Admin\Order');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/order');
-        $this->crud->setEntityNameStrings(trans('order.order'), trans('order.orders'));
+        $this->crud->setModel('App\Models\Admin\Parameter');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/parameter');
+        $this->crud->setEntityNameStrings(trans('param.parameter'), trans('param.parameters'));
 
         /*
         |--------------------------------------------------------------------------
@@ -40,6 +35,35 @@ class OrderCrudController extends CrudController
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
+        $this->crud->addField([
+            'name'      => 'param_id',
+            'label'     => trans('param.param_id'),
+            'type'      => 'text',
+
+        ], 'create');
+
+        $this->crud->addField([
+            'name'      => 'param_id',
+            'label'     => trans('param.param_id'),
+            'type'      => 'text',
+            'attributes'    => [
+                'readonly'  => 'readonly',
+            ],
+
+        ], 'update');
+
+        $this->crud->addFields([
+            [
+                'name'      => 'name',
+                'label'     => trans('param.name'),
+                'type'      => 'text',
+            ],
+            [
+                'name'      => 'content',
+                'label'     => trans('param.content'),
+                'type'      => 'textarea',
+            ],
+        ]);
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -50,29 +74,13 @@ class OrderCrudController extends CrudController
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
         $this->crud->addColumns([
             [
-                'name'  => 'invoice_no',
-                'label' => '#',
+                'name'  => 'param_id',
+                'label' => trans('param.param_id'),
             ],
             [
-                'label'     => trans('order.status'),
-                'type'      => 'select',
-                'name'      => 'status_id',
-                'entity'    => 'status',
-                'attribute' => 'name',
-                'model'     => 'App\Models\Admin\OrderStatus',
-            ],
-            [
-                'label'     => trans('member.name'),
-                'type'      => 'select',
-                'name'      => 'member_id',
-                'entity'    => 'member',
-                'attribute' => 'name',
-                'model'     => 'App\Models\Admin\Member',
-            ],
-            [
-                'name'  => 'invoice_date',
-                'label' => trans('order.order_date_time'),
-            ],
+                'name'  => 'name',
+                'label' => trans('param.name'),
+            ]
         ]);
 
         // ------ CRUD BUTTONS
@@ -86,12 +94,8 @@ class OrderCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
+        $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
-        $this->crud->denyAccess(['create', 'update', 'reorder', 'delete']);
-        $this->crud->allowAccess(['show']);
-        $this->crud->removeButton('preview');
-        $this->crud->addButtonFromView('line', 'view', 'view', 'end');
 
         // ------ CRUD REORDER
         // $this->crud->enableReorder('label_name', MAX_TREE_LEVEL);
@@ -119,16 +123,6 @@ class OrderCrudController extends CrudController
         // $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
-        $this->crud->addFilter(
-            [ // select2 filter
-                'name' => 'status_id',
-                'type' => 'select2',
-                'label'=> trans('order.status')
-            ], function() {
-                return \App\Models\Admin\OrderStatus::all()->pluck('name', 'id')->toArray();
-            }, function($value) { // if the filter is active
-                  $this->crud->addClause('where', 'status_id', $value);
-            });
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');
         // $this->crud->addClause('where', 'name', '==', 'car');
@@ -139,31 +133,9 @@ class OrderCrudController extends CrudController
         // $this->crud->addClause('withoutGlobalScopes');
         // $this->crud->addClause('withoutGlobalScope', VisibleScope::class);
         // $this->crud->with(); // eager load relationships
-        $this->crud->orderBy('invoice_no', 'DESC');
+        // $this->crud->orderBy();
         // $this->crud->groupBy();
         // $this->crud->limit();
-    }
-
-    public function show($id)
-    {
-        $this->crud->hasAccessOrFail('show');
-
-        $order = $this->crud->getEntry($id);
-        $orderStatuses = OrderStatus::get();
-        $crud = $this->crud;
-
-        return view('admin.order.view', compact('crud', 'order', 'orderStatuses'));
-    }
-
-    public function updateStatus(Request $request, OrderStatusHistory $orderStatusHistory)
-    {
-        $orderStatusHistory->create($request->except('_token'));
-
-        $this->crud->update($request->input('order_id'), ['status_id' => $request->input('status_id')]);
-
-        \Alert::success(trans('order.status_updated'))->flash();
-
-        return redirect()->back();
     }
 
     public function store(StoreRequest $request)

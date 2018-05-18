@@ -91,16 +91,31 @@ class Order extends Model
     */
     public function getCreatedAtAttribute($value)
     {
-        return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+        if (null != $value)
+        {
+            return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+        }
+
+        return $value;
     }
 
     public function getInvoiceDateAttribute($value)
     {
-        return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+        if (null != $value)
+        {
+            return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+        }
+
+        return $value;
     }
 
     public function getDeliveryDateAttribute($value)
     {
-        return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+        if (null != $value)
+        {
+            return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
+        }
+
+        return $value;
     }
 }

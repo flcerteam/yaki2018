@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryRequest extends FormRequest
+class ParameterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class CategoryRequest extends FormRequest
      */
     public function authorize()
     {
-        // Only allow updates if the user is logged in
+        // only allow updates if the user is logged in
         return \Auth::check();
     }
 
@@ -25,7 +26,9 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255|unique:categories,name'
+            'param_id'  => 'required|max:100|unique:parameters,param_id'.($this->request->get('id') ? ','.$this->request->get('id') : ''),
+            'name'      => 'required|max:255',
+            'content'   => 'required|max:1500',
         ];
     }
 
@@ -37,7 +40,9 @@ class CategoryRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => trans('category.name')
+            'param_id'  => trans('param.param_id'),
+            'name'      => trans('param.name'),
+            'content'   => trans('param.content'),
         ];
     }
 

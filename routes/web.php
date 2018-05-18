@@ -87,6 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('event', 'Admin\EventCrudController');
     CRUD::resource('reservation-table', 'Admin\ReservationTableCrudController');
     CRUD::resource('order', 'Admin\OrderCrudController');
+    CRUD::resource('parameter', 'Admin\ParameterCrudController');
 
     Route::get('menu/{id}/order', ['as' => 'menu.order', 'uses' => 'Admin\MenuCrudController@order']);
     Route::post('menu/{id}/order', ['as' => 'menu.save.order', 'uses' => 'Admin\MenuCrudController@saveOrderSeq']);
@@ -132,6 +133,4 @@ Route::get('find', 'Client\SearchController@getSearchHint');
 
 Route::post('add-to-cart','Client\CartController@addToCart');
 
-Route::get('about',function(){
-  return view('about.about');
-});
+Route::get('about','Client\ParametersController@getParameterView');

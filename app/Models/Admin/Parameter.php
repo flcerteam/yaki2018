@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class ReservationTable extends Model
+class Parameter extends Model
 {
     use CrudTrait;
 
@@ -15,22 +15,16 @@ class ReservationTable extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'reservation_tables';
+    protected $table = 'parameters';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-        'reservation_no',
-        'member_id',
-        'branch_id',
-        'rt_type_id',
-        'reservation_date',
-        'reservation_hour',
-        'number_of_people',
-        'note',
-        'status_id',
+        'param_id',
+        'name',
+        'content',
         'created_at',
-    	'updated_at'
+        'updated_at'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -46,30 +40,6 @@ class ReservationTable extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function member()
-    {
-        return $this->hasOne('App\Models\Admin\Member', 'id', 'member_id');
-    }
-
-    public function branch()
-    {
-        return $this->hasOne('App\Models\Admin\Branch', 'id', 'branch_id');
-    }
-
-    public function type()
-    {
-        return $this->hasOne('App\Models\Admin\RtType', 'id', 'rt_type_id');
-    }
-
-    public function status()
-    {
-        return $this->hasOne('App\Models\Admin\RtStatus', 'id', 'status_id');
-    }
-
-    public function rtStatusHistories()
-    {
-        return $this->hasMany('App\Models\Admin\RtStatusHistory', 'rt_id', 'id')->orderBy('created_at', 'DESC');
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -88,23 +58,4 @@ class ReservationTable extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    public function getCreatedAtAttribute($value)
-    {
-        if (null != $value)
-        {
-            return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('d-m-Y H:i:s');
-        }
-
-        return $value;
-    }
-
-    public function getReservationDateAttribute($value)
-    {
-        if (null != $value)
-        {
-            return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
-        }
-
-        return $value;
-    }
 }
