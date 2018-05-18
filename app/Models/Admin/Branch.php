@@ -31,6 +31,7 @@ class Branch extends Model
         'close_hour',
         'location',
         'has_buffet_service',
+        'buffet_price',
         'status',
         'created_at',
         'updated_at'

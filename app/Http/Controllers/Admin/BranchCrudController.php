@@ -103,17 +103,6 @@ class BranchCrudController extends CrudController
               'tab'   => trans('branch.general_tab'),
             ],
             [
-                'name'  => 'has_buffet_service',
-                'label' => trans('branch.buffet_service'),
-                'type'  => 'select_from_array',
-                'options' => [
-                    '0' => trans('branch.no'),
-                    '1' => trans('branch.yes'),
-                ],
-                // TAB
-                'tab'   => trans('branch.general_tab'),
-            ],
-            [
               'name'  => 'location',
               'label' => trans('branch.location'),
               'type'  => 'text',
@@ -130,6 +119,25 @@ class BranchCrudController extends CrudController
               ],
               // TAB
               'tab'   => trans('branch.general_tab'),
+            ],
+            [
+                'name'  => 'has_buffet_service',
+                'label' => trans('branch.buffet_service'),
+                'type'  => 'select_from_array',
+                'options' => [
+                    '0' => trans('branch.no'),
+                    '1' => trans('branch.yes'),
+                ],
+                // TAB
+                'tab'   => trans('branch.buffet_tab'),
+            ],
+            [
+                'name'  => 'buffet_price',
+                'label' => trans('branch.buffet_price'),
+                'type'  => 'number',
+
+                // TAB
+                'tab'   => trans('branch.buffet_tab'),
             ],
         ]);
 

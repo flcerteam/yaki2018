@@ -34,9 +34,10 @@ class BranchUpdateRequest extends FormRequest
             'email' => 'required|max:255',
             'open_hour' => 'required|max:20',
             'close_hour' => 'required|max:20',
-            'has_buffet_service' => 'required|numeric|between:0,1',
             'location' => 'required|max:1000',
-            'status' => 'required'
+            'status' => 'required',
+            'has_buffet_service' => 'required|numeric|between:0,1',
+            'buffet_price'  => 'required_if:has_buffet_service,==,1|sometimes|nullable|numeric|between:0,999999999999999999'
         ];
     }
 
@@ -56,9 +57,10 @@ class BranchUpdateRequest extends FormRequest
             'email' => trans('branch.email'),
             'open_hour' => trans('branch.open_hour'),
             'close_hour' => trans('branch.close_hour'),
-            'has_buffet_service' => trans('branch.has_buffet_service'),
             'location' => trans('branch.location'),
-            'status' => trans('common.status')
+            'status' => trans('common.status'),
+            'has_buffet_service' => trans('branch.has_buffet_service'),
+            'buffet_price' => trans('branch.buffet_price')
         ];
     }
 
@@ -70,7 +72,7 @@ class BranchUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'buffet_price.required_if' => trans('branch.msg_buffet_price_require')
         ];
     }
 }
