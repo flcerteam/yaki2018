@@ -51,7 +51,7 @@ Route::get('reservation',[
   'uses' => 'Client\ReservationController@getInfo'
 ]);
 
-Route::post('dat-ban',[
+Route::post('reservation_success',[
 	'as'=>'insert_reservation',
 	'uses'=>'Client\ReservationController@insertReservation'
 ]);
@@ -69,11 +69,6 @@ Route::get('member',[
 
 Route::post('get_search_member','Client\MemberController@getMemberInfo');
 // Member End
-
-Route::get('success/{msg}',[
-  'as' => 'success',
-  'uses' => 'Client\ProcessController@getSuccess'
-]);
 
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
@@ -121,7 +116,7 @@ Route::get('checkout',function(){
 Route::post('get_customer_info','Client\CheckOutController@getCustomerInfo');
 Route::post('update_quantity','Client\CheckOutController@updateQtty');
 Route::post('remove_item','Client\CheckOutController@removeItem');
-Route::post('dat-hang',[
+Route::post('order_success',[
 	'as'=>'insert_order',
 	'uses'=>'Client\CheckOutController@insertOrder'
 ]);

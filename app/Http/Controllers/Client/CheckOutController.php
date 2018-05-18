@@ -102,7 +102,13 @@ class CheckOutController extends Controller {
       $orderStatusHistory->save();
       DB::commit();
       Cart::destroy();
-      return redirect()->route('success', $order->invoice_no);
+
+       // PROCESS
+       $img = "/background02.jpg";
+       $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
+       $code = $order->invoice_no;
+       
+       return view('page.process', compact('imgSrc', 'code'));
     } catch(\Exception $e) {
       dd( $e->getMessage());
       DB::rollback();

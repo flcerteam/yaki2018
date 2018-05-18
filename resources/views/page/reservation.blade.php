@@ -77,7 +77,9 @@
                                 <label for="rt_type_id">Loại Bàn:</label><br>
                                 <input type="radio" id="type" name="rt_type_id" value="0" checked="checked"> Bình thường
                                 &nbsp;&nbsp;&nbsp;
-                                <input type="radio" id="type"name="rt_type_id" value="1"> Buffet
+                                <span id="has_buffet_service" style="@if($infoBranchList->first()->has_buffet_service == 0) display: none; @endif">
+                                    <input type="radio" id="type"name="rt_type_id" value="1"> Buffet
+                                </span>
                             </div>
                             <div class="form-group">
                                 <label for="number_of_people">Số Người:</label>

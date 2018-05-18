@@ -52,6 +52,12 @@ jQuery(document).ready(function($) {
           $('#close_hour').html(data.branch['close_hour']);
           $("#reservation_hour").attr("min", data.branch['open_hour_val']);
           $('#reservation_hour').attr("max", data.branch['close_hour_val']);
+          if (data.branch['has_buffet_service'] == "1") {
+            $("#has_buffet_service").show();
+          } else {
+            $("input[name=rt_type_id][value=0]").prop('checked', true);
+            $("#has_buffet_service").hide();
+          }
         },
         error:function(data){
         }

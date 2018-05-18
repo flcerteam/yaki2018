@@ -121,7 +121,13 @@ class ReservationController extends Controller
           
             DB::commit();
 
-            return redirect()->route('success', $reservation->reservation_no);
+
+            // PROCESS
+            $img = "/background02.jpg";
+            $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
+            $code = $reservation->reservation_no;
+            
+            return view('page.process', compact('imgSrc', 'code'));
         } catch(\Exception $e) {
  
             DB::rollback();
