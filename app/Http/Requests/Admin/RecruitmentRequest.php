@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrderDetailRequest extends FormRequest
+class RecruitmentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,7 +26,9 @@ class OrderDetailRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'title'     => 'required|max:255',
+            'content'   => 'required|max:1500',
+            'status'    => 'required|numeric|between:0,1'
         ];
     }
 
@@ -38,7 +40,9 @@ class OrderDetailRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'title'     => trans('recruitment.title'),
+            'content'   => trans('recruitment.content'),
+            'status'    => trans('common.status')
         ];
     }
 

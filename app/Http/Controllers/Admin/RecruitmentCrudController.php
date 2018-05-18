@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\Admin\EventRequest as StoreRequest;
-use App\Http\Requests\Admin\EventRequest as UpdateRequest;
+use App\Http\Requests\Admin\RecruitmentRequest as StoreRequest;
+use App\Http\Requests\Admin\RecruitmentRequest as UpdateRequest;
 
-class EventCrudController extends CrudController
+class RecruitmentCrudController extends CrudController
 {
     public function setup()
     {
@@ -18,9 +18,9 @@ class EventCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Admin\Event');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/event');
-        $this->crud->setEntityNameStrings(trans('event.event'), trans('event.events'));
+        $this->crud->setModel('App\Models\Admin\Recruitment');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/recruitment');
+        $this->crud->setEntityNameStrings(trans('recruitment.recruitment'), trans('recruitment.recruitments'));
 
         /*
         |--------------------------------------------------------------------------
@@ -38,29 +38,21 @@ class EventCrudController extends CrudController
         $this->crud->addFields([
             [
                 'name'      => 'title',
-                'label'     => trans('event.title'),
+                'label'     => trans('recruitment.title'),
                 'type'      => 'text',
             ],
             [
                 'name'      => 'content',
-                'label'     => trans('event.content'),
+                'label'     => trans('recruitment.content'),
                 'type'      => 'textarea',
-            ],
-            [
-                'label'        => trans('event.image'),
-                'name'         => 'image',
-                'type'         => 'image',
-                'upload'       => true,
-                'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
-                'crop'         => false, // set to true to allow cropping, false to disable
             ],
             [
                 'name'      => 'status',
                 'label'     => trans('common.status'),
                 'type'      => 'select_from_array',
                 'options'   => [
-                    '0'     => trans('event.active'),
-                    '1'     => trans('event.inactive')
+                    '0'     => trans('recruitment.active'),
+                    '1'     => trans('recruitment.inactive')
                 ]
             ]
         ]);
@@ -75,24 +67,22 @@ class EventCrudController extends CrudController
         $this->crud->addColumns([
             [
                 'name'      => 'title',
-                'label'     => trans('event.title')
+                'label'     => trans('recruitment.title')
             ],
             [
-                'name' => 'image', // The db column name
-                'label' => trans('event.image'),
-                'type' => 'image'
+                'name'      => 'created_at',
+                'label'     => trans('recruitment.publish_date')
             ],
             [
                 'name'      => 'status',
                 'label'     => trans('common.status'),
                 'type'      => 'boolean',
                 'options'   => [
-                    0 => trans('event.active'),
-                    1 => trans('event.inactive')
+                    0 => trans('recruitment.active'),
+                    1 => trans('recruitment.inactive')
                 ],
             ]
         ]);
-
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
         // $this->crud->addButton($stack, $name, $type, $content, $position); // add a button; possible types are: view, model_function
@@ -104,7 +94,7 @@ class EventCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
+        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER

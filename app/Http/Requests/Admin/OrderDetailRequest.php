@@ -5,7 +5,7 @@ namespace App\Http\Requests\Admin;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class EventRequest extends FormRequest
+class OrderDetailRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,9 +26,7 @@ class EventRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'     => 'required|max:255',
-            'content'   => 'required|max:1500',
-            'status'    => 'required|numeric|between:0,1'
+            // 'name' => 'required|min:5|max:255'
         ];
     }
 
@@ -40,9 +38,7 @@ class EventRequest extends FormRequest
     public function attributes()
     {
         return [
-            'title'     => trans('event.title'),
-            'content'   => trans('event.content'),
-            'status'    => trans('common.status')
+            //
         ];
     }
 

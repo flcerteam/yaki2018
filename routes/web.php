@@ -45,6 +45,11 @@ Route::get('branch-dtl/{slug}.html',[
     'uses' => 'Client\ContactController@getDetailInfo'
 ]);
 
+Route::get('tuyen-dung',[
+  'as' => 'tuyen-dung',
+  'uses' => 'Client\RecruitmentController@getNews'
+]);
+
 // reservation START
 Route::get('reservation',[
   'as' => 'reservation',
