@@ -4,11 +4,10 @@
 <div class="section"></div>
 <div id="about" class="section">
     <div class="container">
-        @if(null != $parameter)
+        @if (null != $parameter)
         <div class="row">
             <div class="section-header text-center">
-                <h4 class="sub-title">About Us</h4>
-                <h2 class="title">{{ $parameter->name }}</h2>
+                <h2 class="title">{{ trans('common.about_subject') }}</h2>
             </div>
             <!-- /section header -->
 
@@ -22,9 +21,10 @@
 
             <!-- about content -->
             <div class="col-md-7">
-                <p>{{ $parameter->content }}</p>
+                <p>{!! $parameter->content !!}</p>
             </div>
             <!-- /about content -->
+
             <div class="col-md-12">
                 <div id="galery" class="owl-carousel owl-theme">
                 <!-- single column -->
@@ -71,7 +71,7 @@
             </div>
         </div>
         @else 
-            <p>Hệ Thống Đang Bảo Trì. Mong quý khách thông cảm</p>
+            <p>Đang cập nhật thông tin...</p>
         @endif
     </div>
 </div>

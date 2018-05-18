@@ -13,5 +13,8 @@ return [
   'view'                => 'Chi tiết',
   // Images
   'image_deleted'       => 'Xóa ảnh thành công!',
-  'image_not_found'     => 'Không tìm thấy hình ảnh!'
+  'image_not_found'     => 'Không tìm thấy hình ảnh!',
+
+  'about_subject'       => 'Giới thiệu nhà hàng Yaki',
+  'msg_maintenance'     => 'Hệ thống đang bảo trì. Mong quý khách thông cảm'
 ];

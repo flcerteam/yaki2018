@@ -33,8 +33,7 @@
 
             <!-- section header -->
             <div class="section-header text-center">
-                <h4 class="sub-title">About Us</h4>
-                <h2 class="title">{{ $parameter->name }}</h2>
+                <h2 class="title">{{ trans('common.about_subject') }}</h2>
             </div>
             <!-- /section header -->
 
@@ -48,7 +47,7 @@
 
             <!-- about content -->
             <div class="col-md-7">
-                <p>{{ $parameter->content }}</p>
+                <p>{!! $parameter->content !!}</p>
             </div>
             <!-- /about content -->
 

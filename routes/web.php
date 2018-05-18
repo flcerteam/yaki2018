@@ -133,4 +133,4 @@ Route::get('find', 'Client\SearchController@getSearchHint');
 
 Route::post('add-to-cart','Client\CartController@addToCart');
 
-Route::get('about','Client\ParametersController@getParameterView');
+Route::get('about','Client\ParametersController@getAboutContent');

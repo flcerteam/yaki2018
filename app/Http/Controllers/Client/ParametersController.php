@@ -8,9 +8,14 @@ use Illuminate\Http\Request;
 
 class ParametersController extends Controller
 {
-    public function getParameterView(){
+    public function getAboutContent() {
         // get about
         $parameter = Parameter::where('param_id','YAKI_ABOUT')->first();
+
+        if (null != $parameter) {
+            $parameter->content = nl2br($parameter->content);
+        }
+
         return view('about.about',compact('parameter'));
     }
 }
