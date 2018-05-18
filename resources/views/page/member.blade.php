@@ -19,14 +19,16 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <div class="col-md-1"></div>
-                <div class="col-md-6 section-header">
-                    <div class="form-group">
-                        <input class="input" type="text" placeholder="Số điện thoại" id="phone_number_search" name="phone_number_search" required>
+                <form method="POST" onsubmit="return false;">
+                    <div class="col-md-6 section-header">
+                        <div class="form-group">
+                            <input class="input" type="text" placeholder="Số điện thoại" id="phone_number_search" name="phone_number_search" required>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 text-center">
-                    <input class="main-button-member" type="button" id="search" value="Tra Cứu">
-                </div>
+                    <div class="col-md-3 text-center">
+                        <input class="main-button-member" type="submit" id="search" value="Tra Cứu">
+                    </div>
+                <form>
                 <div class="col-md-2"></div>
             </div>
             <div class="col-md-3"></div>
@@ -68,6 +70,11 @@
                     </div>
                 </div>
                 <div class="col-md-3"></div>
+            </div>
+            <div id="msgInfo" class="col-md-12" style="display: none; text-align:center">
+                <h2 class="white-text">
+                    Không tìm thấy thông tin khách hàng
+                <h2>
             </div>
         </div>
         <!-- /row -->

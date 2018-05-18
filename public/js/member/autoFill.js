@@ -30,8 +30,10 @@ jQuery(document).ready(function($) {
             $("#email").val(data.member['email']);
             $("#address").val(data.member['address']);
             $("#tableMember").show();
+            $("#msgInfo").hide();
           } else {
             $("#tableMember").hide();
+            $("#msgInfo").show();
           }
         },
         error:function(data) {
@@ -46,6 +48,7 @@ jQuery(document).ready(function($) {
       if("" == phone_number) {
 
         $("#tableMember").hide();
+        $("#msgInfo").hide();
       }
     });
 });
