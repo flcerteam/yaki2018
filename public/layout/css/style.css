@@ -93,8 +93,8 @@ ul,ol{
 /* --- Section --- */
 .section {
 	position:relative;
-	padding-top:80px;
-	padding-bottom:80px;
+	padding-top:65px;
+	padding-bottom:65px;
 }
 
 .section-header .title {
