@@ -10,10 +10,7 @@ class MemberController extends Controller
 {
     function getInfo() {
 
-        $img = "/background02.jpg";
-        $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
-
-        return view('page.member', compact('imgSrc'));
+        return view('page.member');
     }
 
     public function getMemberInfo(Request $req){

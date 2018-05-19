@@ -16,9 +16,6 @@ class ContactController extends Controller
 
         $disk  = config('filesystems.disks.branches.simple_path');
 
-        $img = "/background02.jpg";
-        $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
-
         $infoList = Branch::allActive();
 
         foreach ($infoList as $dtl)
@@ -29,7 +26,7 @@ class ContactController extends Controller
             }   
         }
     
-        return view('page.contact', compact('infoList', 'imgSrc'));
+        return view('page.contact', compact('infoList'));
     }
 
     function getDetailInfo($slug)

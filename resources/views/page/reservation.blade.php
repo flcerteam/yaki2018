@@ -127,7 +127,7 @@
 <!-- /Reservation -->
 
 <div class="section">
-        <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }}/yaki-background-01.jpg)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }}/yaki-background-01.jpg)"></div>
 </div>
 
 @endsection
