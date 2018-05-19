@@ -7,6 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 col-md-9">
+                @if(count() > 0)
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -30,9 +31,15 @@
                         </div>
                     </div>            
                 </div>
+                @else
+                    
+                @endif
             </div>
 
             <div class="col-sm-4 col-md-3">
+                <a href="javascript:void(0)" class="img-thumbnail">
+                    <img src="{{ $imgSrc }}/yaki-tuyendung.jpg" alt="" class="img-responsive">
+                </a>
             </div>
         </div>
     </div>
