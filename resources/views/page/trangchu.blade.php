@@ -143,13 +143,9 @@
                     <div class="col-md-6">
                         <div class="event">
                             <div class="event-img">
-                                <img src="layout/img/{{$event->image }}" alt="">
-                                <div class="event-day">
-                                    <span>08<br>July</span>
-                                </div>
+                                <img src="{{$event->image }}" alt="">
                             </div>
                             <div class="event-content">
-                                <p><i class="fa fa-clock-o"></i> 8.00PM - 10.00PM</p>
                                 <h3><a href="#">{{ $event->content }}</p>
                             </div>
                         </div>

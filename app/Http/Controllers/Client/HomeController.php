@@ -13,7 +13,6 @@ class HomeController extends Controller
 {
     public function getHomeData() {
 
-        $imgSrc  = config('filesystems.disks.image.simple_path');
         // get all event
         $events = Event::all();
 
@@ -30,6 +29,6 @@ class HomeController extends Controller
         ->select('products.*','product_images.name as image')
         ->get();
 
-        return view('page.trangchu',compact('events','products','parameter','imgSrc'));
+        return view('page.trangchu',compact('events','products','parameter'));
     }
 }
