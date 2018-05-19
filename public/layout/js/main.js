@@ -64,22 +64,22 @@
 		}
     });
 
-	// LOAD PJAX
-	if ($.support.pjax) {
-		$.pjax.defaults.timeout = 2000;
-	}
+	// // LOAD PJAX
+	// if ($.support.pjax) {
+	// 	$.pjax.defaults.timeout = 2000;
+	// }
 
-	$(document).pjax('a', '#body');
+	// $(document).pjax('a', '#body');
 
-	$(document).on('pjax:complete', function() {
+	// $(document).on('pjax:complete', function() {
 
-		$("#preloader").delay(600).fadeOut();
+	// 	$("#preloader").delay(600).fadeOut();
 	
-		curURL = $(this)[0].URL;
+	// 	curURL = $(this)[0].URL;
 
-		loadActiveMenu();
+	// 	loadActiveMenu();
 
-	})
+	// })
 
 	loadActiveMenu();
 

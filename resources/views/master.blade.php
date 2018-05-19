@@ -80,7 +80,6 @@
 
         <!-- jQuery Plugins -->
         <script type="text/javascript" src="layout/js/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
         <script type="text/javascript" src="layout/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="layout/js/owl.carousel.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
