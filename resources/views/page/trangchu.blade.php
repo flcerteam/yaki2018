@@ -4,7 +4,7 @@
 <div id="home" class="banner-area">
 
     <!-- Backgound Image -->
-<div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }}/YAKI4.1.JPG)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }}/yaki-background.jpg)"></div>
     <!-- /Backgound Image -->
 
     <div class="home-wrapper">

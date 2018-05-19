@@ -38,7 +38,9 @@ class ParametersController extends Controller
 
     private function isImageFile($fileName)
     {
-        return (endsWith($fileName, 'jpeg') || endsWith($fileName, 'png'));
+        return (endsWith($fileName, 'jpeg')
+            || endsWith($fileName, 'jpg')
+            || endsWith($fileName, 'png'));
     }
 
     private function endsWith($haystack, $needle)
