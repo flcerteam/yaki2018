@@ -25,7 +25,7 @@
                                 
                             </div>
                         </div>
-                        <div id="collapse{{ $new->index }}" class="panel-collapse collapse in" @if($new->index > 1) aria-expanded="false" style="height: 0px;"@endif>
+                        <div id="collapse{{ $new->index }}" @if($new->index > 1) class="panel-collapse collapse" aria-expanded="false" style="height: 0px;"@else class="panel-collapse collapse in" @endif>
                             <div class="panel-body">
                                 {!! $new->content !!}
                             </div>
