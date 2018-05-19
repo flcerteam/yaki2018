@@ -8,7 +8,7 @@
             <!--Grid column-->
             <div class="col-md-6 detail-img">
                 <a href="javascript:void(0)" class="img-thumbnail">
-                    <img src="{{ $prSrc."/".$item->image }}" alt="" class="img-responsive">
+                    <img src="{{ $prSrc."/".$item->image }}" alt="{{ $item->name }}" class="img-responsive">
                 </a>
             </div>
             <!--Grid column-->

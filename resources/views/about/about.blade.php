@@ -14,7 +14,7 @@
             <!-- about content -->
             <div class="col-md-5">
                 <a href="javascript:void(0)" class="img-thumbnail">
-                    <img src="" alt="" class="img-responsive">
+                    <img src="{{ $imgSrc }}/YAKI4.1.JPG" alt="" class="img-responsive">
                 </a>
             </div>
             <!-- /about content -->
@@ -27,18 +27,18 @@
 
             <div class="col-md-12">
                 <div id="galery" class="owl-carousel owl-theme">
-                @for ($i = 0; $i < 10; $i++)
+                @for ($i = 0; $i < count($images)-1; $i++)
                   <!-- single column -->
                   <div class="galery-item">
                         <div class="item-column">
                             <!-- single image -->
-                            <div class="galery-img" style="background-image:url({{ $imgSrc }}/image0{{ $i }}.jpg)"></div>
+                            <div class="galery-img" style="background-image:url({{ $images[$i] }})"></div>
                             <!-- /single image -->
                         </div>
                         <?php $i++; ?>
                         <div class="item-column">
                             <!-- single image -->
-                            <div class="galery-img" style="background-image:url({{ $imgSrc }}/image0{{ $i }}.jpg)"></div>
+                            <div class="galery-img" style="background-image:url({{ $images[$i] }})"></div>
                             <!-- /single image -->
                         </div>
 
