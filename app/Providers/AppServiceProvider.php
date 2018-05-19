@@ -22,6 +22,10 @@ class AppServiceProvider extends ServiceProvider
             $yakiMarket = DB::table('menus')->where('menu_id','YK_SM_MENU')->first();
             $view->with('yakiMarket',$yakiMarket);
           });
+          view()->composer('*',function($view){
+            $imgSrc  = config('filesystems.disks.image.simple_path');
+            $view->with('imgSrc',$imgSrc);
+          });
 
     }
 

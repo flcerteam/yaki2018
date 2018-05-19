@@ -73,11 +73,11 @@ class CheckOutController extends Controller {
       $order->member_id = $member->id;
       $order->status_id = '0';
       $order->invoice_no = '0';
-      $order->invoice_date = date('Y-m-d');
+      $order->invoice_date = date('Y-m-d H:i:s');
       $order->shipping_address = $member->address;
       $order->billing_address = $member->address;
       $order->comment = $req->note;
-      $order->total =  Cart::subTotal();
+      $order->total = (float)str_replace(',', '', Cart::subTotal());
       $order->save();
      
       $order->invoice_no = "O".str_pad($order->id, 6, '0', STR_PAD_LEFT);

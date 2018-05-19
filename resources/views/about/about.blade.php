@@ -27,46 +27,25 @@
 
             <div class="col-md-12">
                 <div id="galery" class="owl-carousel owl-theme">
-                <!-- single column -->
-                    <div class="galery-item">
+                @for ($i = 0; $i < 10; $i++)
+                  <!-- single column -->
+                  <div class="galery-item">
                         <div class="item-column">
                             <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image02.jpg)"></div>
+                            <div class="galery-img" style="background-image:url({{ $imgSrc }}/image0{{ $i }}.jpg)"></div>
                             <!-- /single image -->
                         </div>
+                        <?php $i++; ?>
                         <div class="item-column">
                             <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image03.jpg)"></div>
+                            <div class="galery-img" style="background-image:url({{ $imgSrc }}/image0{{ $i }}.jpg)"></div>
                             <!-- /single image -->
                         </div>
 
                     </div>
                     <!-- single column -->
-
-                    <!-- single column -->
-                    <div class="galery-item">
-
-                        <div class="item-column">
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image04.jpg)"></div>
-                            <!-- /single image -->
-
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image05.jpg)"></div>
-                            <!-- /single image -->
-                        </div>
-
-                        <div class="item-column">
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image06.jpg)"></div>
-                            <!-- /single image -->
-
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image07.jpg)"></div>
-                            <!-- /single image -->
-                        </div>
-                    </div>
-                    <!-- /single column -->
+  
+                @endfor
                 </div>
             </div>
         </div>
