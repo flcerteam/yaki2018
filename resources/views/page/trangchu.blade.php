@@ -124,7 +124,7 @@
 <div id="menu" class="section">
 
     <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url(layout/img/yaki-background-01.jpg)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }}/yaki-background-01.jpg)"></div>
     <!-- /Backgound Image -->
     <!-- container -->
     <div class="container">
