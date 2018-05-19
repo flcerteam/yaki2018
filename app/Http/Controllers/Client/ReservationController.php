@@ -15,9 +15,6 @@ class ReservationController extends Controller
 {
     function getInfo() {
 
-        $img = "/background02.jpg";
-        $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
-
         $infoBranchList = Branch::allActive();
         $timeBranch = [];
         $dateNow = date('Y-m-d');
@@ -31,7 +28,7 @@ class ReservationController extends Controller
             ];
         }
 
-        return view('page.reservation', compact('imgSrc', 'infoBranchList', 'timeBranch', 'dateNow'));
+        return view('page.reservation', compact('infoBranchList', 'timeBranch', 'dateNow'));
     }
 
     public function getMemberInfo(Request $req){
