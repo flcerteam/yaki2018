@@ -28,8 +28,6 @@
 
 		<!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="layout/css/style.css"/>
-        <!-- Custom livechat-fb -->
-        <link type="text/css" rel="stylesheet" href="layout/css/livechat-fb.css" />
         <link type="text/css" rel="stylesheet" href="layout/css/image-size.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.css" />
 
@@ -78,9 +76,7 @@
         <script type="text/javascript" src="layout/js/jquery.min.js"></script>
         <script type="text/javascript" src="layout/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="layout/js/owl.carousel.min.js"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
         
-        <script type="text/javascript" src="layout/js/google-map.js"></script>
         <script type="text/javascript" src="layout/js/main.js"></script>
         <script type="text/javascript" src="js/cart/cart.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.2.5/jquery.bootstrap-touchspin.js"></script>

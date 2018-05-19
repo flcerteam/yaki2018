@@ -5,51 +5,35 @@ namespace App\Http\Controllers\Client;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Client\Product;
-use DB;
-use Cart;
+use App\Models\Client\Menu;
+
 class MenuController extends Controller
 {
-   public function getMenu($menu,$id) {
-        // get all product by menu id
-        
-        $products = DB::table('products')
-                        ->leftJoin('product_images','products.id','=','product_images.product_id')
-                        ->leftJoin('units','products.unit_id','=','units.id')
-                        ->join('category_product','category_product.product_id','=','products.id')
-                        ->join('category_menu','category_menu.category_id','=','category_product.category_id')
-                        ->select('products.*','product_images.name as image','units.name as unit_type')
-                        ->where('category_menu.menu_id',$id)
-                        ->groupBy('products.sku')
-                        ->paginate(6);
+    public static $itemsPerPage = 10;
+
+    public function getMenu($menu, $id)
+    {
+        // get all product by menu id        
+        $products = Product::whereHas('categories.menus', function ($query) use ($id) {
+            $query->where('id', '=', $id);
+        })->paginate(self::$itemsPerPage);
+                        
         // get sub menu
-        $menus = DB::table('menus')
-                    ->leftJoin('category_menu','menus.id','=','category_menu.menu_id')
-                    ->leftJoin('categories','categories.id','=','category_menu.category_id')
-                    ->select('categories.*','category_menu.category_id as categoryId','category_menu.menu_id as menuId')
-                    ->where('menus.id',$id)
-                    ->orderBy('category_menu.order','asc')
-                    ->get();
-        return view('page.thucdon',compact('products','menus'));
+        $menu = Menu::where('id', '=', $id)->first();
+
+        return view('page.thucdon',compact('products','menu'));
     }
 
-   public function getProductType($name,$menuId,$categoryId){
-       // get all product by category id
-       $products = DB::table('products')
-            ->leftJoin('product_images','products.id','=','product_images.product_id')
-            ->leftJoin('units','products.unit_id','=','units.id')
-            ->leftJoin('category_product','category_product.product_id','=','products.id')
-            ->leftJoin('categories','categories.id','=','category_product.category_id')
-            ->select('products.*','product_images.name as image','units.name as unit_type')
-            ->where('categories.id',$categoryId)
-            ->paginate(6);
+    public function getProductType($name, $menuId, $categoryId)
+    {
+        // get all product by category id
+        $products = Product::whereHas('categories', function ($query) use ($categoryId) {
+            $query->where('id', '=', $categoryId);
+        })->paginate(self::$itemsPerPage);
+
         // get sub menu 
-       $menus = DB::table('menus')
-                    ->leftJoin('category_menu','menus.id','=','category_menu.menu_id')
-                    ->leftJoin('categories','categories.id','=','category_menu.category_id')
-                    ->select('categories.*','category_menu.category_id as categoryId','category_menu.menu_id as menuId')
-                    ->where('menus.id',$menuId)
-                    ->orderBy('category_menu.order','asc')
-                    ->get();
-       return view('page.thucdon',compact('products','menus'));
-   }
+        $menu = Menu::where('id', '=', $menuId)->first();
+
+        return view('page.thucdon', compact('products', 'menu'));
+    }
 }

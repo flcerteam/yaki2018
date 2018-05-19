@@ -12,7 +12,11 @@
                         <div class="col-md-7 col-sm-7">
                             <div class="thumbnail">
                                 <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
-                                    <img src="{{ $prSrc."/".$item->image }}" alt="{{ $item->name }}">
+                                    @if(null != $item->images)
+                                        <img src="{{ $prSrc."/".$item->firstImage->name }}" alt="{{ $item->name }}">
+                                    @else
+                                    <img src="{{ $prSrc."/no_image.png" }}" alt="{{ $item->name }}">
+                                    @endif
                                 </a>
                             </div>
                         </div>
@@ -24,7 +28,7 @@
                                 <span>Giá: {{ number_format($item->price) }} VND</span>
                                 <span>/@if ($item->number_of_unit != 1)
                                     {{ number_format($item->number_of_unit,0) }}
-                                @endif {{ $item->unit_type }}</span>
+                                @endif {{ $item->unit->name }}</span>
                                 <div class=" clear-fix">
                                     @include('page.cart') 
                                 </div>
@@ -33,7 +37,7 @@
                     </div>
                 </div>  
             @endforeach
-            <div class="row">{{ $products->links() }}</div>
+            <div class="col-sm-12 col-md-12 text-center">{{ $products->links() }}</div>
         </div>
     </div>
 </div>

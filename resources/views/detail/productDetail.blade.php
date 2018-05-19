@@ -8,7 +8,11 @@
             <!--Grid column-->
             <div class="col-md-6 detail-img">
                 <a href="javascript:void(0)" class="img-thumbnail">
-                    <img src="{{ $prSrc."/".$item->image }}" alt="{{ $item->name }}" class="img-responsive">
+                    @if(null != $item->images)
+                        <img src="{{ $prSrc."/".$item->firstImage->name }}" alt="{{ $item->name }}" class="img-responsive">
+                    @else
+                    <img src="{{ $prSrc."/no_image.png" }}" alt="{{ $item->name }}" class="img-responsive">
+                    @endif
                 </a>
             </div>
             <!--Grid column-->
@@ -20,7 +24,7 @@
                     <span>Giá: {{ number_format($item->price) }} VND</span>
                     <span>/@if ($item->number_of_unit != 1)
                         {{ number_format($item->number_of_unit,0) }}
-                    @endif {{ $item->unit_type }}</span>
+                    @endif {{ $item->unit->name }}</span>
                 </p>
                 <p>{{ $item->description }}</p>
                 <div class="d-flex justify-content-left">
