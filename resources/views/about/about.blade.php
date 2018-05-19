@@ -14,7 +14,7 @@
             <!-- about content -->
             <div class="col-md-5">
                 <a href="javascript:void(0)" class="img-thumbnail">
-                    <img src="{{ $imgSrc }}/YAKI4.1.JPG" alt="" class="img-responsive">
+                    <img src="{{ $imgSrc }}/yaki-about.jpg" alt="" class="img-responsive">
                 </a>
             </div>
             <!-- /about content -->

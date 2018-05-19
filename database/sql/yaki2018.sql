@@ -642,7 +642,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (19, '2018_04_20_000016_create_reservation_tables_table', 1),
 (20, '2018_04_20_000017_create_rt_status_histories_table', 1),
 (21, '2018_04_20_000018_create_order_status_histories_table', 1),
-(22, '2018_04_20_000019_create_parameters_table', 1);
+(22, '2018_04_20_000019_create_parameters_table', 1),
+(23, '2018_04_20_000020_create_recruitments_table', 1);
 
 -- --------------------------------------------------------
 
@@ -1319,6 +1320,7 @@ CREATE TABLE IF NOT EXISTS `parameters` (
   UNIQUE KEY `unique_param_ids` (`param_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+
 --
 -- Dumping data for table `parameters`
 --
@@ -1331,6 +1333,21 @@ INSERT INTO `parameters` (`id`, `param_id`, `name`, `content`, `created_at`, `up
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Table structure for table `recruitments`
+--
+
+DROP TABLE IF EXISTS `recruitments`;
+CREATE TABLE IF NOT EXISTS `recruitments` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `content` longtext COLLATE utf8_unicode_ci,
+  `status` tinyint(3) UNSIGNED NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Constraints for table `branch_images`
