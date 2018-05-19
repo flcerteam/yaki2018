@@ -9,27 +9,29 @@
             <div class="col-sm-8 col-md-9">
                 @if(count($news) > 0)
                 <div class="panel-group" id="accordion">
+                    @foreach($news as $new)
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $new->index }}" @if($new->index > 1) aria-expanded="false" class="collapsed"@endif>
                                     <div class="row">
-                                        <span class="col-md-1" style="color: #d9d9d9;font-size: 18px;">01</span>
+                                        <span class="col-md-1" style="color: #d9d9d9;font-size: 18px;">{{ $new->no }}</span>
                                         <span class="col-md-9" style="height: 100%;">
-                                            Collapsible Group 1
+                                            {{ $new->title }}
                                         </span>
-                                        <span class="col-md-2 hidden-xs" style="text-align: right;font-size: 12px;font-style: italic;">13/09/2016</span>
+                                        <span class="col-md-2 hidden-xs" style="text-align: right;font-size: 12px;font-style: italic;">{{ $new->created_at }}</span>
                                     </div>
                                 </a>
                                 
                             </div>
                         </div>
-                        <div id="collapse1" class="panel-collapse collapse in">
+                        <div id="collapse{{ $new->index }}" class="panel-collapse collapse in" @if($new->index > 1) aria-expanded="false" style="height: 0px;"@endif>
                             <div class="panel-body">
-                                Body
+                                {!! $new->content !!}
                             </div>
                         </div>
-                    </div>            
+                    </div>
+                    @endforeach           
                 </div>
                 @else
                     <p>Hiện tại Yaki không có tin tức tuyển dụng</p>
