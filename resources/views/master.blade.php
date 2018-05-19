@@ -42,7 +42,7 @@
 		<![endif]-->
 
     </head>
-    <body>
+    <body id="body">
     
         {{-- fb-live chat --}}
         <!-- Load Facebook SDK for JavaScript -->
@@ -63,9 +63,11 @@
           logged_out_greeting="Xin Chào! Yaki có thể giúp gì được bạn.">
         </div>
         {{-- /fb-livechat --}}
+
         @include('header')
         @yield('content')
         @include('footer')
+
         <!-- Preloader -->
         <div id="preloader">
             <div class="preloader">
@@ -78,9 +80,11 @@
 
         <!-- jQuery Plugins -->
         <script type="text/javascript" src="layout/js/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
         <script type="text/javascript" src="layout/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="layout/js/owl.carousel.min.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        
         <script type="text/javascript" src="layout/js/google-map.js"></script>
         <script type="text/javascript" src="layout/js/main.js"></script>
         <script type="text/javascript" src="js/cart/cart.js"></script>
@@ -96,16 +100,4 @@
         <script type="text/javascript" src="js/member/autoFill.js"></script>
         <!-- /member -->
     </body>
-    <script type="text/javascript">
-        // this will get the full URL at the address bar
-        var url = window.location.href;
-        // passes on every "a" tag
-        $(".main-nav a").each(function() {
-            // checks if its the same on the address bar
-            if (url == (this.href)) {
-                 $(this).closest("li").addClass("active");
-				 $(this).parents('li').addClass('parent-active');
-            }
-        });
-    </script>
 </html>
