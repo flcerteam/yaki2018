@@ -12,7 +12,7 @@
                         <div class="col-md-7 col-sm-7">
                             <div class="thumbnail">
                                 <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
-                                    <img src="{{ $imgSrc."/".$item->image }}" alt="{{ $item->name }}">
+                                    <img src="{{ $prSrc."/".$item->image }}" alt="{{ $item->name }}">
                                 </a>
                             </div>
                         </div>
