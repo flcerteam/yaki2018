@@ -4,7 +4,7 @@
 <div id="reservation" class="section">
 
     <!-- Backgound Image -->
-    <div class="bg-image" style="background-image:url(layout/img/yaki-background-01.jpg)"></div>
+<div class="bg-image" style="background-image:url({{ $imgSrc}}/yaki-background-01.jpg)"></div>
     <!-- /Backgound Image -->
 
     <!-- container -->
