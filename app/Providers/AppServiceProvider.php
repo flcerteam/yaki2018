@@ -33,6 +33,21 @@ class AppServiceProvider extends ServiceProvider
             $prSrc  = config('filesystems.disks.products.simple_path');
             $view->with('prSrc', $prSrc);
         });
+
+        view()->composer('*', function($view){
+            $imgSrc  = config('filesystems.disks.about.simple_path');
+            $view->with('aboutSrc', $aboutSrc);
+        });
+
+        view()->composer('*', function($view){
+            $imgSrc  = config('filesystems.disks.wbg.simple_path');
+            $view->with('bgSrc', $bgSrc);
+        });
+
+        view()->composer('*', function($view){
+            $imgSrc  = config('filesystems.disks.other.simple_path');
+            $view->with('other', $other);
+        });
     }
 
     /**
