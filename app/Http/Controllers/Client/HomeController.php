@@ -18,7 +18,7 @@ class HomeController extends Controller
         $events = Event::all();
 
         // get about
-        $parameter = Parameter::where('param_id','YAKI_ABOUT')->first();
+        $parameter = Parameter::where('param_id','YAKI_ABOUT_HOME')->first();
 
         if (null != $parameter) {
             $parameter->content = nl2br($parameter->content);
