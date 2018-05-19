@@ -8,8 +8,8 @@
             <!--Grid column-->
             <div class="col-md-6 detail-img">
                 <a href="javascript:void(0)" class="img-thumbnail">
-                    @if(null != $item->images)
-                        <img src="{{ $prSrc."/".$item->firstImage->name }}" alt="{{ $item->name }}" class="img-responsive">
+                    @if(null != $item->firstImage())
+                        <img src="{{ $prSrc."/".$item->firstImage()->name }}" alt="{{ $item->name }}" class="img-responsive">
                     @else
                     <img src="{{ $prSrc."/no_image.png" }}" alt="{{ $item->name }}" class="img-responsive">
                     @endif
