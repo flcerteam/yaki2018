@@ -34,7 +34,7 @@
         <nav id="nav">
 
             <!-- nav -->
-            <ul class="main-nav nav navbar-nav">
+            <ul class="main-nav nav navbar-nav main-nav-yaki">
                 <li><a href="{{ route('home') }}">Trang Chủ</a></li>
                 <li><a href="/about">Giới Thiệu</a></li>
                 <li><a href="{{ route('thucdon',[str_slug($yakiMenu->name,'-'),$yakiMenu->id]) }}">Thực Đơn</a></li>
