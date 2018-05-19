@@ -1,4 +1,3 @@
-<link type="text/css" rel="stylesheet" href="layout/css/contact.css" />
 @if (0 < count($menus))
 <nav class="navbar navbar-default">
   <div class="row contact-content">
