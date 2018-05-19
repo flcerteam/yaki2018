@@ -146,7 +146,7 @@
                                 <img src="{{$event->image }}" alt="">
                             </div>
                             <div class="event-content">
-                                <h3><a href="#">{{ $event->content }}</p>
+                                <h3><a href="javascrpit:void(0);">{!! $event->title !!}</p>
                             </div>
                         </div>
                     </div>
