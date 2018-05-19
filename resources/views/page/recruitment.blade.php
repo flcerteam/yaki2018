@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 col-md-9">
-                @if(count() > 0)
+                @if(count($news) > 0)
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -32,7 +32,7 @@
                     </div>            
                 </div>
                 @else
-                    
+                    <p>Hiện tại Yaki không có tin tức tuyển dụng</p>
                 @endif
             </div>
 
