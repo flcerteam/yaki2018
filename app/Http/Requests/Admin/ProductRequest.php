@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
         return [
             'sku'               => 'required|max:100|unique:products,sku'.($this->request->get('id') ? ','.$this->request->get('id') : ''),
             'name'              => 'required|max:255',
-            'description'       => 'required|max:1000',
+            'description'       => 'max:1000',
             'categories'        => 'required',
             'status'            => 'required|numeric|between:0,1',
             'unit_id'           => 'required',
