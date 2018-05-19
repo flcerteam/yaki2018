@@ -87,6 +87,12 @@ return [
             'root'        => public_path('uploads/events'),
         ],
 
+        'yaki'  => [
+            'driver'      => 'local',
+            'simple_path' => 'uploads/yaki',
+            'root'        => public_path('uploads/yaki'),
+        ],
+
         'image'  => [
             'driver'      => 'local',
             'simple_path' => 'layout/img',

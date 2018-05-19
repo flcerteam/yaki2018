@@ -41,6 +41,7 @@
                 <li><a href="{{ route('market',[str_slug($yakiMarket->name,'-'),$yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
                 <li><a href="{{ route('branch') }}">Hệ Thống Nhà Hàng</a></li>
                 <li><a href="{{ route('member') }}">Thành Viên</a></li>
+                <li><a href="{{ route('tuyen-dung') }}">Tuyển Dụng</a></li>
             </ul>
             
             <!-- /nav -->

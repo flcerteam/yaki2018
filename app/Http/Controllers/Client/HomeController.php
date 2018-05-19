@@ -13,11 +13,12 @@ class HomeController extends Controller
 {
     public function getHomeData() {
 
+        $imgSrc  = config('filesystems.disks.image.simple_path');
         // get all event
         $events = Event::all();
 
         // get about
-        $parameter = Parameter::where('param_id','YAKI_ABOUT')->first();
+        $parameter = Parameter::where('param_id','YAKI_ABOUT_HOME')->first();
 
         if (null != $parameter) {
             $parameter->content = nl2br($parameter->content);
@@ -29,6 +30,6 @@ class HomeController extends Controller
         ->select('products.*','product_images.name as image')
         ->get();
 
-        return view('page.trangchu',compact('events','products','parameter'));
+        return view('page.trangchu',compact('events','products','parameter','imgSrc'));
     }
 }

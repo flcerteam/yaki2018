@@ -47,7 +47,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input class="input" type="email" placeholder="Email@gmail.com" id="email" name="email">
+                            <input class="input" type="email" placeholder="Email@gmail.com" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="address">Địa Chỉ:</label>

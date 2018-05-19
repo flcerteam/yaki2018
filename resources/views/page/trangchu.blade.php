@@ -4,7 +4,7 @@
 <div id="home" class="banner-area">
 
     <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url(layout/img/background02.jpg)"></div>
+<div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }}/YAKI4.1.JPG)"></div>
     <!-- /Backgound Image -->
 
     <div class="home-wrapper">
@@ -58,7 +58,8 @@
                         <!-- single column -->
                         <div class="galery-item">
                             <!-- single image -->
-                            <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url(img/{{ $item->image }})">
+                            <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div>
+                            <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $prSrc."/".$item->image }})">
                             </a>
                             <!-- /single image --> 
                         </div>
