@@ -45,23 +45,19 @@
     <body id="body">
     
         {{-- fb-live chat --}}
-        <!-- Load Facebook SDK for JavaScript -->
-        <div id="fb-root"></div>
-        <script>(function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js#xfbml=1&version=v2.12&autoLogAppEvents=1';
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-        
-        <!-- Your customer chat code -->
-        <div class="fb-customerchat"
-          attribution="setup_tool"
-          page_id="1417676308332466"
-          logged_in_greeting="Xin Chào! Yaki có thể giúp gì được bạn."
-          logged_out_greeting="Xin Chào! Yaki có thể giúp gì được bạn.">
-        </div>
+        <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5af98a525f7cdf4f05342ddd/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
         {{-- /fb-livechat --}}
 
         @include('header')
