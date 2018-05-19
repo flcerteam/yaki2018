@@ -58,7 +58,7 @@
                         <!-- single column -->
                         <div class="galery-item">
                             <!-- single image -->
-                            <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url(img/{{ $item->image }})">
+                            <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $imgSrc."/".$item->image }})">
                             </a>
                             <!-- /single image --> 
                         </div>

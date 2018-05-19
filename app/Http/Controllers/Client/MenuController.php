@@ -11,6 +11,7 @@ class MenuController extends Controller
 {
    public function getMenu($menu,$id) {
         // get all product by menu id
+        
         $products = DB::table('products')
                         ->leftJoin('product_images','products.id','=','product_images.product_id')
                         ->leftJoin('units','products.unit_id','=','units.id')
