@@ -58,6 +58,7 @@
                         <!-- single column -->
                         <div class="galery-item">
                             <!-- single image -->
+                            <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div>
                             <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $imgSrc."/".$item->image }})">
                             </a>
                             <!-- /single image --> 
