@@ -25,7 +25,7 @@ class ParametersController extends Controller
 
             if (isImageFile($file_name))
             {
-                array_push($images, $file_name);
+                array_push($images, $disk . "/" . $file_name);
             }
         }
 
