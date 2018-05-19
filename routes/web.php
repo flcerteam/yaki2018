@@ -134,3 +134,7 @@ Route::get('find', 'Client\SearchController@getSearchHint');
 Route::post('add-to-cart','Client\CartController@addToCart');
 
 Route::get('about','Client\ParametersController@getAboutContent');
+/**buffet menu */
+Route::get('buffet',function(){
+  return view('buffet.buffet');
+});
