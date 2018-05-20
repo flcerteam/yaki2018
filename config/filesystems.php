@@ -105,7 +105,6 @@ return [
             'root'        => public_path('uploads/yaki/other'),
         ],
         
-
         'image'  => [
             'driver'      => 'local',
             'simple_path' => 'layout/img',

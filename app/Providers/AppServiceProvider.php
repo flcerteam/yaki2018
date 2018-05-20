@@ -35,18 +35,47 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('*', function($view){
-            $imgSrc  = config('filesystems.disks.about.simple_path');
+            $aboutSrc  = config('filesystems.disks.about.simple_path');
             $view->with('aboutSrc', $aboutSrc);
         });
 
         view()->composer('*', function($view){
-            $imgSrc  = config('filesystems.disks.wbg.simple_path');
-            $view->with('bgSrc', $bgSrc);
+            $otherSrc  = config('filesystems.disks.other.simple_path');
+            $view->with('other', $otherSrc);
         });
 
         view()->composer('*', function($view){
-            $imgSrc  = config('filesystems.disks.other.simple_path');
-            $view->with('other', $other);
+            $yakiBgHeader = DB::table('parameters')->where('param_id','YK_BG_HEADER')->first();
+
+            $yakiBgHeaderImg = '';
+
+            if(null == $yakiBgHeader)
+            {
+                $yakiBgHeaderImg = config('filesystems.disks.image.simple_path'). '/yaki-background.jpg';
+            }
+            else
+            {
+                $yakiBgHeaderImg = config('filesystems.disks.wbg.simple_path') . '/' . $yakiBgHeader->content;
+            }
+
+            $view->with('yakiBgHeaderImg', $yakiBgHeaderImg);
+        });
+
+        view()->composer('*', function($view){
+            $yakiBgFooter = DB::table('parameters')->where('param_id','YK_BG_FOOTER')->first();
+
+            $yakiBgFooterImg = '';
+
+            if(null == $yakiBgFooter)
+            {
+                $yakiBgFooterImg = config('filesystems.disks.image.simple_path'). '/yaki-background-01.jpg';
+            }
+            else
+            {
+                $yakiBgFooterImg = config('filesystems.disks.wbg.simple_path') . '/' . $yakiBgFooter->content;
+            }
+
+            $view->with('yakiBgFooterImg', $yakiBgFooterImg);
         });
     }
 
