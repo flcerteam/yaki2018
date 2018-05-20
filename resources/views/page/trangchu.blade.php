@@ -4,7 +4,7 @@
 <div id="home" class="banner-area">
 
     <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }}/yaki-background.jpg)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
     <!-- /Backgound Image -->
 
     <div class="home-wrapper">
@@ -59,8 +59,13 @@
                         <div class="galery-item">
                             <!-- single image -->
                             <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div>
-                            <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $prSrc."/".$item->image }})">
-                            </a>
+                            @if(null != $item->firstImage())
+                                <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $prSrc."/".$item->firstImage()->name }})">
+                                </a>
+                            @else
+                                <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{  $prSrc."/no_image.png" }})">
+                                </a>
+                            @endif
                             <!-- /single image --> 
                         </div>
                         <!-- single column -->
@@ -124,7 +129,7 @@
 <div id="menu" class="section">
 
     <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }}/yaki-background-01.jpg)"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgFooterImg }})"></div>
     <!-- /Backgound Image -->
     <!-- container -->
     <div class="container">

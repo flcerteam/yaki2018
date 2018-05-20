@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Menu;
 use App\Models\Client\Event;
 use App\Models\Client\Parameter;
+use App\Models\Client\Product;
 use DB;
 
 class HomeController extends Controller
@@ -23,11 +24,13 @@ class HomeController extends Controller
             $parameter->content = nl2br($parameter->content);
         }
 
-        // get new product
-        $products = DB::table('products')
-        ->leftJoin('product_images','products.id','=','product_images.product_id')
-        ->select('products.*','product_images.name as image')
-        ->get();
+        // // get new product
+        // $products = DB::table('products')
+        // ->leftJoin('product_images','products.id','=','product_images.product_id')
+        // ->select('products.*','product_images.name as image')
+        // ->get();
+         // get all product by category id
+         $products = Product::all();
 
         return view('page.trangchu',compact('events','products','parameter'));
     }
