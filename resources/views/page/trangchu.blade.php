@@ -148,7 +148,11 @@
                     <div class="col-md-6">
                         <div class="event">
                             <div class="event-img">
+                                @if(null != $event->image)
                                 <img src="{{$event->image }}" alt="">
+                                @else
+                                <img src=" {{  $eventSrc."/no_image.png" }}" alt="">
+                                @endif
                             </div>
                             <div class="event-content">
                                 <h3><a href="javascrpit:void(0);">{!! $event->title !!}</p>

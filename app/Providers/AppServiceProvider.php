@@ -35,6 +35,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('*', function($view){
+            $eventSrc  = config('filesystems.disks.events.simple_path');
+            $view->with('eventSrc', $eventSrc);
+        });
+
+        view()->composer('*', function($view){
             $aboutSrc  = config('filesystems.disks.about.simple_path');
             $view->with('aboutSrc', $aboutSrc);
         });
