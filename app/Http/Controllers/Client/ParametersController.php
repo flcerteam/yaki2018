@@ -12,12 +12,12 @@ class ParametersController extends Controller
 {
     public function getAboutContent() {
 
-        $disk  = config('filesystems.disks.yaki.simple_path');
+        $disk  = config('filesystems.disks.about.simple_path');
 
         // get about
         $parameter = Parameter::where('param_id','YAKI_ABOUT')->first();
 
-        $files = Storage::disk('yaki')->allFiles();
+        $files = Storage::disk('about')->allFiles();
         $images = array();
         for ($i = 0; $i < count($files); $i++)
         {

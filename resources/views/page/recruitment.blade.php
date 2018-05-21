@@ -1,8 +1,16 @@
 @extends('master')
 @section('content')
 
-<div class="section"></div>
+<div class="section">
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
+</div>
+
 <div id="recruitment" class="section">
+
+    <!-- Backgound Image -->
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
+    <!-- /Backgound Image -->
+
     <!-- container -->
     <div class="container">
         <div class="row">
@@ -44,7 +52,7 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div>   
 </div>
 
 @endsection

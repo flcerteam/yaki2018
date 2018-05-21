@@ -1,13 +1,20 @@
 @extends('master')
 @section('content')
+
 <!-- section header -->
-<div class="section"></div>
+<div class="section">
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
+</div>
+
 <div id="about" class="section">
+
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
+
     <div class="container">
         @if (null != $parameter)
         <div class="row">
             <div class="section-header text-center">
-                <h2 class="title">{{ trans('common.about_subject') }}</h2>
+                <h2 class="title white-text">{{ trans('common.about_subject') }}</h2>
             </div>
             <!-- /section header -->
 
@@ -20,7 +27,7 @@
             <!-- /about content -->
 
             <!-- about content -->
-            <div class="col-md-7">
+            <div class="col-md-7 white-text">
                 <p>{!! $parameter->content !!}</p>
             </div>
             <!-- /about content -->
@@ -53,5 +60,9 @@
             <p>Đang cập nhật thông tin...</p>
         @endif
     </div>
+</div>
+
+<div class="section">
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
 </div>
 @endsection

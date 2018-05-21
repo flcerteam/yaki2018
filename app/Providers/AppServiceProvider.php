@@ -14,46 +14,65 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             $yakiMenu = DB::table('menus')->where('menu_id','YK_MENU')->first(); 
             $view->with('yakiMenu', $yakiMenu);
         });
 
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             $yakiMarket = DB::table('menus')->where('menu_id','YK_SM_MENU')->first();
             $view->with('yakiMarket', $yakiMarket);
         });
 
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             $imgSrc  = config('filesystems.disks.image.simple_path');
             $view->with('imgSrc', $imgSrc);
         });
 
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             $prSrc  = config('filesystems.disks.products.simple_path');
             $view->with('prSrc', $prSrc);
         });
 
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             $eventSrc  = config('filesystems.disks.events.simple_path');
             $view->with('eventSrc', $eventSrc);
         });
 
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             $aboutSrc  = config('filesystems.disks.about.simple_path');
             $view->with('aboutSrc', $aboutSrc);
         });
 
-        view()->composer('*', function($view){
+        view()->composer('*', function($view) {
             $otherSrc  = config('filesystems.disks.other.simple_path');
             $view->with('other', $otherSrc);
         });
 
-        view()->composer('*', function($view){
-            $yakiBgHeader = DB::table('parameters')->where('param_id','YK_BG_HEADER')->first();
+        view()->composer('*', function($view) {
 
+            $yakiBgHeader = null;
             $yakiBgHeaderImg = '';
 
+            $yakiBgFooter = null;
+            $yakiBgFooterImg = '';
+
+
+            $parameters = DB::table('parameters')->get();
+
+            foreach ($parameters as $parameter)
+            {
+                if ($parameter->param_id == 'YK_BG_HEADER')
+                {
+                    $yakiBgHeader = $parameter;
+                }
+                elseif ($parameter->param_id == 'YK_BG_FOOTER')
+                {
+                    $yakiBgFooter = $parameter;
+                }
+            }
+
+            // image header
             if(null == $yakiBgHeader)
             {
                 $yakiBgHeaderImg = config('filesystems.disks.image.simple_path'). '/yaki-background.jpg';
@@ -64,14 +83,9 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('yakiBgHeaderImg', $yakiBgHeaderImg);
-        });
 
-        view()->composer('*', function($view){
-            $yakiBgFooter = DB::table('parameters')->where('param_id','YK_BG_FOOTER')->first();
-
-            $yakiBgFooterImg = '';
-
-            if(null == $yakiBgFooter)
+            // image footer
+            if (null == $yakiBgFooter)
             {
                 $yakiBgFooterImg = config('filesystems.disks.image.simple_path'). '/yaki-background-01.jpg';
             }
