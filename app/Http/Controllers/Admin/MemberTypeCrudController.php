@@ -3,13 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use Backpack\CRUD\app\Http\Controllers\CrudController;
-use Illuminate\Http\Request;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\Admin\MemberRequest as StoreRequest;
-use App\Http\Requests\Admin\MemberRequest as UpdateRequest;
+use App\Http\Requests\MemberTypeRequest as StoreRequest;
+use App\Http\Requests\MemberTypeRequest as UpdateRequest;
 
-class MemberCrudController extends CrudController
+class MemberTypeCrudController extends CrudController
 {
     public function setup()
     {
@@ -19,9 +18,9 @@ class MemberCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Admin\Member');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/member');
-        $this->crud->setEntityNameStrings(trans('member.member'), trans('member.members'));
+        $this->crud->setModel('App\Models\MemberType');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/membertype');
+        $this->crud->setEntityNameStrings('membertype', 'member_types');
 
         /*
         |--------------------------------------------------------------------------
@@ -29,70 +28,13 @@ class MemberCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // $this->crud->setFromDb();
+        $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
-        $this->crud->addFields([
-            [
-                'name'      => 'name',
-                'label'     => trans('member.name'),
-                'type'      => 'text',
-            ],
-            [
-                'name'      => 'birth_date',
-                'label'     => trans('member.birth_date'),
-                'type'      => 'date',
-            ],
-            [
-                'name'      => 'gender',
-                'label'     => trans('member.gender'),
-                'type'      => 'select_from_array',
-                'options'   => [
-                    '0'     => trans('member.male'),
-                    '1'     => trans('member.female'),
-                    '2'     => trans('member.other'),
-                ],
-            ],
-            [
-                'name'      => 'phone_number',
-                'label'     => trans('member.phone_number'),
-                'hint'      => trans('member.hint_phone_number'),
-                'type'      => 'text',
-
-            ],
-            [
-                'name'      => 'email',
-                'label'     => trans('member.email'),
-                'type'      => 'email',
-            ],
-            [
-                'name'      => 'address',
-                'label'     => trans('member.address'),
-                'type'      => 'textarea',
-            ],
-            [
-                'name'      => 'member_point',
-                'label'     => trans('member.member_point'),
-                'type'      => 'number',
-            ],
-            [
-                'label' => trans('member.member_type'),
-                'type' => 'select2',
-                'name' => 'member_type_id',
-                'entity' => 'memberType',
-                'attribute' => 'name',
-                'model' => "App\Models\Admin\MemberType"
-            ],
-            [
-                'name'      => 'note',
-                'label'     => trans('member.note'),
-                'type'      => 'textarea',
-            ],
-        ]);
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -101,46 +43,6 @@ class MemberCrudController extends CrudController
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
-        $this->crud->addColumns([
-            [
-                'name'  => 'name',
-                'label' => trans('member.name'),
-            ],
-            [
-                'name'  => 'name',
-                'label' => trans('member.name'),
-            ],
-            [
-                'name'  => 'birth_date_fm',
-                'label' => trans('member.birth_date'),
-            ],
-            [
-                'name'  => 'gender',
-                'label' => trans('member.gender'),
-                'type'  => 'select_from_array',
-                'options'   => [
-                    '0'     => trans('member.male'),
-                    '1'     => trans('member.female'),
-                    '2'     => trans('member.other'),
-                ],
-            ],
-            [
-                'name'  => 'phone_number',
-                'label' => trans('member.phone_number'),
-            ],
-            [
-                'name'  => 'email',
-                'label' => trans('member.email'),
-            ],
-            [
-                'label' => trans('member.member_type'),
-                'type' => 'select',
-                'name' => 'member_type_id',
-                'entity' => 'memberType',
-                'attribute' => 'name',
-                'model' => "App\Models\Admin\MemberType"
-            ],
-        ]);
 
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
@@ -153,7 +55,7 @@ class MemberCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
+        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
@@ -182,17 +84,6 @@ class MemberCrudController extends CrudController
         // $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
-        $this->crud->addFilter(
-            [ // select2 filter
-                'name' => 'member_type_id',
-                'type' => 'select2',
-                'label'=> trans('member.member_type')
-            ], function() {
-                return \App\Models\Admin\MemberType::all()->pluck('name', 'id')->toArray();
-            }, function($value) { // if the filter is active
-                  $this->crud->addClause('where', 'member_type_id', $value);
-            });
-
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');
         // $this->crud->addClause('where', 'name', '==', 'car');
@@ -210,12 +101,6 @@ class MemberCrudController extends CrudController
 
     public function store(StoreRequest $request)
     {
-        $requestData = $request->all();
-
-        if ($requestData['member_point'] == null) {
-            $request->merge(['member_point' => '0']);
-        }
-
         // your additional operations before save here
         $redirect_location = parent::storeCrud($request);
         // your additional operations after save here
@@ -225,12 +110,6 @@ class MemberCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
-        $requestData = $request->all();
-    
-        if ($requestData['member_point'] == null) {
-            $request->merge(['member_point' => '0']);
-        }
-
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here

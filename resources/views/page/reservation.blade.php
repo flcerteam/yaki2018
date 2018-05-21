@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="section">
-        <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
 </div>
 
 <!-- Reservation -->

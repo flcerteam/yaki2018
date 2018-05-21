@@ -2,14 +2,14 @@
 @section('content')
 
 <div class="section">
-    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }})"></div>
+        <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
 </div>
 
 <!-- Process -->
 <div id="process" class="section">
 
     <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }})"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
     <!-- /Backgound Image -->
 
     <!-- container -->
@@ -30,7 +30,7 @@
 <!-- /Process -->
 
 <div class="section">
-    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $imgSrc }})"></div>
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
 </div>
 
 @endsection

@@ -47,7 +47,11 @@
 
             <!-- about content -->
             <div class="col-md-7">
+                @if (null != $parameter)
                 <p>{!! $parameter->content !!}</p>
+                @else
+                <p>Đang cập nhật thông tin...</p>
+                @endif
             </div>
             <!-- /about content -->
 

@@ -113,7 +113,7 @@
 						<div class="col-md-12 well">
 							<div class="col-md-6">
 								<i class="fa fa-user-circle-o"></i> &nbsp; {{ $rt->member->name }} <br/>
-								<i class="fa fa-birthday-cake"></i> &nbsp; {{ $rt->member->birth_date }}
+								<i class="fa fa-birthday-cake"></i> &nbsp; {{ $rt->member->birthDateFm }}
 								<br>
 								@if ($rt->member->gender == 0)	
 									<i class="fa fa-mars"></i>  &nbsp; {{ trans('member.male') }}

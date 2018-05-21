@@ -16,5 +16,7 @@ return [
 	'address'			=> 'Địa chỉ',
 	'member_point'		=> 'Điểm tích lũy',
 	'member_info'		=> 'Thông tin thành viên',
+	'note'				=> 'Ghi chú',
+	'member_type'		=> 'Loại thành viên',
 
 ];

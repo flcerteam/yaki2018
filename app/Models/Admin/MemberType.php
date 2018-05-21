@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Member extends Model
+class MemberType extends Model
 {
     use CrudTrait;
 
@@ -15,22 +15,12 @@ class Member extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'members';
+    protected $table = 'member_types';
     protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-        'name',
-        'birth_date',
-        'gender',
-        'phone_number',
-        'email',
-        'address',
-        'member_point',
-        'member_type_id',
-        'note',
-        'created_at',
-    	'updated_at'
+        'name'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -46,10 +36,6 @@ class Member extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function memberType()
-	{
-		return $this->hasOne('App\Models\Admin\MemberType', 'id', 'member_type_id');
-    }
 
     /*
     |--------------------------------------------------------------------------
@@ -68,22 +54,4 @@ class Member extends Model
     | MUTATORS
     |--------------------------------------------------------------------------
     */
-    public function getBirthDateFmAttribute()
-    {
-        if (null != $this->birth_date)
-        {
-            return \Carbon\Carbon::createFromFormat('Y-m-d', $this->birth_date)->format('d-m-Y');
-        }
-
-        return $this->birth_date;
-    }
-    // public function getBirthDateAttribute($value)
-    // {
-    //     if ($value != null)
-    //     {
-    //         return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
-    //     }
-
-    //     return $value;
-    // }
 }

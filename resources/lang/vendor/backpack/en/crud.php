@@ -72,7 +72,7 @@ return [
         'emptyTable'     => 'Không tồn tại dữ liệu',
         'info'           => 'Hiển thị _START_ - _END_ / _TOTAL_',
         'infoEmpty'      => 'Hiển thị 0 - 0 / 0 ',
-        'infoFiltered'   => '(filtered from _MAX_ total entries)',
+        'infoFiltered'   => '(lọc từ _MAX_ dòng dữ liệu)',
         'infoPostFix'    => '',
         'thousands'      => ',',
         'lengthMenu'     => '_MENU_ dòng / trang',

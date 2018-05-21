@@ -23,6 +23,6 @@ class ParametersTableSeeder extends Seeder
             ],
     	];
 
-    	DB::table('parameters')->insert($users);
+    	DB::table('parameters')->insert($parameters);
     }
 }
