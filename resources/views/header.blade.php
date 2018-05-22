@@ -1,6 +1,10 @@
 <!-- Header -->
 <header id="header">
 
+    <!-- Backgound Image -->
+    <div class="bg-image bg-parallax overlay img-bg-header" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
+    <!-- /Backgound Image -->
+
     <!-- Top nav -->
     <div id="top-nav">
         <div class="container">

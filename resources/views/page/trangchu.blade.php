@@ -1,4 +1,5 @@
 @extends('master')
+
 @section('content')
 <!-- Home -->
 <div id="home" class="banner-area">

@@ -1,6 +1,6 @@
 @extends('master')
+
 @section('content')
-<div class="section"></div>
 <div  class="section">
     <div class="container">
          @include('nav.subNav')
