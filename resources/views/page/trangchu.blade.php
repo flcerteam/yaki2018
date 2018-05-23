@@ -144,29 +144,31 @@
 
                 <!-- section header -->
                 <div class="section-header text-center">
-                    <h4 class="sub-title">Sự Kiện Đặc Biệt</h4>
-                    <h2 class="title" style="color:blanchedalmond">Đang Diễn Ra</h2>
+                    <h2 class="title" style="color:blanchedalmond">Sự Kiện Yaki</h2>
                 </div>
                 <!-- /section header -->
-                @foreach ($events as $event)
-                    <!-- single event -->
-                    <div class="col-md-6">
-                        <div class="event">
-                            <div class="event-img">
-                                @if(null != $event->image)
-                                <img src="{{$event->image }}" alt="">
-                                @else
-                                <img src=" {{  $eventSrc."/no_image.png" }}" alt="">
-                                @endif
-                            </div>
-                            <div class="event-content">
-                                <h3><a href="javascrpit:void(0);">{!! $event->title !!}</p>
+                @if (count($events) == 0)
+                <p class="text-center">Hiện tại không có sự kiện ^_^.</p>
+                @else
+                    @foreach ($events as $event)
+                        <!-- single event -->
+                        <div class="col-md-6">
+                            <div class="event">
+                                <div class="event-img">
+                                    @if(null != $event->image)
+                                    <img src="{{$event->image }}" alt="">
+                                    @else
+                                    <img src=" {{  $eventSrc."/no_image.png" }}" alt="">
+                                    @endif
+                                </div>
+                                <div class="event-content">
+                                    <h3><a href="javascrpit:void(0);">{!! $event->title !!}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- /single event -->
-                @endforeach
-                
+                        <!-- /single event -->
+                    @endforeach
+                @endif
             </div>
             <!-- /row -->
 

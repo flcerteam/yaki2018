@@ -1,7 +1,10 @@
 @extends('master')
 @section('content')
 
-<div class="section">
+<div class="section hidden-lg hidden-md visible-sm-block">
+    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
+</div>
+<div class="section-md visible-lg-block visible-md-block hidden-sm hidden-xs">
     <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
 </div>
 
