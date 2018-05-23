@@ -18,12 +18,13 @@ class ParametersController extends Controller
         $parameter = Parameter::where('param_id','YAKI_ABOUT')->first();
 
         $files = Storage::disk('about')->allFiles();
+
         $images = array();
         for ($i = 0; $i < count($files); $i++)
         {
             $file_name = $files[$i];
 
-            if (isImageFile($file_name))
+            if ($this->isImageFile($file_name))
             {
                 array_push($images, $disk . "/" . $file_name);
             }
@@ -38,9 +39,9 @@ class ParametersController extends Controller
 
     private function isImageFile($fileName)
     {
-        return (endsWith($fileName, 'jpeg')
-            || endsWith($fileName, 'jpg')
-            || endsWith($fileName, 'png'));
+        return ($this->endsWith($fileName, 'jpeg')
+            || $this->endsWith($fileName, 'jpg')
+            || $this->endsWith($fileName, 'png'));
     }
 
     private function endsWith($haystack, $needle)
