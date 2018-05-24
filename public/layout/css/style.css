@@ -1293,3 +1293,37 @@ textarea.input {
 		        transform:translateY(40px);
 	}
 }
+
+/*------------------------------------*\
+	Alert botoom
+\*------------------------------------*/
+.alert-bottom{
+    position: fixed;
+    bottom: 5px;
+    right:15px;
+    width: 30%;
+}
+
+.alert{
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    opacity: 1;
+    transition: opacity 0.6s;
+    margin-bottom: 15px;
+}
+
+.alert-close-btn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.alert-click-btn {
+	cursor: pointer;
+}

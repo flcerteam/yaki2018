@@ -90,5 +90,6 @@
         <!-- member -->
         <script type="text/javascript" src="js/member/autoFill.js"></script>
         <!-- /member -->
+        <script type="text/javascript" src="js/home/home.js"></script>
     </body>
 </html>

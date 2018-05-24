@@ -176,4 +176,21 @@
     <!-- /container -->
 </div>
 <!-- /Sư kiện đặc biệt -->
+
+{{-- <div class="modal fade" id="slide-bottom-popup" data-keyboard="false" data-backdrop="false" role="dialog">
+    <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <p>I'm a pop sliding from the bottom that's suppose to stick</p>
+        <a href="" class="btn-primary btn-plain btn popup-button">CTA</a>
+    </div><!-- /.modal-body -->
+</div><!-- /.modal --> --}}
+
+<div class="alert-bottom alert">
+    <span class="alert-close-btn">&times;</span>
+    <strong>Khuyến mại</strong><br/>
+    <p>Giảm ngay 5% cho khách đặt bàn tại website.</p>
+    <a href="{{ route('reservation') }}" class="btn btn-primary">Đặt bàn ngay!</a>
+</div>
+
+
 @endsection
