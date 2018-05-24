@@ -510,7 +510,7 @@ textarea.input {
 
 .banner-area .home-wrapper {
 	position: absolute;
-	top: 50%;
+	top: 55%;
 	-webkit-transform: translateY(-50%);
 	    -ms-transform: translateY(-50%);
 	        transform: translateY(-50%);
