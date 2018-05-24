@@ -31,12 +31,24 @@ Table OF Contents
 	General
 \*------------------------------------*/
 /* --- typography --- */
+html,
+body { height: 100%; }
+
 body {
 	color:#969696;
 	font-size:16px;
 	overflow-x:hidden;
 	font-family: 'Cabin', sans-serif;
+	display: table;
+  	width: 100%;
 }
+
+.page-row {
+	display: table-row;
+	height: 1px;
+}
+  
+.page-row-expanded { height: 100%; }
 
 h1,h2,h3,h4,h5,h6 {
 	font-weight:700;
@@ -98,6 +110,12 @@ ul,ol{
 }
 
 .section-md {
+	position:relative;
+	padding-top:65px;
+	padding-bottom:65px;
+}
+
+.section-lg {
 	position:relative;
 	padding-top:45px;
 	padding-bottom:45px;
