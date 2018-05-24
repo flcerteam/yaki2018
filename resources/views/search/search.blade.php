@@ -1,8 +1,6 @@
 @extends('master')
 @section('content')
 
-<div class="page-row page-row-expanded">
-
     <div class="section hidden-lg hidden-md visible-sm-block"></div>
     <div class="section-md hidden-lg visible-md-block hidden-sm hidden-xs"></div>
     <div class="section-lg visible-lg-block hidden-md hidden-sm hidden-xs"></div>
@@ -59,5 +57,4 @@
     </div>
     <div class="section"></div>
 
-</div>
 @endsection

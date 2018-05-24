@@ -1,146 +1,143 @@
 @extends('master')
 
 @section('content')
-<!-- Home -->
-<div id="home" class="banner-area">
 
-    <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
-    <!-- /Backgound Image -->
+    <!-- Home -->
+    <div id="home" class="banner-area">
 
-    <div class="home-wrapper">
+        <!-- Backgound Image -->
+        <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
+        <!-- /Backgound Image -->
 
-        <div class="col-md-10 col-md-offset-1 text-center">
-            <div class="home-content">
-                <h1 class="white-text">Welcome To Yaki Restaurant</h1>
-                <h4 class="white-text lead">Chẳng Dừng Nướng.</h4>
-                <a class="main-button" href="{{ route('thucdon',[str_slug($yakiMenu->name,'-'),$yakiMenu->id]) }}">Khám Phá Thực Đơn</a>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-<!-- /Home -->
-
-<!-- About -->
-<div id="about" class="section">
-
-    <!-- container -->
-    <div class="container">
-
-        <!-- row -->
-        <div class="row">
-
-            <!-- section header -->
-            <div class="section-header text-center">
-                <h2 class="title">{{ trans('common.about_subject') }}</h2>
-            </div>
-            <!-- /section header -->
-
-            <!-- about content -->
-            <div class="col-md-5">
-                <a href="javascript:void(0)" class="img-thumbnail">
-                    <img src="" alt="" class="img-responsive">
-                </a>
-            </div>
-            <!-- /about content -->
-
-            <!-- about content -->
-            <div class="col-md-7">
-                @if (null != $parameter)
-                <p>{!! $parameter->content !!}</p>
-                @else
-                <p>Đang cập nhật thông tin...</p>
-                @endif
-            </div>
-            <!-- /about content -->
-
-            <!-- Galery Slider -->
-            <div class="col-md-12">
-                <div id="galery" class="owl-carousel owl-theme">
-                    @foreach ($products as $item)
-                        <!-- single column -->
-                        <div class="galery-item">
-                            <!-- single image -->
-                            <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div>
-                            @if(null != $item->firstImage())
-                                <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $prSrc."/".$item->firstImage()->name }})">
-                                </a>
-                            @else
-                                <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{  $prSrc."/no_image.png" }})">
-                                </a>
-                            @endif
-                            <!-- /single image --> 
-                        </div>
-                        <!-- single column -->
-                    @endforeach
-
-                    {{-- <!-- single column -->
-                    <div class="galery-item">
-
-                        <!-- single image -->
-                        <div class="galery-img" style="background-image:url(layout/img/image02.jpg)"></div>
-                        <!-- /single image -->
-
-                        <!-- single image -->
-                        <div class="galery-img" style="background-image:url(layout/img/image03.jpg)"></div>
-                        <!-- /single image -->
-
-                    </div>
-                    <!-- single column -->
-
-                    <!-- single column -->
-                    <div class="galery-item">
-
-                        <div class="item-column">
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image04.jpg)"></div>
-                            <!-- /single image -->
-
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image05.jpg)"></div>
-                            <!-- /single image -->
-                        </div>
-
-                        <div class="item-column">
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image06.jpg)"></div>
-                            <!-- /single image -->
-
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image07.jpg)"></div>
-                            <!-- /single image -->
-                        </div>
-
-                    </div>
-                    <!-- /single column --> --}}
-
+        <div class="home-wrapper">
+            <div class="col-md-10 col-md-offset-1 text-center">
+                <div class="home-content">
+                    <h1 class="white-text">Welcome To Yaki Restaurant</h1>
+                    <h4 class="white-text lead">Chẳng Dừng Nướng.</h4>
+                    <a class="main-button" href="{{ route('thucdon',[str_slug($yakiMenu->name,'-'),$yakiMenu->id]) }}">Khám Phá Thực Đơn</a>
                 </div>
             </div>
-            <!-- /Galery Slider -->
+        </div>
+    </div>
+    <!-- /Home -->
 
+    <!-- About -->
+    <div id="about" class="section">
+
+        <!-- container -->
+        <div class="container">
+
+            <!-- row -->
+            <div class="row">
+
+                <!-- section header -->
+                <div class="section-header text-center">
+                    <h2 class="title">{{ trans('common.about_subject') }}</h2>
+                </div>
+                <!-- /section header -->
+
+                <!-- about content -->
+                <div class="col-md-5">
+                    <a href="javascript:void(0)" class="img-thumbnail">
+                        <img src="" alt="" class="img-responsive">
+                    </a>
+                </div>
+                <!-- /about content -->
+
+                <!-- about content -->
+                <div class="col-md-7">
+                    @if (null != $parameter)
+                    <p>{!! $parameter->content !!}</p>
+                    @else
+                    <p>Đang cập nhật thông tin...</p>
+                    @endif
+                </div>
+                <!-- /about content -->
+
+                <!-- Galery Slider -->
+                <div class="col-md-12">
+                    <div id="galery" class="owl-carousel owl-theme">
+                        @foreach ($products as $item)
+                            <!-- single column -->
+                            <div class="galery-item">
+                                <!-- single image -->
+                                <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div>
+                                @if(null != $item->firstImage())
+                                    <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $prSrc."/".$item->firstImage()->name }})">
+                                    </a>
+                                @else
+                                    <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{  $prSrc."/no_image.png" }})">
+                                    </a>
+                                @endif
+                                <!-- /single image --> 
+                            </div>
+                            <!-- single column -->
+                        @endforeach
+
+                        {{-- <!-- single column -->
+                        <div class="galery-item">
+
+                            <!-- single image -->
+                            <div class="galery-img" style="background-image:url(layout/img/image02.jpg)"></div>
+                            <!-- /single image -->
+
+                            <!-- single image -->
+                            <div class="galery-img" style="background-image:url(layout/img/image03.jpg)"></div>
+                            <!-- /single image -->
+
+                        </div>
+                        <!-- single column -->
+
+                        <!-- single column -->
+                        <div class="galery-item">
+
+                            <div class="item-column">
+                                <!-- single image -->
+                                <div class="galery-img" style="background-image:url(layout/img/image04.jpg)"></div>
+                                <!-- /single image -->
+
+                                <!-- single image -->
+                                <div class="galery-img" style="background-image:url(layout/img/image05.jpg)"></div>
+                                <!-- /single image -->
+                            </div>
+
+                            <div class="item-column">
+                                <!-- single image -->
+                                <div class="galery-img" style="background-image:url(layout/img/image06.jpg)"></div>
+                                <!-- /single image -->
+
+                                <!-- single image -->
+                                <div class="galery-img" style="background-image:url(layout/img/image07.jpg)"></div>
+                                <!-- /single image -->
+                            </div>
+
+                        </div>
+                        <!-- /single column --> --}}
+
+                    </div>
+                </div>
+                <!-- /Galery Slider -->
+
+
+            </div>
+            <!-- /row -->
 
         </div>
-        <!-- /row -->
+        <!-- /container -->
 
     </div>
-    <!-- /container -->
+    <!-- /About -->
 
-</div>
-<!-- /About -->
+    <!-- Sư kiện đặc biệt -->
+    <div id="event" class="section">
 
-<!-- Sư kiện đặc biệt -->
-<div id="menu" class="section">
-
-    <!-- Backgound Image -->
-    <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgFooterImg }})"></div>
-    <!-- /Backgound Image -->
-    <!-- container -->
-    <div class="container">
-
-        <!-- row -->
-        <div class="row">
+        <!-- Backgound Image -->
+        <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgFooterImg }})"></div>
+        <!-- /Backgound Image -->
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
 
                 <!-- section header -->
                 <div class="section-header text-center">
@@ -162,35 +159,26 @@
                                     @endif
                                 </div>
                                 <div class="event-content">
-                                    <h3><a href="javascrpit:void(0);">{!! $event->title !!}</p>
+                                    <h3><a href="javascrpit:void(0);">{!! $event->title !!}</p></h3>
                                 </div>
                             </div>
                         </div>
                         <!-- /single event -->
                     @endforeach
                 @endif
+                
+                <!-- /row -->
             </div>
-            <!-- /row -->
-
+            <!-- /container -->
+        </div>
+        <!-- /Sư kiện đặc biệt -->
     </div>
-    <!-- /container -->
-</div>
-<!-- /Sư kiện đặc biệt -->
 
-{{-- <div class="modal fade" id="slide-bottom-popup" data-keyboard="false" data-backdrop="false" role="dialog">
-    <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <p>I'm a pop sliding from the bottom that's suppose to stick</p>
-        <a href="" class="btn-primary btn-plain btn popup-button">CTA</a>
-    </div><!-- /.modal-body -->
-</div><!-- /.modal --> --}}
-
-<div class="alert-bottom alert">
-    <span class="alert-close-btn">&times;</span>
-    <strong>Khuyến mại</strong><br/>
-    <p>Giảm ngay 5% cho khách đặt bàn tại website.</p>
-    <a href="{{ route('reservation') }}" class="btn btn-primary">Đặt bàn ngay!</a>
-</div>
-
+    <div class="alert-bottom alert">
+        <span class="alert-close-btn">&times;</span>
+        <strong>Khuyến mại</strong><br/>
+        <p>Giảm ngay 5% cho khách đặt bàn tại website.</p>
+        <a href="{{ route('reservation') }}" class="btn btn-primary">Đặt bàn ngay!</a>
+    </div>
 
 @endsection

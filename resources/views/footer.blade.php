@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer id="footer" class="page-row">
+<footer id="footer">
 
     <!-- container -->
     <div class="container">
