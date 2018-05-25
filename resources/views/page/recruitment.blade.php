@@ -31,11 +31,11 @@
                                 <div class="panel-title">
                                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $new->index }}" @if($new->index > 1) aria-expanded="false" class="collapsed"@endif>
                                         <div class="row">
-                                            <span class="col-md-1" style="color: #d9d9d9;font-size: 18px;">{{ $new->no }}</span>
-                                            <span class="col-md-9" style="height: 100%;">
+                                            <span class="col-md-1 col-sm-1 col-xs-1" style="color: #d9d9d9;font-size: 18px;">{{ $new->no }}</span>
+                                            <span class="col-md-9 col-sm-9 col-xs-11" style="height: 100%;">
                                                 {{ $new->title }}
                                             </span>
-                                            <span class="col-md-2 hidden-xs" style="text-align: right;font-size: 12px;font-style: italic;">{{ $new->created_at }}</span>
+                                            <span class="col-md-2 col-sm-2 recruitment-publish-date hidden-xs">{{ $new->created_at }}</span>
                                         </div>
                                     </a>
                                     

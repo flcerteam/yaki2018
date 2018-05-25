@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <div class="page-row page-row-expanded">
     <!-- Home -->
     <div id="home" class="banner-area">
 
@@ -177,8 +178,8 @@
     <div class="alert-bottom alert">
         <span class="alert-close-btn">&times;</span>
         <strong>Khuyến mại</strong><br/>
-        <p>Giảm ngay 5% cho khách đặt bàn tại website.</p>
+        <p>Giảm ngay 5% cho khách đặt bàn tại yaki.com.vn</p>
         <a href="{{ route('reservation') }}" class="btn btn-primary">Đặt bàn ngay!</a>
     </div>
-
+    </div>
 @endsection
