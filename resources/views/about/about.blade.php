@@ -28,7 +28,7 @@
                 <!-- about content -->
                 <div class="col-md-5">
                     <a href="javascript:void(0)" class="img-thumbnail">
-                        <img src="{{ $imgSrc }}/yaki-about.jpg" alt="" class="img-responsive">
+                        <img src="{{ $yakiAboutImg }}" alt="" class="img-responsive">
                     </a>
                 </div>
                 <!-- /about content -->
@@ -67,10 +67,6 @@
                 <p>Đang cập nhật thông tin...</p>
             @endif
         </div>
-    </div>
-
-    <div class="section">
-        <div class="bg-image bg-parallax overlay" style="background-image:url({{ $yakiBgHeaderImg }})"></div>
     </div>
 
 </div>

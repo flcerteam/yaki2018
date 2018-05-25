@@ -56,7 +56,7 @@
 
                 <div class="col-sm-4 col-md-3">
                     <a href="javascript:void(0)" class="img-thumbnail">
-                        <img src="{{ $imgSrc }}/yaki-tuyendung.jpg" alt="" class="img-responsive">
+                        <img src="{{ $yakiRecruitmentImg }}" alt="" class="img-responsive">
                     </a>
                 </div>
             </div>

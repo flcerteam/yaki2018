@@ -57,6 +57,12 @@ class AppServiceProvider extends ServiceProvider
             $yakiBgFooter = null;
             $yakiBgFooterImg = '';
 
+            $yakiAboutParam = null;
+            $yakiAboutImg = '';
+
+            $yakiRecruitmentParam = null;
+            $yakiRecruitmentImg = '';
+
 
             $parameters = DB::table('parameters')->get();
 
@@ -69,6 +75,14 @@ class AppServiceProvider extends ServiceProvider
                 elseif ($parameter->param_id == 'YK_BG_FOOTER')
                 {
                     $yakiBgFooter = $parameter;
+                }
+                elseif ($parameter->param_id == 'YK_ABOUT_IMG')
+                {
+                    $yakiAboutParam = $parameter;
+                }
+                elseif ($parameter->param_id == 'YK_RECRUITMENT_IMG')
+                {
+                    $yakiRecruitmentParam = $parameter;
                 }
             }
 
@@ -95,6 +109,30 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('yakiBgFooterImg', $yakiBgFooterImg);
+
+            // about image
+            if (null == $yakiAboutParam)
+            {
+                $yakiAboutImg = config('filesystems.disks.image.simple_path'). '/yaki-about.jpg';
+            }
+            else
+            {
+                $yakiAboutImg = config('filesystems.disks.other.simple_path') . '/' . $yakiAboutParam->content;
+            }
+
+            $view->with('yakiAboutImg', $yakiAboutImg);
+
+            // Recruitment image
+            if (null == $yakiRecruitmentParam)
+            {
+                $yakiRecruitmentImg = config('filesystems.disks.image.simple_path'). '/yaki-tuyendung.jpg';
+            }
+            else
+            {
+                $yakiRecruitmentImg = config('filesystems.disks.other.simple_path') . '/' . $yakiRecruitmentParam->content;
+            }
+
+            $view->with('yakiRecruitmentImg', $yakiRecruitmentImg);
         });
     }
 

@@ -40,7 +40,7 @@
                 <!-- about content -->
                 <div class="col-md-5">
                     <a href="javascript:void(0)" class="img-thumbnail">
-                        <img src="" alt="" class="img-responsive">
+                        <img src="{{ $yakiAboutImg }}" alt="" class="img-responsive">
                     </a>
                 </div>
                 <!-- /about content -->

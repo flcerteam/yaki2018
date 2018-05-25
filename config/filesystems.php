@@ -89,8 +89,8 @@ return [
 
         'about'  => [
             'driver'      => 'local',
-            'simple_path' => 'uploads/yaki/about',
-            'root'        => public_path('uploads/yaki/about'),
+            'simple_path' => 'uploads/yaki/about-slide',
+            'root'        => public_path('uploads/yaki/about-slide'),
         ],
 
         'wbg'  => [
