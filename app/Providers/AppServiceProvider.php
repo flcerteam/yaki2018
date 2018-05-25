@@ -20,6 +20,11 @@ class AppServiceProvider extends ServiceProvider
         });
 
         view()->composer('*', function($view) {
+            $yakiBuffetBranches = DB::table('branches')->where('has_buffet_service','1')->orderBy('id')->get(); 
+            $view->with('yakiBuffetBranches', $yakiBuffetBranches);
+        });
+
+        view()->composer('*', function($view) {
             $yakiMarket = DB::table('menus')->where('menu_id','YK_SM_MENU')->first();
             $view->with('yakiMarket', $yakiMarket);
         });

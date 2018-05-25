@@ -41,9 +41,18 @@
             <ul class="main-nav nav navbar-nav main-nav-yaki">
                 <li><a href="{{ route('home') }}">Trang Chủ</a></li>
                 <li><a href="/about">Giới Thiệu</a></li>
-                <li><a href="{{ route('thucdon',[str_slug($yakiMenu->name,'-'),$yakiMenu->id]) }}">Thực Đơn</a></li>
-                <li><a href="/buffet">Buffet</a></li>
-                <li><a href="{{ route('market',[str_slug($yakiMarket->name,'-'),$yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
+                <li><a href="{{ route('thucdon',[str_slug($yakiMenu->name, '-'), $yakiMenu->id]) }}">Thực Đơn</a></li>
+                @if (count($yakiBuffetBranches) > 0)
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Buffet <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        @foreach ($yakiBuffetBranches as $branch)
+                        <li><a href="/buffet">{{ $branch->name }}</a></li>
+                        @endforeach
+                    </ul>
+                </li>
+                @endif
+                <li><a href="{{ route('market',[str_slug($yakiMarket->name, '-'), $yakiMarket->id]) }}">Siêu Thị Yaki</a></li>
                 <li><a href="{{ route('branch') }}">Hệ Thống Nhà Hàng</a></li>
                 <li><a href="{{ route('member') }}">Thành Viên</a></li>
                 <li><a href="{{ route('tuyen-dung') }}">Tuyển Dụng</a></li>
