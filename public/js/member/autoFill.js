@@ -29,6 +29,8 @@ jQuery(document).ready(function($) {
             $("input[name=gender]:not(:checked)").attr('disabled', true);
             $("#email").val(data.member['email']);
             $("#address").val(data.member['address']);
+            $("#member_type_name").val(data.member['member_type_name']);
+            $("#member_point").val(data.member['member_point']);
             $("#tableMember").show();
             $("#msgInfo").hide();
           } else {

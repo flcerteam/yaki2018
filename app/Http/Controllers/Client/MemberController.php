@@ -20,6 +20,9 @@ class MemberController extends Controller
         if(null == $member) {
 
             $member = "";
+        } else {
+            
+            $member->member_type_name = $member->getMemberTypeName();
         }
 
         return response()->json(['member'=>$member]);
