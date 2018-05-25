@@ -44,8 +44,8 @@
                 <li><a href="{{ route('thucdon',[str_slug($yakiMenu->name, '-'), $yakiMenu->id]) }}">Thực Đơn</a></li>
                 @if (count($yakiBuffetBranches) > 0)
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Buffet <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">Buffet <b class="caret"></b></a>
+                    <ul class="dropdown-menu" role="menu">
                         @foreach ($yakiBuffetBranches as $branch)
                         <li><a href="/buffet">{{ $branch->name }}</a></li>
                         @endforeach
