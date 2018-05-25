@@ -10,6 +10,7 @@ use App\Models\Client\RtStatusHistories;
 use App\Models\Client\Member;
 use App\Http\Controllers\Controller;
 use DB;
+use Session;
 
 class ReservationController extends Controller
 {
@@ -118,13 +119,9 @@ class ReservationController extends Controller
           
             DB::commit();
 
-
             // PROCESS
-            $img = "/background02.jpg";
-            $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
-            $code = $reservation->reservation_no;
-            
-            return view('page.process', compact('imgSrc', 'code'));
+            Session::put('code', $reservation->reservation_no);
+            return redirect()->route('success');
         } catch(\Exception $e) {
  
             DB::rollback();

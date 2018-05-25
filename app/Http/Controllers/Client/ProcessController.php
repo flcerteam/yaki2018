@@ -4,14 +4,14 @@ namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Session;
 
 class ProcessController extends Controller
 {
-    function getSuccess($code) {
-
-        $img = "/background02.jpg";
-        $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
+    function getSuccess() {
         
-        return view('page.process', compact('imgSrc', 'code'));
+        $code = Session::get('code');
+
+        return view('page.process', compact('code'));
     }
 }

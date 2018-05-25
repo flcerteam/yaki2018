@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Client\Member;
 use Cart;
 use DB;
+use Session;
 use App\Models\Client\Order;
 use App\Models\Client\OrderDetail;
 use App\Models\Client\Product;
@@ -104,12 +105,9 @@ class CheckOutController extends Controller {
       Cart::destroy();
 
        // PROCESS
-       $img = "/background02.jpg";
-       $imgSrc  = config('filesystems.disks.image.simple_path') . $img;
-       $code = $order->invoice_no;
-       
-       return view('page.process', compact('imgSrc', 'code'));
-    } catch(\Exception $e) {
+       Session::put('code', $order->invoice_no);
+       return redirect()->route('success');
+    } catch(\Exception $e) { 
       dd( $e->getMessage());
       DB::rollback();
       return redirect()->back()->with('thongbao','Đặt hàng thất bại');

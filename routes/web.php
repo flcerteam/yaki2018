@@ -61,6 +61,11 @@ Route::post('reservation_success',[
 	'uses'=>'Client\ReservationController@insertReservation'
 ]);
 
+Route::get('success',[
+	'as'=>'success',
+	'uses'=>'Client\ProcessController@getSuccess'
+]);
+
 Route::post('get_member_info','Client\ReservationController@getMemberInfo');
 
 Route::post('get_branch_time_info','Client\ReservationController@getBranchTimeInfo');
