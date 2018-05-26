@@ -25,7 +25,10 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:255|unique:categories,name'
+            'cid'            => 'required|max:20|unique:categories,cid',
+            'name'           => 'required|max:255|unique:categories,name',
+            'ribbon_id'      => 'required',
+            'ribbon_content' => 'required_unless:ribbon_id,0|sometimes|nullable|max:12'
         ];
     }
 
@@ -37,7 +40,10 @@ class CategoryRequest extends FormRequest
     public function attributes()
     {
         return [
-            'name' => trans('category.name')
+            'cid' => trans('category.cid'),
+            'name' => trans('category.name'),
+            'ribbon_id' => trans('ribbon.name'),
+            'ribbon_content' => trans('ribbon.ribbon_content'),
         ];
     }
 
@@ -49,7 +55,7 @@ class CategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'ribbon_content.required_unless' => 'Trường hợp chọn dải màu hiển thị thì xin nhập nội dung hiển thị.'
         ];
     }
 }

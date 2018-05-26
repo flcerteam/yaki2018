@@ -5,68 +5,25 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Category extends Model
+class Ribbon extends Model
 {
     use CrudTrait;
 
-     /*
+    /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'categories';
-
-    /**
-     * The primary key for the model.
-     *
-     * @var string
-     */
-    // protected $primaryKey = 'id';
-
-    /**
-     * Indicates if the model should be timestamped.
-     *
-     * @var boolean
-     */
-    public $timestamps = false;
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
+    protected $table = 'ribbons';
+    protected $primaryKey = 'id';
+    // public $timestamps = false;
     // protected $guarded = ['id'];
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-      'cid',
-      'name',
-      'ribbon_id',
-      'ribbon_content'
+        'name',
+        'css_class'
     ];
-
-    /**
-     * The attributes that should be hidden for arrays
-     *
-     * @var array
-     */
     // protected $hidden = [];
-
-    /**
-     * The attributes that should be mutated to dates.
-     *
-     * @var array
-     */
     // protected $dates = [];
 
     /*
@@ -80,10 +37,6 @@ class Category extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function ribbon()
-	  {
-		  return $this->hasOne('App\Models\Admin\Ribbon', 'id', 'ribbon_id');
-    }
 
     /*
     |--------------------------------------------------------------------------

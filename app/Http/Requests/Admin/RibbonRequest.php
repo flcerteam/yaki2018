@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryUpdateRequest extends FormRequest
+class RibbonRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +14,7 @@ class CategoryUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        // Only allow updates if the user is logged in
+        // only allow updates if the user is logged in
         return \Auth::check();
     }
 
@@ -25,10 +26,7 @@ class CategoryUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'cid'            => 'required|max:20|unique:categories,cid,'.$this->id,
-            'name'           => 'required|max:255|unique:categories,name,'.$this->id,
-            'ribbon_id'      => 'required',
-            'ribbon_content' => 'required_unless:ribbon_id,0|sometimes|nullable|max:12'
+            // 'name' => 'required|min:5|max:255'
         ];
     }
 
@@ -40,10 +38,7 @@ class CategoryUpdateRequest extends FormRequest
     public function attributes()
     {
         return [
-            'cid' => trans('category.cid'),
-            'name' => trans('category.name'),
-            'ribbon_id' => trans('ribbon.name'),
-            'ribbon_content' => trans('ribbon.ribbon_content'),
+            //
         ];
     }
 
@@ -55,7 +50,7 @@ class CategoryUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'ribbon_content.required_unless' => 'Trường hợp chọn dải màu hiển thị thì xin nhập nội dung hiển thị.'
+            //
         ];
     }
 }

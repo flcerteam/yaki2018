@@ -81,6 +81,28 @@ INSERT INTO `branch_images` (`id`, `branch_id`, `name`, `order`) VALUES
 (7, 1, '32e0cf70d6fb34ad98850547c9df6ce2.jpeg', 0),
 (8, 4, '983c21fd8b992b04b85c2e1800ff2d41.jpeg', 0),
 (9, 5, 'b2931231e613497a98cbf0a52e6dc405.jpeg', 0);
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ribbons`
+--
+
+CREATE TABLE `ribbons` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `css_class` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  UNIQUE KEY `ribbons_id_unique` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ribbons`
+--
+
+INSERT INTO `ribbons` (`id`, `name`, `css_class`) VALUES
+(0, 'Không hiển thị', NULL),
+(1, 'Dải màu xanh lá cây', 'ft23-ribbon'),
+(2, 'Dải màu xanh da trời', 'ft23-ribbon blue'),
+(3, 'Dải màu đỏ', 'ft23-ribbon red');
 
 -- --------------------------------------------------------
 
@@ -88,32 +110,39 @@ INSERT INTO `branch_images` (`id`, `branch_id`, `name`, `order`) VALUES
 -- Table structure for table `categories`
 --
 
-CREATE TABLE `categories` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+DROP TABLE IF EXISTS `categories`;
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `cid` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ribbon_id` int(10) UNSIGNED NOT NULL,
+  `ribbon_content` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_categories` (`cid`),
+  KEY `categories_ribbon_id_foreign` (`ribbon_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`id`, `name`) VALUES
-(10, 'Cá'),
-(1, 'Cháo - Lẩu'),
-(12, 'Giò chả'),
-(16, 'Hàng gia dụng'),
-(14, 'Món ăn được yêu thích'),
-(2, 'Món chiên - xào - hấp'),
-(3, 'Món khai vị'),
-(4, 'Món nướng'),
-(13, 'Rau củ quả sạch'),
-(15, 'Sản phẩm được mua nhiều'),
-(6, 'Thịt bò'),
-(8, 'Thịt dê'),
-(9, 'Thịt gà'),
-(7, 'Thịt heo'),
-(5, 'Thức uống'),
-(11, 'Tôm');
+INSERT INTO `categories` (`id`, `cid`, `name`) VALUES
+(10, 'C10', 'Cá'),
+(1, 'C01', 'Cháo - Lẩu'),
+(12, 'C12', 'Giò chả'),
+(16, 'C16', 'Hàng gia dụng'),
+(14, 'C14', 'Món ăn được yêu thích'),
+(2, 'C02', 'Món chiên - xào - hấp'),
+(3, 'C03', 'Món khai vị'),
+(4, 'C04', 'Món nướng'),
+(13, 'C13', 'Rau củ quả sạch'),
+(15, 'C15', 'Sản phẩm được mua nhiều'),
+(6, 'C06', 'Thịt bò'),
+(8, 'C08', 'Thịt dê'),
+(9, 'C09', 'Thịt gà'),
+(7, 'C07', 'Thịt heo'),
+(5, 'C05', 'Thức uống'),
+(11, 'C11', 'Tôm');
 
 -- --------------------------------------------------------
 
@@ -809,7 +838,7 @@ CREATE TABLE `password_resets` (
 --
 
 CREATE TABLE `products` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `sku` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `description` longtext COLLATE utf8_unicode_ci,
@@ -817,8 +846,15 @@ CREATE TABLE `products` (
   `number_of_unit` decimal(5,1) DEFAULT NULL,
   `price` decimal(18,0) DEFAULT NULL,
   `status` tinyint(4) NOT NULL DEFAULT '0',
+  `product_type` tinyint(4) NOT NULL DEFAULT '0',
+  `ribbon_id` int(10) UNSIGNED NOT NULL,
+  `ribbon_content` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_skus` (`sku`),
+  KEY `products_unit_id_foreign` (`unit_id`),
+  KEY `products_ribbon_id_foreign` (`ribbon_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -1413,13 +1449,6 @@ ALTER TABLE `branch_images`
   ADD KEY `branch_images_branch_id_foreign` (`branch_id`);
 
 --
--- Indexes for table `categories`
---
-ALTER TABLE `categories`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_categories` (`name`);
-
---
 -- Indexes for table `category_menu`
 --
 ALTER TABLE `category_menu`
@@ -1492,14 +1521,6 @@ ALTER TABLE `parameters`
 --
 ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
-
---
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_skus` (`sku`),
-  ADD KEY `products_unit_id_foreign` (`unit_id`);
 
 --
 -- Indexes for table `product_images`
@@ -1675,6 +1696,12 @@ ALTER TABLE `branch_images`
   ADD CONSTRAINT `branch_images_branch_id_foreign` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `categories`
+--
+ALTER TABLE `categories`
+  ADD CONSTRAINT `categories_ribbon_id_foreign` FOREIGN KEY (`ribbon_id`) REFERENCES `ribbons` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `category_menu`
 --
 ALTER TABLE `category_menu`
@@ -1719,6 +1746,7 @@ ALTER TABLE `order_status_histories`
 -- Constraints for table `products`
 --
 ALTER TABLE `products`
+  ADD CONSTRAINT `products_ribbon_id_foreign` FOREIGN KEY (`ribbon_id`) REFERENCES `ribbons` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `products_unit_id_foreign` FOREIGN KEY (`unit_id`) REFERENCES `units` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --

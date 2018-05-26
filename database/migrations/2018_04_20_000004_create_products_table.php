@@ -23,6 +23,9 @@ class CreateProductsTable extends Migration
             $table->decimal('number_of_unit', 5, 1)->nullable()->default(null);
             $table->decimal('price', 18, 0)->nullable()->default(null);
             $table->tinyInteger('status')->default('0');
+            $table->tinyInteger('product_type')->default('0');
+            $table->integer('ribbon_id')->unsigned();
+            $table->string('ribbon_content', 50)->nullable()->default(null);
             
             $table->nullableTimestamps();
 
@@ -30,6 +33,11 @@ class CreateProductsTable extends Migration
 
             $table->foreign('unit_id')
                 ->references('id')->on('units')
+                ->onDelete('no action')
+                ->onUpdate('no action');
+            
+            $table->foreign('ribbon_id')
+                ->references('id')->on('ribbons')
                 ->onDelete('no action')
                 ->onUpdate('no action');
         });

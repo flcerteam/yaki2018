@@ -15,43 +15,69 @@ class CategoriesTableSeeder extends Seeder
 
     	$categories = [
             [
-        		  'name'  => 'Cháo - Lẩu',
+              'cid'       => 'C01',
+              'name'      => 'Cháo - Lẩu',
+              'ribbon_id' => '0',
             ],
             [
-        		  'name'  => 'Món chiên - xào - hấp',
+              'cid'   => 'C02',
+              'name'  => 'Món chiên - xào - hấp',
+              'ribbon_id' => '0',
             ],
             [
-        		  'name'  => 'Món khai vị',
+              'cid'   => 'C03',
+              'name'  => 'Món khai vị',
+              'ribbon_id' => '0',
             ],
             [
-        		  'name'  => 'Món nướng',
+              'cid'   => 'C04',
+              'name'  => 'Món nướng',
+              'ribbon_id' => '0',
             ],
             [
-        		  'name'  => 'Thức uống',
+              'cid'   => 'C05',
+              'name'  => 'Thức uống',
+              'ribbon_id' => '0',
             ],
             [
-        		  'name'  => 'Thịt bò',
+              'cid'   => 'C06',
+              'name'  => 'Thịt bò',
+              'ribbon_id' => '0',
             ],
             [
-        		  'name'  => 'Thịt heo',
+              'cid'   => 'C07',
+              'name'  => 'Thịt heo',
+              'ribbon_id' => '0',
             ],
             [
+              'cid'   => 'C08',
               'name'  => 'Thịt dê',
+              'ribbon_id' => '0',
             ],
             [
+              'cid'   => 'C09',
               'name'  => 'Thịt gà',
+              'ribbon_id' => '0',
             ],
             [
+              'cid'   => 'C10',
               'name'  => 'Cá',
+              'ribbon_id' => '0',
             ],
             [
+              'cid'   => 'C11',
               'name'  => 'Tôm',
+              'ribbon_id' => '0',
             ],
             [
+              'cid'   => 'C12',
               'name'  => 'Giò chả',
+              'ribbon_id' => '0',
             ],
             [
+              'cid'   => 'C13',
               'name'  => 'Rau củ quả sạch',
+              'ribbon_id' => '0',
             ],
     	];
 

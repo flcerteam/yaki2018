@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\Admin\CategoryRequest as StoreRequest;
-use App\Http\Requests\Admin\CategoryUpdateRequest as UpdateRequest;
+use App\Http\Requests\RibbonRequest as StoreRequest;
+use App\Http\Requests\RibbonRequest as UpdateRequest;
 
-class CategoryCrudController extends CrudController
+class RibbonCrudController extends CrudController
 {
     public function setup()
     {
@@ -18,9 +18,9 @@ class CategoryCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Admin\Category');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/category');
-        $this->crud->setEntityNameStrings('Danh mục', 'Danh mục');
+        $this->crud->setModel('App\Models\Ribbon');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/ribbon');
+        $this->crud->setEntityNameStrings('ribbon', 'ribbons');
 
         /*
         |--------------------------------------------------------------------------
@@ -28,64 +28,13 @@ class CategoryCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        // $this->crud->setFromDb();
+        $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
-        $this->crud->addField([
-            'name'      => 'cid',
-            'label'     => trans('category.cid'),
-            'type'      => 'text',
-
-            // TAB
-            'tab'       => trans('category.general_tab'),
-        ], 'create');
-
-        $this->crud->addField([
-            'name'      => 'cid',
-            'label'     => trans('category.cid'),
-            'type'      => 'text',
-            'attributes'    => [
-                'readonly'  => 'readonly',
-            ],
-
-            // TAB
-            'tab'       => trans('category.general_tab'),
-        ], 'update');
-
-        $this->crud->addFields([
-            [
-                'name'  => 'name',
-                'label' => trans('category.name'),
-                'type'  => 'text',
-
-                // TAB
-                'tab'       => trans('category.general_tab'),
-            ],
-            [
-                'label'     => trans('ribbon.name'),
-                'type'      => 'select2',
-                'name'      => 'ribbon_id',
-                'entity'    => 'ribbon',
-                'attribute' => 'name',
-                'model'     => "App\Models\Admin\Ribbon",
-                //'hint'      => trans('ribbon.ribbon_content_tip'),
-
-                // TAB
-                'tab'       => trans('category.ribbon_tab'),
-            ],
-            [
-                'name'  => 'ribbon_content',
-                'label' => trans('ribbon.ribbon_content'),
-                'type'  => 'text',
-
-                // TAB
-                'tab'       => trans('category.ribbon_tab'),
-            ]
-        ]);
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -94,28 +43,6 @@ class CategoryCrudController extends CrudController
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
-        $this->crud->addColumns([
-            [
-                'name'  => 'cid',
-                'label' => trans('category.cid'),
-            ],
-            [
-                'name'  => 'name',
-                'label' => trans('category.name'),
-            ],
-            [
-                'label'     => trans('ribbon.name'),
-                'type'      => 'select',
-                'name'      => 'ribbon_id',
-                'entity'    => 'ribbon',
-                'attribute' => 'name',
-                'model'     => "App\Models\Admin\Ribbon",
-            ],
-            [
-                'name'  => 'ribbon_content',
-                'label' => trans('ribbon.ribbon_content'),
-            ],
-        ]);
 
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
@@ -128,11 +55,11 @@ class CategoryCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
+        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
-        // $this->crud->enableReorder('name', 0);
+        // $this->crud->enableReorder('label_name', MAX_TREE_LEVEL);
         // NOTE: you also need to do allow access to the right users: $this->crud->allowAccess('reorder');
 
         // ------ CRUD DETAILS ROW
@@ -149,7 +76,7 @@ class CategoryCrudController extends CrudController
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        $this->crud->enableAjaxTable();
+        // $this->crud->enableAjaxTable();
 
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.

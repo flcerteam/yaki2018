@@ -62,7 +62,8 @@
                             <!-- single column -->
                             <div class="galery-item">
                                 <!-- single image -->
-                                <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div>
+                                <div class="ft23-ribbon"><span>Khuyến mãi</span></div>
+                                {{-- <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div> --}}
                                 @if(null != $item->firstImage())
                                     <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $prSrc."/".$item->firstImage()->name }})">
                                     </a>
@@ -74,47 +75,6 @@
                             </div>
                             <!-- single column -->
                         @endforeach
-
-                        {{-- <!-- single column -->
-                        <div class="galery-item">
-
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image02.jpg)"></div>
-                            <!-- /single image -->
-
-                            <!-- single image -->
-                            <div class="galery-img" style="background-image:url(layout/img/image03.jpg)"></div>
-                            <!-- /single image -->
-
-                        </div>
-                        <!-- single column -->
-
-                        <!-- single column -->
-                        <div class="galery-item">
-
-                            <div class="item-column">
-                                <!-- single image -->
-                                <div class="galery-img" style="background-image:url(layout/img/image04.jpg)"></div>
-                                <!-- /single image -->
-
-                                <!-- single image -->
-                                <div class="galery-img" style="background-image:url(layout/img/image05.jpg)"></div>
-                                <!-- /single image -->
-                            </div>
-
-                            <div class="item-column">
-                                <!-- single image -->
-                                <div class="galery-img" style="background-image:url(layout/img/image06.jpg)"></div>
-                                <!-- /single image -->
-
-                                <!-- single image -->
-                                <div class="galery-img" style="background-image:url(layout/img/image07.jpg)"></div>
-                                <!-- /single image -->
-                            </div>
-
-                        </div>
-                        <!-- /single column --> --}}
-
                     </div>
                 </div>
                 <!-- /Galery Slider -->
