@@ -80,6 +80,13 @@ Route::get('member',[
 Route::post('get_search_member','Client\MemberController@getMemberInfo');
 // Member End
 
+// Buffet Start
+Route::get('buffet/{name}.{id}.html',[
+  'as' => 'buffet',
+  'uses' => 'Client\BuffetController@getInfo'
+]);
+// Buffet End
+
 // Admin Interface Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
 {

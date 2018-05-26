@@ -62,8 +62,8 @@
 		} else {
 			window.location.href= this.href;
 		}
-    });
-
+	});
+	
 	// // LOAD PJAX
 	// if ($.support.pjax) {
 	// 	$.pjax.defaults.timeout = 2000;
@@ -117,6 +117,27 @@
 				});
 			}
 		});
+	}
+
+	$('ul.main-nav-yaki li.dropdown').on('click', function(e) {
+
+		$(this).removeClass("active");
+		
+	});
+
+	$(document).on('blur','ul.main-nav-yaki li.dropdown', function(e) {
+
+		loadActiveMenuDropDown();
+		
+	});
+
+	loadActiveMenuDropDown();
+
+	function loadActiveMenuDropDown() {
+	
+		if (curURL.indexOf("/buffet/") != -1) {
+			$('ul.main-nav-yaki li.dropdown').addClass("active");
+		}
 	}
 
 })(jQuery);

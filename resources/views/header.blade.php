@@ -47,7 +47,7 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#" role="button" aria-haspopup="true" aria-expanded="false">Buffet <b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
                         @foreach ($yakiBuffetBranches as $branch)
-                        <li><a href="/buffet">{{ $branch->name }}</a></li>
+                        <li><a href="{{ route('buffet', [str_slug($branch->name, '-'), $branch->id]) }}">{{ $branch->name }}</a></li>
                         @endforeach
                     </ul>
                 </li>
