@@ -8,6 +8,12 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\Admin\BuffetProductRequest as StoreRequest;
 use App\Http\Requests\Admin\BuffetProductRequest as UpdateRequest;
 
+use App\Models\Admin\BuffetProduct;
+use App\Models\Admin\BuffetProductImage;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 class BuffetProductCrudController extends CrudController
 {
     public function setup()
@@ -110,13 +116,13 @@ class BuffetProductCrudController extends CrudController
         $this->crud->addField([
             'name'          => 'dropzone',
             'type'          => 'dropzone',
-            'disk'          => config('imageupload.product_disk'), // disk where images will be uploaded
+            'disk'          => config('imageupload.buffet_product_disk'), // disk where images will be uploaded
             'mimes'         => ['image/*'],
             'filesize'      => config('imageupload.file_size'), // maximum file size in MB
-            'uploadRoute'   => route('uploadProductImages'),
-            'reorderRoute'  => route('reorderProductImages'),
-            'deleteRoute'   => route('deleteProductImage'),
-            'simplePathUrl' => url(config('filesystems.disks.products.simple_path')),
+            'uploadRoute'   => route('uploadBuffetProductImages'),
+            'reorderRoute'  => route('reorderBuffetProductImages'),
+            'deleteRoute'   => route('deleteBuffetProductImage'),
+            'simplePathUrl' => url(config('filesystems.disks.buffet_products.simple_path')),
             // TAB
             'tab'           => trans('product.buffet_images_tab'),
         ], 'update');
@@ -240,10 +246,10 @@ class BuffetProductCrudController extends CrudController
         // $this->crud->limit();
     }
 
-    public function ajaxUploadProductImages(Request $request, Product $product)
+    public function ajaxUploadProductImages(Request $request, BuffetProduct $product)
     {
         $images = [];
-        $disk   = config('imageupload.product_disk');
+        $disk   = config('imageupload.buffet_product_disk');
 
         if ($request->file && $request->id) {
             $product = $product->find($request->id);
@@ -262,9 +268,9 @@ class BuffetProductCrudController extends CrudController
                 Storage::disk($disk)->put($filename, $file_content);
 
                 $images[] = [
-                    'product_id'    => $product->id,
-                    'name'          => $filename,
-                    'order'         => $ord++
+                    'buffet_product_id' => $product->id,
+                    'name'              => $filename,
+                    'order'             => $ord++
                 ];
             }
 
@@ -273,7 +279,7 @@ class BuffetProductCrudController extends CrudController
         }
     }
 
-    public function ajaxReorderProductImages(Request $request, ProductImage $productImage)
+    public function ajaxReorderProductImages(Request $request, BuffetProductImage $productImage)
     {
         if ($request->order) {
             foreach ($request->order as $position => $id) {
@@ -282,9 +288,9 @@ class BuffetProductCrudController extends CrudController
         }
     }
 
-    public function ajaxDeleteProductImage(Request $request, ProductImage $productImage)
+    public function ajaxDeleteProductImage(Request $request, BuffetProductImage $productImage)
     {
-        $disk = config('imageupload.product_disk');
+        $disk = config('imageupload.buffet_product_disk');
 
         if ($request->id) {
             $productImage = $productImage->find($request->id);

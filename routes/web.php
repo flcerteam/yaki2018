@@ -127,6 +127,11 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'admin'], function()
     Route::post('product/image/upload', ['as' => 'uploadProductImages', 'uses' => 'Admin\ProductCrudController@ajaxUploadProductImages']);
     Route::post('product/image/reorder', ['as' => 'reorderProductImages', 'uses' => 'Admin\ProductCrudController@ajaxReorderProductImages']);
     Route::post('product/image/delete', ['as' => 'deleteProductImage', 'uses' => 'Admin\ProductCrudController@ajaxDeleteProductImage']);
+
+    // Buffet Product images upload routes
+    Route::post('buffet-product/image/upload', ['as' => 'uploadBuffetProductImages', 'uses' => 'Admin\BuffetProductCrudController@ajaxUploadProductImages']);
+    Route::post('buffet-product/image/reorder', ['as' => 'reorderBuffetProductImages', 'uses' => 'Admin\BuffetProductCrudController@ajaxReorderProductImages']);
+    Route::post('buffet-product/image/delete', ['as' => 'deleteBuffetProductImage', 'uses' => 'Admin\BuffetProductCrudController@ajaxDeleteProductImage']);
 });
 
 Route::get('checkout',function(){

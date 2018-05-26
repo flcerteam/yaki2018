@@ -18,7 +18,7 @@ return [
 
   'buffet'              => 'Món ăn buffet',
   'buffet_tab'          => 'Thông tin món ăn|@|buffetProductInfo',
-  'buffet_images_tab'  => 'Hình ảnh sản phẩm|@|buffetProductImagesInfo',
+  'buffet_images_tab'  => 'Hình ảnh món ăn|@|buffetProductImagesInfo',
 
   'buffet_id'           => 'Mã món ăn',
   'buffet_name'         => 'Tên món ăn',

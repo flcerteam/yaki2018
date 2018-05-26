@@ -127,7 +127,7 @@
 					type: 'POST',
 					data: {
 						id: id
-						}
+					}
 				})
 				.done(function(status) {
 					var notification_type;

@@ -132,11 +132,11 @@ CREATE TABLE `buffet_products` (
 
 CREATE TABLE `buffet_product_images` (
   `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `product_id` int(10) UNSIGNED NOT NULL,
+  `buffet_product_id` int(10) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `order` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `buffet_product_images_product_id_foreign` (`product_id`)
+  KEY `buffet_product_images_product_id_foreign` (`buffet_product_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -1736,7 +1736,7 @@ ALTER TABLE `branch_images`
 -- Constraints for table `buffet_product_images`
 --
 ALTER TABLE `buffet_product_images`
-  ADD CONSTRAINT `buffet_product_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `buffet_products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `buffet_product_images_product_id_foreign` FOREIGN KEY (`buffet_product_id`) REFERENCES `buffet_products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 --
 -- Constraints for table `categories`
 --

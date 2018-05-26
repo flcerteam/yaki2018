@@ -16,11 +16,11 @@ class CreateBuffetProductImagesTable extends Migration
         Schema::create('buffet_product_images', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('product_id')->unsigned();
+            $table->integer('buffet_product_id')->unsigned();
             $table->string('name', 255)->nullable()->default(null);
             $table->integer('order');
 
-            $table->foreign('product_id')
+            $table->foreign('buffet_product_id')
                 ->references('id')->on('buffet_products')
                 ->onDelete('no action')
                 ->onUpdate('no action');

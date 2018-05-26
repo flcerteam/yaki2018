@@ -81,6 +81,12 @@ return [
             'root'        => public_path('uploads/products'),
         ],
 
+        'buffet_products'  => [
+            'driver'      => 'local',
+            'simple_path' => 'uploads/buffet_products',
+            'root'        => public_path('uploads/buffet_products'),
+        ],
+
         'events'  => [
             'driver'      => 'local',
             'simple_path' => 'uploads/events',
