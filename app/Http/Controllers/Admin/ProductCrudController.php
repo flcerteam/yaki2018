@@ -13,6 +13,7 @@ use App\Models\Admin\ProductImage;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 class ProductCrudController extends CrudController
 {
@@ -351,7 +352,7 @@ class ProductCrudController extends CrudController
     {
         if ($request->order) {
             foreach ($request->order as $position => $id) {
-                $productImage->find($id)->update(['order' => $position]);
+                DB::table('product_images')->where('id', $id)->update(['order' => $position]);
             }
         }
     }

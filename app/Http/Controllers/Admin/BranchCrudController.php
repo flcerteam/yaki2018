@@ -7,6 +7,7 @@ use App\Models\Admin\BranchImage;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use DB;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\Admin\BranchRequest as StoreRequest;
@@ -269,7 +270,7 @@ class BranchCrudController extends CrudController
     {
         if ($request->order) {
             foreach ($request->order as $position => $id) {
-                $branchImage->find($id)->update(['order' => $position]);
+                DB::table('branch_images')->where('id', $id)->update(['order' => $position]);
             }
         }
     }

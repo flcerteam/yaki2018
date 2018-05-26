@@ -16,10 +16,14 @@ class BuffetProductImage extends Model
     */
 
     protected $table = 'buffet_product_images';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = [
+        'buffet_product_id',
+        'name',
+        'order'
+    ];
     // protected $hidden = [];
     // protected $dates = [];
 
