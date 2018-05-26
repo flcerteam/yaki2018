@@ -95,6 +95,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('unit', 'Admin\UnitCrudController');
     CRUD::resource('menu', 'Admin\MenuCrudController');
     CRUD::resource('product', 'Admin\ProductCrudController');
+    CRUD::resource('buffet-product', 'Admin\BuffetProductCrudController');
     CRUD::resource('member', 'Admin\MemberCrudController');
     CRUD::resource('event', 'Admin\EventCrudController');
     CRUD::resource('reservation-table', 'Admin\ReservationTableCrudController');

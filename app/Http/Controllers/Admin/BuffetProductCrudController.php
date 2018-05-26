@@ -20,7 +20,7 @@ class BuffetProductCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Admin\BuffetProduct');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/buffet-product');
-        $this->crud->setEntityNameStrings('buffet_product', 'buffet_products');
+        $this->crud->setEntityNameStrings(trans('product.buffet'), trans('product.buffet'));
 
         /*
         |--------------------------------------------------------------------------
@@ -28,13 +28,98 @@ class BuffetProductCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
+        $this->crud->addField([
+            'name'      => 'sku',
+            'label'     => trans('product.buffet_id'),
+            'type'      => 'text',
+
+            // TAB
+            'tab'   => trans('product.buffet_tab')
+        ], 'create');
+
+        $this->crud->addField([
+            'name'          => 'sku',
+            'label'         => trans('product.buffet_id'),
+            'type'          => 'text',
+            'attributes'    => [
+                'readonly'  => 'readonly',
+            ],
+
+            // TAB
+            'tab'   => trans('product.buffet_tab')
+        ], 'update');
+
+        $this->crud->addFields([
+            [
+                'name'      => 'name',
+                'label'     => trans('product.buffet_name'),
+                'type'      => 'text',
+
+                // TAB
+                'tab'       => trans('product.buffet_tab')
+            ],
+            [
+                'name'      => 'description',
+                'label'     => trans('product.description'),
+                'type'      => 'textarea',
+
+                // TAB
+                'tab'       => trans('product.buffet_tab')
+            ],
+            [
+                'name'      => 'status',
+                'label'     => trans('common.status'),
+                'type'      => 'select_from_array',
+                'options'   => [
+                    '0'     => trans('common.active'),
+                    '1'     => trans('common.inactive')
+                ],
+
+                // TAB
+                'tab'       => trans('product.buffet_tab'),
+            ],
+            [
+                'label'     => trans('ribbon.name'),
+                'type'      => 'select2',
+                'name'      => 'ribbon_id',
+                'entity'    => 'ribbon',
+                'attribute' => 'name',
+                'model'     => "App\Models\Admin\Ribbon",
+                //'hint'      => trans('ribbon.ribbon_content_tip'),
+
+                // TAB
+                'tab'       => trans('product.ribbon_tab'),
+            ],
+            [
+                'name'  => 'ribbon_content',
+                'label' => trans('ribbon.ribbon_content'),
+                'type'  => 'text',
+
+                // TAB
+                'tab'       => trans('product.ribbon_tab'),
+            ]
+        ]);
+
+        $this->crud->addField([
+            'name'          => 'dropzone',
+            'type'          => 'dropzone',
+            'disk'          => config('imageupload.product_disk'), // disk where images will be uploaded
+            'mimes'         => ['image/*'],
+            'filesize'      => config('imageupload.file_size'), // maximum file size in MB
+            'uploadRoute'   => route('uploadProductImages'),
+            'reorderRoute'  => route('reorderProductImages'),
+            'deleteRoute'   => route('deleteProductImage'),
+            'simplePathUrl' => url(config('filesystems.disks.products.simple_path')),
+            // TAB
+            'tab'           => trans('product.buffet_images_tab'),
+        ], 'update');
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -43,6 +128,38 @@ class BuffetProductCrudController extends CrudController
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
+        $this->crud->addColumns([
+            [
+                'name'  => 'sku',
+                'label' => trans('product.buffet_id'),
+            ],
+            [
+                'name'  => 'name',
+                'label' => trans('product.buffet_name'),
+            ],
+            [
+                'label'     => trans('ribbon.name'),
+                'type'      => 'select',
+                'name'      => 'ribbon_id',
+                'entity'    => 'ribbon',
+                'attribute' => 'name',
+                'model'     => "App\Models\Admin\Ribbon",
+            ],
+            [
+                'name'  => 'ribbon_content',
+                'label' => trans('ribbon.ribbon_content'),
+            ],
+            [
+                'name'      => 'status',
+                'label'     => trans('common.status'),
+                'type'      => 'boolean',
+                'options'   => [
+                    0 => trans('common.active'),
+                    1 => trans('common.inactive')
+                    
+                ],
+            ]
+        ]);
 
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
@@ -55,7 +172,7 @@ class BuffetProductCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
+        $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
@@ -84,6 +201,30 @@ class BuffetProductCrudController extends CrudController
         // $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
+        $this->crud->addFilter(
+            [ // select2 filter
+                'name' => 'ribbon_id',
+                'type' => 'select2',
+                'label'=> trans('ribbon.name')
+            ], function() {
+                return \App\Models\Admin\Ribbon::all()->pluck('name', 'id')->toArray();
+            }, function($value) { // if the filter is active
+                  $this->crud->addClause('where', 'ribbon_id', $value);
+            });
+
+        $this->crud->addFilter([ // select2 filter
+            'name' => 'status',
+            'type' => 'select2',
+            'label'=> trans('common.status')
+            ], function() {
+                return [
+                    0 => trans('common.active'),
+                    1 => trans('common.inactive')
+                ];
+            }, function($value) { // if the filter is active
+                $this->crud->addClause('where', 'status', $value);
+        });
+
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');
         // $this->crud->addClause('where', 'name', '==', 'car');
@@ -97,6 +238,67 @@ class BuffetProductCrudController extends CrudController
         // $this->crud->orderBy();
         // $this->crud->groupBy();
         // $this->crud->limit();
+    }
+
+    public function ajaxUploadProductImages(Request $request, Product $product)
+    {
+        $images = [];
+        $disk   = config('imageupload.product_disk');
+
+        if ($request->file && $request->id) {
+            $product = $product->find($request->id);
+            $productImages = $product->images->toArray();
+
+            if ($productImages) {
+                $ord = count($productImages);
+            } else {
+                $ord = 0;
+            }
+
+            foreach ($request->file as $file) {
+                $file_content = file_get_contents($file);
+                $filename = md5(uniqid('', true)).'.'.$file->extension();
+
+                Storage::disk($disk)->put($filename, $file_content);
+
+                $images[] = [
+                    'product_id'    => $product->id,
+                    'name'          => $filename,
+                    'order'         => $ord++
+                ];
+            }
+
+            $product->images()->insert($images);
+            return response()->json($product->load('images')->images->toArray());
+        }
+    }
+
+    public function ajaxReorderProductImages(Request $request, ProductImage $productImage)
+    {
+        if ($request->order) {
+            foreach ($request->order as $position => $id) {
+                $productImage->find($id)->update(['order' => $position]);
+            }
+        }
+    }
+
+    public function ajaxDeleteProductImage(Request $request, ProductImage $productImage)
+    {
+        $disk = config('imageupload.product_disk');
+
+        if ($request->id) {
+            $productImage = $productImage->find($request->id);
+
+            if (Storage::disk($disk)->has($productImage->name)) {
+                if (Storage::disk($disk)->delete($productImage->name)) {
+                    $productImage->delete();
+
+                    return response()->json(['success' => true, 'message' => trans('common.image_deleted')]);
+                }
+            }
+
+            return response()->json(['success' => false, 'message' => trans('common.image_not_found')]);
+        }
     }
 
     public function store(StoreRequest $request)

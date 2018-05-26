@@ -23,8 +23,15 @@
     <li><a href="{{ backpack_url('branch') }}"><i class="fa fa-building" aria-hidden="true"></i> <span>{{ trans('branch.branches') }}</span></a></li>
     <li><a href="{{ backpack_url('unit') }}"><i class="fa fa-balance-scale" aria-hidden="true"></i> <span>{{ trans('unit.units') }}</span></a></li>
     <li><a href="{{ backpack_url('category') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span>{{ trans('category.categories') }}</span></a></li>
-    <li><a href="{{ backpack_url('product') }}"><i class="fa fa-dropbox" aria-hidden="true"></i> <span>{{ trans('product.products') }}</span></a></li>
     <li><a href="{{ backpack_url('member') }}"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>{{ trans('member.members') }}</span></a></li>
+
+    <li class="treeview">
+        <a href="#"><i class="fa fa-product-hunt" aria-hidden="true"></i> <span>{{ trans('common.productManagement') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+        <ul class="treeview-menu">
+          <li><a href="{{ backpack_url('product') }}"><i class="fa fa-dropbox" aria-hidden="true"></i> <span>{{ trans('product.products') }}</span></a></li>
+          <li><a href="{{ backpack_url('buffet-product') }}"><i class="fa fa-inbox" aria-hidden="true"></i> <span>{{ trans('product.buffet') }}</span></a></li>
+        </ul>
+    </li>
   </ul>
 </li>
 
@@ -33,6 +40,6 @@
   <ul class="treeview-menu">
     <li><a href="{{ backpack_url('menu') }}"><i class="fa fa-tasks" aria-hidden="true"></i> <span>{{ trans('menu.menus') }}</span></a></li>
     <li><a href="{{ backpack_url('parameter') }}"><i class="fa fa-code" aria-hidden="true"></i> <span>{{ trans('common.paramManagement') }}</span></a></li>
-    <li><a href="{{ backpack_url('yaki-images') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li>
+    {{-- <li><a href="{{ backpack_url('yaki-images') }}"><i class="fa fa-file-image-o" aria-hidden="true"></i> <span>{{ trans('backpack::crud.file_manager') }}</span></a></li> --}}
   </ul>
 </li>

@@ -107,6 +107,43 @@ INSERT INTO `ribbons` (`id`, `name`, `css_class`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `buffet_products`
+--
+
+CREATE TABLE `buffet_products` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sku` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `description` longtext COLLATE utf8_unicode_ci,
+  `status` tinyint(4) NOT NULL DEFAULT '0',
+  `ribbon_id` int(10) UNSIGNED NOT NULL,
+  `ribbon_content` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `unique_buffet_products` (`sku`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `buffet_product_images`
+--
+
+CREATE TABLE `buffet_product_images` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `product_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `order` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `buffet_product_images_product_id_foreign` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `categories`
 --
 
@@ -1695,6 +1732,11 @@ ALTER TABLE `users`
 ALTER TABLE `branch_images`
   ADD CONSTRAINT `branch_images_branch_id_foreign` FOREIGN KEY (`branch_id`) REFERENCES `branches` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
+--
+-- Constraints for table `buffet_product_images`
+--
+ALTER TABLE `buffet_product_images`
+  ADD CONSTRAINT `buffet_product_images_product_id_foreign` FOREIGN KEY (`product_id`) REFERENCES `buffet_products` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 --
 -- Constraints for table `categories`
 --

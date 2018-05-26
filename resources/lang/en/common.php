@@ -7,6 +7,7 @@ return [
   'saleManagement'      => 'Quản lý bán hàng',
   'paramManagement'     => 'Quản lý tham số hệ thống',
   'activityManagement'  => 'Hoạt động Yaki',
+  'productManagement'   => 'Quản lý sản phẩm',
   'status'              => 'Trạng thái',
   'active'              => 'Đang sử dụng',
   'inactive'            => 'Không sử dụng',

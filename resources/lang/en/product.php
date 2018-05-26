@@ -16,4 +16,11 @@ return [
   'number_of_unit'      => 'Số lượng / Đơn vị tính',
   'price'               => 'Giá bán',
 
+  'buffet'              => 'Món ăn buffet',
+  'buffet_tab'          => 'Thông tin món ăn|@|buffetProductInfo',
+  'buffet_images_tab'  => 'Hình ảnh sản phẩm|@|buffetProductImagesInfo',
+
+  'buffet_id'           => 'Mã món ăn',
+  'buffet_name'         => 'Tên món ăn',
+
 ];
