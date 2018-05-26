@@ -33,7 +33,9 @@ class ProductRequest extends FormRequest
             'status'            => 'required|numeric|between:0,1',
             'unit_id'           => 'required',
             'number_of_unit'    => 'required|numeric|between:0,9999.9',
-            'price'             => 'required|numeric|between:0,999999999999999999'
+            'price'             => 'required|numeric|between:0,999999999999999999',
+            'ribbon_id'         => 'required',
+            'ribbon_content'    => 'required_unless:ribbon_id,0|sometimes|nullable|max:12'
         ];
     }
 
@@ -52,7 +54,9 @@ class ProductRequest extends FormRequest
             'status'            => trans('common.status'),
             'unit_id'           => trans('unit.unit'),
             'number_of_unit'    => trans('product.number_of_unit'),
-            'price'             => trans('product.price')
+            'price'             => trans('product.price'),
+            'ribbon_id'         => trans('ribbon.name'),
+            'ribbon_content'    => trans('ribbon.ribbon_content'),
         ];
     }
 
@@ -64,7 +68,7 @@ class ProductRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'ribbon_content.required_unless' => 'Trường hợp chọn dải màu hiển thị thì xin nhập nội dung hiển thị.'
         ];
     }
 }

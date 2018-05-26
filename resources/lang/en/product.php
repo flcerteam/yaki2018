@@ -6,6 +6,7 @@ return [
 	'products'	          => 'Sản phẩm',
   'general_tab'         => 'Thông tin sản phẩm|@|productInfo',
   'sale_tab'            => 'Thông tin bán hàng|@|saleInfo',
+  'ribbon_tab'          => 'Dãi màu hiển thị|@|ribbonInfo',
   'product_images_tab'  => 'Hình ảnh sản phẩm|@|productImagesInfo',
   'name'			          => 'Tên sản phẩm',
   'sku'			            => 'Mã sản phẩm',

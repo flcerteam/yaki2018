@@ -135,6 +135,26 @@ class ProductCrudController extends CrudController
 
                     // TAB
                 'tab'   => trans('product.sale_tab'),
+            ],
+            [
+                'label'     => trans('ribbon.name'),
+                'type'      => 'select2',
+                'name'      => 'ribbon_id',
+                'entity'    => 'ribbon',
+                'attribute' => 'name',
+                'model'     => "App\Models\Admin\Ribbon",
+                //'hint'      => trans('ribbon.ribbon_content_tip'),
+
+                // TAB
+                'tab'       => trans('product.ribbon_tab'),
+            ],
+            [
+                'name'  => 'ribbon_content',
+                'label' => trans('ribbon.ribbon_content'),
+                'type'  => 'text',
+
+                // TAB
+                'tab'       => trans('product.ribbon_tab'),
             ]
         ]);
 
@@ -175,6 +195,18 @@ class ProductCrudController extends CrudController
                 'entity'    => 'categories',
                 'attribute' => "name",
                 'model'     => "App\Models\Admin\Category",
+            ],
+            [
+                'label'     => trans('ribbon.name'),
+                'type'      => 'select',
+                'name'      => 'ribbon_id',
+                'entity'    => 'ribbon',
+                'attribute' => 'name',
+                'model'     => "App\Models\Admin\Ribbon",
+            ],
+            [
+                'name'  => 'ribbon_content',
+                'label' => trans('ribbon.ribbon_content'),
             ],
             [
                 'name'      => 'status',
@@ -228,8 +260,47 @@ class ProductCrudController extends CrudController
         // $this->crud->enableExportButtons();
 
         // ------ ADVANCED QUERIES
+        $this->crud->addFilter([ // select2_multiple filter
+            'name' => 'categories',
+            'type' => 'select2_multiple',
+            'label'=> trans('category.categories'),
+        ], function() { // the options that show up in the select2
+            return \App\Models\Admin\Category::all()->pluck('name', 'id')->toArray();
+        }, function($values) { // if the filter is active
+            foreach (json_decode($values) as $key => $value) {
+                $this->crud->query = $this->crud->query->orWhereHas('categories', function ($query) use ($value) {
+                    $query->where('category_id', $value);
+                });
+            }
+        });
+
+        $this->crud->addFilter(
+            [ // select2 filter
+                'name' => 'ribbon_id',
+                'type' => 'select2',
+                'label'=> trans('ribbon.name')
+            ], function() {
+                return \App\Models\Admin\Ribbon::all()->pluck('name', 'id')->toArray();
+            }, function($value) { // if the filter is active
+                  $this->crud->addClause('where', 'ribbon_id', $value);
+            });
+
+        $this->crud->addFilter([ // select2 filter
+            'name' => 'status',
+            'type' => 'select2',
+            'label'=> trans('common.status')
+            ], function() {
+                return [
+                    0 => trans('common.active'),
+                    1 => trans('common.inactive')
+                ];
+            }, function($value) { // if the filter is active
+                $this->crud->addClause('where', 'status', $value);
+        });
+
         // $this->crud->addClause('active');
         // $this->crud->addClause('type', 'car');
+        $this->crud->addClause('where', 'product_type', '=', '0');
         // $this->crud->addClause('where', 'name', '==', 'car');
         // $this->crud->addClause('whereName', 'car');
         // $this->crud->addClause('whereHas', 'posts', function($query) {

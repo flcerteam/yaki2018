@@ -27,6 +27,9 @@ class Product extends Model
         'number_of_unit', 
         'price', 
         'status',
+        'product_type',
+        'ribbon_id',
+        'ribbon_content',
         'created_at',
     	'updated_at'
     ];
@@ -73,6 +76,11 @@ class Product extends Model
     public function unit()
 	{
 		return $this->hasOne('App\Models\Admin\Unit', 'id', 'unit_id');
+    }
+
+    public function ribbon()
+    {
+		return $this->hasOne('App\Models\Admin\Ribbon', 'id', 'ribbon_id');
     }
     
     public function images()
