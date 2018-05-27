@@ -5,7 +5,7 @@ namespace App\Models\Admin;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class BuffetProduct extends Model
+class BranchBuffetProduct extends Model
 {
     use CrudTrait;
 
@@ -15,19 +15,13 @@ class BuffetProduct extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'buffet_products';
-    protected $primaryKey = 'id';
+    protected $table = 'branch_buffet_products';
+    // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-        'sku', 
-        'name', 
-        'description',  
-        'status',
-        'ribbon_id',
-        'ribbon_content',
-        'created_at',
-    	'updated_at'
+        'branch_id',
+        'buffet_product_id'
     ];
     // protected $hidden = [];
     // protected $dates = [];
@@ -43,20 +37,6 @@ class BuffetProduct extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function branches()
-	{
-		return $this->belongsToMany('App\Models\Admin\Branch')->where('has_buffet_service', 1);
-    }
-
-    public function ribbon()
-    {
-		return $this->hasOne('App\Models\Admin\Ribbon', 'id', 'ribbon_id');
-    }
-    
-    public function images()
-	{
-		return $this->hasMany('App\Models\Admin\BuffetProductImage')->orderBy('order');
-	}
 
     /*
     |--------------------------------------------------------------------------

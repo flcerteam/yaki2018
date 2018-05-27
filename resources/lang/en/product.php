@@ -22,5 +22,5 @@ return [
 
   'buffet_id'           => 'Mã món ăn',
   'buffet_name'         => 'Tên món ăn',
-
+  'hint_branch'         => 'Chọn chi nhánh đang phục vụ món ăn này.',
 ];
