@@ -139,13 +139,19 @@ class ProductCrudController extends CrudController
             ],
             [
                 'label'     => trans('ribbon.name'),
-                'type'      => 'select2',
+                'type'      => 'select',
                 'name'      => 'ribbon_id',
                 'entity'    => 'ribbon',
                 'attribute' => 'name',
                 'model'     => "App\Models\Admin\Ribbon",
                 //'hint'      => trans('ribbon.ribbon_content_tip'),
 
+                // 'label' => 'Parent',
+                //                 'type' => 'select',
+                //                 'name' => 'ribbon_id',
+                //                 'entity' => 'ribbon',
+                //                 'attribute' => 'name',
+                //                 'model' => "Backpack\NewsCRUD\app\Models\Category",
                 // TAB
                 'tab'       => trans('product.ribbon_tab'),
             ],

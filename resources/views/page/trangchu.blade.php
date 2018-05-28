@@ -47,16 +47,16 @@
 
                 <!-- about content -->
                 <div class="col-md-7">
-                    @if (null != $parameter)
-                    <p>{!! $parameter->content !!}</p>
+                    @if (null != $paramAbout)
+                        <p>{!! $paramAbout->content !!}</p>
                     @else
-                    <p>Đang cập nhật thông tin...</p>
+                        <p>Đang cập nhật thông tin...</p>
                     @endif
                 </div>
                 <!-- /about content -->
 
                 <!-- Galery Slider -->
-                @if (null != $yakiCategoryDisplayHome)
+                @if (null != $paramCategoryHome && null != $products)
                 <div class="col-md-12">
                     <div id="galery" class="owl-carousel owl-theme">
                         @foreach ($products as $item)
@@ -64,7 +64,7 @@
                             <div class="galery-item">
                                 <!-- single image -->
                                 @if ($item->ribbon->id != '0')
-                                <div class="{{ $item->ribbon->css_class }}"><span>{{ $item->ribbon_content }}</span></div>
+                                    <div class="{{ $item->ribbon->css_class }}"><span>{{ $item->ribbon_content }}</span></div>
                                 @endif
                                 {{-- <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div> --}}
                                 @if(null != $item->firstImage())

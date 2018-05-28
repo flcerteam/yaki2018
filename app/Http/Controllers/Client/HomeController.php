@@ -8,6 +8,7 @@ use App\Models\Admin\Menu;
 use App\Models\Client\Event;
 use App\Models\Client\Parameter;
 use App\Models\Client\Product;
+use App\Models\Client\Category;
 use DB;
 
 class HomeController extends Controller
@@ -15,23 +16,39 @@ class HomeController extends Controller
     public function getHomeData() {
 
         // get all event
-        $events = Event::all();
+        $events = Event::where('status','0')->get();
 
         // get about
-        $parameter = Parameter::where('param_id','YAKI_ABOUT_HOME')->first();
+        $paramAbout = Parameter::where('param_id', 'YAKI_ABOUT_HOME')->first();
 
-        if (null != $parameter) {
-            $parameter->content = nl2br($parameter->content);
+        if (null != $paramAbout) {
+            $paramAbout->content = nl2br($paramAbout->content);
         }
 
-        // // get new product
-        // $products = DB::table('products')
-        // ->leftJoin('product_images','products.id','=','product_images.product_id')
-        // ->select('products.*','product_images.name as image')
-        // ->get();
-         // get all product by category id
-         $products = Product::all();
+        // get product
+        $paramCategoryHome = Parameter::where('param_id', 'YK_CAT_DISP_HOME')->first();
+        $products = null;
+        
+        if (null != $paramCategoryHome) {
 
-        return view('page.trangchu',compact('events','products','parameter'));
+            $categoryCd = $paramCategoryHome->content;
+            $category = Category::where('cid', $categoryCd)->first();
+
+            if (null != $category)
+            {
+                $categoryId = $category->id;
+
+                // get all product by category id
+                $products = Product::whereHas('categories', function ($query) use ($categoryId) {
+                    $query->where('id', '=', $categoryId);
+                })->get();
+            }
+        } else {
+
+            // get all product
+            $products = Product::all();
+        }
+
+        return view('page.trangchu',compact('events', 'paramAbout', 'paramCategoryHome', 'products'));
     }
 }

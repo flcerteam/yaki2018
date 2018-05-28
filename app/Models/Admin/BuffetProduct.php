@@ -45,12 +45,13 @@ class BuffetProduct extends Model
     */
     public function branches()
 	{
-		return $this->belongsToMany('App\Models\Admin\Branch')->where('has_buffet_service', 1);
+        return $this->belongsToMany('App\Models\Admin\Branch');
+        //->where('has_buffet_service', 1);
     }
 
     public function ribbon()
     {
-		return $this->hasOne('App\Models\Admin\Ribbon', 'id', 'ribbon_id');
+		return $this->belongsTo('App\Models\Admin\Ribbon');
     }
     
     public function images()

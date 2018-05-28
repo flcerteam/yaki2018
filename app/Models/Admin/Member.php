@@ -48,7 +48,7 @@ class Member extends Model
     */
     public function memberType()
 	{
-		return $this->hasOne('App\Models\Admin\MemberType', 'id', 'member_type_id');
+		return $this->belongsTo('App\Models\Admin\MemberType');
     }
 
     /*

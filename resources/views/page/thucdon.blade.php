@@ -15,12 +15,15 @@
                 <div class="col-sm-6 col-md-6">
                         <div class="row">
                             <div class="col-md-7 col-sm-7">
+                                @if ($item->ribbon->id != '0')
+                                    <div class="{{ $item->ribbon->css_class }}"><span>{{ $item->ribbon_content }}</span></div>
+                                @endif
                                 <div class="thumbnail">
                                     <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
                                         @if(null != $item->firstImage())
                                             <img src="{{ $prSrc."/".$item->firstImage()->name }}" alt="{{ $item->name }}">
                                         @else
-                                        <img src="{{ $prSrc."/no_image.png" }}" alt="{{ $item->name }}">
+                                            <img src="{{ $prSrc."/no_image.png" }}" alt="{{ $item->name }}">
                                         @endif
                                     </a>
                                 </div>

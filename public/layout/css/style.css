@@ -1372,7 +1372,7 @@ textarea.input {
 \*------------------------------------*/
 .ft23-ribbon {
 	position: absolute;
-	right: 0px;
+	right: 5px;
 	/* top: -5px; */
 	z-index: 1;
 	overflow: hidden;

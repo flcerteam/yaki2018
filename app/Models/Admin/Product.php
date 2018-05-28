@@ -75,12 +75,12 @@ class Product extends Model
     
     public function unit()
 	{
-		return $this->hasOne('App\Models\Admin\Unit', 'id', 'unit_id');
+		return $this->belongsTo('App\Models\Admin\Unit');
     }
 
     public function ribbon()
     {
-		return $this->hasOne('App\Models\Admin\Ribbon', 'id', 'ribbon_id');
+		return $this->belongsTo('App\Models\Admin\Ribbon');
     }
     
     public function images()

@@ -44,23 +44,21 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-6 reserve-form row">
                         <div class="section-header text-center">
-                            <h2 class="title sub-title">Thông tin khách hàng</h2>
+                            <h2 class="title sub-title">Thông tin thành viên</h2>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-group">
-                                <label for="phone_number">Số Điện Thoại:</label>
-                                <input class="input" type="tel" placeholder="Số Điện Thoại" id="phone_number" name="phone_number" readonly="readonly">
+                                <label for="name">Tên:</label>
+                                <input class="input" type="text" placeholder="Tên" id="name" name="name" readonly="readonly">
                             </div>
+                        </div>
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="name">Loại Thành Viên:</label>
                                 <input class="input" type="text" placeholder="Loại Thành Viên" id="member_type_name" name="member_type_name" readonly="readonly">
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="name">Tên:</label>
-                                <input class="input" type="text" placeholder="Tên" id="name" name="name" readonly="readonly">
-                            </div>
+                        <div class="col-md-12">
                             <div class="form-group">
                                 <label for="address">Điểm:</label>
                                 <input class="input" type="text" placeholder="Điểm" id="member_point" name="member_point" readonly="readonly">
@@ -70,9 +68,9 @@
                     <div class="col-md-3"></div>
                 </div>
                 <div id="msgInfo" class="col-md-12" style="display: none; text-align:center">
-                    <h2 class="white-text">
-                        Không tìm thấy thông tin khách hàng
-                    <h2>
+                    <h3 class="white-text">
+                        Không tìm thấy thông tin thành viên.
+                    <h3>
                 </div>
             </div>
             <!-- /row -->

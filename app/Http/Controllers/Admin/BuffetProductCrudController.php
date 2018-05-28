@@ -158,6 +158,14 @@ class BuffetProductCrudController extends CrudController
                 'label' => trans('product.buffet_name'),
             ],
             [
+                'name'      => 'branches',
+                'type'      => "select_multiple",
+                'label'     => trans('branch.branches'),
+                'entity'    => 'branches',
+                'attribute' => "name",
+                'model'     => "App\Models\Admin\Branch",
+            ],
+            [
                 'label'     => trans('ribbon.name'),
                 'type'      => 'select',
                 'name'      => 'ribbon_id',
