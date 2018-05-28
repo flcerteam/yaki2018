@@ -22,4 +22,9 @@ class Product extends Model
 	{
 		return $this->hasMany('App\Models\Client\ProductImage')->orderBy('order')->first();
 	}
+
+	public function ribbon()
+	{
+		return $this->hasOne('App\Models\Client\Ribbon', 'id', 'ribbon_id');
+	}
 }

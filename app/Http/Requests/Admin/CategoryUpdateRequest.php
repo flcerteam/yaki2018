@@ -26,9 +26,7 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             'cid'            => 'required|max:20|unique:categories,cid,'.$this->id,
-            'name'           => 'required|max:255|unique:categories,name,'.$this->id,
-            'ribbon_id'      => 'required',
-            'ribbon_content' => 'required_unless:ribbon_id,0|sometimes|nullable|max:12'
+            'name'           => 'required|max:255|unique:categories,name,'.$this->id
         ];
     }
 
@@ -41,9 +39,7 @@ class CategoryUpdateRequest extends FormRequest
     {
         return [
             'cid' => trans('category.cid'),
-            'name' => trans('category.name'),
-            'ribbon_id' => trans('ribbon.name'),
-            'ribbon_content' => trans('ribbon.ribbon_content'),
+            'name' => trans('category.name')
         ];
     }
 
@@ -55,7 +51,7 @@ class CategoryUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'ribbon_content.required_unless' => 'Trường hợp chọn dải màu hiển thị thì xin nhập nội dung hiển thị.'
+            //
         ];
     }
 }

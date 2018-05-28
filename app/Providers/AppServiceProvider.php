@@ -73,6 +73,8 @@ class AppServiceProvider extends ServiceProvider
             $yakiRecruitmentParam = null;
             $yakiRecruitmentImg = '';
 
+            $yakiCategoryDisplayHome = null;
+
 
             $parameters = DB::table('parameters')->get();
 
@@ -93,6 +95,10 @@ class AppServiceProvider extends ServiceProvider
                 elseif ($parameter->param_id == 'YK_RECRUITMENT_IMG')
                 {
                     $yakiRecruitmentParam = $parameter;
+                }
+                elseif ($parameter->param_id == 'YK_CAT_DISP_HOME')
+                {
+                    $yakiCategoryDisplayHome = $parameter;
                 }
             }
 
@@ -143,6 +149,10 @@ class AppServiceProvider extends ServiceProvider
             }
 
             $view->with('yakiRecruitmentImg', $yakiRecruitmentImg);
+
+            // Category display home
+            $view->with('yakiCategoryDisplayHome', $yakiCategoryDisplayHome);
+
         });
     }
 

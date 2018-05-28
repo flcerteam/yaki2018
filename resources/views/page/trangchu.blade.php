@@ -56,13 +56,16 @@
                 <!-- /about content -->
 
                 <!-- Galery Slider -->
+                @if (null != $yakiCategoryDisplayHome)
                 <div class="col-md-12">
                     <div id="galery" class="owl-carousel owl-theme">
                         @foreach ($products as $item)
                             <!-- single column -->
                             <div class="galery-item">
                                 <!-- single image -->
-                                <div class="ft23-ribbon"><span>Khuyến mãi</span></div>
+                                @if ($item->ribbon->id != '0')
+                                <div class="{{ $item->ribbon->css_class }}"><span>{{ $item->ribbon_content }}</span></div>
+                                @endif
                                 {{-- <div class="ribbon-wrapper"><div class="ribbon sale">New</div></div> --}}
                                 @if(null != $item->firstImage())
                                     <a href="{{ route('detail',[str_slug($item->name,'-'),$item->id]) }}"div class="galery-img" style="background-image:url({{ $prSrc."/".$item->firstImage()->name }})">
@@ -77,9 +80,8 @@
                         @endforeach
                     </div>
                 </div>
+                @endif
                 <!-- /Galery Slider -->
-
-
             </div>
             <!-- /row -->
 
