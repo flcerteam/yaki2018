@@ -20,7 +20,7 @@ class CategoryCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Admin\Category');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/category');
-        $this->crud->setEntityNameStrings('Danh mục', 'Danh mục');
+        $this->crud->setEntityNameStrings(trans('category.category'), trans('category.categories'));
 
         /*
         |--------------------------------------------------------------------------
@@ -40,8 +40,6 @@ class CategoryCrudController extends CrudController
             'label'     => trans('category.cid'),
             'type'      => 'text',
 
-            // TAB
-            'tab'       => trans('category.general_tab'),
         ], 'create');
 
         $this->crud->addField([
@@ -52,8 +50,6 @@ class CategoryCrudController extends CrudController
                 'readonly'  => 'readonly',
             ],
 
-            // TAB
-            'tab'       => trans('category.general_tab'),
         ], 'update');
 
         $this->crud->addFields([
@@ -61,29 +57,6 @@ class CategoryCrudController extends CrudController
                 'name'  => 'name',
                 'label' => trans('category.name'),
                 'type'  => 'text',
-
-                // TAB
-                'tab'       => trans('category.general_tab'),
-            ],
-            [
-                'label'     => trans('ribbon.name'),
-                'type'      => 'select2',
-                'name'      => 'ribbon_id',
-                'entity'    => 'ribbon',
-                'attribute' => 'name',
-                'model'     => "App\Models\Admin\Ribbon",
-                //'hint'      => trans('ribbon.ribbon_content_tip'),
-
-                // TAB
-                'tab'       => trans('category.ribbon_tab'),
-            ],
-            [
-                'name'  => 'ribbon_content',
-                'label' => trans('ribbon.ribbon_content'),
-                'type'  => 'text',
-
-                // TAB
-                'tab'       => trans('category.ribbon_tab'),
             ]
         ]);
 
@@ -102,19 +75,7 @@ class CategoryCrudController extends CrudController
             [
                 'name'  => 'name',
                 'label' => trans('category.name'),
-            ],
-            [
-                'label'     => trans('ribbon.name'),
-                'type'      => 'select',
-                'name'      => 'ribbon_id',
-                'entity'    => 'ribbon',
-                'attribute' => 'name',
-                'model'     => "App\Models\Admin\Ribbon",
-            ],
-            [
-                'name'  => 'ribbon_content',
-                'label' => trans('ribbon.ribbon_content'),
-            ],
+            ]
         ]);
 
         // ------ CRUD BUTTONS

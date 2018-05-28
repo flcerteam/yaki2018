@@ -50,9 +50,7 @@ class Category extends Model
      */
     protected $fillable = [
       'cid',
-      'name',
-      'ribbon_id',
-      'ribbon_content'
+      'name'
     ];
 
     /**
@@ -80,10 +78,6 @@ class Category extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function ribbon()
-	  {
-		  return $this->hasOne('App\Models\Admin\Ribbon', 'id', 'ribbon_id');
-    }
 
     /*
     |--------------------------------------------------------------------------
