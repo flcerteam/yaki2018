@@ -20,7 +20,7 @@
                 <!--Grid column-->
                 <div class="col-md-5 detail-img">
                     @if ($item->ribbon->id != '0')
-                        <div class="{{ $item->ribbon->css_class }}"><span>{{ $item->ribbon_content }}</span></div>
+                        <div class="{{ $item->ribbon->css_class }} ft23-ribbon-thumbnail"><span>{{ $item->ribbon_content }}</span></div>
                     @endif
                     <a href="javascript:void(0)" class="img-thumbnail">
                         @if(null != $item->firstImage())
