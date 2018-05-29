@@ -78,7 +78,6 @@ class CheckOutController extends Controller {
       $order->shipping_address = $member->address;
       $order->billing_address = $member->address;
       $order->comment = $req->note;
-      dd($req->payment_type);
       $order->payment_type = $req->payment_type;
       $order->total = (float)str_replace(',', '', Cart::subTotal());
       $order->save();
