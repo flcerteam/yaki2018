@@ -15,8 +15,11 @@ class CreateMemberTypesTable extends Migration
     {
         Schema::create('member_types', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('id')->unsigned()->unique();;
+            $table->integer('id')->unsigned()->unique();
             $table->string('name', 255)->nullable()->default(null);
+            $table->integer('point_from')->unsigned()->default(0);
+            $table->integer('point_to')->unsigned()->default(0);
+            $table->integer('percent_discount')->unsigned()->default(0);
         });
     }
 
