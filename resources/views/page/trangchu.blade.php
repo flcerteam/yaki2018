@@ -122,7 +122,7 @@
                                     @endif
                                 </div>
                                 <div class="event-content">
-                                    <h3><a class="white-text" href="javascrpit:void(0);">{!! $event->title !!}</p></h3>
+                                    <h4><a class="white-text" href="javascrpit:void(0);">{!! $event->title !!}</p></h4>
                                 </div>
                             </div>
                         </div>
