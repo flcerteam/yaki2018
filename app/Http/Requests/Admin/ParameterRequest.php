@@ -27,7 +27,7 @@ class ParameterRequest extends FormRequest
     {
         return [
             'param_id'  => 'required|max:100|unique:parameters,param_id'.($this->request->get('id') ? ','.$this->request->get('id') : ''),
-            'name'      => 'required|max:255',
+            'name'      => 'required|max:500',
             'content'   => 'required|max:1500',
         ];
     }

@@ -27,7 +27,7 @@ class RecruitmentRequest extends FormRequest
     {
         return [
             'title'     => 'required|max:255',
-            'content'   => 'required|max:1500',
+            'content'   => 'required|max:2000',
             'status'    => 'required|numeric|between:0,1'
         ];
     }

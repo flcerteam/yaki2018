@@ -17,7 +17,7 @@ class CreateParametersTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('param_id', 100);
-            $table->string('name', 255)->nullable()->default(null);
+            $table->string('name', 500)->nullable()->default(null);
             $table->longText('content')->nullable()->default(null);
             $table->nullableTimestamps();
 

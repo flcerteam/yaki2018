@@ -9,6 +9,7 @@
     <div class="section">
         <div class="container">
             <!-- row -->
+            @if (0 < count($products))
             <div class="row">
                 @foreach ($products as $item)
                 <div class="col-sm-6 col-md-6">
@@ -35,6 +36,9 @@
                 @endforeach
                 <div class="col-sm-12 col-md-12 text-center">{{ $products->links() }}</div>
             </div>
+            @else
+                <p>Hệ thống đang cập nhật...</p>
+            @endif
         </div>
     </div>
 </div>

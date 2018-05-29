@@ -167,7 +167,7 @@ class BuffetProductCrudController extends CrudController
             ],
             [
                 'label'     => trans('ribbon.name'),
-                'type'      => 'select',
+                'type'      => 'select2',
                 'name'      => 'ribbon_id',
                 'entity'    => 'ribbon',
                 'attribute' => 'name',
