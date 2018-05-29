@@ -27,6 +27,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('total_discount', 18, 0)->nullable()->default(null);
             $table->decimal('total_shipping', 18, 0)->nullable()->default(null);
             $table->decimal('total', 18, 0)->nullable()->default(null);
+            $table->tinyInteger('payment_type')->unsigned()->default(0);
             $table->nullableTimestamps();
 
             $table->foreign('member_id')

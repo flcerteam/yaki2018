@@ -5,10 +5,19 @@ namespace App\Http\Controllers\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\Client\BuffetProduct;
+
 class BuffetController extends Controller
 {
+    public static $itemsPerPage = 10;
+
     function getInfo($name, $id) {
 
-        return view('buffet.buffet');
+        // get all product by branch id        
+        $products = BuffetProduct::whereHas('branches', function ($query) use ($id) {
+            $query->where('id', '=', $id);
+        })->paginate(self::$itemsPerPage);
+
+        return view('buffet.buffet', compact('products'));
     }
 }
