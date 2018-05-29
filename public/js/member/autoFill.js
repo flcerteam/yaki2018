@@ -6,7 +6,7 @@ jQuery(document).ready(function($) {
     /**
     * load thông tin member
     **/
-    $("#search").click(function(){
+    $(document).on('click', '#search', function(e) {    
 
       var phone_number = $("#phone_number_search").val();
 
@@ -52,5 +52,34 @@ jQuery(document).ready(function($) {
         $("#tableMember").hide();
         $("#msgInfo").hide();
       }
+    });
+
+    $("a.hvr-bubble-bottom").click(function(){
+
+      var thisProcess = $(this),
+          attr = "",
+          url = "";
+
+      if(thisProcess.hasClass("point")){
+        url = "get_point_member";
+        attr = "point";
+      } else {
+        url = "get_regulation_member";
+        attr = "regulation";
+      }
+
+      $.ajax({
+        type: "POST",
+        url: "/" + url,
+        success: function(data) {
+          $("div.dataM").html(data);
+        },
+        error:function(data) {
+        }
+      });
+      
+      $("ul.sub-menu li").removeClass("active");
+      $("ul.sub-menu li." + attr).addClass("active");
+
     });
 });

@@ -27,4 +27,14 @@ class MemberController extends Controller
 
         return response()->json(['member'=>$member]);
     }
+
+    public function getPointMemberInfo(Request $req){
+
+        return view('page.member-point');
+    }
+
+    public function getRequlationMemberInfo(Request $req){
+
+        return view('page.member-requlation');
+    }
 }

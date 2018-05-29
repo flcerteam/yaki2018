@@ -78,6 +78,10 @@ Route::get('member',[
 ]);
 
 Route::post('get_search_member','Client\MemberController@getMemberInfo');
+
+Route::post('get_point_member','Client\MemberController@getPointMemberInfo');
+
+Route::post('get_regulation_member','Client\MemberController@getRequlationMemberInfo');
 // Member End
 
 // Buffet Start
