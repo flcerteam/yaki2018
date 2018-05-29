@@ -1436,6 +1436,12 @@ textarea.input {
 	width: 75px; height: 75px; 
 	text-align: right;
  }
+
+ .ft23-ribbon-thumbnail {
+    right: 10px !important;
+    top: -5px !important;
+ }
+
  .ft23-ribbon span {
 	font-size: 10px;
 	color: #fff; 

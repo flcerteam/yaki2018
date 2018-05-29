@@ -22,21 +22,31 @@
                 <h2 class="title sub-title">Thông tin thành viên</h2>
             </div>
             <div class="col-md-12">
-                <div class="form-group">
-                    <label for="name">Tên:</label>
-                    <input class="input" type="text" placeholder="Tên" id="name" name="name" readonly="readonly">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Tên</label>
+                        <input class="input" type="text" placeholder="Tên" id="name" name="name" readonly="readonly">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Số Điện Thoại</label>
+                        <input class="input" type="text" placeholder="Số Điện Thoại" id="phone_number" name="phone_number" readonly="readonly">
+                    </div>
                 </div>
             </div>
             <div class="col-md-12">
-                <div class="form-group">
-                    <label for="name">Loại Thành Viên:</label>
-                    <input class="input" type="text" placeholder="Loại Thành Viên" id="member_type_name" name="member_type_name" readonly="readonly">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="address">Điểm:</label>
+                        <input class="input" type="text" placeholder="Điểm" id="member_point" name="member_point" readonly="readonly">
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label for="address">Điểm:</label>
-                    <input class="input" type="text" placeholder="Điểm" id="member_point" name="member_point" readonly="readonly">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Hạng Thành Viên:</label>
+                        <input class="input" type="text" placeholder="Hạng Thành Viên" id="member_type_name" name="member_type_name" readonly="readonly">
+                    </div>
                 </div>
             </div>
         </div>
