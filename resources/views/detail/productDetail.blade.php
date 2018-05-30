@@ -36,9 +36,9 @@
                     <!--Content-->
                     <h3>{{ $item->name }}</h3>
                     <p class="lead">
-                        <span>Giá: {{ number_format($item->price) }} VND</span>
+                        <span>{{ number_format($item->price) }} ₫</span>
                         <span>/@if ($item->number_of_unit != 1)
-                            {{ number_format($item->number_of_unit,0) }}
+                            {{ number_format($item->number_of_unit, 0) }}
                         @endif {{ $item->unit->name }}</span>
                     </p>
                     <p>{{ $item->description }}</p>
