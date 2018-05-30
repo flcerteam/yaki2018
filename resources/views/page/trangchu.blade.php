@@ -116,13 +116,17 @@
                             <div class="event">
                                 <div class="event-img">
                                     @if(null != $event->image)
-                                        <img src="{{ $event->image }}" alt="">
+                                    <a href="{{ route('events',[str_slug($event->title,'-'),$event->id]) }}" >
+                                        <img src="{{ $event->image }}" alt="{{ $event->title }}">
+                                    </a>
                                     @else
+                                    <a href="{{ route('events',$event->id) }}" >
                                         <img src="{{ $eventSrc. "/no_image.png" }}" alt="">
+                                    </a>
                                     @endif
                                 </div>
                                 <div class="event-content">
-                                    <h4><a class="white-text" href="javascrpit:void(0);">{!! $event->title !!}</a></h4>
+                                    <h4><a class="white-text" href="{{ route('events',[str_slug($event->title,'-'),$event->id]) }}">{!! $event->title !!}</a></h4>
                                 </div>
                             </div>
                         </div>

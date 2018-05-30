@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Models\Client\Parameter;
+use App\Models\Client\Event;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Storage;
@@ -35,6 +36,12 @@ class ParametersController extends Controller
         }
 
         return view('about.about',compact('parameter', 'images'));
+    }
+
+    public function getEventDetail($title,$id) {
+        // get event
+        $event = Event::where('id',$id)->first();
+        return view('detail.eventDetail',compact('event'));
     }
 
     private function isImageFile($fileName)

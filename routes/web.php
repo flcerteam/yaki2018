@@ -157,3 +157,8 @@ Route::get('find', 'Client\SearchController@getSearchHint');
 Route::post('add-to-cart','Client\CartController@addToCart');
 
 Route::get('about','Client\ParametersController@getAboutContent');
+
+Route::get('events/{title}.{id}.html',[
+  'as' => 'events',
+  'uses' => 'Client\ParametersController@getEventDetail'
+]);
