@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="page-row page-row-expanded">
+<div class="page-row page-row-expanded">
     <!-- Home -->
     <div id="home" class="banner-area">
 
@@ -108,21 +108,21 @@
                 </div>
                 <!-- /section header -->
                 @if (count($events) == 0)
-                <p class="text-center">Hiện tại không có sự kiện ^_^.</p>
+                    <p class="text-center">Hiện tại không có sự kiện ^_^.</p>
                 @else
                     @foreach ($events as $event)
                         <!-- single event -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-xs-6">
                             <div class="event">
                                 <div class="event-img">
                                     @if(null != $event->image)
-                                    <img src="{{$event->image }}" alt="">
+                                        <img src="{{ $event->image }}" alt="">
                                     @else
-                                    <img src=" {{  $eventSrc."/no_image.png" }}" alt="">
+                                        <img src="{{ $eventSrc. "/no_image.png" }}" alt="">
                                     @endif
                                 </div>
                                 <div class="event-content">
-                                    <h4><a class="white-text" href="javascrpit:void(0);">{!! $event->title !!}</p></h4>
+                                    <h4><a class="white-text" href="javascrpit:void(0);">{!! $event->title !!}</a></h4>
                                 </div>
                             </div>
                         </div>
@@ -143,5 +143,6 @@
         <p>Giảm ngay 5% cho khách đặt bàn tại yaki.com.vn</p>
         <a href="{{ route('reservation') }}" class="btn btn-primary">Đặt bàn ngay!</a>
     </div>
-    </div>
+
+</div>
 @endsection
