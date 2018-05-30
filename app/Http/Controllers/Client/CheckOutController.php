@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
 use App\Models\Client\Member;
+use App\Models\Client\Parameter;
 use Cart;
 use DB;
 use Session;
@@ -14,6 +15,12 @@ use App\Models\Client\OrderStatusHistory;
 use App\Http\Controllers\Controller;
 
 class CheckOutController extends Controller {
+
+  public function getCheckoutPage() {
+    // get about
+    $paramAccInfo = Parameter::where('param_id', 'YAKI_BANK_ACCOUNT_INFO')->first();
+    return view('checkout.checkout',compact('paramAccInfo'));
+  }
 
   /**
    * update quantity of item
@@ -78,6 +85,7 @@ class CheckOutController extends Controller {
       $order->shipping_address = $member->address;
       $order->billing_address = $member->address;
       $order->comment = $req->note;
+      $order->payment_type = $req->payment_type;
       $order->total = (float)str_replace(',', '', Cart::subTotal());
       $order->save();
      
