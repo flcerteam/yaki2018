@@ -843,8 +843,8 @@ textarea.input {
 	Events
 \*------------------------------------*/
 .event {
-	position:relative;
-	margin:15px 0px;
+	position: relative;
+	margin: 15px 0px 80px 0px;
 }
 
 .event .event-img {
@@ -852,6 +852,7 @@ textarea.input {
 	left:0;
 	top:0;
 	width: 160px;
+	max-height: 120px;
 }
 
 .event .event-img img {
@@ -901,8 +902,17 @@ textarea.input {
 }
 
 .event .event-content {
-	min-height: 160px;
+	/* min-height: 160px; */
 	padding-left: 175px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 46px;
+	display: block;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	-o-text-overflow: ellipsis;
+	font-size: medium;
 }
 
 .event .event-content h3 {

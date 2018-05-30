@@ -112,7 +112,7 @@
                 @else
                     @foreach ($events as $event)
                         <!-- single event -->
-                        <div class="col-md-6 col-xs-6">
+                        <div class="col-md-6 col-xs-12">
                             <div class="event">
                                 <div class="event-img">
                                     @if(null != $event->image)
@@ -122,7 +122,7 @@
                                     @endif
                                 </div>
                                 <div class="event-content">
-                                    <h4><a class="white-text" href="javascrpit:void(0);">{!! $event->title !!}</a></h4>
+                                    <a class="white-text" href="javascrpit:void(0);">{!! $event->title !!}</a>
                                 </div>
                             </div>
                         </div>
