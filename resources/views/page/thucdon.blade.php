@@ -16,7 +16,7 @@
                     <div class="row">
                         <div class="col-md-7 col-sm-7">
                             @if ($item->ribbon->id != '0')
-                                <div class="{{ $item->ribbon->css_class }}"><span>{{ $item->ribbon_content }}</span></div>
+                                <div class="{{ $item->ribbon->css_class }} ft23-ribbon-thumbnail"><span>{{ $item->ribbon_content }}</span></div>
                             @endif
                             <div class="thumbnail">
                                 <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
