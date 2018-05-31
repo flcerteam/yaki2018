@@ -35,7 +35,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="phone_number">Số Điện Thoại:</label>
+                                <label for="phone_number">Số điện thoại:</label>
                                 <input class="input" type="tel" placeholder="Số điện thoại" id="phone_number" name="phone_number" required>
                             </div>
                             <div class="form-group">
@@ -43,13 +43,13 @@
                                 <input class="input" type="text" placeholder="Tên" id="name" name="name" required>
                             </div>
                             <div class="form-group">
-                                <label for="gender">Giới Tính:</label><br>
+                                <label for="gender">Giới tính:</label><br>
                                 <input type="radio" id="gender" name="gender" value="0" checked="checked">&nbsp;Nam
                                 &nbsp;&nbsp;&nbsp;
                                 <input type="radio" id="gender" name="gender" value="1">&nbsp;Nữ
                             </div>
                             <div class="form-group">
-                                <label for="birth_date">Ngày Sinh:</label>
+                                <label for="birth_date">Ngày sinh:</label>
                                 <input class="input" type="date" placeholder="DD/MM/YY" id="birth_date" name="birth_date">
                             </div>
                         </div>
@@ -60,18 +60,18 @@
                                 <input class="input" type="email" placeholder="email@mail.com" id="email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="address">Địa Chỉ:</label>
+                                <label for="address">Địa chỉ:</label>
                                 <input class="input" type="text" placeholder="Địa chỉ" id="address" name="address" required>
                             </div>
                             <div class="form-group">
-                            <label for="note">Ghi Chú:</label>
+                            <label for="note">Ghi chú:</label>
                             <textarea class="input" id="note" name="note" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                         @if(Cart::count())
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label>Phương thức thanh toán</label>
+                                <label>Phương thức thanh toán:</label>
                                 <ul>
                                     <li>
                                         <input id="payment_type" type="radio" name="payment_type" value="0" checked="checked">
