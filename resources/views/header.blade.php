@@ -70,15 +70,15 @@
             <ul class="cta-nav">
                 <li><a href="{{ route('reservation') }}" class="main-button table-reservation-style">Đặt Bàn</a></li>
                 <li class="nav-item">
-                        <a class="nav-link waves-effect cart-style" href="/checkout">
-                        <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"><span class="badge badge-pill badge-danger badge-yaki">
-                            @if (Cart::count() > 0)
-                                {{ Cart::count()}}
-                            @else
-                                0
-                            @endif</span></i>
-                        </a>
-                    </li>
+                    <a class="nav-link waves-effect cart-style" href="/checkout">
+                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"><span class="badge badge-pill badge-danger badge-yaki">
+                        @if (Cart::count() > 0)
+                            {{ Cart::count()}}
+                        @else
+                            0
+                        @endif</span></i>
+                    </a>
+                </li>
             </ul>
             <!-- button nav -->
 
@@ -93,5 +93,6 @@
         </div>
     </div>
     <!-- /Bottom nav -->
+    <div class="notification"></div>
 </header>
 <!-- /Header -->

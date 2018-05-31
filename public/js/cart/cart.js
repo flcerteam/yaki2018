@@ -26,6 +26,14 @@
                     'qty':e.currentTarget.children[1].value },
               success: function(data){
                 $('.badge-yaki').text(data.totalQty);
+                $('.notification').append('<div class="alert alert-success alert-dismissible fade in" width="50px">\
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
+               Bạn đã thêm thành công 1 món ăn.\
+                </div>')
+                // set thời gian đóng popup
+                $(".alert-success").delay(800).slideUp(200, function() {
+                    $(this).alert('close');
+                  });
               },
               error:function(data){
                   console.log(data);
