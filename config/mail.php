@@ -62,7 +62,7 @@ return [
         // 'address' => env('MAIL_USERNAME'),
         // 'name' => env('MAIL_PASSWORD'),
         'address' => 'yaki.callcenter@gmail.com',
-        'name' => 'yaki2018',
+        'name' => 'yaki.callcenter',
     ],
 
     /*
