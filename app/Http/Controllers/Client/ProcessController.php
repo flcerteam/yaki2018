@@ -13,9 +13,17 @@ class ProcessController extends Controller
         
         $code = Session::get('code');
 
-        Mail::send('page.mail', compact('code'), function($message){
-	        $message->to('yaki.callcenter@gmail.com', 'yaki2018')->subject('!!! ORDER NEW !!!');
-	    });
+        try
+        {
+            Mail::send('page.mail', compact('code'), function($message) {
+                $message->to('yaki.callcenter@gmail.com')->subject('!!! ORDER NEW !!!');
+            });
+        }
+        catch(Exception $e)
+        {
+            
+        }
+        
 
         return view('page.process', compact('code'));
     }
