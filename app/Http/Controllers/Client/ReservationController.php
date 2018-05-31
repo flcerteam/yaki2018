@@ -63,6 +63,7 @@ class ReservationController extends Controller
             $branch->close_hour_val = $branch->close_hour;
             $branch->open_hour = date('h:i A', strtotime($branch->open_hour));
             $branch->close_hour = date('h:i A', strtotime($branch->close_hour));
+            $branch->buffet_price = number_format($branch->buffet_price);
         }
 
         return response()->json(['branch'=>$branch]);
