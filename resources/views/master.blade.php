@@ -64,8 +64,12 @@
         {{-- /fb-livechat --}}
 
         @include('header')
-        @yield('content')
+        @yield('content')   
         @include('footer')
+
+        <!-- Scroll Top -->
+        <a href="#" class="scrollToTop"><i class="fa fa-angle-double-up"></i></a>     
+        <!-- /Scroll Top -->
 
         <!-- Preloader -->
         <div id="preloader">
