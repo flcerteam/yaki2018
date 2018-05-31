@@ -119,6 +119,9 @@
                         <div class="text-center">
                             <h4 class="hours"><label id="open_hour">{{ $timeBranch['open_hour'] }}</label> – <label id="close_hour">{{ $timeBranch['close_hour'] }}</label></h4>
                         </div>
+                        <div class="buffetPrice text-center" style="@if($infoBranchList->first()->buffet_price == null) display: none; @endif">
+                            <h4 class="hours">Giá buffet: <label id="buffet_price">{{ $infoBranchList->first()->buffet_price }}</label></h4>
+                        </div>
                     </div>
                 </div>
                 <!-- /opening time -->
