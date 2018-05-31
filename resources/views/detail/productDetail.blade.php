@@ -41,7 +41,7 @@
                             {{ number_format($item->number_of_unit, 0) }}
                         @endif {{ $item->unit->name }}</span>
                     </p>
-                    <p>{{ $item->description }}</p>
+                    <p>{!! nl2br($item->description) !!}</p>
                     <div class="d-flex justify-content-left">
                         <!-- Default input -->
                         <div class="form-group">

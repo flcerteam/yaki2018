@@ -35,6 +35,8 @@
 
                 <!-- about content -->
                 <div class="col-md-7 white-text">
+                    <h4 class="section-header-event">{{ $event->title }}</h4>
+                    <hr/>
                     <p>{!! nl2br($event->content) !!}</p>
                 </div>
                 <!-- /about content -->
