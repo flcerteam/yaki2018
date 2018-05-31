@@ -857,6 +857,7 @@ textarea.input {
 
 .event .event-img img {
 	width:100%;
+	max-height: 120px;
 }
 
 .event .event-day {
