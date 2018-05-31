@@ -68,7 +68,7 @@
         @include('footer')
 
         <!-- Scroll Top -->
-        <a href="#" class="scrollToTop"><i class="fa fa-angle-double-up"></i></a>     
+        <a onmouseover="this.style.backgroundColor='transparent'" onmouseout="this.style.backgroundColor='#f36700'" href="#" class="scrollToTop"><i class="fa fa-angle-double-up"></i></a>     
         <!-- /Scroll Top -->
 
         <!-- Preloader -->
