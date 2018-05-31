@@ -75,10 +75,7 @@
                                 <ul>
                                     <li>
                                         <input id="payment_type" type="radio" name="payment_type" value="0" checked="checked">
-                                        &nbsp;Thanh toán trực tiếp khi nhận hàng
-                                        <div style="display: block;">
-                                            Nhà hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng.
-                                        </div>						
+                                        &nbsp;Thanh toán trực tiếp khi nhận hàng					
                                     </li>
                                     <li>
                                         <input id="payment_type" type="radio" name="payment_type" value="1">
