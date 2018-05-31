@@ -36,7 +36,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone_number">Số Điện Thoại:</label>
-                                <input class="input" type="tel" placeholder="Số Điện Thoại" id="phone_number" name="phone_number" required>
+                                <input class="input" type="tel" placeholder="Số điện thoại" id="phone_number" name="phone_number" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Tên:</label>
@@ -44,9 +44,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="gender">Giới Tính:</label><br>
-                                <input type="radio" id="gender" name="gender" value="0" checked="checked"> Nam
+                                <input type="radio" id="gender" name="gender" value="0" checked="checked">&nbsp;Nam
                                 &nbsp;&nbsp;&nbsp;
-                                <input type="radio" id="gender" name="gender" value="1"> Nữ
+                                <input type="radio" id="gender" name="gender" value="1">&nbsp;Nữ
                             </div>
                             <div class="form-group">
                                 <label for="birth_date">Ngày Sinh:</label>
@@ -57,7 +57,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email">Email:</label>
-                                <input class="input" type="email" placeholder="Email@gmail.com" id="email" name="email" required>
+                                <input class="input" type="email" placeholder="email@mail.com" id="email" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label for="address">Địa Chỉ:</label>
@@ -69,24 +69,26 @@
                             </div>
                         </div>
                         @if(Cart::count())
-                        <div class="form-group">
-                            <ul>
-                                <li>
-                                    <input id="payment_type" type="radio" name="payment_type" value="0" checked="checked">
-                                    <label for="payment_type_bacs">Thanh toán khi nhận hàng </label>
-                                    <div style="display: block;">
-                                        Nhà hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
-                                    </div>						
-                                </li>
-                                <li>
-                                    <input id="payment_type" type="radio" name="payment_type" value="1">
-                                    <label for="payment_method_cheque">Chuyển khoản </label>
-                                    <div style="display: block;">
-                                            {!! $paramAccInfo->name !!}
-                                        <br>{!! $paramAccInfo->content !!}
-                                    </div>						
-                                </li>
-                            </ul>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label>Phương thức thanh toán</label>
+                                <ul>
+                                    <li>
+                                        <input id="payment_type" type="radio" name="payment_type" value="0" checked="checked">
+                                        &nbsp;Thanh toán trực tiếp khi nhận hàng
+                                        <div style="display: block;">
+                                            Nhà hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng.
+                                        </div>						
+                                    </li>
+                                    <li>
+                                        <input id="payment_type" type="radio" name="payment_type" value="1">
+                                        &nbsp;Chuyển khoản
+                                        <div style="display: block;">
+                                            {!! nl2br($paramAccInfo->content) !!}
+                                        </div>						
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                         <div class="col-md-12 text-center" style="margin-top: 10px">
                             <button class="main-button btn-order" type="submit">Đặt Hàng</button>

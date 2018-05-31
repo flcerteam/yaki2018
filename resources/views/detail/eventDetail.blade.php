@@ -35,7 +35,7 @@
 
                 <!-- about content -->
                 <div class="col-md-7 white-text">
-                    <p>{!! $event->content !!}</p>
+                    <p>{!! nl2br($event->content) !!}</p>
                 </div>
                 <!-- /about content -->
             </div>
