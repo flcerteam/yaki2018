@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="page-row page-row-expanded">
+<div class="page-row page-row-expanded">
     <!-- Home -->
     <div id="home" class="banner-area">
 
@@ -108,21 +108,25 @@
                 </div>
                 <!-- /section header -->
                 @if (count($events) == 0)
-                <p class="text-center">Hiện tại không có sự kiện ^_^.</p>
+                    <p class="text-center">Hiện tại không có sự kiện ^_^.</p>
                 @else
                     @foreach ($events as $event)
                         <!-- single event -->
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-xs-12">
                             <div class="event">
                                 <div class="event-img">
                                     @if(null != $event->image)
-                                    <img src="{{$event->image }}" alt="">
+                                    <a href="{{ route('events',[str_slug($event->title,'-'),$event->id]) }}" >
+                                        <img src="{{ $event->image }}" alt="{{ $event->title }}">
+                                    </a>
                                     @else
-                                    <img src=" {{  $eventSrc."/no_image.png" }}" alt="">
+                                    <a href="{{ route('events',$event->id) }}" >
+                                        <img src="{{ $eventSrc. "/no_image.png" }}" alt="">
+                                    </a>
                                     @endif
                                 </div>
                                 <div class="event-content">
-                                    <h4><a class="white-text" href="javascrpit:void(0);">{!! $event->title !!}</p></h4>
+                                    <a class="white-text" href="{{ route('events',[str_slug($event->title,'-'),$event->id]) }}">{!! $event->title !!}</a>
                                 </div>
                             </div>
                         </div>
@@ -143,5 +147,6 @@
         <p>Giảm ngay 5% cho khách đặt bàn tại yaki.com.vn</p>
         <a href="{{ route('reservation') }}" class="btn btn-primary">Đặt bàn ngay!</a>
     </div>
-    </div>
+
+</div>
 @endsection

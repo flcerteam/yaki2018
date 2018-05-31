@@ -20,7 +20,7 @@
                 <!--Grid column-->
                 <div class="col-md-5 detail-img">
                     @if ($item->ribbon->id != '0')
-                        <div class="{{ $item->ribbon->css_class }}"><span>{{ $item->ribbon_content }}</span></div>
+                        <div class="{{ $item->ribbon->css_class }} ft23-ribbon-thumbnail"><span>{{ $item->ribbon_content }}</span></div>
                     @endif
                     <a href="javascript:void(0)" class="img-thumbnail">
                         @if(null != $item->firstImage())
@@ -36,9 +36,9 @@
                     <!--Content-->
                     <h3>{{ $item->name }}</h3>
                     <p class="lead">
-                        <span>Giá: {{ number_format($item->price) }} VND</span>
+                        <span>{{ number_format($item->price) }} ₫</span>
                         <span>/@if ($item->number_of_unit != 1)
-                            {{ number_format($item->number_of_unit,0) }}
+                            {{ number_format($item->number_of_unit, 0) }}
                         @endif {{ $item->unit->name }}</span>
                     </p>
                     <p>{{ $item->description }}</p>

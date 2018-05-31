@@ -138,9 +138,7 @@ Route::group(['prefix' => 'ajax', 'middleware' => 'admin'], function()
     Route::post('buffet-product/image/delete', ['as' => 'deleteBuffetProductImage', 'uses' => 'Admin\BuffetProductCrudController@ajaxDeleteProductImage']);
 });
 
-Route::get('checkout',function(){
-    return view('checkout.checkout');
-  });
+Route::get('checkout','Client\CheckOutController@getCheckoutPage');
 Route::post('get_customer_info','Client\CheckOutController@getCustomerInfo');
 Route::post('update_quantity','Client\CheckOutController@updateQtty');
 Route::post('remove_item','Client\CheckOutController@removeItem');
@@ -157,3 +155,8 @@ Route::get('find', 'Client\SearchController@getSearchHint');
 Route::post('add-to-cart','Client\CartController@addToCart');
 
 Route::get('about','Client\ParametersController@getAboutContent');
+
+Route::get('events/{title}.{id}.html',[
+  'as' => 'events',
+  'uses' => 'Client\ParametersController@getEventDetail'
+]);

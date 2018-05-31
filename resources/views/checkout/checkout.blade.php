@@ -69,6 +69,25 @@
                             </div>
                         </div>
                         @if(Cart::count())
+                        <div class="form-group">
+                            <ul>
+                                <li>
+                                    <input id="payment_type" type="radio" name="payment_type" value="0" checked="checked">
+                                    <label for="payment_type_bacs">Thanh toán khi nhận hàng </label>
+                                    <div style="display: block;">
+                                        Nhà hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
+                                    </div>						
+                                </li>
+                                <li>
+                                    <input id="payment_type" type="radio" name="payment_type" value="1">
+                                    <label for="payment_method_cheque">Chuyển khoản </label>
+                                    <div style="display: block;">
+                                            {!! $paramAccInfo->name !!}
+                                        <br>{!! $paramAccInfo->content !!}
+                                    </div>						
+                                </li>
+                            </ul>
+                        </div>
                         <div class="col-md-12 text-center" style="margin-top: 10px">
                             <button class="main-button btn-order" type="submit">Đặt Hàng</button>
                         </div>
