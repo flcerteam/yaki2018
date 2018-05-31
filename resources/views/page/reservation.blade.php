@@ -41,19 +41,19 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="phone_number">Số Điện Thoại:</label>
-                                    <input class="input" type="tel" placeholder="Số Điện Thoại" id="phone_number" name="phone_number" required>
+                                    <label for="phone_number">Số điện thoại:</label>
+                                    <input class="input" type="tel" placeholder="Số điện thoại" id="phone_number" name="phone_number" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Tên:</label>
                                     <input class="input" type="text" placeholder="Tên" id="name" name="name" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="birth_date">Ngày Sinh:</label>
+                                    <label for="birth_date">Ngày sinh:</label>
                                     <input class="input" type="date" placeholder="DD/MM/YYYY" id="birth_date" name="birth_date" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender">Giới Tính:</label><br>
+                                    <label for="gender">Giới tính:</label><br>
                                     <input type="radio" id="gender" name="gender" value="0" checked="checked"> Nam
                                     &nbsp;&nbsp;&nbsp;
                                     <input type="radio" id="gender" name="gender" value="1"> Nữ
@@ -65,7 +65,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="branch_id">Chi Nhánh:</label>
+                                    <label for="branch_id">Chi nhánh:</label>
                                     <select class="input" id="branch_id" name="branch_id">
                                         @foreach($infoBranchList as $dtl)
                                             <option value="{{ $dtl->id }}">{{ $dtl->name }}</option>
@@ -73,15 +73,15 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="reservation_date">Ngày Đặt:</label>
+                                    <label for="reservation_date">Ngày đặt:</label>
                                     <input class="input" type="date" placeholder="DD/MM/YYYY" name="reservation_date" required pattern="[0-9]{2}-[0-9]{2}-[0-9]{4}" min="{{ $dateNow }}">
                                 </div>
                                 <div class="form-group">
-                                <label for="reservation_hour">Thời Gian:</label>
+                                <label for="reservation_hour">Thời gian:</label>
                                 <input class="input" type="time" placeholder="HH:MM" id="reservation_hour" name="reservation_hour" required min="{{ $timeBranch['open_hour_val'] }}" max="{{ $timeBranch['close_hour_val'] }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="rt_type_id">Loại Bàn:</label><br>
+                                    <label for="rt_type_id">Loại bàn:</label><br>
                                     <input type="radio" id="type" name="rt_type_id" value="0" checked="checked"> Bình thường
                                     &nbsp;&nbsp;&nbsp;
                                     <span id="has_buffet_service" style="@if($infoBranchList->first()->has_buffet_service == 0) display: none; @endif">
@@ -89,7 +89,7 @@
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                    <label for="number_of_people">Số Người:</label>
+                                    <label for="number_of_people">Số người:</label>
                                     <input class="input" type="number" placeholder="Số Người" name="number_of_people" required>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label<div class="form-group">
-                                    <label for="note">Ghi Chú:</label>
+                                    <label for="note">Ghi chú:</label>
                                     <textarea class="input" name="note" cols="30" rows="10"></textarea>
                                 </div>
                             </div>
