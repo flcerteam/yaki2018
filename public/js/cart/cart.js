@@ -26,7 +26,7 @@
                     'qty':e.currentTarget.children[1].value },
               success: function(data){
                 $('.badge-yaki').text(data.totalQty);
-                $('.notification').append('<div class="col-md-6 col-xs-6 col-md-offset-3\
+                $('.notification').append('<div class="\
                  alert alert-success alert-dismissible fade in" width="50px">\
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
                Bạn đã thêm thành công 1 món ăn.\

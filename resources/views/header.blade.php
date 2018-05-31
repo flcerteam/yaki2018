@@ -91,8 +91,9 @@
 
         </nav>
         </div>
+        <div class="notification col-md-6 col-xs-12 col-md-offset-3"></div>
     </div>
     <!-- /Bottom nav -->
-    <div class="notification"></div>
+   
 </header>
 <!-- /Header -->
