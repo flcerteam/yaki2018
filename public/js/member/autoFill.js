@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
       });
     });
 
-    $("#phone_number_search").focusout(function(){
+    $(document).on('focusout', '#phone_number_search', function(e) {    
 
       var phone_number = $("#phone_number_search").val();
 
