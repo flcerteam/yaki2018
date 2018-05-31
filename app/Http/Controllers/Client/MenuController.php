@@ -16,7 +16,7 @@ class MenuController extends Controller
         // get all product by menu id        
         $products = Product::whereHas('categories.menus', function ($query) use ($id) {
             $query->where('id', '=', $id);
-        })->paginate(self::$itemsPerPage);
+        })->where('status', '=', 0)->paginate(self::$itemsPerPage);
                         
         // get sub menu
         $menu = Menu::where('id', '=', $id)->first();
@@ -29,7 +29,7 @@ class MenuController extends Controller
         // get all product by category id
         $products = Product::whereHas('categories', function ($query) use ($categoryId) {
             $query->where('id', '=', $categoryId);
-        })->paginate(self::$itemsPerPage);
+        })->where('status', '=', 0)->paginate(self::$itemsPerPage);
 
         // get sub menu 
         $menu = Menu::where('id', '=', $menuId)->first();
