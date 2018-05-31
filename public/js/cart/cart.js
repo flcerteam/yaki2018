@@ -29,7 +29,7 @@
                 $('.notification').append('<div class="\
                  alert alert-success alert-dismissible fade in" width="50px">\
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
-               Bạn đã thêm thành công 1 món ăn.\
+                Thêm thành công vào giỏ hàng.\
                 </div>')
                 // set thời gian đóng popup
                 $(".alert-success").delay(800).slideUp(200, function() {
