@@ -113,7 +113,7 @@
                                     <input id="id" type="hidden" value="{{ $item->rowId }}">
                                     <input id="quantity" type="text" class="quantity" value="{{ $item->qty }}">
                                 </div>
-                                <span class="text-muted">x {{ number_format($item->price ) }} VND</span>
+                                <span class="text-muted">x {{ number_format($item->price ) }} ₫</span>
                                 <a class="pull-right btn-trash" href="javascript:void(0)">
                                     <input id="trash-id" type="hidden" value="{{ $item->rowId }}">
                                     <i class="fa fa-trash"></i>
@@ -123,7 +123,7 @@
                         @endforeach
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Tổng tiền: </span>
-                            <strong class="subTotal">{{ Cart::subtotal()}} VND</strong>
+                            <strong class="subTotal">{{ Cart::subtotal()}} ₫</strong>
                         </li>
                         </ul>
                         @else
