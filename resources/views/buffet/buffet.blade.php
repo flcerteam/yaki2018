@@ -28,9 +28,9 @@
                                 <div class="thumbnail">
                                     <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
                                         @if(null != $item->firstImage())
-                                            <img src="{{ $prSrc."/".$item->firstImage()->name }}" alt="{{ $item->name }}">
+                                            <img src="{{ $buffetPrSrc."/".$item->firstImage()->name }}" alt="{{ $item->name }}">
                                         @else
-                                            <img src="{{ $prSrc."/no_image.png" }}" alt="{{ $item->name }}">
+                                            <img src="{{ $imgSrc."/no_image.png" }}" alt="{{ $item->name }}">
                                         @endif
                                     </a>
                                 </div>
