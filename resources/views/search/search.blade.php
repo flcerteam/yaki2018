@@ -30,7 +30,11 @@
                             <div class="col-md-7 col-sm-7">
                                 <div class="thumbnail">
                                     <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
+                                    @if(null !=$item->firstImage())
                                         <img src="{{$prSrc."/".$item->firstImage()->name }}" alt="{{ $item->name }}">
+                                    @else
+                                        <img src="{{ $prSrc."/no_image.png" }}" alt="{{ $item->name }}">
+                                    @endif
                                     </a>
                                 </div>
                             </div>
