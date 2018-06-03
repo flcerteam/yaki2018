@@ -9,6 +9,7 @@ use DB;
 
 class SearchController extends Controller
 {
+  public static $itemsPerPage = 10;
     /**
      * get item by search key word
      */
@@ -16,11 +17,7 @@ class SearchController extends Controller
         // request model
         $input = $req->all();
         // result by key
-        $products = DB::table('products')
-                        ->leftJoin('product_images','products.id','=','product_images.product_id')
-                        ->leftJoin('units','products.unit_id','=','units.id')
-                        ->select('products.*','product_images.name as image','units.name as unit_type')
-                        ->where('products.name','LIKE','%'.$input['s'].'%')->paginate(6);
+        $products = Product::where('name','LIKE','%'.$input['s'].'%')->paginate(self::$itemsPerPage);
         // total count of product
         $product_count = count(Product::where('name','LIKE','%'.$input['s'].'%')->get());
         // return view

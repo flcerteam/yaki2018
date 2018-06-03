@@ -30,7 +30,7 @@
                             <div class="col-md-7 col-sm-7">
                                 <div class="thumbnail">
                                     <a href="{{route('detail',[$item->name,$item->id])}}">
-                                        <img src="img/{{ $item->image }}" alt="{{ $item->image }}">
+                                        <img src="{{$prSrc."/".$item->firstImage()->name }}" alt="{{ $item->name }}">
                                     </a>
                                 </div>
                             </div>
