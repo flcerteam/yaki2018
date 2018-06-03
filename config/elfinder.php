@@ -77,14 +77,7 @@ return [
     */
 
     'options' => array(
-        'driver'         => 'LocalFileSystem',
-        'path'           => 'PathToTargetDirectory',
-        'dirMode'        => 0755,            // new dirs mode (default 0755)
-        'fileMode'       => 0644,            // new files mode (default 0644)
-        'quarantine'     => '.quarantine',   // quarantine folder name. Absolute path is also possible. (default '.quarantine') - required to check archive (must be hidden)
-        'followSymLinks' => true,            // follow symbolic links (default true) (elFinder >= 2.1.8)
-        'detectDirIcon'  => '',              // File to be detected as a folder icon image (elFinder >= 2.1.10) e.g. '.favicon.png'
-        'keepTimestamp'  => 'array("copy", "move")' // Keep timestamp at inner filesystem (elFinder >= 2.1.12) It allowed 'copy', 'move' and 'upload'.
+        'defaults'   => ['read' => true, 'write' => false]
     ),
 
 ];
