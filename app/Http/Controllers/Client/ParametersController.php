@@ -46,6 +46,7 @@ class ParametersController extends Controller
 
     private function isImageFile($fileName)
     {
+        $fileName = strtolower($fileName);
         return ($this->endsWith($fileName, 'jpeg')
             || $this->endsWith($fileName, 'jpg')
             || $this->endsWith($fileName, 'png'));

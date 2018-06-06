@@ -26,13 +26,11 @@
                                     <div class="{{ $item->ribbon->css_class }} ft23-ribbon-thumbnail"><span>{{ $item->ribbon_content }}</span></div>
                                 @endif
                                 <div class="thumbnail">
-                                    <a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">
-                                        @if(null != $item->firstImage())
-                                            <img src="{{ $buffetPrSrc."/".$item->firstImage()->name }}" alt="{{ $item->name }}">
-                                        @else
-                                            <img src="{{ $imgSrc."/no_image.png" }}" alt="{{ $item->name }}">
-                                        @endif
-                                    </a>
+                                    @if(null != $item->firstImage())
+                                        <img src="{{ $buffetPrSrc."/".$item->firstImage()->name }}" alt="{{ $item->name }}">
+                                    @else
+                                        <img src="{{ $imgSrc."/no_image.png" }}" alt="{{ $item->name }}">
+                                    @endif
                                 </div>
                             </div>
                             <div class="col-md-5 col-sm-5">

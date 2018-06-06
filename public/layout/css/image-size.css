@@ -2,6 +2,12 @@
     width: 305px!important;
     height: 180px!important;
   }
+
+  .thumbnail >img {
+    width: 305px!important;
+    height: 180px!important;
+  }
+
   .detail-img > a >img {
     width: 500px!important;
     height: 270px!important;
