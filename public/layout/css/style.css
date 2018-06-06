@@ -135,6 +135,12 @@ ul,ol{
 	padding-bottom:45px;
 }
 
+.section-about {
+	position:relative;
+	padding-top:30px;
+	padding-bottom:30px;
+}
+
 .section-header .title {
 	font-family: 'Dancing Script', cursive;
 	margin-top:0px;

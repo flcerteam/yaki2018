@@ -23,7 +23,7 @@
     <!-- /Home -->
 
     <!-- About -->
-    <div id="about" class="section">
+    <div id="about" class="section-about">
 
         <!-- container -->
         <div class="container">
@@ -33,7 +33,13 @@
 
                 <!-- section header -->
                 <div class="section-header text-center">
-                    <h2 class="title">{{ trans('common.about_subject') }}</h2>
+                    <h2 class="title">
+                        @if (null != $paramAboutTitle)
+                            {!! $paramAboutTitle->content !!}
+                        @else
+                            {{ trans('common.about_subject') }}
+                        @endif
+                    </h2>
                 </div>
                 <!-- /section header -->
 
@@ -48,7 +54,7 @@
                 <!-- about content -->
                 <div class="col-md-7">
                     @if (null != $paramAbout)
-                        <p>{!! $paramAbout->content !!}</p>
+                        <h5>{!! $paramAbout->content !!}</h5>
                     @else
                         <p>Đang cập nhật thông tin...</p>
                     @endif

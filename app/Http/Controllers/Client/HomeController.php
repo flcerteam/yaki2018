@@ -19,9 +19,16 @@ class HomeController extends Controller
         $events = Event::where('status','0')->get();
 
         // get about
+        $paramAboutTitle = Parameter::where('param_id', 'YAKI_ABOUT_TITLE_HOME')->first();
         $paramAbout = Parameter::where('param_id', 'YAKI_ABOUT_HOME')->first();
 
-        if (null != $paramAbout) {
+        if (null != $paramAboutTitle) 
+        {
+            $paramAboutTitle->content = nl2br($paramAboutTitle->content);
+        }
+
+        if (null != $paramAbout)
+        {
             $paramAbout->content = nl2br($paramAbout->content);
         }
 
@@ -29,7 +36,8 @@ class HomeController extends Controller
         $paramCategoryHome = Parameter::where('param_id', 'YK_CAT_DISP_HOME')->first();
         $products = null;
         
-        if (null != $paramCategoryHome) {
+        if (null != $paramCategoryHome)
+        {
 
             $categoryCd = $paramCategoryHome->content;
             $category = Category::where('cid', $categoryCd)->first();
@@ -49,6 +57,6 @@ class HomeController extends Controller
             $products = Product::all();
         }
 
-        return view('page.trangchu',compact('events', 'paramAbout', 'paramCategoryHome', 'products'));
+        return view('page.trangchu',compact('events', 'paramAbout', 'paramAboutTitle', 'paramCategoryHome', 'products'));
     }
 }
