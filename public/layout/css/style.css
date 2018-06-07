@@ -55,8 +55,13 @@ body {
 	font-family: 'Cabin', sans-serif;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h6 {
 	font-weight:700;
+	color:#151515;
+	font-family: 'Quicksand', sans-serif;
+}
+
+h5 {
 	color:#151515;
 	font-family: 'Quicksand', sans-serif;
 }
@@ -1463,10 +1468,22 @@ textarea.input {
 /*------------------------------------*\
 	Recruitment
 \*------------------------------------*/
+.recruitment-index {
+	color: #d9d9d9; 
+	font-size: 18px; 
+	font-family: 'Quicksand', sans-serif;
+}
+
+.recruitment-title {
+	height: 100%; 
+	font-family: 'Quicksand', sans-serif;
+}
+
 .recruitment-publish-date {
 	text-align: right;
-	font-size: 12px;
+	font-size: 11px;
 	font-style: italic;
+	font-family: 'Quicksand', sans-serif;
 }
 
 /*------------------------------------*\

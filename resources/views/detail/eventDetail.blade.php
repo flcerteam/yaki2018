@@ -37,12 +37,12 @@
                 <div class="col-md-7 white-text">
                     <h4 class="section-header-event">{{ $event->title }}</h4>
                     <hr/>
-                    <p>{!! nl2br($event->content) !!}</p>
+                    <h5 class="white-text">{!! nl2br($event->content) !!}</h5>
                 </div>
                 <!-- /about content -->
             </div>
             @else 
-                <p>Đang cập nhật thông tin...</p>
+                <h5 class="white-text">Đang cập nhật thông tin...</h5>
             @endif
         </div>
     </div>

@@ -29,21 +29,18 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <div class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $new->index }}" @if($new->index > 1) aria-expanded="false" class="collapsed"@endif>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $new->index }}" @if($new->index > 1) aria-expanded="false" class="collapsed"@endif>
                                         <div class="row">
-                                            <span class="col-md-1 col-sm-1 col-xs-1" style="color: #d9d9d9;font-size: 18px;">{{ $new->no }}</span>
-                                            <span class="col-md-9 col-sm-9 col-xs-11" style="height: 100%;">
-                                                {{ $new->title }}
-                                            </span>
+                                            <span class="col-md-1 col-sm-1 col-xs-1 recruitment-index">{{ $new->no }}</span>
+                                            <span class="col-md-9 col-sm-9 col-xs-11 recruitment-title">{{ $new->title }}</span>
                                             <span class="col-md-2 col-sm-2 recruitment-publish-date hidden-xs">{{ $new->created_at }}</span>
                                         </div>
                                     </a>
-                                    
                                 </div>
                             </div>
                             <div id="collapse{{ $new->index }}" @if($new->index > 1) class="panel-collapse collapse" aria-expanded="false" style="height: 0px;"@else class="panel-collapse collapse in" @endif>
                                 <div class="panel-body">
-                                    {!! $new->content !!}
+                                    <h5>{!! $new->content !!}</h5>
                                 </div>
                             </div>
                         </div>

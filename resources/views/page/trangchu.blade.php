@@ -114,7 +114,7 @@
                 </div>
                 <!-- /section header -->
                 @if (count($events) == 0)
-                    <p class="text-center">Hiện tại không có sự kiện ^_^.</p>
+                    <h4 class="text-center">Hiện tại không có sự kiện ^_^.</h4>
                 @else
                     @foreach ($events as $event)
                         <!-- single event -->
@@ -132,7 +132,7 @@
                                     @endif
                                 </div>
                                 <div class="event-content">
-                                    <a class="white-text" href="{{ route('events',[str_slug($event->title,'-'),$event->id]) }}">{!! $event->title !!}</a>
+                                    <a href="{{ route('events',[str_slug($event->title,'-'),$event->id]) }}"><h4 class="white-text">{!! $event->title !!}</h4></a>
                                 </div>
                             </div>
                         </div>
