@@ -23,8 +23,8 @@
 
         <!-- social links -->
         <ul class="contact-nav nav navbar-nav hidden-xs">
-            <li><a href="javascript:void(0)"><i class="fa fa-phone"></i> Hotline: 0903 906 084 - 0909 910 468</a></li>
-            <li><a href="javascript:void(0)"><i class="fa fa-phone"></i> Tel 2: (028) 38162188</a></li>
+            <li><a href="javascript:void(0)"><h5><i class="fa fa-phone"></i> Hotline: 0903 906 084 - 0909 910 468</h5></a></li>
+            <li><a href="javascript:void(0)"><h5><i class="fa fa-phone"></i> Tel 2: (028) 38162188</h5></a></li>
         </ul>
         <!-- /social links -->
 
@@ -84,8 +84,8 @@
 
             <!-- contact nav -->
             <ul class="contact-nav nav navbar-nav visible-xs">
-                <li><a href="#"><i class="fa fa-phone"></i> Hotline<br/>0903 906 084<br/>0909 910 468</a></li>
-                <li><a href="#"><i class="fa fa-phone"></i> Tel 2: (028) 38162188</a></li>
+                <li><a href="#"><h5><i class="fa fa-phone"></i> Hotline<br/>0903 906 084<br/>0909 910 468</h5></a></li>
+                <li><a href="#"><h5><i class="fa fa-phone"></i> Tel 2: (028) 38162188</h5></a></li>
             </ul>
             <!-- contact nav -->
 

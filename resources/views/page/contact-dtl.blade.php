@@ -33,14 +33,14 @@
                 </div>
                 <div class="section-content-contact txt-contact">
                     <div class="col-md-6">
-                        <h4><a>Địa Chỉ</a></h4>                                                                                                                     
+                        <h4><a>Địa chỉ</a></h4>                                                                                                                     
                         <p class="txt">{{ $contactInfo->address }}</p>
-                        <h4><a>Giờ mở/đóng cửa</a></h4>
+                        <h4><a>Giờ mở / đóng cửa</a></h4>
                         <p class="txt">{{ $contactInfo->open_hour }} - {{ $contactInfo->close_hour }}</p>
                         <h4><a>Liên hệ</a></h4>
                         <p class="txt">{{ $contactInfo->contact_name }} - {{ $contactInfo->phone_number	}}</p>
-                        <h4><a>Email</a></h4>
-                        <p>{{ $contactInfo->email }}</p>
+                        <h4><a>E-mail</a></h4>
+                        <h5 class="white-text">{{ $contactInfo->email }}</h5>
                         <hr>
                         <p class="txt">{{ $contactInfo->description }}</p>
                         <hr>

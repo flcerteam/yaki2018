@@ -38,7 +38,7 @@
                         <div class="section-header-contact">
                             <h2 class="title-contact">
                                 {{ $dtl->name }}
-                                <h5 class="address-contact">
+                                <h5 class="address-contact white-text">
                                     <i class="fa fa-map-marker" aria-hidden="true"></i>
                                     <span class="address">{{ $dtl->address }}</span>
                                 </h5>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="section-content-contact">
                             <h3>
-                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <i class="fa fa-mobile white-text" aria-hidden="true"></i>
                                 <a>&nbsp;&nbsp;{{ $dtl->phone_number }}</a>
                             </h3>
                             <p>

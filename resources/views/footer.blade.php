@@ -8,7 +8,7 @@
         <div class="row">
             <!-- copyright -->
             <div class="col-md-6">
-                <span class="copyright">Copyright © 2018 Yaki | This web is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by FT2.3</span>
+                <h5 class="white-text">Copyright © 2018 Yaki | This web is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by FT2.3</h5>
             </div>
             <!-- /copyright -->
         </div>

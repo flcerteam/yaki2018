@@ -55,13 +55,13 @@ body {
 	font-family: 'Cabin', sans-serif;
 }
 
-h1,h2,h3,h4,h6 {
+h1,h2,h3,h4 {
 	font-weight:700;
 	color:#151515;
 	font-family: 'Quicksand', sans-serif;
 }
 
-h5 {
+h5,h6 {
 	color:#151515;
 	font-family: 'Quicksand', sans-serif;
 }
