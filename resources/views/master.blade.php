@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <base href="{{asset('/public/')}}">
         <meta name="csrf-token" value="{{csrf_token()}}">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-site-verification" content="Yzq4KrLPLl7e1Of0gQ5uNhgOsrLzL2InOPLk-3cd2tk" />
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
         <title>{{ config('app.name') }}</title>
