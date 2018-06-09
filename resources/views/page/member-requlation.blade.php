@@ -15,7 +15,7 @@
         </h5>
         <h5 class="white-text">
             - Hạng thành viên<br/></br>
-            <table class="table">
+            <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>Hạng thành viên</th>

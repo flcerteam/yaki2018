@@ -34,8 +34,8 @@
                 <!-- /about content -->
 
                 <!-- about content -->
-                <div class="col-md-7 white-text">
-                    <p>{!! $parameter->content !!}</p>
+                <div class="col-md-7">
+                    <h5 class="white-text">{!! $parameter->content !!}</h5>
                 </div>
                 <!-- /about content -->
 
@@ -64,7 +64,7 @@
                 </div>
             </div>
             @else 
-                <p>Đang cập nhật thông tin...</p>
+                <h5 class="white-text">Đang cập nhật thông tin...</h5>
             @endif
         </div>
     </div>

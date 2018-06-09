@@ -33,10 +33,15 @@
                                 <div class="menu-content">
                                     <h4><a href="{{route('detail',[str_slug($item->name,'-'),$item->id])}}">{{ $item->name }}</a></h4>
                                 </div>
-                                <span>{{ number_format($item->price) }} ₫</span>
-                                <span>/@if ($item->number_of_unit != 1)
-                                    {{ number_format($item->number_of_unit , 0) }}
-                                @endif {{ $item->unit->name }}</span>
+                                <h5>
+                                    <span>{{ number_format($item->price) }} ₫ / </span>
+                                    <span>
+                                        @if ($item->number_of_unit != 1)
+                                            {{ number_format($item->number_of_unit , 0) }}
+                                        @endif 
+                                        {{ $item->unit->name }}
+                                    </span>
+                                </h5>
                                 <div class=" clear-fix">
                                     @include('page.cart') 
                                 </div>
