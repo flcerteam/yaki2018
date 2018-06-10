@@ -1592,3 +1592,8 @@ textarea.input {
     text-transform: uppercase;
     color: #fff;
 }
+
+.form-search {
+	margin-top: 0.5em !important;
+	text-align: center;
+}

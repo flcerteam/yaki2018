@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 @endforeach
-                <div class="col-sm-12 col-md-12 text-center">{{ $products->links() }}</div>
+                <div class="col-sm-12 col-md-12 col-xs-12 text-center">{{ $products->links() }}</div>
             </div>
         </div>
     </div>
