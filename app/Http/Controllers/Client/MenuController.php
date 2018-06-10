@@ -27,9 +27,12 @@ class MenuController extends Controller
     public function getProductType($name, $menuId, $categoryId)
     {
         // get all product by category id
-        $products = Product::whereHas('categories', function ($query) use ($categoryId) {
-            $query->where('id', '=', $categoryId);
-        })->where('status', '=', 0)->paginate(self::$itemsPerPage);
+        $products = Product::join('category_product', 'products.id', '=', 'category_product.product_id')
+            ->where('category_product.category_id', '=', $categoryId)
+            ->where('status', '=', 0)
+            ->orderBy('category_product.order', 'ASC')
+            ->select('products.*')
+            ->paginate(self::$itemsPerPage);
 
         // get sub menu 
         $menu = Menu::where('id', '=', $menuId)->first();

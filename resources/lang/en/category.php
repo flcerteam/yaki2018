@@ -11,4 +11,5 @@ return [
 	'general_tab'         => 'Thông tin danh mục|@|categoryInfo',
   	'ribbon_tab'          => 'Dãi màu hiển thị|@|ribbonInfo',
 
+	'reorder'		=> 'Sắp xếp sản phẩm',
 ];

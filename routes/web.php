@@ -110,6 +110,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     Route::get('menu/{id}/order', ['as' => 'menu.order', 'uses' => 'Admin\MenuCrudController@order']);
     Route::post('menu/{id}/order', ['as' => 'menu.save.order', 'uses' => 'Admin\MenuCrudController@saveOrderSeq']);
 
+    Route::get('category/{id}/order', ['as' => 'category.order', 'uses' => 'Admin\CategoryCrudController@order']);
+    Route::post('category/{id}/order', ['as' => 'category.save.order', 'uses' => 'Admin\CategoryCrudController@saveOrderSeq']);
+
     // Update status
     Route::post('reservation-table/update-status', ['as' => 'updateRtStatus', 'uses' => 'Admin\ReservationTableCrudController@updateStatus']);
     Route::post('order/update-status', ['as' => 'updateOrderStatus', 'uses' => 'Admin\OrderCrudController@updateStatus']);

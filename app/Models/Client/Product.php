@@ -10,7 +10,7 @@ class Product extends Model
 
     public function categories()
 	{
-		return $this->belongsToMany('App\Models\Client\Category');
+		return $this->belongsToMany('App\Models\Client\Category', 'category_product', 'product_id', 'category_id');
     }
     
     public function unit()

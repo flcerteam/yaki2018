@@ -8,6 +8,8 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\Admin\CategoryRequest as StoreRequest;
 use App\Http\Requests\Admin\CategoryUpdateRequest as UpdateRequest;
 
+use DB;
+
 class CategoryCrudController extends CrudController
 {
     public function setup()
@@ -87,6 +89,8 @@ class CategoryCrudController extends CrudController
         // $this->crud->removeButtonFromStack($name, $stack);
         // $this->crud->removeAllButtons();
         // $this->crud->removeAllButtonsFromStack('line');
+        $this->crud->allowAccess('order');
+        $this->crud->addButtonFromView('line', trans('category.reorder'), 'order_category', 'end');
 
         // ------ CRUD ACCESS
         $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
@@ -131,6 +135,40 @@ class CategoryCrudController extends CrudController
         // $this->crud->orderBy();
         // $this->crud->groupBy();
         // $this->crud->limit();
+    }
+
+    public function order($id)
+    {
+        $categoryProducts = DB::table('category_product')
+                            ->join('products', 'category_product.product_id', '=', 'products.id')
+                            ->select('category_product.*', 'products.name', 'products.sku')
+                            ->where('category_product.category_id', $id)
+                            ->orderBy('order')
+                            ->get();
+
+        $crud = $this->crud;                            
+
+        return view('admin.category.order', compact('crud', 'categoryProducts'));
+    }
+
+    public function saveOrderSeq()
+    {
+        $all_entries = \Request::input('tree');
+
+        if (count($all_entries)) {
+            foreach ($all_entries as $key => $entry) {
+                if ($entry['category_id'] != '' && $entry['category_id'] != null
+                    && $entry['product_id'] != '' && $entry['product_id'] != null) {
+                    
+                    DB::table('category_product')
+                        ->where('product_id', $entry['product_id'])
+                        ->where('category_id', $entry['category_id'])
+                        ->update(['order' => $entry['order']]);
+                }
+            }
+        } else {
+            return false;
+        }
     }
 
     public function store(StoreRequest $request)
