@@ -10,8 +10,10 @@ use App\Http\Requests\Admin\ReservationTableRequest as UpdateRequest;
 
 use Illuminate\Http\Request;
 
+use App\Models\Admin\ReservationTable;
 use App\Models\Admin\RtStatus;
 use App\Models\Admin\RtStatusHistory;
+use App\Models\Admin\Branch;
 
 class ReservationTableCrudController extends CrudController
 {
@@ -40,6 +42,60 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
+        $this->crud->addFields([
+            [
+                'name'          => 'reservation_no',
+                'label'         => trans('rt.reservation_no'),
+                'type'          => 'text',
+                'attributes'    => [
+                    'readonly'  => 'readonly',
+                ],
+            ],
+            [
+                'name'          => 'branch_id',
+                'label'         => trans('branch.branch'),
+                'type'          => 'select2',
+                'entity'        => 'branch',
+                'attribute'     => 'name',
+                'data_value'    => 'value',
+                'model'         => "App\Models\Admin\Branch",
+                'attributes'    => [
+                    'id'        => 'branch',
+                ],
+            ],
+            [
+                'name'          => 'rt_type_id',
+                'label'         => trans('rt.rt_type'),
+                'type'          => 'select2',
+                'entity'        => 'type',
+                'attribute'     => 'name',
+                'data_value'    => 'value',
+                'model'         => "App\Models\Admin\RtType",
+                'attributes'    => [
+                    'id'        => 'rt_type',
+                ],
+            ],
+            [
+                'name'      => 'reservation_date',
+                'label'     => trans('rt.reservation_date'),
+                'type'      => 'date',
+            ],
+            [
+                'name'      => 'reservation_hour',
+                'label'     => trans('rt.reservation_hour'),
+                'type'      => 'time',
+            ],
+            [
+                'name'      => 'number_of_people',
+                'label'     => trans('rt.number_of_people'),
+                'type'      => 'number',
+            ],
+            [
+                'name'      => 'note',
+                'label'     => trans('rt.note'),
+                'type'      => 'textarea',
+            ],
+        ]);
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -75,7 +131,7 @@ class ReservationTableCrudController extends CrudController
                 'name'      => 'branch_id',
                 'entity'    => 'branch',
                 'attribute' => 'name',
-                'model'     => 'App\Models\Admin\Brach',
+                'model'     => 'App\Models\Admin\Branch',
             ],
             [
                 'label'     => trans('rt.rt_type'),
@@ -86,7 +142,7 @@ class ReservationTableCrudController extends CrudController
                 'model'     => 'App\Models\Admin\RtType',
             ],
             [
-                'name'  => 'reservation_date',
+                'name'  => 'reservationDateFm',
                 'label' => trans('rt.reservation_date'),
             ],
             [
@@ -106,9 +162,9 @@ class ReservationTableCrudController extends CrudController
 
         // ------ CRUD ACCESS
         $this->crud->denyAccess(['create', 'update', 'reorder', 'delete']);
-        $this->crud->allowAccess(['show']);
+        $this->crud->allowAccess(['show', 'update']);
         $this->crud->removeButton('preview');
-        $this->crud->addButtonFromView('line', 'view', 'view', 'end');
+        $this->crud->addButtonFromView('line', 'view', 'view', 'beginning');
 
 
         // ------ CRUD REORDER
@@ -129,7 +185,7 @@ class ReservationTableCrudController extends CrudController
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        // $this->crud->enableAjaxTable();
+        $this->crud->enableAjaxTable();
 
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.
@@ -228,8 +284,33 @@ class ReservationTableCrudController extends CrudController
         return $redirect_location;
     }
 
-    public function update(UpdateRequest $request)
+    public function update(UpdateRequest $request, ReservationTable $rt)
     {
+        // Get current rt data
+        $rt = $rt->findOrFail($this->crud->request->id);
+
+        // check current status
+        if (1 < $rt->status_id)
+        {
+            \Alert::error(trans('rt.status_error'))->flash();
+            return redirect()->back();
+        }
+
+        $branchId = $request->input('branch_id');
+        $rtTypeId = $request->input('rt_type_id');
+
+        if ($rtTypeId == 1)
+        {
+            // Get branch info
+            $branch = Branch::where('id', '=', $branchId)->first();
+
+            if ($branch->has_buffet_service == 0)
+            {
+                \Alert::error(trans('rt.buffet_error'))->flash();
+                return redirect()->back();
+            }
+        }
+        
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here

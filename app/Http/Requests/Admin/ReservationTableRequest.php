@@ -26,7 +26,12 @@ class ReservationTableRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'branch_id' => 'required',
+            'rt_type_id' => 'required',
+            'reservation_date' => 'required|date',
+            'reservation_hour' => 'required|date_format:H:i',
+            'number_of_people' => 'required|numeric|between:1,9999',
+            'note' => 'max:1500'
         ];
     }
 
@@ -38,7 +43,12 @@ class ReservationTableRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'branch_id' => trans('branch.branch'),
+            'rt_type_id' => trans('rt.rt_type'),
+            'reservation_date' => trans('rt.reservation_date'),
+            'reservation_hour' => trans('rt.reservation_hour'),
+            'number_of_people' => trans('rt.number_of_people'),
+            'note' => trans('rt.note')
         ];
     }
 
@@ -50,7 +60,7 @@ class ReservationTableRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'number_of_people.between' => trans('rt.people_number_err')
         ];
     }
 }

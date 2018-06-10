@@ -19,5 +19,8 @@ return [
   'number_of_people'    => 'Số người',
   'note'                => 'Ghi chú',
   'status_updated'      => 'Cập nhật trạng thái thành công.',
+  'people_number_err'   => 'Trị của trường Số người không hợp lệ.',
+  'status_error'        => '<b>Đã phát sinh lỗi như bên dưới:</b><br/>Trạng thái hiện tại của đơn đặt bàn không được phép chỉnh sửa.',
+  'buffet_error'        => '<b>Đã phát sinh lỗi như bên dưới:</b><br/>Chi nhánh này không cho phép đặt bàn buffet.',
 
 ];

@@ -146,7 +146,7 @@
 						</tr>
 						<tr>
 							<td>{{ trans('rt.reservation_date') }}</td>
-							<td>{{ $rt->reservation_date }}</td>
+							<td>{{ $rt->reservationDateFm }}</td>
 						</tr>
 						<tr>
 							<td>{{ trans('rt.reservation_hour') }}</td>

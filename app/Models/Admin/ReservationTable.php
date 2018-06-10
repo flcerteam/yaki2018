@@ -48,22 +48,22 @@ class ReservationTable extends Model
     */
     public function member()
     {
-        return $this->hasOne('App\Models\Admin\Member', 'id', 'member_id');
+        return $this->belongsTo('App\Models\Admin\Member');
     }
 
     public function branch()
     {
-        return $this->hasOne('App\Models\Admin\Branch', 'id', 'branch_id');
+        return $this->belongsTo('App\Models\Admin\Branch');
     }
 
     public function type()
     {
-        return $this->hasOne('App\Models\Admin\RtType', 'id', 'rt_type_id');
+        return $this->belongsTo('App\Models\Admin\RtType', 'rt_type_id');
     }
 
     public function status()
     {
-        return $this->hasOne('App\Models\Admin\RtStatus', 'id', 'status_id');
+        return $this->belongsTo('App\Models\Admin\RtStatus', 'status_id');
     }
 
     public function rtStatusHistories()
@@ -98,13 +98,13 @@ class ReservationTable extends Model
         return $value;
     }
 
-    public function getReservationDateAttribute($value)
+    public function getReservationDateFmAttribute()
     {
-        if (null != $value)
+        if (null != $this->reservation_date)
         {
-            return \Carbon\Carbon::createFromFormat('Y-m-d', $value)->format('d-m-Y');
+            return \Carbon\Carbon::createFromFormat('Y-m-d', $this->reservation_date)->format('d-m-Y');
         }
 
-        return $value;
+        return $this->reservation_date;
     }
 }
