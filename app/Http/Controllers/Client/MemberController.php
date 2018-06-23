@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
 use App\Models\Client\Member;
+use App\Models\Client\MemberType;
 use App\Http\Controllers\Controller;
 
 class MemberController extends Controller
@@ -35,6 +36,8 @@ class MemberController extends Controller
 
     public function getRequlationMemberInfo(Request $req){
 
-        return view('page.member-requlation');
+        $memberTypes = MemberType::get();
+
+        return view('page.member-requlation', compact('memberTypes'));
     }
 }

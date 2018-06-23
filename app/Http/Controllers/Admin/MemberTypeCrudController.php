@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\MemberTypeRequest as StoreRequest;
-use App\Http\Requests\MemberTypeRequest as UpdateRequest;
+use App\Http\Requests\Admin\MemberTypeRequest as StoreRequest;
+use App\Http\Requests\Admin\MemberTypeRequest as UpdateRequest;
 
 class MemberTypeCrudController extends CrudController
 {
@@ -18,9 +18,9 @@ class MemberTypeCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\MemberType');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/membertype');
-        $this->crud->setEntityNameStrings('membertype', 'member_types');
+        $this->crud->setModel('App\Models\Admin\MemberType');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/member-type');
+        $this->crud->setEntityNameStrings(trans('mt.member_type'), trans('mt.member_types'));
 
         /*
         |--------------------------------------------------------------------------
@@ -28,13 +28,35 @@ class MemberTypeCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');
         // $this->crud->removeField('name', 'update/create/both');
         // $this->crud->removeFields($array_of_names, 'update/create/both');
+        $this->crud->addFields([
+            [
+                'name'      => 'name',
+                'label'     => trans('mt.name'),
+                'type'      => 'text',
+            ],
+            [
+                'name'      => 'point_from',
+                'label'     => trans('mt.point_from'),
+                'type'      => 'number',
+            ],
+            [
+                'name'      => 'point_to',
+                'label'     => trans('mt.point_to'),
+                'type'      => 'number',
+            ],
+            [
+                'name'      => 'percent_discount',
+                'label'     => trans('mt.percent_discount'),
+                'type'      => 'number',
+            ],
+        ]);
 
         // ------ CRUD COLUMNS
         // $this->crud->addColumn(); // add a single column, at the end of the stack
@@ -43,6 +65,24 @@ class MemberTypeCrudController extends CrudController
         // $this->crud->removeColumns(['column_name_1', 'column_name_2']); // remove an array of columns from the stack
         // $this->crud->setColumnDetails('column_name', ['attribute' => 'value']); // adjusts the properties of the passed in column (by name)
         // $this->crud->setColumnsDetails(['column_1', 'column_2'], ['attribute' => 'value']);
+        $this->crud->addColumns([
+            [
+                'name'  => 'name',
+                'label' => trans('mt.name'),
+            ],
+            [
+                'name'  => 'point_from',
+                'label' => trans('mt.point_from'),
+            ],
+            [
+                'name'  => 'point_to',
+                'label' => trans('mt.point_to'),
+            ],
+            [
+                'name'  => 'percent_discount',
+                'label' => trans('mt.percent_discount'),
+            ],
+        ]);
 
         // ------ CRUD BUTTONS
         // possible positions: 'beginning' and 'end'; defaults to 'beginning' for the 'line' stack, 'end' for the others;
@@ -55,7 +95,7 @@ class MemberTypeCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        // $this->crud->allowAccess(['list', 'create', 'update', 'reorder', 'delete']);
+        $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
         // $this->crud->denyAccess(['list', 'create', 'update', 'reorder', 'delete']);
 
         // ------ CRUD REORDER
@@ -76,7 +116,7 @@ class MemberTypeCrudController extends CrudController
         // Please note the drawbacks of this though:
         // - 1-n and n-n columns are not searchable
         // - date and datetime columns won't be sortable anymore
-        // $this->crud->enableAjaxTable();
+        $this->crud->enableAjaxTable();
 
         // ------ DATATABLE EXPORT BUTTONS
         // Show export to PDF, CSV, XLS and Print buttons on the table view.

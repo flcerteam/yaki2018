@@ -4,7 +4,7 @@ namespace App\Models\Client;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MemberTypes extends Model
+class MemberType extends Model
 {
     protected $table = "member_types";
 }

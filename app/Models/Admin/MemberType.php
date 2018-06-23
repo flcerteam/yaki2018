@@ -17,10 +17,13 @@ class MemberType extends Model
 
     protected $table = 'member_types';
     protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-        'name'
+        'name',
+        'point_from',
+        'point_to',
+        'percent_discount'
     ];
     // protected $hidden = [];
     // protected $dates = [];

@@ -26,7 +26,10 @@ class MemberTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required|max:255|unique:member_types,name'.($this->request->get('id') ? ','.$this->request->get('id') : ''),
+            'point_from' => 'required|numeric|between:0,9999999999',
+            'point_to' => 'required|numeric|between:0,9999999999',
+            'percent_discount' => 'required|numeric|between:0,99',
         ];
     }
 
@@ -38,7 +41,10 @@ class MemberTypeRequest extends FormRequest
     public function attributes()
     {
         return [
-            //
+            'name' => trans('mt.name'),
+            'point_from' => trans('mt.point_from'),
+            'point_to' => trans('mt.point_to'),
+            'percent_discount' => trans('mt.percent_discount'),
         ];
     }
 

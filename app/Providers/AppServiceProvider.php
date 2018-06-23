@@ -75,6 +75,7 @@ class AppServiceProvider extends ServiceProvider
 
             $yakiCategoryDisplayHome = null;
 
+            $yakiMemberPolicy = null;
 
             $parameters = DB::table('parameters')->get();
 
@@ -99,6 +100,10 @@ class AppServiceProvider extends ServiceProvider
                 elseif ($parameter->param_id == 'YK_CAT_DISP_HOME')
                 {
                     $yakiCategoryDisplayHome = $parameter;
+                }
+                elseif ($parameter->param_id == 'YK_MEMBER_POLICY')
+                {
+                    $yakiMemberPolicy = $parameter;
                 }
             }
 
@@ -153,6 +158,8 @@ class AppServiceProvider extends ServiceProvider
             // Category display home
             $view->with('yakiCategoryDisplayHome', $yakiCategoryDisplayHome);
 
+            // Yaki member policy
+            $view->with('yakiMemberPolicy', $yakiMemberPolicy);
         });
     }
 

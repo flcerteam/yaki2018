@@ -8,6 +8,7 @@ use App\Models\Client\Branch;
 use App\Models\Client\Reservation;
 use App\Models\Client\RtStatusHistories;
 use App\Models\Client\Member;
+use App\Models\Client\MemberType;
 use App\Http\Controllers\Controller;
 use DB;
 use Session;
@@ -80,6 +81,7 @@ class ReservationController extends Controller
          
             // Trường hợp không tồn tại member.
             if(null == $member) {
+                $memberType = MemberType::firstOrFail();
 
                 $member = new Member;
 
@@ -88,7 +90,8 @@ class ReservationController extends Controller
                 $member->gender = $req->gender;
                 $member->email = $req->email;
                 $member->phone_number = $req->phone_number;
-
+                $member->member_type_id = $memberType->id;
+                
                 $member->save();
             } else {
                 

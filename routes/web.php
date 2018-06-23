@@ -106,6 +106,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function()
     CRUD::resource('order', 'Admin\OrderCrudController');
     CRUD::resource('parameter', 'Admin\ParameterCrudController');
     CRUD::resource('recruitment', 'Admin\RecruitmentCrudController');
+    CRUD::resource('member-type', 'Admin\MemberTypeCrudController');
 
     Route::get('menu/{id}/order', ['as' => 'menu.order', 'uses' => 'Admin\MenuCrudController@order']);
     Route::post('menu/{id}/order', ['as' => 'menu.save.order', 'uses' => 'Admin\MenuCrudController@saveOrderSeq']);

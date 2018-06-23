@@ -10,6 +10,6 @@ class Member extends Model
 
     public function getMemberTypeName()
 	{
-		return $this->hasOne('App\Models\Client\MemberTypes', 'id', 'member_type_id')->first()->name;
+		return $this->hasOne('App\Models\Client\MemberType', 'id', 'member_type_id')->first()->name;
     }
 }

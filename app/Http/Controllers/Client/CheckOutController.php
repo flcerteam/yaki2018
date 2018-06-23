@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Client;
 
 use Illuminate\Http\Request;
 use App\Models\Client\Member;
+use App\Models\Client\MemberType;
 use App\Models\Client\Parameter;
 use Cart;
 use DB;
@@ -58,6 +59,8 @@ class CheckOutController extends Controller {
      
       // nếu đã tồn tại customer thì k add thêm
       if(null == $member) {
+        $memberType = MemberType::firstOrFail();
+
         $member = new Member;
 
         $member->name = $req->name;
@@ -66,6 +69,7 @@ class CheckOutController extends Controller {
         $member->email = $req->email;
         $member->address = $req->address;
         $member->phone_number = $req->phone_number;
+        $member->member_type_id = $memberType->id;
         $member->save();
        
       } else {

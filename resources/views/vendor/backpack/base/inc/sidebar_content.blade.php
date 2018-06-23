@@ -23,6 +23,7 @@
     <li><a href="{{ backpack_url('branch') }}"><i class="fa fa-building" aria-hidden="true"></i> <span>{{ trans('branch.branches') }}</span></a></li>
     <li><a href="{{ backpack_url('unit') }}"><i class="fa fa-balance-scale" aria-hidden="true"></i> <span>{{ trans('unit.units') }}</span></a></li>
     <li><a href="{{ backpack_url('category') }}"><i class="fa fa-bars" aria-hidden="true"></i> <span>{{ trans('category.categories') }}</span></a></li>
+    <li><a href="{{ backpack_url('member-type') }}"><i class="fa fa-users" aria-hidden="true"></i> <span>{{ trans('mt.member_types') }}</span></a></li>
     <li><a href="{{ backpack_url('member') }}"><i class="fa fa-address-card-o" aria-hidden="true"></i> <span>{{ trans('member.members') }}</span></a></li>
 
     <li class="treeview">
