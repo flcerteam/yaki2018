@@ -20,7 +20,9 @@ return [
   'note'                => 'Ghi chú',
   'status_updated'      => 'Cập nhật trạng thái thành công.',
   'people_number_err'   => 'Trị của trường Số người không hợp lệ.',
+  'error_header'        => 'Lỗi khi xóa phiếu đặt bàn',
   'status_error'        => '<b>Đã phát sinh lỗi như bên dưới:</b><br/>Trạng thái hiện tại của đơn đặt bàn không được phép chỉnh sửa.',
   'buffet_error'        => '<b>Đã phát sinh lỗi như bên dưới:</b><br/>Chi nhánh này không cho phép đặt bàn buffet.',
+  'status_del_error'    => 'Chỉ phiếu đặt bàn ở trạng thái "Đã hủy" có thể xóa.',
 
 ];

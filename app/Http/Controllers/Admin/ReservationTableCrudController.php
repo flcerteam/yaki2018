@@ -161,10 +161,14 @@ class ReservationTableCrudController extends CrudController
         // $this->crud->removeAllButtonsFromStack('line');
 
         // ------ CRUD ACCESS
-        $this->crud->denyAccess(['create', 'update', 'reorder', 'delete']);
-        $this->crud->allowAccess(['show', 'update']);
+        $this->crud->denyAccess(['create', 'update', 'reorder']);
+        $this->crud->allowAccess(['show', 'update', 'delete']);
+
         $this->crud->removeButton('preview');
         $this->crud->addButtonFromView('line', 'view', 'view', 'beginning');
+
+        $this->crud->removeButton('delete');
+        $this->crud->addButtonFromView('line', 'rt_delete', 'rt_delete', 'end');
 
 
         // ------ CRUD REORDER
@@ -316,5 +320,28 @@ class ReservationTableCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
+    }
+
+    public function destroy($id) {
+
+        // Get current rt data
+        $rt = ReservationTable::findOrFail($id);
+
+        if ($rt->status_id != 3)
+        {
+            $response = array(
+                'status' => 'yk_status_error',
+                'header' => trans('rt.error_header'),
+                'msg' => trans('rt.status_del_error')
+            );
+
+            return \Response::json($response);
+        }
+
+        RtStatusHistory::where('rt_id', $id)->delete();
+
+        $return_value = parent::destroy($id);
+
+        return $return_value;
     }
 }
