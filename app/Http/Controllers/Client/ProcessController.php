@@ -16,7 +16,7 @@ class ProcessController extends Controller
         try
         {
             Mail::send('page.mail', compact('code'), function($message) {
-                $message->to('tnt1411@gmail.com')->subject('YAKI ORDER NEW !!!');
+                $message->to('tantn.it@gmail.com')->subject('YAKI ORDER NEW !!!');
             });
         }
         catch(Exception $e)

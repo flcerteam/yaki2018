@@ -61,8 +61,8 @@ return [
     'from' => [
         // 'address' => env('MAIL_USERNAME'),
         // 'name' => env('MAIL_PASSWORD'),
-        'address' => 'yaki.callcenter@gmail.com',
-        'name' => 'yaki.callcenter',
+        'address' => 'yaki.noreply@gmail.com',
+        'name' => 'Yaki Support',
     ],
 
     /*
@@ -90,9 +90,9 @@ return [
     |
     */
 
-    'username' => 'yaki.callcenter@gmail.com',
+    'username' => 'yaki.noreply@gmail.com',
 
-    'password' => 'yaki2018',
+    'password' => 'vuvmlqiukcbvpxgg',
 
     /*
     |--------------------------------------------------------------------------

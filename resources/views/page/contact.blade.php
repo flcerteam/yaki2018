@@ -59,7 +59,7 @@
                             </p>
                             <p>
                                 <a href="{{route('branch-dtl', $dtl->slug)}}" class="main-button button-small-contact">
-                                    <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Xem Chi Tiết
+                                    <i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Xem Bản Đồ
                                 </a>
                             </p>
                         </div>
